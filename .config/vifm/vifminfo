@@ -1,0 +1,168 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/joao/
+	..
+1562132222
+'b
+	/home/joao/bin/
+	..
+1562132222
+'h
+	/home/joao/
+	..
+1562132222
+'z
+	/home/joao/.config/vifm
+	..
+1562132222
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/joao/.Builds/dwm
+	util.o
+24
+d/home/joao/.Builds
+	dwm
+2
+d/home/joao
+	Desktop
+1
+d/home/joao/Desktop
+	..
+0
+d/home/joao
+	Documents
+1
+d/home/joao/Documents
+	..
+0
+d/home/joao
+	Documents
+1
+d/home/joao/Documents
+	League of Legends
+2
+d/home/joao/Documents/League of Legends
+	Replays
+1
+d/home/joao/Documents/League of Legends/Replays
+	..
+0
+d/home/joao/Documents/League of Legends
+	Replays
+1
+d/home/joao/Documents
+	Profiles
+4
+d/home/joao/Documents/Profiles
+	..
+0
+d/home/joao/Documents
+	..
+0
+d/home/joao
+	Documents
+1
+d/home/joao/Documents
+	..
+0
+d/home/joao
+	Games
+4
+d/home/joao/.config/zathura
+	zathurarc
+1
+d/home/joao/Games/WineLibrary/leagueoflegends
+	..
+0
+d/home/joao/Games/WineLibrary
+	..
+0
+d/home/joao/Games
+	..
+0
+d/home/joao
+	Music
+6
+d/home/joao/Music
+	deftones
+25
+d/home/joao/Music/deftones
+	..
+0
+d/home/joao/Music
+	deftones
+25
+d
+
+# Right window history (oldest to newest):
+D/home/joao/.Builds/dwm
+	patches
+1
+D/home/joao/.Builds/dwm/patches
+	..
+0
+D/home/joao/.Builds/dwm
+	..
+0
+D/home/joao/.Builds
+	..
+0
+D/home/joao
+	Documents
+1
+D/home/joao/Documents
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:h
+:del
+:d
+:sync
+:hidden
+:help
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+""/home/joao/.local/share/vifm/Trash/000_Profiles
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+t/home/joao/.local/share/vifm/Trash/000_Desktop
+	/home/joao/Desktop
+t/home/joao/.local/share/vifm/Trash/000_League of Legends
+	/home/joao/Documents/League of Legends
+t/home/joao/.local/share/vifm/Trash/000_Profiles
+	/home/joao/Documents/Profiles
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0

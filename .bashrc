@@ -54,7 +54,7 @@ PS1='[\u@\h \W]\$ '
 	export MAXIMA_USERDIR=$HOME/.config/maxima
 
 	export MYSCRIPTS="$HOME/Scripts"
-	export MYBUILDS="$HOME/BUILDS"
+	export MYBUILDS="$HOME/Builds"
 
 
 # ALIAS #

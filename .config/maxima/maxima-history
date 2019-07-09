@@ -1,0 +1,6 @@
+deg(%pi);
+setup_autoload ("specfun.mac", ultraspherical, assoc_legendre_p);
+showtime:all;
+cd ..
+rad(180);
+quit();
