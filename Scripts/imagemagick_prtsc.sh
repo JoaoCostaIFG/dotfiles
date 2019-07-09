@@ -16,9 +16,9 @@ fi
 if [ -z "$1" ]
 then
 	import -window root $HOME/Pictures/screenshots/$ptr_name.png
-	notify-send -u low "Print Screen" "Print saved to ~/Pictures/screenshots"
+	notify-send -u low -i $HOME/Pictures/screenshots/$ptr_name.png "Print Screen" "Print saved to ~/Pictures/screenshots" &
 else
 	import $HOME/Pictures/screenshots/$ptr_name.png
-	notify-send -u low "Snipping Tool" "Snip saved to ~/Pictures/screenshots"
+	notify-send -u low -i $HOME/Pictures/screenshots/$ptr_name.png "Snipping Tool" "Snip saved to ~/Pictures/screenshots" &
 fi
 

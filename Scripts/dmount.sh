@@ -19,6 +19,7 @@ then
 		then
 			sudo mkdir /mnt/$selected_drive
 			sudo mount /dev/$selected_drive /mnt/$selected_drive
+			notify-send "DMOUNT" "$selected_drive partition mounted to /mnt/$selected_drive" &
 		fi
 	elif [ "$op" == "Umount drive" ]
 	then
@@ -35,6 +36,7 @@ then
 		then
                 	sudo umount /dev/$selected_drive
 			sudo rmdir /mnt/$selected_drive
+			notify-send "DMOUNT" "$selected_drive partition umounted from /mnt/$selected_drive" &
 		fi
 	elif [ "$op" == "Mount android" ]
 	then
@@ -51,6 +53,7 @@ then
 		then
 			mkdir $HOME/Android$selected_drive
 			simple-mtpfs --device $selected_drive $HOME/Android$selected_drive
+			notify-send "DMOUNT" "Android partition $selected_drive mounted to ~/Android$selected_drive" &
 		fi
 
 	elif [ "$op" == "Umount android" ]
@@ -68,6 +71,7 @@ then
 		then
 			fusermount -u $HOME/Android$selected_drive
 			rmdir $HOME/Android$selected_drive
+			notify-send "DMOUNT" "Android partition $selected_drive umounted from ~/Android$selected_drive" &
 		fi
 	
 	fi
