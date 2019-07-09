@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "250x2-3+25"
+    geometry = "350x2-3+25"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -46,7 +46,7 @@
     # The height of the entire notification.  If the height is smaller
     # than the font height and padding combined, it will be raised
     # to the font height and padding.
-    notification_height = 50
+    notification_height = 55
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -126,7 +126,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%a - %s</b>\n%b\n%p"
+    format = "<b>%s</b>\n%b %p"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -160,10 +160,10 @@
     ### Icons ###
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 32
+    max_icon_size = 128
 
     # Paths to default icons.
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
