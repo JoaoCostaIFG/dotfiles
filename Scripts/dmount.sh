@@ -52,7 +52,9 @@ then
 			mkdir $HOME/Android$selected_drive
 			simple-mtpfs --device $selected_drive $HOME/Android$selected_drive
 		fi
+
 	elif [ "$op" == "Umount android" ]
+	then
 		selected_drive=$(simple-mtpfs -l | 
 			dmenu -i -p "Drive to umount:" | 
 			sed s/:/\/ | 
@@ -67,6 +69,7 @@ then
 			fusermount -u $HOME/Android$selected_drive
 			rmdir $HOME/Android$selected_drive
 		fi
+	
 	fi
 fi
 
