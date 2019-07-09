@@ -14,7 +14,9 @@ switch_file () {
 
                 if ! [ "$existance" ]
                 then
+			#Notification sounded like a good idea but they are hidden by dmenu on the top of the screen
                         touch $notes_path/$notes_file_temp
+			#notify-send -u low "$notes_file created."
 
                 fi
 
@@ -61,13 +63,20 @@ do
 		cp $tempfile $notes_path/$notes_file
 		sort -u $notes_path/$notes_file > $tempfile
 		mv $tempfile $notes_path/$notes_file
+		#notify-send -u low "$notes_file cleaned."
 
 	elif [ "$op" == "---Delete File---" ]
         then
 		#Delete the current file and wait for user to choose another to open or quit
-		rm $notes_path/$notes_file
-		notes_file=TODO.txt #If no file is selected, we go back to the default
-		switch_file #Select new file to open
+		#If no file is selected, we go back to the default
+		if [ "$(printf "No\\nYes" | dmenu -i -p "Really delete $file?")" == "Yes" ]
+		then
+			rm "$notes_path/$notes_file"
+			#notify-send -u low "$notes_file deleted."
+			notes_file=TODO.txt
+			switch_file
+		
+		fi
 
 	elif grep -Fxq "$op" $notes_path/$notes_file
 	then
