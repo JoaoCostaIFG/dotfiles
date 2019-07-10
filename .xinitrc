@@ -4,10 +4,10 @@ setxkbmap -layout pt
 xmodmap $HOME/.Xmodmap
 
 #DWM INFO
-$HOME/Scripts/dwm_statusmonitor &
+dwm_statusmonitor &
 
 #Screen locking timer
-$HOME/Scripts/xsidle slock &
+xsidle slock &
 
 #Start compositing window manager
 compton -b
@@ -17,6 +17,9 @@ nitrogen --restore &
 
 #Start notification daemon (d-bus)
 dunst &
+
+#Start music player shit
+mpd >/dev/null 2>&1 &
 
 #Autostart
 keepassxc &

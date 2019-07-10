@@ -7,9 +7,24 @@
 [[ $- != *i* ]] && return
 
 
+# VARS #
 # Use name in terminal
 # PS1='[\u@\h \W]\$ '
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+export HISTCONTROL=erasedups #erase duplicates from bash history
+export PATH=$PATH:/home/joao/Scripts
+export EDITOR="nvim"
+export VISUAL="nvim"
+export TERMINAL="st"
+export BROWSER="firefox"
+export READER="zathura"
+export FILE="vifm"
+export LC_COLLATE="C"
+export MAXIMA_USERDIR=$HOME/.config/maxima
+export WWW_HOME=$HOME/.config/w3m
+
+export MYSCRIPTS="$HOME/Scripts"
+export MYBUILDS="$HOME/Builds"
 
 
 # MY FUNCS #
