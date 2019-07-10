@@ -8,31 +8,11 @@
 
 
 # Use name in terminal
-PS1='[\u@\h \W]\$ '
+# PS1='[\u@\h \W]\$ '
+export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 
 # MY FUNCS #
-	decompress () {
-		if [ -f $1 ] ; then
-			case $1 in
-	           		*.tar.bz2)   tar xvjf $1    ;;
-	           		*.tar.gz)    tar xvzf $1    ;;
-	           		*.bz2)       bunzip2 $1     ;;
-       		    		*.rar)       unrar x $1     ;;
-           			*.gz)        gunzip $1      ;;
-           			*.tar)       tar xvf $1     ;;
-           			*.tbz2)      tar xvjf $1    ;;
-           			*.tgz) 	     tar xvzf $1    ;;
-           			*.zip)       unzip $1       ;;
-           			*.Z)         uncompress $1  ;;
-           			*.7z)        7z x $1        ;;
-           			*)           echo "dunno how to extract '$1'" ;;
-       			esac
-   		else
-       			echo "'$1' is not a file"
-   		fi
-	}
-
 	bashrc () {
 		nvim $HOME/.bashrc
 		source $HOME/.bashrc
@@ -41,20 +21,6 @@ PS1='[\u@\h \W]\$ '
 
 # EXTRA AUTO COMPLETION #
 	source /usr/share/bash-completion/completions/git
-
-
-# VARS #
-	export HISTCONTROL=erasedups #erase duplicates from bash history
-	export EDITOR="nvim"
-	export VISUAL="nvim"
-	export TERMINAL="st"
-	export BROWSER="firefox"
-	export READER="zathura"
-	export FILE="vifm"
-	export MAXIMA_USERDIR=$HOME/.config/maxima
-
-	export MYSCRIPTS="$HOME/Scripts"
-	export MYBUILDS="$HOME/Builds"
 
 
 # ALIAS #
@@ -73,6 +39,7 @@ PS1='[\u@\h \W]\$ '
 	alias    byer='shutdown -r now'
   	alias    raposoflamejante='firefox &'
   	alias    yay='yay --aur'    # prevent partial upgrades
-	alias    maxima='rlwrap -c -H $HOME/.config/maxima/maxima-history -f $HOME/.config/maxima/maxima-builtins-list.txt -r -D 2 maxima'
   	alias    calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse'
-	#alias    dmen='dmenu_run -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"' #call dmenu_run with colors defined by wall in .Xresources
+	alias    maxima='rlwrap -c -H $HOME/.config/maxima/maxima-history -f $HOME/.config/maxima/maxima-builtins-list.txt -r -D 2 maxima'
+	command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
+

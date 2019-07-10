@@ -22,7 +22,7 @@
 
 # TUI:
 al
-q0
+q1
 v2
 ov
 m-1
@@ -30,84 +30,95 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/joao/.Builds/dwm
-	util.o
-24
-d/home/joao/.Builds
-	dwm
+d/home/joao
+	Scripts
+8
+d/home/joao/Scripts
+	dtodo.sh
 2
 d/home/joao
-	Desktop
-1
-d/home/joao/Desktop
-	..
-0
-d/home/joao
 	Documents
-1
+3
 d/home/joao/Documents
-	..
-0
-d/home/joao
-	Documents
-1
-d/home/joao/Documents
-	League of Legends
+	UniStuff
+7
+d/home/joao/Documents/UniStuff
+	1_2 things
 2
-d/home/joao/Documents/League of Legends
-	Replays
-1
-d/home/joao/Documents/League of Legends/Replays
-	..
-0
-d/home/joao/Documents/League of Legends
-	Replays
-1
-d/home/joao/Documents
-	Profiles
-4
-d/home/joao/Documents/Profiles
-	..
-0
-d/home/joao/Documents
-	..
-0
-d/home/joao
-	Documents
-1
-d/home/joao/Documents
-	..
-0
-d/home/joao
-	Games
-4
-d/home/joao/.config/zathura
-	zathurarc
-1
-d/home/joao/Games/WineLibrary/leagueoflegends
-	..
-0
-d/home/joao/Games/WineLibrary
-	..
-0
-d/home/joao/Games
-	..
-0
+d/home/joao/Documents/UniStuff/1_2 things
+	MEST
+3
+d/home/joao/Documents/UniStuff/1_2 things/MEST
+	Proj
+5
+d/home/joao/Documents/UniStuff/1_2 things/MEST/Proj
+	results.csv
+16
 d/home/joao
 	Music
 6
 d/home/joao/Music
-	deftones
-25
-d/home/joao/Music/deftones
+	A Perfect Circle
+1
+d/home/joao/Music/A Perfect Circle
+	A Perfect Circle - Eat The Elephant
+1
+d/home/joao/Music/A Perfect Circle/A Perfect Circle - Eat The Elephant
+	A Perfect Circle - By And Down The River.mp3
+1
+d/home/joao
+	Downloads
+4
+d/home/joao/Downloads
 	..
 0
-d/home/joao/Music
-	deftones
-25
-d
+d/home/joao
+	Downloads
+4
+d/home/joao/Downloads
+	swarp-0.1.tar.gz
+1
+d/home/joao
+	Downloads
+4
+d/home/joao/Downloads
+	swarp-0.1.tar.gz
+1
+d/home/joao
+	Downloads
+4
+d/home/joao/Downloads
+	..
+0
+d/home/joao
+	Builds
+1
+d/home/joao/Builds
+	swarp-0.1.tar.gz
+8
+d/home/joao
+	Builds
+1
+d/home/joao/Builds
+	swarp-0.1.tar.gz
+8
+d/home/joao
+	Downloads
+4
+d/home/joao/Downloads
+	..
+0
+d/home/joao
+	Downloads
+4
+d/home/joao/Downloads
+	swarp-0.1.tar.gz
+1
 
 # Right window history (oldest to newest):
+D/home/joao
+	Documents
+3
 D/home/joao/.Builds/dwm
 	patches
 1
@@ -126,7 +137,9 @@ D/home/joao
 D/home/joao/Documents
 	..
 0
-D
+D/home/joao
+	..
+0
 
 # Command line history (oldest to newest):
 :h
@@ -135,6 +148,12 @@ D
 :sync
 :hidden
 :help
+:wq
+:mkdir 
+:v
+:vie
+:view
+:Q
 :q
 
 # Search history (oldest to newest):
@@ -155,14 +174,3 @@ t/home/joao/.local/share/vifm/Trash/000_League of Legends
 	/home/joao/Documents/League of Legends
 t/home/joao/.local/share/vifm/Trash/000_Profiles
 	/home/joao/Documents/Profiles
-
-# State:
-f
-i1
-[.1
-[F
-F
-I1
-].1
-]F
-s0

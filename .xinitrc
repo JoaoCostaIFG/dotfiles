@@ -1,19 +1,25 @@
+#KEYBOARD LAYOUT AND CUSTOM KEYS
 xrbd -merge $HOME/.Xresources
 setxkbmap -layout pt
 xmodmap $HOME/.Xmodmap
 
 #DWM INFO
-$HOME/Scripts/dwm_statusmonitor.sh &
+$HOME/Scripts/dwm_statusmonitor &
 
-compton -b #Start compositing window manager
+#Screen locking timer
+$HOME/Scripts/xsidle slock &
 
-nitrogen --restore & #Restore wallpaper
+#Start compositing window manager
+compton -b
 
-dunst & #Start notification daemon (d-bus)
+#Restore wallpaper
+nitrogen --restore &
+
+#Start notification daemon (d-bus)
+dunst &
 
 #Autostart
-	keepassxc &
-
+keepassxc &
 
 #DWM Starter
 while true
@@ -23,3 +29,4 @@ do
         # No Logging
         dwm >/dev/null 2>&1
 done
+
