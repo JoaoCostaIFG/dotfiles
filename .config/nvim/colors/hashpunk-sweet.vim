@@ -34,7 +34,7 @@ let s:Grey66 = ['248', '#a8a8a8']
 let s:Grey74 = ['250', '#bcbcbc']
 let s:Grey93 = ['255', '#eeeeee']
 
-" Text style 
+" Text style
 let s:italic      =   'italic'
 let s:bold        =   'bold'
 let s:underline   =   'underline'
@@ -60,7 +60,7 @@ call s:highlight('Comment', s:Grey42, s:clear, s:italic)
 call s:highlight('Constant', s:MainColor, s:clear, s:none)
 call s:highlight('String', s:Grey93, s:clear, s:none)
 call s:highlight('Character', s:Grey93, s:clear, s:none)
-call s:highlight('Number', s:Grey93, s:clear, s:none)      
+call s:highlight('Number', s:Grey93, s:clear, s:none)
 call s:highlight('Boolean', s:ComplementaryColor, s:clear, s:none)
 call s:highlight('Float', s:MainColor, s:clear, s:none)
 
@@ -70,7 +70,7 @@ call s:highlight('Function', s:MainColor, s:clear, s:none)
 call s:highlight('Statement', s:MainColor, s:clear, s:bold)
 call s:highlight('Conditional', s:MainColor, s:clear, s:bold)
 call s:highlight('Repeat', s:MainColor, s:clear, s:bold)
-call s:highlight('Label', s:MainColor, s:clear, s:bold)       
+call s:highlight('Label', s:MainColor, s:clear, s:bold)
 call s:highlight('Operator', s:MainColor, s:clear, s:none)
 call s:highlight('Keyword', s:MainColor, s:clear, s:none)
 call s:highlight('Exception', s:MainColor, s:clear, s:italic)
@@ -118,7 +118,7 @@ call s:highlight('PmenuSel', s:MainColor, s:Grey15, s:none)
 " Search
 call s:highlight('Search', s:Grey93, s:MainColor, s:none)
 
-" GitDiff 
+" GitDiff
 call s:highlight('DiffAdd', s:MainColor, s:Grey93, s:none)
 call s:highlight('DiffChange', s:Grey7, s:Grey93, s:none)
 call s:highlight('DiffText', s:MainColor, s:Grey74, s:none)

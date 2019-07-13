@@ -82,8 +82,8 @@ fileviewer *.[1-8] man ./%c | col -b
 filetype *.[1-8] man ./%c
 
 " IMAGES
-fileviewer *.jpg,*.jpeg,*.png,*.ico vifmimg draw %px %py %pw %ph %c %pc vifmimg clear
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  rotdir %f 2>/dev/null | sxiv -ia 2>/dev/null &
+fileviewer *.jpg,*.jpeg,*.png,*.ico file
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm sxiv_folder %f &
 
 " GIMP
 filextype *.xcf gimp %f 2>/dev/null &

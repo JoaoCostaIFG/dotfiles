@@ -1,7 +1,7 @@
 " Name:         my_hashpunk
-" Author:       abnt713
-" Maintainer:   abnt713
-" License:      MIT
+" Author:       me and abnt713
+" Maintainer:   me and abnt713
+" License:      dunno take it I guess
 
 highlight clear
 
@@ -66,8 +66,8 @@ call s:highlight('Comment', s:Grey42, s:clear, s:italic)
 call s:highlight('Constant', s:MainColor, s:clear, s:none)
 call s:highlight('String', s:Grey93, s:clear, s:none)
 call s:highlight('Character', s:Grey93, s:clear, s:none)
-call s:highlight('Number', s:Grey93, s:clear, s:none)
-call s:highlight('Boolean', s:ComplementaryColor, s:clear, s:none)
+call s:highlight('Number', s:Green, s:clear, s:none)
+call s:highlight('Boolean', s:Green, s:clear, s:none)
 call s:highlight('Float', s:MainColor, s:clear, s:none)
 
 call s:highlight('Identifier', s:MainColor, s:clear, s:none)
@@ -98,7 +98,7 @@ call s:highlight('Delimiter', s:MainColor, s:clear, s:none)
 call s:highlight('SpecialComment', s:Grey54, s:clear, s:none)
 call s:highlight('Debug', s:MainColor, s:clear, s:none)
 call s:highlight('Underlined', s:Grey54, s:clear, s:underline)
-call s:highlight('Error', s:MainColor, s:clear, s:underline)
+call s:highlight('Error', s:ComplementaryColor, s:clear, s:underline)
 call s:highlight('Todo', s:MainColor, s:clear, s:none)
 
 call s:highlight('Directory', s:Grey93, s:clear, s:bold)
@@ -109,7 +109,7 @@ call s:highlight('ColorColumn', s:MainColor, s:Grey15, s:none)
 
 " Interface highlighting
 call s:highlight('Normal', s:clear, s:clear, s:none)
-call s:highlight('Visual', s:Green, s:clear, s:none)
+call s:highlight('Visual', s:Magenta, s:clear, s:none)
 call s:highlight('Cursor', s:clear, s:Grey0, s:none)
 call s:highlight('iCursor', s:clear, s:Grey0, s:none)
 call s:highlight('LineNr', s:Pink, s:clear, s:none)

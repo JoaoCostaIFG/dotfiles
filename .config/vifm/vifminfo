@@ -31,89 +31,89 @@ r2
 
 # Left window history (oldest to newest):
 d/home/joao
-	Scripts
-8
-d/home/joao/Scripts
-	dtodo.sh
-2
+	Downloads
+4
+d/home/joao/Downloads
+	swarp-0.1.tar.gz
+1
 d/home/joao
-	Documents
-3
-d/home/joao/Documents
-	UniStuff
+	Downloads
+4
+d/home/joao/Downloads
+	..
+0
+d/home/joao
+	Builds
+1
+d/home/joao/Builds
+	swarp-0.1.tar.gz
+8
+d/home/joao
+	Builds
+1
+d/home/joao/Builds
+	swarp-0.1.tar.gz
+8
+d/home/joao
+	Downloads
+4
+d/home/joao/Downloads
+	..
+0
+d/home/joao
+	Downloads
+4
+d/home/joao/Downloads
+	swarp-0.1.tar.gz
+1
+d/home/joao
+	Pictures
 7
-d/home/joao/Documents/UniStuff
-	1_2 things
-2
-d/home/joao/Documents/UniStuff/1_2 things
-	MEST
-3
-d/home/joao/Documents/UniStuff/1_2 things/MEST
-	Proj
-5
-d/home/joao/Documents/UniStuff/1_2 things/MEST/Proj
-	results.csv
-16
+d/home/joao/Pictures
+	..
+0
+d/home/joao
+	Pictures
+7
+d/home/joao/Pictures
+	..
+0
+d/home/joao
+	Pictures
+7
+d/home
+	joao
+1
+d/
+	home
+4
 d/home/joao
 	Music
 6
 d/home/joao/Music
-	A Perfect Circle
-1
-d/home/joao/Music/A Perfect Circle
-	A Perfect Circle - Eat The Elephant
-1
-d/home/joao/Music/A Perfect Circle/A Perfect Circle - Eat The Elephant
-	A Perfect Circle - By And Down The River.mp3
-1
+	Guano Apes
+10
 d/home/joao
-	Downloads
+	Pictures
+7
+d/home/joao/Pictures
+	pessoal
 4
-d/home/joao/Downloads
+d/home/joao
+	Pictures
+7
+d/home/joao/Pictures
+	wallpaper.png
+7
+d/home/joao
+	Music
+6
+d/home/joao/Music
 	..
 0
 d/home/joao
-	Downloads
-4
-d/home/joao/Downloads
-	swarp-0.1.tar.gz
-1
-d/home/joao
-	Downloads
-4
-d/home/joao/Downloads
-	swarp-0.1.tar.gz
-1
-d/home/joao
-	Downloads
-4
-d/home/joao/Downloads
 	..
 0
-d/home/joao
-	Builds
-1
-d/home/joao/Builds
-	swarp-0.1.tar.gz
-8
-d/home/joao
-	Builds
-1
-d/home/joao/Builds
-	swarp-0.1.tar.gz
-8
-d/home/joao
-	Downloads
-4
-d/home/joao/Downloads
-	..
-0
-d/home/joao
-	Downloads
-4
-d/home/joao/Downloads
-	swarp-0.1.tar.gz
-1
 
 # Right window history (oldest to newest):
 D/home/joao
@@ -147,13 +147,13 @@ D/home/joao
 :d
 :sync
 :hidden
-:help
 :wq
 :mkdir 
 :v
 :vie
 :view
 :Q
+:help
 :q
 
 # Search history (oldest to newest):
