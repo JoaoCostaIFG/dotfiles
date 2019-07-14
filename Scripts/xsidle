@@ -15,9 +15,9 @@ do
 	if [ $(xssstate -s) != "disabled" ];
 	then
 		tosleep=$(($(xssstate -t) / 1000))
-		if [ $tosleep -le 0 ];
+		if [ $tosleep -le 0 ]
 		then
-			xset dpms force suspend
+			# xset dpms force suspend
 			$cmd
 		else
 			sleep $tosleep

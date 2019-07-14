@@ -1,11 +1,13 @@
 let mapleader ='\'
 
+" PLUG
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ~/.config/nvim/autoload/
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
 endif
 
+" PLUGINS
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -18,61 +20,73 @@ Plug 'abnt713/vim-hashpunk'
 Plug 'tpope/vim-eunuch'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 "Plug 'ctrlpvim/ctrlp.vim'
+Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
-
 call plug#end()
 
-set bg=dark
-set go=a
-set mouse=a
-set nohlsearch
-set clipboard+=unnamedplus
+" THEME
+	set termguicolors
+	set background = "dark"
+	colorscheme my_hashpunk
+	set bg=dark
 
-" Set theme
-set termguicolors
-set background = "dark"
-colorscheme my_hashpunk
+" AIRLINE
+	let g:airline_theme='minimalist'
+	let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#bufferline#enabled = 1
+	let g:airline#extensions#tabline#formatter = 'unique_tail'
+	let g:airline_detect_modified = 0
+	let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
+	let g:airline#extensions#ctrlspace#enabled = 1
+	let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
+	"let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
 
-" Airline
-let g:airline_theme='deus'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
+" LIMELIGHT
+	let g:limelight_conceal_ctermfg = 'gray'
+	let g:limelight_conceal_ctermfg = 240
+	let g:limelight_conceal_guifg = 'DarkGray'
+	let g:limelight_conceal_guifg = '#777777'
+	map <leader>n :Limelight!!<CR>
 
-" Limelight
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
-map <leader>n :Limelight!!<CR>
+" GOYO
+	map <leader>m :Goyo \| set bg=dark \| set linebreak<CR>
+	autocmd! User GoyoEnter Limelight
 
-" Some basics:
-	nnoremap c "_c
+" BASICS
 	set nocompatible
 	filetype plugin on
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
-" Enable autocompletion:
-	set wildmode=longest,list,full
-" Disables automatic commenting on newline:
+	set splitbelow splitright
+	set hidden
+	set showtabline=0
+	set go=a
+	set mouse=a
+	set nohlsearch
+	set clipboard+=unnamedplus
+	" Disables automatic commenting on newline
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+	" Automatically deletes all trailing whitespace on save.
+	autocmd BufWritePre * %s/\s\+$//e
 
-" Goyo plugin makes text more readable when writing prose:
-	map <leader>m :Goyo \| set bg=dark \| set linebreak<CR>
-	autocmd! User GoyoEnter Limelight
+" AUTOCOMPLETION/LINT
+	call deoplete#custom#option('sources', {
+		\ '_': ['ale'],
+	\})
+	let g:ale_sign_error = '>>'
+	let g:ale_sign_warning = '**'
+	let g:airline#extensions#ale#enabled = 1
+	"let g:ale_set_balloons = 1
+	"set wildmode=longest,list,full
 
-" Spell-check set to <leader>o, 'o' for 'orthography':
+" SPELL-CHECK
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
 
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-	set splitbelow splitright
-
-" Nerd tree
+" NERDTREE
 	map <leader>f :NERDTreeToggle<CR>
-	" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+	"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Shortcutting split navigation, saving a keypress:
 	"map <C-h> <C-w>h
@@ -80,19 +94,7 @@ map <leader>n :Limelight!!<CR>
 	"map <C-k> <C-w>k
 	"map <C-l> <C-w>l
 
-" Compile document, be it groff/LaTeX/markdown/etc.
-	map <leader>c :w! \| !compiler <c-r>%<CR>
-
-" Open corresponding .pdf/.html or preview
-	map <leader>p :!opout <c-r>%<CR><CR>
-
-" Automatically deletes all trailing whitespace on save.
-	" autocmd BufWritePre * %s/\s\+$//e
-
 " Buffers
-	set hidden
-	set showtabline=0
-
 	let g:CtrlSpaceDefaultMappingKey = "<C-space> "
 	nnoremap <silent><C-p> :CtrlSpace O<CR>
 	let g:CtrlSpaceCacheDir = $HOME"/.config/nvim/.cs_cache"
