@@ -82,7 +82,9 @@ fileviewer *.[1-8] man ./%c | col -b
 filetype *.[1-8] man ./%c
 
 " IMAGES
-fileviewer *.jpg,*.jpeg,*.png,*.ico file
+fileviewer *.jpg,*.jpeg,*.png,*.ico,*.webp file
+"fileviewer *.png,*.jpeg,*.jpg
+ \ img2txt %c
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm sxiv_folder %f &
 
 " GIMP

@@ -1,0 +1,34 @@
+sw_volume: 64
+audio_device_state:1:pulse audio
+audio_device_state:1:toggle_visualizer
+state: play
+current: 10
+time: 4.109000
+random: 0
+repeat: 1
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Evaline/Evaline - postpartum modesty. A portrait of skin/Evaline - postpartum modesty..mp3
+1:Evaline/Evaline - postpartum modesty. A portrait of skin/Evaline - la de da.mp3
+2:Evaline/Evaline - postpartum modesty. A portrait of skin/Evaline - calm touching.mp3
+3:Evaline/Evaline - postpartum modesty. A portrait of skin/Evaline - where the fearless hide.mp3
+4:Evaline/Evaline - postpartum modesty. A portrait of skin/Evaline - postpartum modesty..mp3
+5:Evaline/Evaline - postpartum modesty. A portrait of skin/Evaline - write your pretentious squalls (off again).mp3
+6:Evaline/Evaline - postpartum modesty. A portrait of skin/Evaline - a protest in lines too thin to read.mp3
+7:Evaline/Evaline - Woven Material/Evaline - Beneath The Fire.mp3
+8:Evaline/Evaline - Woven Material/Evaline - There There.mp3
+9:Evaline/Evaline - Woven Material/Evaline - Ascend.mp3
+10:Evaline/Evaline - Woven Material/Evaline - Picking It Up.mp3
+11:Evaline/Evaline - Woven Material/Evaline - Equally.mp3
+12:Evaline/Evaline - Woven Material/Evaline - Feeding On The Congregations.mp3
+13:Evaline/Evaline - Woven Material/Evaline - Hours.mp3
+14:Evaline/Evaline - Woven Material/Evaline - Who Are You.mp3
+15:Evaline/Evaline - Woven Material/Evaline - Rapture.mp3
+16:Evaline/Evaline - Woven Material/Evaline - Overwhelming Shapes.mp3
+17:Evaline/Evaline - Woven Material/Evaline - No Time To Breathe.mp3
+18:Evaline/Evaline - Woven Material/Evaline - All In My Mind.mp3
+playlist_end

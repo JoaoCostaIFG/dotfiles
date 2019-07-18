@@ -34,10 +34,15 @@ do
 
 	"d")	#File deletion with dmenu confirmation
 		[ "$(printf "No\nYes" | dmenu -i -p "Really delete $file?")" == "Yes" ] && rm "$file" && notify-send "$file deleted." & ;;
+
 	"G")	#Open file in Gimp
 		gimp "$file" & ;;
-        
+
 	"g")	#Open file in Pinta
 		pinta "$file" & ;;
+
+	"w")	#Set as nitrogen wallpaper
+                nitrogen --save --set-zoom-fill "$file" ;;
+
 	esac
 done
