@@ -6,15 +6,15 @@ if [ "$op" ]
 then
 	if [ "$op" = "Mount drive" ]
 	then
-		selected_drive=$(lsblk -nr | 
-			awk '$6!="disk" && $7=="" {print $1 " " $4}' | 
-			dmenu -i -p "Drive to mount:" | 
+		selected_drive=$(lsblk -nr |
+			awk '$6!="disk" && $7=="" {print $1 " " $4}' |
+			dmenu -i -p "Drive to mount:" |
 			sed -e 's/\s.*$//')
-		existance=$(lsblk -nr | 
-			awk '$6!="disk" && $7=="" {print $1 " " $4}' | 
-			sed -e 's/\s.*$//' | 
+		existance=$(lsblk -nr |
+			awk '$6!="disk" && $7=="" {print $1 " " $4}' |
+			sed -e 's/\s.*$//' |
 			awk -v cmp_var="$selected_drive" '$0 == cmp_var')
-		
+
 		if [ "$existance" ]
 		then
 			sudo mkdir /mnt/$selected_drive
@@ -23,30 +23,34 @@ then
 		fi
 	elif [ "$op" == "Umount drive" ]
 	then
-		selected_drive=$(lsblk -nr | 
-			awk '$6!="disk" && $7!="" {print $1 " " $4}' | 
-			dmenu -i -p "Drive to umount:" | 
+		selected_drive=$(lsblk -nr |
+			awk '$6!="disk" && $7!="" {print $1 " " $4}' |
+			dmenu -i -p "Drive to umount:" |
 			sed -e 's/\s.*$//')
-		existance=$(lsblk -nr | 
-			awk '$6!="disk" && $7!="" {print $1 " " $4}' | 
-			sed -e 's/\s.*$//' | 
+		existance=$(lsblk -nr |
+			awk '$6!="disk" && $7!="" {print $1 " " $4}' |
+			sed -e 's/\s.*$//' |
 			awk -v cmp_var="$selected_drive" '$0 == cmp_var')
-		
+
 		if [ "$existance" ]
 		then
                 	sudo umount /dev/$selected_drive
 			sudo rmdir /mnt/$selected_drive
-			notify-send "DMOUNT" "$selected_drive partition umounted from /mnt/$selected_drive" &
+			if [ -d "$DIRECTORY" ]; then
+				notify-send "DMOUNT" "Can't umount $selected_drive partition from from /mnt/$selected_drive" &
+			else
+				notify-send "DMOUNT" "$selected_drive partition umounted from /mnt/$selected_drive" &
+			fi
 		fi
 	elif [ "$op" == "Mount android" ]
 	then
-		selected_drive=$(simple-mtpfs -l | 
-			dmenu -i -p "Drive to umount:" | 
-			sed s/:/\/ | 
+		selected_drive=$(simple-mtpfs -l |
+			dmenu -i -p "Drive to umount:" |
+			sed s/:/\/ |
 			sed -e 's/\s.*$//')
-		existance=$(simple-mtpfs -l | 
-			sed s/:/\/ | 
-			sed -e 's/\s.*$//' | 
+		existance=$(simple-mtpfs -l |
+			sed s/:/\/ |
+			sed -e 's/\s.*$//' |
                         awk -v cmp_var="$selected_drive" '$0 == cmp_var')
 
 		if [ "$existance" ]
@@ -58,13 +62,13 @@ then
 
 	elif [ "$op" == "Umount android" ]
 	then
-		selected_drive=$(simple-mtpfs -l | 
-			dmenu -i -p "Drive to umount:" | 
-			sed s/:/\/ | 
+		selected_drive=$(simple-mtpfs -l |
+			dmenu -i -p "Drive to umount:" |
+			sed s/:/\/ |
 			sed -e 's/\s.*$//')
-		existance=$(simple-mtpfs -l | 
-			sed s/:/\/ | 
-			sed -e 's/\s.*$//' | 
+		existance=$(simple-mtpfs -l |
+			sed s/:/\/ |
+			sed -e 's/\s.*$//' |
 			awk -v cmp_var="$selected_drive" '$0 == cmp_var')
 
 		if [ "$existance" ]
@@ -73,7 +77,7 @@ then
 			rmdir $HOME/Android$selected_drive
 			notify-send "DMOUNT" "Android partition $selected_drive umounted from ~/Android$selected_drive" &
 		fi
-	
+
 	fi
 fi
 

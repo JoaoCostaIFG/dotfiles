@@ -3,6 +3,10 @@
 #
 
 
+# Vim mode
+set -o vi
+
+
 # If not running interactively, don't do anything #
 [[ $- != *i* ]] && return
 
@@ -22,6 +26,8 @@ export FILE="vifm"
 export LC_COLLATE="C"
 export MAXIMA_USERDIR=$HOME/.config/maxima
 export WWW_HOME=$HOME/.config/w3m
+#export GOPATH=$HOME/go
+#export PATH=$PATH:$GOPATH/bin
 
 export MYSCRIPTS="$HOME/Scripts"
 export MYBUILDS="$HOME/Builds"

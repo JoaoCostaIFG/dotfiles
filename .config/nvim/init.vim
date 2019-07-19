@@ -10,7 +10,7 @@ endif
 " PLUGINS
 call plug#begin('~/.config/nvim/plugged')
 Plug 'jiangmiao/auto-pairs'
-Plug 'tmhedberg/SimpylFold'
+"Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -32,6 +32,7 @@ call plug#end()
 	filetype plugin on
 	syntax on
 	syntax enable
+	set ts=8 sts=8 sw=8 noexpandtab
 	set number relativenumber
 	set nobackup
 	set nowritebackup
@@ -46,11 +47,29 @@ call plug#end()
 	set showtabline=0
 	set nohlsearch
 	set clipboard+=unnamedplus
+	"set foldmethod=indent
+	"set nofoldenable
+
+	" Save File
 	noremap <F5> :w<CR>
+
 	" Disables automatic commenting on newline
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 	" Automatically deletes all trailing whitespace on save.
-	autocmd BufWritePre * %s/\s\+$//e
+	nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
+	autocmd BufWritePre *.py,*.c,*.cpp,*.h,*.txt :call <SID>StripTrailingWhitespaces()
+	function! <SID>StripTrailingWhitespaces()
+		" Preparation: save last search, and cursor position.
+		let _s=@/
+		let l = line(".")
+		let c = col(".")
+		" Do the business:
+		%s/\s\+$//e
+		" Clean up: restore previous search history, and cursor position
+		let @/=_s
+		call cursor(l, c)
+	endfunction
 
 
 " THEME
@@ -66,16 +85,11 @@ call plug#end()
 	"inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "<TAB>"
 	"inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "<TAB>"
 
-	" Make <tab> used for trigger completion, completion confirm, snippet expand and jump like VSCod
+	" Make <tab> used for trigger completion, completion confirm, snippet expand and jump like VSCode
 	inoremap <silent><expr> <TAB>
-      		\ pumvisible() ? coc#_select_confirm() :
-      		\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      		\ <SID>check_back_space() ? "\<TAB>" :
-      		\ coc#refresh()
-	function! s:check_back_space() abort
-  		let col = col('.') - 1
-  		return !col || getline('.')[col - 1]  =~# '\s'
-	endfunction
+		\ pumvisible() ? coc#_select_confirm() :
+		\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+		\ "<TAB>"
 	let g:coc_snippet_next = '<tab>'
 
 	" Use <C-k> for jump to previous placeholder
@@ -90,10 +104,10 @@ call plug#end()
 	nnoremap <silent> K :call <SID>show_documentation()<CR>
 	function! s:show_documentation()
 		if (index(['vim','help'], &filetype) >= 0)
-        		execute 'h '.expand('<cword>')
-    		else
-        		call CocAction('doHover')
-		endif
+		 execute 'h '.expand('<cword>')
+		 else
+		 call CocAction('doHover')
+		 endif
 	endfunction
 
 
@@ -153,6 +167,9 @@ call plug#end()
 
 
 " CTRLSPACE
+	let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+	let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+	let g:CtrlSpaceSaveWorkspaceOnExit = 1
 	let g:CtrlSpaceDefaultMappingKey = "<C-space> "
 	nnoremap <silent><C-p> :CtrlSpace O<CR>
 	let g:CtrlSpaceCacheDir = expand("$HOME/.config/nvim/")
@@ -162,17 +179,12 @@ call plug#end()
 	let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 	let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 
-	hi CtrlSpaceSearch guifg=#9B2551 guibg=#282C34 gui=bold,italic ctermfg=2 ctermbg=NONE term=NONE cterm=NONE
-	hi CtrlSpaceNormal guifg=#E0254C guibg=#282C34 gui=NONE ctermfg=2 ctermbg=NONE term=NONE cterm=NONE
-	hi CtrlSpaceSelected guifg=#76A15D guibg=#282C34 gui=bold,italic ctermfg=2 ctermbg=NONE term=NONE cterm=NONE
-	hi CtrlSpaceStatus guifg=#EEEEEE guibg=#3E4452 gui=bold ctermfg=2 ctermbg=NONE term=NONE cterm=NONE
-
 	map <leader>T :enew<cr>
 	map <leader>h :CtrlSpaceGoUp<CR>
 	map <leader>l :CtrlSpaceGoDown<CR>
 	map <C-h> :CtrlSpaceGoUp<CR>
 	map <C-l> :CtrlSpaceGoDown<CR>
 	map <leader>bq :bp <BAR> bd #<CR>
-	"map <leader>bs :ls<CR>
+	map <leader>bs :ls<CR>
 	map <leader>s :CtrlSpaceSaveWorkspace<CR>
 

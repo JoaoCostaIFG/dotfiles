@@ -103,9 +103,18 @@ call s:highlight('Todo', s:MainColor, s:clear, s:none)
 
 call s:highlight('Directory', s:Grey93, s:clear, s:bold)
 call s:highlight('CursorLine', s:MainColor, s:clear, s:bold)
-call s:highlight('MatchParen', s:MainColor, s:Grey93, s:none)
+call s:highlight('MatchParen', s:MainColor, s:Magenta, s:none)
 call s:highlight('ColorColumn', s:MainColor, s:Grey15, s:none)
 
+" Folds
+call s:highlight('Folded', s:Green, s:clear, s:none)
+call s:highlight('FoldColumn', s:Green, s:clear, s:none)
+
+" Ctrl-Space
+call s:highlight('CtrlSpaceSearch', s:Pink, ['235', '#282C34'], s:italic)
+call s:highlight('CtrlSpaceNormal', s:MainColor, ['235', '#282C34'], s:none)
+call s:highlight('CtrlSpaceSelected', s:Green, ['235', '#282C34'], s:italic)
+call s:highlight('CtrlSpaceStatus', s:Grey93, ['236', '#3E4452'], s:bold)
 
 " Interface highlighting
 call s:highlight('Normal', s:clear, s:clear, s:none)

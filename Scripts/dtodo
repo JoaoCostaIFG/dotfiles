@@ -54,7 +54,7 @@ del_file () {
 
 
 #Note folder path
-notes_path="$HOME/Documents/Notes"
+notes_path="$HOME/Documents/Notes/dtodo_notes"
 notes_file="TODO.txt"
 
 
