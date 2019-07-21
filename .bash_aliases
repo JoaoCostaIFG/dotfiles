@@ -1,0 +1,30 @@
+# ALIAS #
+	alias    lhome='ls -lAh --color=auto $HOME'
+	alias    ls='ls --color=auto'
+  	alias    ll='ls -lh --color=auto'
+  	alias    lll='ls -lAh --color=auto'
+
+	alias    grep='grep --color=auto'
+	alias    fgrep='fgrep --color=auto'
+	alias    egrep='egrep --color=auto'
+
+	alias    dir='dir --color=auto'
+	alias    vdir='vdir --color=auto'
+
+	alias    diff='diff --color=auto'
+	alias    rm='rm -I'
+  	alias    ka='killall'
+  	alias    bye='shutdown now'
+	alias    byer='shutdown -r now'
+
+	alias    clndep='sudo pacman -R $(pacman -Qdtq)'
+  	alias    clnrep='sudo paccache -rk1'
+  	alias    yay='yay --aur'    # prevent partial upgrades
+
+	alias    raposoflamejante='firefox &'
+  	alias    calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse'
+	alias    maxima='rlwrap -c -H $HOME/.config/maxima/maxima-history -f $HOME/.config/maxima/maxima-builtins-list.txt -r -D 2 maxima'
+
+	alias    nano='nvim'
+	command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
+
