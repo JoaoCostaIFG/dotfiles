@@ -19,6 +19,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'abnt713/vim-hashpunk'
+Plug 'fenetikm/falcon'
 Plug 'tpope/vim-eunuch'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'dhruvasagar/vim-table-mode'
@@ -75,17 +76,13 @@ call plug#end()
 " THEME
 	set termguicolors
 	set background = "dark"
-	colorscheme my_hashpunk
 	set bg=dark
+	colorscheme my_hashpunk
 
 
 " COC
-	" TAB select the first completion item and confirm the completion when no item has been selected/select currently pointed to item
-	" This 2 work but they don't tab through snippets and need some options to work perfectly. The one given in the docs is perfect
-	"inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "<TAB>"
-	"inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "<TAB>"
-
 	" Make <tab> used for trigger completion, completion confirm, snippet expand and jump like VSCode
+	" in neovim <0.4 needs suggest.noselect": false, in :CocConfig
 	inoremap <silent><expr> <TAB>
 		\ pumvisible() ? coc#_select_confirm() :
 		\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -112,7 +109,8 @@ call plug#end()
 
 
 " AIRLINE
-	let g:airline_theme='minimalist'
+	let g:airline_theme = 'falcon'
+	"let g:airline_theme='minimalist'
 	let g:airline#extensions#tabline#enabled = 1
 	let g:airline#extensions#bufferline#enabled = 1
 	let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -156,7 +154,7 @@ call plug#end()
 
 " NERDTREE
 	map <leader>f :NERDTreeToggle<CR>
-	"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 " Shortcutting split navigation, saving a keypress:

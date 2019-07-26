@@ -17,8 +17,8 @@ then
 
 		if [ "$existance" ]
 		then
-			sudo mkdir /mnt/$selected_drive
-			sudo mount /dev/$selected_drive /mnt/$selected_drive
+			sudo mkdir "/mnt/$selected_drive"
+			sudo mount "/dev/$selected_drive" "/mnt/$selected_drive"
 			notify-send "DMOUNT" "$selected_drive partition mounted to /mnt/$selected_drive" &
 		fi
 	elif [ "$op" == "Umount drive" ]
@@ -34,9 +34,9 @@ then
 
 		if [ "$existance" ]
 		then
-                	sudo umount /dev/$selected_drive
-			sudo rmdir /mnt/$selected_drive
-			if [ -d "$DIRECTORY" ]; then
+                	sudo umount "/dev/$selected_drive"
+			sudo rmdir "/mnt/$selected_drive"
+			if [ -d "/mnt/$selected_drive" ]; then
 				notify-send "DMOUNT" "Can't umount $selected_drive partition from from /mnt/$selected_drive" &
 			else
 				notify-send "DMOUNT" "$selected_drive partition umounted from /mnt/$selected_drive" &
@@ -55,8 +55,8 @@ then
 
 		if [ "$existance" ]
 		then
-			mkdir $HOME/Android$selected_drive
-			simple-mtpfs --device $selected_drive $HOME/Android$selected_drive
+			mkdir "$HOME/Android$selected_drive"
+			simple-mtpfs --device "$selected_drive" "$HOME/Android$selected_drive"
 			notify-send "DMOUNT" "Android partition $selected_drive mounted to ~/Android$selected_drive" &
 		fi
 
@@ -73,9 +73,14 @@ then
 
 		if [ "$existance" ]
 		then
-			fusermount -u $HOME/Android$selected_drive
-			rmdir $HOME/Android$selected_drive
-			notify-send "DMOUNT" "Android partition $selected_drive umounted from ~/Android$selected_drive" &
+			fusermount -u "$HOME/Android$selected_drive"
+			rmdir "$HOME/Android$selected_drive"
+			if [ -d "$HOME/Android$selected_drive" ]; then
+				notify-send "DMOUNT" "Can't umount $selected_drive android partition from from ~/Android$selected_drive" &
+			else
+				notify-send "DMOUNT" "Android partition $selected_drive umounted from ~/Android$selected_drive" &
+			fi
+
 		fi
 
 	fi
