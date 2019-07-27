@@ -70,6 +70,7 @@ while [ "$op" ]; do
 	#dmenu_text=$(cat $notes_path/$notes_file)
 
 	dmenu_text=$(grep -ve '^[[:space:]]*$' "$notes_path/$notes_file")
+	
 	if [ "$dmenu_text" ]
 	then
 		dmenu_text+=$'\n---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n'
