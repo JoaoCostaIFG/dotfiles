@@ -53,7 +53,7 @@ del_file () {
 	#Delete the current file and wait for user to choose another to open or quit
         #If no file is selected, we go back to the default
 
-	if [ "$(printf "No\\nYes" | dmenu -i -p "Really delete $notes_file?")" = "Yes" ]; then
+	if [ "$(printf "No\nYes" | dmenu -i -p "Really delete $notes_file?")" = "Yes" ]; then
                 rm "$notes_path/$notes_file"
                 #notify-send -u low "$notes_file deleted."
                 notes_file=TODO.txt
@@ -71,15 +71,13 @@ while [ "$op" ]; do
 	
 	if [ "$dmenu_text" ]
 	then
-
-		dmenu_text="$dmenu_text""$(printf '%b_' '\n---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n')"
+		op=$(printf "%s\n---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n" "$dmenu_text" | 
+			dmenu -i -l 5 -p "$notes_file:")
 	else
-
-		dmenu_text="$dmenu_text""$(printf '%b_' '---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n')"
+		op=$(printf "%s---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n" "$dmenu_text" | 
+			dmenu -i -l 5 -p "$notes_file:")
 	fi
-	dmenu_text="${dmenu_text%_}"
 
-	op=$(printf "%s" "$dmenu_text" | dmenu -i -l 5 -p "$notes_file:")
 
 	if [ "$op" = "---Switch File---" ]; then
 		switch_file
@@ -91,7 +89,12 @@ while [ "$op" ]; do
 		del_file
 
 	elif [ "$op" = "---URL Mode---" ]; then
-		sed 's/.*│//g' "$notes_path/$notes_file" | grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' | uniq | dmenu -i -p 'Open which URL:' -l 5 | tr -d '\n' | xargs -r xdg-open &
+		sed 's/.*│//g' "$notes_path/$notes_file" | 
+			grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' | 
+			uniq | 
+			dmenu -i -p 'Open which URL:' -l 5 | 
+			tr -d '\n' | 
+			xargs -r xdg-open &
 
 	elif [ "$op" = "---Paste---" ]; then
 		xclip -o -selection clipboard >> "$notes_path/$notes_file"

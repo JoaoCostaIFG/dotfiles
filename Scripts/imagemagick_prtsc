@@ -5,20 +5,22 @@
 
 #op=$(printf "Print Screen\nSnipping Tool\n" | dmenu -i -p "What to do:")
 
-ptr_name=$(date '+%d-%m-%y')
-if [ -f $HOME/Pictures/screenshots/$ptr_name.png ]
-then
-	dup_count=$(ls $HOME/Pictures/screenshots/$ptr_name* | wc -l)
-	let dup_count+=1
-	ptr_name=$ptr_name"_"$dup_count
-fi
+#ptr_name=$(date '+%d-%m-%y')
+#if [ -f "$HOME/Pictures/screenshots/$ptr_name.png" ]
+#then
+	#dup_count=$(find "$HOME/Pictures/screenshots/$ptr_name" -maxdepth 1 -type f -printf "%f\n" | wc -l)
+	#dup_count=$(("$dup_count" + 1))
+	#ptr_name=$ptr_name"_"$dup_count
+#fi
+
+ptr_name="$(mktemp -u "$HOME/Pictures/screenshots/$(date '+%d-%m-%y').XXX.png")"
 
 if [ -z "$1" ]
 then
-	import -window root $HOME/Pictures/screenshots/$ptr_name.png
-	notify-send -u low -i $HOME/Pictures/screenshots/$ptr_name.png "Print Screen" "Print saved to ~/Pictures/screenshots" &
+	import -window root "$ptr_name"
+	notify-send -u low -i "$ptr_name" "Print Screen" "Print saved to ~/Pictures/screenshots" &
 else
-	import $HOME/Pictures/screenshots/$ptr_name.png
-	notify-send -u low -i $HOME/Pictures/screenshots/$ptr_name.png "Snipping Tool" "Snip saved to ~/Pictures/screenshots" &
+	import "$ptr_name"
+	notify-send -u low -i "$ptr_name" "Snipping Tool" "Snip saved to ~/Pictures/screenshots" &
 fi
 
