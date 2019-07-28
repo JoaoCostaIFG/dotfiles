@@ -2,16 +2,26 @@
 
 # Needs dmenu to work
 
+#Note folder path
+notes_path="$HOME/Documents/Notes/dtodo_notes"
+notes_file="TODO.txt"
+
+
+#Create todo.txt file if it doesn't exist
+if ! [ -f "$notes_path/$notes_file" ]
+then
+	touch "$notes_path/$notes_file"
+fi
+
+
 switch_file () {
 	#Open another file for editing (if the selected name doesn't exist, a file is created)
 
-	notes_file_temp=$(ls -lAh $notes_path |
-                awk '$1 != "total" && /^[^dl]/ {for (i=9; i<NF; i++) printf $i " "; print $NF}' |
+	notes_file_temp=$(find "$notes_path" -maxdepth 1 -type f -printf "%f\n" |
                 dmenu -i -l 5 -p "File to read:")
 
 	if [ "$notes_file_temp" ]; then
-                existance=$(ls -lAh $notes_path |
-                        awk '$1 != "total" && /^[^dl]/ {for (i=9; i<NF; i++) printf $i " "; print $NF}' |
+                existance=$(find "$notes_path" -maxdepth 1 -type f -printf "%f\n" |
                         awk -v cmp_var="$notes_file_temp" '$0 == cmp_var')
 
                 if ! [ "$existance" ]; then
@@ -43,7 +53,7 @@ del_file () {
 	#Delete the current file and wait for user to choose another to open or quit
         #If no file is selected, we go back to the default
 
-	if [ "$(printf "No\\nYes" | dmenu -i -p "Really delete $file?")" == "Yes" ]; then
+	if [ "$(printf "No\\nYes" | dmenu -i -p "Really delete $notes_file?")" = "Yes" ]; then
                 rm "$notes_path/$notes_file"
                 #notify-send -u low "$notes_file deleted."
                 notes_file=TODO.txt
@@ -53,46 +63,37 @@ del_file () {
 }
 
 
-#Note folder path
-notes_path="$HOME/Documents/Notes/dtodo_notes"
-notes_file="TODO.txt"
-
-
-#Create todo.txt file if it doesn't exist
-if ! [ -f $notes_path/$notes_file ]
-then
-	touch "$notes_path/$notes_file"
-fi
-
 op=1
-
 while [ "$op" ]; do
-	#dmenu_text=$(cat $notes_path/$notes_file)
+	#dmenu_text=$(cat $notes_path/$notes_file
 
 	dmenu_text=$(grep -ve '^[[:space:]]*$' "$notes_path/$notes_file")
 	
 	if [ "$dmenu_text" ]
 	then
-		dmenu_text+=$'\n---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n'
+
+		dmenu_text="$dmenu_text""$(printf '%b_' '\n---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n')"
 	else
-		dmenu_text+=$'---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n'
+
+		dmenu_text="$dmenu_text""$(printf '%b_' '---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n')"
 	fi
+	dmenu_text="${dmenu_text%_}"
 
 	op=$(printf "%s" "$dmenu_text" | dmenu -i -l 5 -p "$notes_file:")
 
-	if [ "$op" == "---Switch File---" ]; then
+	if [ "$op" = "---Switch File---" ]; then
 		switch_file
 
-        elif [ "$op" == "---Clean File---" ]; then
+        elif [ "$op" = "---Clean File---" ]; then
 		clean_file
 
-	elif [ "$op" == "---Delete File---" ]; then
+	elif [ "$op" = "---Delete File---" ]; then
 		del_file
 
-	elif [ "$op" == "---URL Mode---" ]; then
+	elif [ "$op" = "---URL Mode---" ]; then
 		sed 's/.*│//g' "$notes_path/$notes_file" | grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' | uniq | dmenu -i -p 'Open which URL:' -l 5 | tr -d '\n' | xargs -r xdg-open &
 
-	elif [ "$op" == "---Paste---" ]; then
+	elif [ "$op" = "---Paste---" ]; then
 		xclip -o -selection clipboard >> "$notes_path/$notes_file"
 		printf "\n" >> "$notes_path/$notes_file"
 
