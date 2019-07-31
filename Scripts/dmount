@@ -1,6 +1,6 @@
 #!/bin/sh
 
-op=$(printf "Mount drive\nUmount drive\nMount android\nUmount android\n" | dmenu -i -p "What to do:")
+op=$(printf "Mount drive\nUmount drive\nMount android\nUmount android\n" | dmenu -i -p "What to do:") || exit
 
 if [ "$op" ]
 then
@@ -21,6 +21,7 @@ then
 			sudo mount "/dev/$selected_drive" "/mnt/$selected_drive"
 			notify-send "DMOUNT" "$selected_drive partition mounted to /mnt/$selected_drive" &
 		fi
+
 	elif [ "$op" = "Umount drive" ]
 	then
 		selected_drive=$(lsblk -nr |
@@ -42,6 +43,7 @@ then
 				notify-send "DMOUNT" "$selected_drive partition umounted from /mnt/$selected_drive" &
 			fi
 		fi
+
 	elif [ "$op" = "Mount android" ]
 	then
 		selected_drive=$(simple-mtpfs -l |
