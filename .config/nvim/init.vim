@@ -53,6 +53,7 @@ call plug#end()
 
 	" Save File
 	noremap <F5> :w<CR>
+	noremap <F6> :wq<CR>
 
 	" Disables automatic commenting on newline
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

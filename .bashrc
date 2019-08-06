@@ -25,6 +25,7 @@
 	export LC_COLLATE="C"
 	export MAXIMA_USERDIR=$HOME/.config/maxima
 	export WWW_HOME=$HOME/.config/w3m
+	export WINEDLLOVERRIDES="winemenubuilder.exe=d"	
 	#export GOPATH=$HOME/go
 	#export PATH=$PATH:$GOPATH/bin
 

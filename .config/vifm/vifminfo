@@ -30,21 +30,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/joao
-	Pictures
-7
-d/home/joao/Pictures
-	pessoal
-4
-d/home/joao
-	Pictures
-7
-d/home/joao/Pictures
-	wallpaper.png
-7
-d/home/joao
-	Music
-6
 d/home/joao/Music
 	..
 0
@@ -114,6 +99,21 @@ d/home/joao/Documents/PersonalDocs/Bolsa
 d/home/joao/Documents/PersonalDocs/Bolsa/Candidatura2018
 	bolsa_dgesbeon_login.txt
 12
+d/home/joao
+	Downloads
+4
+d/home/joao/Downloads
+	a4-ph05-c098-c117-unrevised.pdf
+1
+d/home/joao
+	Downloads
+4
+d/home/joao/Downloads
+	a4-ph06-c118-end-unrevised.pdf
+2
+d/home/joao
+	.xinitrc
+28
 
 # Right window history (oldest to newest):
 D/home/joao

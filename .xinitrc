@@ -1,5 +1,5 @@
 #KEYBOARD LAYOUT AND CUSTOM KEYS
-xrbd -merge $HOME/.Xresources
+xrdb $HOME/.Xresources
 setxkbmap -layout pt
 xmodmap $HOME/.Xmodmap
 
@@ -19,7 +19,8 @@ nitrogen --restore &
 dunst &
 
 #Start music player shit
-mpd >/dev/null 2>&1 &
+#mpd >/dev/null 2>&1 &
+[ ! -s ~/.config/mpd/pid ] && mpd &
 
 #Autostart
 keepassxc &
