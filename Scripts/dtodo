@@ -8,6 +8,7 @@ notes_file="TODO.txt"
 
 
 #Create todo.txt file if it doesn't exist
+[ -d "$notes_path" ] || mkdir -p "$notes_path"
 [ -f "$notes_path/$notes_file" ] || touch "$notes_path/$notes_file"
 
 
@@ -86,7 +87,7 @@ exis_str () {
 
 	elif [ "$ed_str" ]; then
 		tempfile=$(mktemp /tmp/dtodo-script.XXXXXX)
-                awk -v cmp_var="$op" -v out_var=$ed_str '$0 == cmp_var {$0 = out_var} {print $0}' "$notes_path/$notes_file" >$tempfile
+                awk -v cmp_var="$op" -v out_var="$ed_str" '$0 == cmp_var {$0 = out_var} {print $0}' "$notes_path/$notes_file" >"$tempfile"
 		mv "$tempfile" "$notes_path/$notes_file"
 
 	else
