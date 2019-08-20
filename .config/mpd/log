@@ -11524,3 +11524,775 @@ Aug 05 06:00 : player: played "Foo Fighters/Foo Fighter - In Ur Honor 1/10 - End
 Aug 05 06:05 : player: played "Foo Fighters/Foo Fighter - In Ur Honor 2/01 - Still.mp3"
 Aug 05 06:10 : player: played "Foo Fighters/Foo Fighter - In Ur Honor 2/02 - What If I Do.mp3"
 Aug 06 04:47 : player: played "Foo Fighters/Foo Fighter - In Ur Honor 2/03 - Miracle.mp3"
+Aug 06 06:02 : client: [0] closed
+Aug 06 06:02 : player: played "Foo Fighters/Foo Fighter - In Ur Honor 2/04 - Another Round.mp3"
+Aug 06 19:25 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 06 19:25 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 06 20:56 : player: played "Foo Fighters/Foo Fighter - In Ur Honor 2/04 - Another Round.mp3"
+Aug 07 04:48 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 07 04:48 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 11 16:42 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 11 16:42 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 11 16:44 : client: [0] opened from 127.0.0.1:54862
+Aug 11 16:44 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 11 16:50 : player: played "Tool/flac/Tool - Undertow/06-tool-swamp_song.flac"
+Aug 11 16:55 : player: played "Tool/flac/Tool - Undertow/07-tool-undertow.flac"
+Aug 11 17:00 : player: played "Tool/flac/Tool - Undertow/07-tool-undertow.flac"
+Aug 11 17:08 : client: [0] closed
+Aug 11 17:22 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 11 18:30 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 12 12:54 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:42 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Aug 12 18:42 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/07. Wake Up.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/10. Freedom.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/09. Township Rebellion.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/05. Bullet In The Head.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/08. Fistful Of Steel.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/01. Bombtrack.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/02. Killing In The Name.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/03. Take The Power Back.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/06. Know Your Enemy.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/04. Settle For Nothing.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD2/03. Freedom (Remix).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD2/04. Take The Power Back (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD2/02. Year Of The Boomerang.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD2/01. Darkness.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/09. The Ghost Of Tom Joad.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/03. Kick Out The Jams.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/07. In My Eyes.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/02. Pistol Grip Pump.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/06. I'm Housin'.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/14. How I Could Just Kill A Man (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/13. Kick Out The Jams (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/01. Microphone Fiend.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/11. Street Fighting Man.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/04. Renegades Of Funk.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/10. Down On The Street.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/12. Maggie's Farm.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/08. How I Could Just Kill A Man.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD1/05. Beautiful World.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD2/02. No Shelter (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/2000. Renegades [EK 85296]/CD2/01. People Of The Sun (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1996. Evil Empire [EK 57523]/07. Down Rodeo.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1996. Evil Empire [EK 57523]/04. Revolver.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1996. Evil Empire [EK 57523]/06. Tire Me.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1996. Evil Empire [EK 57523]/08. Without A Face.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1996. Evil Empire [EK 57523]/03. Vietnow.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1996. Evil Empire [EK 57523]/10. Roll Right.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1996. Evil Empire [EK 57523]/09. Wind Below.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1996. Evil Empire [EK 57523]/01. People Of The Sun.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1996. Evil Empire [EK 57523]/11. Year Of Tha Boomerang.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1996. Evil Empire [EK 57523]/02. Bulls On Parade.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1996. Evil Empire [EK 57523]/05. Snakecharmer.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/06. Born Of A Broken Man.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/12. War Within A Breath.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/03. Calm Like A Bomb.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/13. No Shelter.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/08. Maria.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/07. Born As Ghosts.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/04. Mic Check.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/09. Voice Of The Voiceless.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/11. Ashes In The Fall.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/02. Guerrilla Radio.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/05. Sleep Now In The Fire.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/01. Testify.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/albums/1999. The Battle Of Los Angeles [491993 2]/10. New Millennium Homes.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/02. Settle For Nothing (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/08. Without A Face (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/04. Take The Power Back (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/12. Clear The Lane.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/11. Darkness.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/03. Bombtrack (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/01. Bullet In The Head (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/09. Hadda Be Playing On The Jukebox (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/06. Intro (Black Steel In The Hour Of Chaos) (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/05. Freedom (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/10. Fuck Tha Police (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1997. Live & Rare [SRCS 8361]/07. Zapata's Blood (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2018. Democratic National Convention 2000 (12'') [19075835041]/A2. Testify.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2018. Democratic National Convention 2000 (12'') [19075835041]/B1. Sleep Now In The Fire.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2018. Democratic National Convention 2000 (12'') [19075835041]/A1. Bulls On Parade.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2018. Democratic National Convention 2000 (12'') [19075835041]/B2. Freedom.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2018. Democratic National Convention 2000 (12'') [19075835041]/A3. Guerrilla Radio.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2018. Democratic National Convention 2000 (12'') [19075835041]/B3. Killing In The Name.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1992. Rage Against The Machine [2016, AFZ 244]/07. Wake Up.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1992. Rage Against The Machine [2016, AFZ 244]/10. Freedom.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1992. Rage Against The Machine [2016, AFZ 244]/09. Township Rebellion.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1992. Rage Against The Machine [2016, AFZ 244]/05. Bullet In The Head.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1992. Rage Against The Machine [2016, AFZ 244]/08. Fistful Of Steel.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1992. Rage Against The Machine [2016, AFZ 244]/01. Bombtrack.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1992. Rage Against The Machine [2016, AFZ 244]/02. Killing In The Name.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1992. Rage Against The Machine [2016, AFZ 244]/03. Take The Power Back.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1992. Rage Against The Machine [2016, AFZ 244]/06. Know Your Enemy.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1992. Rage Against The Machine [2016, AFZ 244]/04. Settle For Nothing.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/03. Born Of A Broken Man.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/10. Sleep Now In The Fire.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/16. Freedom.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/01. Bulls On Parade.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/05. Calm Like A Bomb.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/13. Kick Out The Jams.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/04. Killing In The Name.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/02. Bullet In The Head.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/18. Beautiful World.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/17. Microphone Fiend.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/14. Know Your Enemy.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/11. People Of The Sun.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/08. War Within A Breath.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/15. No Shelter.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/12. Guerrilla Radio.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/07. Bombtrack.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/06. Testify.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2003. Live At The Grand Olympic Auditorium [SICP-462]/09. I'm Housin'.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1996. Evil Empire [2016, AFZ 254]/07. Down Rodeo.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1996. Evil Empire [2016, AFZ 254]/04. Revolver.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1996. Evil Empire [2016, AFZ 254]/06. Tire Me.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1996. Evil Empire [2016, AFZ 254]/08. Without A Face.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1996. Evil Empire [2016, AFZ 254]/03. Vietnow.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1996. Evil Empire [2016, AFZ 254]/10. Roll Right.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1996. Evil Empire [2016, AFZ 254]/09. Wind Below.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1996. Evil Empire [2016, AFZ 254]/01. People Of The Sun.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1996. Evil Empire [2016, AFZ 254]/11. Year Of Tha Boomerang.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1996. Evil Empire [2016, AFZ 254]/02. Bulls On Parade.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/1996. Evil Empire [2016, AFZ 254]/05. Snakecharmer.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/07. Wake Up.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/11. Bombtrack (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/10. Freedom.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/09. Township Rebellion.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/05. Bullet In The Head.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/08. Fistful Of Steel.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/01. Bombtrack.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/02. Killing In The Name.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/03. Take The Power Back.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/12. Bullet In The Head (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/06. Know Your Enemy.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/13. Take The Power Back (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD1/04. Settle For Nothing.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/11. The Narrows.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/12. Freedom.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/09. Killing In The Name.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/01. Bombtrack.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/10. Auto Logic.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/07. Know Your Enemy.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/02. Take The Power Back.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/06. Township Rebellion.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/05. Clear The Lane.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/08. Mindset's A Threat.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/03. Bullet In The Head.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/others/2012. Rage Against The Machine XX [88765412152]/CD2/04. Darkness Of Greed.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1994. Bombtrack (CDS) [EPC 660314 2]/07. Darkness Of Greed.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1994. Bombtrack (CDS) [EPC 660314 2]/02. Freedom (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1994. Bombtrack (CDS) [EPC 660314 2]/06. Take The Power Back (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1994. Bombtrack (CDS) [EPC 660314 2]/01. Bombtrack.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1994. Bombtrack (CDS) [EPC 660314 2]/09. Bombtrack (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1994. Bombtrack (CDS) [EPC 660314 2]/05. Bullet In The Head (Remix).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1994. Bombtrack (CDS) [EPC 660314 2]/04. Bombtrack (From Mark Goodier's 'Evening Session').mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1994. Bombtrack (CDS) [EPC 660314 2]/08. Bullet In The Head (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1994. Bombtrack (CDS) [EPC 660314 2]/03. Settle For Nothing (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1992. Killing In The Name (CDS) [1993, 658492 2]/02. Darkness Of Greed.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1992. Killing In The Name (CDS) [1993, 658492 2]/01. Killing In The Name.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1992. Killing In The Name (CDS) [1993, 658492 2]/03. Clear The Lane.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1999. Sleep Now In The Fire (CDS) [669160 2]/04. Freedom (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1999. Sleep Now In The Fire (CDS) [669160 2]/01. Sleep Now In The Fire.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1999. Sleep Now In The Fire (CDS) [669160 2]/03. Bulls On Parade (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1999. Sleep Now In The Fire (CDS) [669160 2]/05. Sleep Now In The Fire (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1999. Sleep Now In The Fire (CDS) [669160 2]/02. Guerilla Radio (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1997. Vietnow (CDS) [664777 2]/02. Clear The Lane.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1997. Vietnow (CDS) [664777 2]/03. Intro (Black Steel In The Hour Of Chaos) (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1997. Vietnow (CDS) [664777 2]/01. Vietnow.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1997. Vietnow (CDS) [664777 2]/04. Zapata's Blood (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1996. Evil Empire (7'') [ES7 7747]/A1. Bombtrack (Live On The BBC).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1996. Evil Empire (7'') [ES7 7747]/B1. Fuck Tha Police.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1998. No Shelter (CDS) [ESK 41210]/01. No Shelter.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1996. Bulls On Parade (CDS) [EPC 662990 1]/01. Bulls On Parade.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1996. Bulls On Parade (CDS) [EPC 662990 1]/02. Hadda Be Playing On The Jukebox.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1999. Guerrilla Radio (CDS) [34K 79270]/02. Without A Face (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1999. Guerrilla Radio (CDS) [34K 79270]/01. Guerrilla Radio.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1998. The Ghost Of Tom Joad (CDS) [ESK 3455]/01. The Ghost Of Tom Joad.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1997. People Of The Sun EP ‎(10'') [rev-56]/A3. Intro (Black Steel In The Hour Of Chaos) (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1997. People Of The Sun EP ‎(10'') [rev-56]/A1. People Of The Sun.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1997. People Of The Sun EP ‎(10'') [rev-56]/A2. Without A Face (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1997. People Of The Sun EP ‎(10'') [rev-56]/B1. Bulls On Parade.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1997. People Of The Sun EP ‎(10'') [rev-56]/B2. Hadda Be Playing On The Jukebox (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1997. People Of The Sun EP ‎(10'') [rev-56]/A4. Zapata's Blood (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1999. Clear The Lane ⁄ Hadda Be Playing On The Jukebox (CDS) [ESK 46463]/01. Clear The Lane.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1999. Clear The Lane ⁄ Hadda Be Playing On The Jukebox (CDS) [ESK 46463]/02. Hadda Be Playing On The Jukebox.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/2000. Testify (CDS) [49K 79472]/01. Testify (Album Version).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/2000. Testify (CDS) [49K 79472]/03. Testify (Rowena Projects Mix).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/2000. Testify (CDS) [49K 79472]/02. Testify (Testifly Mix).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/2000. Testify (CDS) [49K 79472]/05. Freedom (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/2000. Testify (CDS) [49K 79472]/04. Guerrilla Radio (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1993. Bullet In The Head (CDS) [659258 2]/04. Settle For Nothing (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1993. Bullet In The Head (CDS) [659258 2]/01. Bullet In The Head.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1993. Bullet In The Head (CDS) [659258 2]/03. Bullet In The Head (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1993. Bullet In The Head (CDS) [659258 2]/02. Bullet In The Head (Remix).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1996. People Of The Sun (CDS) [EPC 663513 2]/02. Zapata's Blood (Live).mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1996. People Of The Sun (CDS) [EPC 663513 2]/01. People Of The Sun.mp3
+Aug 12 18:42 : update: added Rage Against The Machine/ep's, singles/1996. People Of The Sun (CDS) [EPC 663513 2]/03. Without A Face (Live).mp3
+Aug 12 18:46 : client: [0] opened from 127.0.0.1:50986
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Aug 12 18:47 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Aug 12 18:47 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Aug 12 18:47 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 12 18:47 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 12 18:52 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/01. Bombtrack.mp3"
+Aug 12 18:57 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/02. Killing In The Name.mp3"
+Aug 12 19:03 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/03. Take The Power Back.mp3"
+Aug 12 19:16 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/04. Settle For Nothing.mp3"
+Aug 12 19:21 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/05. Bullet In The Head.mp3"
+Aug 12 19:26 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/06. Know Your Enemy.mp3"
+Aug 12 19:32 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/07. Wake Up.mp3"
+Aug 12 19:38 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/08. Fistful Of Steel.mp3"
+Aug 12 19:43 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/09. Township Rebellion.mp3"
+Aug 12 19:49 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/10. Freedom.mp3"
+Aug 12 19:56 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/04. Settle For Nothing.mp3"
+Aug 13 11:36 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/04. Settle For Nothing.mp3"
+Aug 13 11:46 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/06. Know Your Enemy.mp3"
+Aug 13 14:57 : client: [0] closed
+Aug 13 14:59 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 13 23:17 : client: [0] opened from 127.0.0.1:35222
+Aug 13 23:17 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 13 23:17 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 13 23:22 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/04. Settle For Nothing.mp3"
+Aug 13 23:27 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/06. Know Your Enemy.mp3"
+Aug 13 23:39 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/04. Settle For Nothing.mp3"
+Aug 13 23:45 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/02. Killing In The Name.mp3"
+Aug 13 23:51 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/05. Bullet In The Head.mp3"
+Aug 14 00:25 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/04. Settle For Nothing.mp3"
+Aug 14 02:36 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/04. Settle For Nothing.mp3"
+Aug 14 02:42 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/06. Know Your Enemy.mp3"
+Aug 14 06:07 : client: [0] closed
+Aug 14 12:04 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 16 23:35 : client: [0] opened from 127.0.0.1:57226
+Aug 16 23:35 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 16 23:35 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 16 23:39 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/01. Bombtrack.mp3"
+Aug 16 23:44 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/02. Killing In The Name.mp3"
+Aug 16 23:50 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/03. Take The Power Back.mp3"
+Aug 16 23:55 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/04. Settle For Nothing.mp3"
+Aug 17 00:00 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/05. Bullet In The Head.mp3"
+Aug 17 00:05 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/06. Know Your Enemy.mp3"
+Aug 17 00:11 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/07. Wake Up.mp3"
+Aug 17 00:16 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/08. Fistful Of Steel.mp3"
+Aug 17 00:22 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/09. Township Rebellion.mp3"
+Aug 17 00:28 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/10. Freedom.mp3"
+Aug 17 04:17 : client: [0] closed
+Aug 17 14:06 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 17 14:43 : client: [0] opened from 127.0.0.1:47380
+Aug 17 14:43 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 17 14:43 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 17 15:02 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/04. Settle For Nothing.mp3"
+Aug 17 15:07 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/06. Know Your Enemy.mp3"
+Aug 17 15:11 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD2/01. Darkness.mp3"
+Aug 17 15:15 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD2/02. Year Of The Boomerang.mp3"
+Aug 17 15:21 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD2/03. Freedom (Remix).mp3"
+Aug 17 15:28 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD2/04. Take The Power Back (Live).mp3"
+Aug 17 15:35 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/07. Wake Up.mp3"
+Aug 17 15:40 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/08. Fistful Of Steel.mp3"
+Aug 17 15:45 : player: played "Rage Against The Machine/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/05. Bullet In The Head.mp3"
+Aug 17 15:59 : client: [0] closed

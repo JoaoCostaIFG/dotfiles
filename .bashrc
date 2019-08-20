@@ -16,13 +16,14 @@
 	export PS1="\[$(tput setaf 2)\][\[$(tput setaf 1)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 6)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 2)\]]\[$(tput setaf 2)\]\\$ \[$(tput sgr0)\]"
 	export HISTCONTROL=erasedups #erase duplicates from bash history
 	export PATH=$PATH:$HOME/Scripts
+	export SUDO_ASKPASS="dpass"
+	export LC_COLLATE="C"
 	export EDITOR="nvim"
 	export VISUAL="nvim"
 	export TERMINAL="st"
 	export BROWSER="firefox"
 	export READER="zathura"
 	export FILE="vifm"
-	export LC_COLLATE="C"
 	export MAXIMA_USERDIR=$HOME/.config/maxima
 	export WWW_HOME=$HOME/.config/w3m
 	export WINEDLLOVERRIDES="winemenubuilder.exe=d"	

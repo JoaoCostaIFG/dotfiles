@@ -317,8 +317,7 @@ moves() {
 
 inputer() {
 	read -r -N1000 -t0.001
-	while [ $dead -eq 0 ]
-	do
+	while [ $dead -eq 0 ]; do
 		read -r -n1 key
 		case $key in
 			d|D)
@@ -332,6 +331,31 @@ inputer() {
 				;;
 			s|S)
 				[ $direc_acc -ne 2 ] && direc=4
+				;;
+			p|P)	
+				pause_direc=$direc_acc
+				direc=0
+				while [ $direc -eq 0 ]; do
+					read -r -n1 key
+					case $key in
+						d|D)
+							[ $pause_direc -ne 3 ] && direc=1
+							;;
+						w|W)
+							[ $pause_direc -ne 4 ] && direc=2
+							;;
+						a|A)
+							[ $pause_direc -ne 1 ] && direc=3
+							;;
+						s|S)
+							[ $pause_direc -ne 2 ] && direc=4
+							;;
+						*)
+							direc=$pause_direc
+							;;
+
+					esac
+				done
 				;;
 			x|X|q|Q)
 				dead=1

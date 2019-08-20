@@ -1,9 +1,7 @@
-sw_volume: 50
+sw_volume: 78
 audio_device_state:1:pulse audio
 audio_device_state:1:toggle_visualizer
-state: pause
-current: 0
-time: 2.151000
+state: stop
 random: 0
 repeat: 0
 single: 0
@@ -12,22 +10,4 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:Foo Fighters/Foo Fighter - In Ur Honor 2/04 - Another Round.mp3
-1:Foo Fighters/Foo Fighter - In Ur Honor 2/05 - Friend Of A Friend.mp3
-2:Foo Fighters/Foo Fighter - In Ur Honor 2/06 - Over And Out.mp3
-3:Foo Fighters/Foo Fighter - In Ur Honor 2/07 - On The Mend.mp3
-4:Foo Fighters/Foo Fighter - In Ur Honor 2/08 - Virginia Moon.mp3
-5:Foo Fighters/Foo Fighter - In Ur Honor 2/09 - Cold Day In The Sun.mp3
-6:Foo Fighters/Foo Fighter - In Ur Honor 2/10 - Razor.mp3
-7:Foo Fighters/Foo Fighters - Concrete and Gold/01. T-Shirt.mp3
-8:Foo Fighters/Foo Fighters - Concrete and Gold/02. Run.mp3
-9:Foo Fighters/Foo Fighters - Concrete and Gold/03. Make It Right.mp3
-10:Foo Fighters/Foo Fighters - Concrete and Gold/04. The Sky Is A Neighborhood.mp3
-11:Foo Fighters/Foo Fighters - Concrete and Gold/05. La Dee Da.mp3
-12:Foo Fighters/Foo Fighters - Concrete and Gold/06. Dirty Water.mp3
-13:Foo Fighters/Foo Fighters - Concrete and Gold/07. Arrows.mp3
-14:Foo Fighters/Foo Fighters - Concrete and Gold/08. Happy Ever After (Zero Hour).mp3
-15:Foo Fighters/Foo Fighters - Concrete and Gold/09. Sunday Rain.mp3
-16:Foo Fighters/Foo Fighters - Concrete and Gold/10. The Line.mp3
-17:Foo Fighters/Foo Fighters - Concrete and Gold/11. Concrete And Gold.mp3
 playlist_end
