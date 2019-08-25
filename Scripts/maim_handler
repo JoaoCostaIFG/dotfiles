@@ -1,19 +1,24 @@
 #!/bin/sh
 
 #requires maim and xclip
-#pass any/amount of argument(s) to make a snipping tool instead
-#either take a fullscreen screenshot and save it in a file or take a snip and pass it t the clipboard
+#no arguments - take a fullscreen screenshot and save it in a file
+#pass 1 as an argument - take a snip and pass it to the clipboard
+#pass 2 as an argument - color picker (not implemented)
 
-#save_location="$HOME/Pictures/screenshots/"
-save_location="$HOME/Scripts/di"
-
-if [ "$1" ]
-then
-	maim -u -m 10 -s -o | xclip -selection clipboard -t image/png
+if [ "$1" = 1 ]; then
+	maim -u -s -o | xclip -selection clipboard -t image/png
 	notify-send -u low "Snipping Tool" "Snip saved to clipboard" &
+
+elif [ "$1" = 2 ]; then
+	color_info=$(maim -u -s -o -B -t 0 | convert - -resize 1x1\! -format '%[pixel:p{0,0}]' info:-)
+	printf "%s" "$color_info" | xclip -selection clipboard
+	notify-send "Color Picker" "Color is $color_info" &
+
 else
+	save_location="$HOME/Pictures/screenshots/"
 	file_name="$(date +%s).png"
 	maim -u -m 10 "$save_location/$file_name"
 	notify-send -u low -i "$save_location/$file_name" "Print Screen" "Print saved to $save_location" &
+
 fi
 
