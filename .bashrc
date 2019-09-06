@@ -3,12 +3,12 @@
 #
 
 
-# Vim mode
-	set -o vi
-
-
 # If not running interactively, don't do anything #
 	[[ $- != *i* ]] && return
+
+
+# Vim mode
+	set -o vi
 
 
 # VARS #
@@ -26,9 +26,8 @@
 	export FILE="vifm"
 	export MAXIMA_USERDIR=$HOME/.config/maxima
 	export WWW_HOME=$HOME/.config/w3m
-	export WINEDLLOVERRIDES="winemenubuilder.exe=d"	
-	#export GOPATH=$HOME/go
-	#export PATH=$PATH:$GOPATH/bin
+	export WINEDLLOVERRIDES="winemenubuilder.exe=d"
+	export GPG_TTY=$(tty)
 
 	export MYSCRIPTS="$HOME/Scripts"
 	export MYBUILDS="$HOME/Builds"

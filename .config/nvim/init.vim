@@ -51,9 +51,13 @@ call plug#end()
 	"set foldmethod=indent
 	"set nofoldenable
 
-	" Save File
+	" Save File and Exits
 	noremap <F5> :w<CR>
 	noremap <F6> :wq<CR>
+	command WQ wq
+	command Wq wq
+	command W w
+	command Q q
 
 	" Disables automatic commenting on newline
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

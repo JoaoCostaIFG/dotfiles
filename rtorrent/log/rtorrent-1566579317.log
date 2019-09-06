@@ -1,0 +1,5 @@
+1566579317 N rtorrent main: Starting thread.
+1566579317 N rtorrent scgi: Starting thread.
+1566579412 N rtorrent scgi: Shutting down thread.
+1566579412 N rtorrent main: Shutting down thread.
+1566579412 N rtorrent disk: Shutting down thread.

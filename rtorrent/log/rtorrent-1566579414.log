@@ -1,0 +1,6 @@
+1566579414 N rtorrent main: Starting thread.
+1566579414 N rtorrent scgi: Starting thread.
+1566579415 W Command failed: Target of wrong type to command.
+1566579421 N rtorrent scgi: Shutting down thread.
+1566579421 N rtorrent main: Shutting down thread.
+1566579421 N rtorrent disk: Shutting down thread.
