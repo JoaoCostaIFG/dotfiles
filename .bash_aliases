@@ -26,7 +26,8 @@
   	alias    yay='yay --aur'    # prevent partial upgrades
 
 	alias    raposoflamejante='firefox &'
-  	alias    calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse'
+	alias    passarinhorelampjante='thunderbird &'
+	alias    calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse'
 	alias	 maxima='rlwrap -c -H $HOME/.config/maxima/maxima-history -f $HOME/.config/maxima/maxima-builtins-list.txt -r -D 2 maxima'
 
 	alias    yt='youtube-dl --add-metadata -ic'
@@ -34,4 +35,6 @@
 
 	alias    nano='nvim'
 	command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
+
+	alias    pizhid='ssh -l piz_hid 192.168.7.2'
 

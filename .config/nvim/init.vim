@@ -10,7 +10,6 @@ endif
 " PLUGINS
 call plug#begin('~/.config/nvim/plugged')
 Plug 'jiangmiao/auto-pairs'
-"Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -23,6 +22,7 @@ Plug 'fenetikm/falcon'
 Plug 'tpope/vim-eunuch'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'lervag/vimtex'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 call plug#end()
@@ -33,10 +33,18 @@ call plug#end()
 	filetype plugin on
 	syntax on
 	syntax enable
+	
+	" Tabs
+	noremap <silent> <F1> :retab! <CR>
+	noremap <silent> <F3> :set list! <CR>
 	set ts=8 sts=8 sw=8 noexpandtab
 	set number relativenumber
+
+	" Turn off backup
+	set noswapfile
 	set nobackup
 	set nowritebackup
+
 	set hidden
 	set mouse=a
 	set cmdheight=2
@@ -52,8 +60,8 @@ call plug#end()
 	"set nofoldenable
 
 	" Save File and Exits
-	noremap <F5> :w<CR>
-	noremap <F6> :wq<CR>
+	noremap <silent> <F5> :w<CR>
+	noremap <silent> <F6> :wq<CR>
 	command WQ wq
 	command Wq wq
 	command W w
@@ -174,20 +182,21 @@ call plug#end()
 	let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 	let g:CtrlSpaceSaveWorkspaceOnExit = 1
 	let g:CtrlSpaceDefaultMappingKey = "<C-space> "
-	nnoremap <silent><C-p> :CtrlSpace O<CR>
+	nnoremap <silent> <C-p> :CtrlSpace O<CR>
 	let g:CtrlSpaceCacheDir = expand("$HOME/.config/nvim/")
 	let g:CtrlSpaceUseUnicode = 0
 	let g:CtrlSpaceUseTabline = 1
 	let g:CtrlSpaceUseArrowsInTerm = 1
 	let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 	let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+	map <leader>s :CtrlSpaceSaveWorkspace<CR>
 
+	tnoremap <Esc> <C-\><C-n>
 	map <leader>T :enew<cr>
 	map <leader>h :CtrlSpaceGoUp<CR>
 	map <leader>l :CtrlSpaceGoDown<CR>
-	map <C-h> :CtrlSpaceGoUp<CR>
-	map <C-l> :CtrlSpaceGoDown<CR>
+	map <silent> <C-h> :CtrlSpaceGoUp<CR>
+	map <silent> <C-l> :CtrlSpaceGoDown<CR>
 	map <leader>bq :bp <BAR> bd #<CR>
 	map <leader>bs :ls<CR>
-	map <leader>s :CtrlSpaceSaveWorkspace<CR>
 
