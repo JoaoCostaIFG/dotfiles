@@ -16,7 +16,7 @@
 	export PS1="\[$(tput setaf 2)\][\[$(tput setaf 1)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 6)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 2)\]]\[$(tput setaf 2)\]\\$ \[$(tput sgr0)\]"
 	export HISTCONTROL=erasedups #erase duplicates from bash history
 	export PATH=$PATH:$HOME/Scripts
-	export SUDO_ASKPASS="dpass"
+	export SUDO_ASKPASS="/usr/bin/dpass"
 	export LC_COLLATE="C"
 	export EDITOR="nvim"
 	export VISUAL="nvim"
@@ -28,6 +28,7 @@
 	export WWW_HOME=$HOME/.config/w3m
 	export WINEDLLOVERRIDES="winemenubuilder.exe=d"
 	export GPG_TTY=$(tty)
+	export _JAVA_AWT_WM_NONREPARENTING=1
 
 	export MYSCRIPTS="$HOME/Scripts"
 	export MYBUILDS="$HOME/Builds"
