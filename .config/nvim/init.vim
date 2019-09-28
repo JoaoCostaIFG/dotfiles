@@ -9,6 +9,7 @@ endif
 
 " PLUGINS
 call plug#begin('~/.config/nvim/plugged')
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#uninstall() } }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
@@ -25,6 +26,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'lervag/vimtex'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'vim-scripts/DoxygenToolkit.vim'
 call plug#end()
 
 
