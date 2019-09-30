@@ -25,8 +25,6 @@
 	export READER="zathura"
 	export FILE="vifm"
 	export MAXIMA_USERDIR=$HOME/.config/maxima
-	export WWW_HOME=$HOME/.config/w3m
-	export WINEDLLOVERRIDES="winemenubuilder.exe=d"
 	export GPG_TTY=$(tty)
 	export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -35,10 +33,24 @@
 
 
 # MY FUNCS #
+	# Edit and source ~/.bashrc
 	bashrc () {
 		nvim $HOME/.bashrc
 		source $HOME/.bashrc
 	}
+
+	# Opens lf and cd's to the current folder on exit
+	lfcd () {
+		tmp="$(mktemp)"
+		lf -last-dir-path="$tmp" "$@"
+		if [ -f "$tmp" ]; then
+			dir="$(cat "$tmp")"
+			rm -f "$tmp"
+			
+			[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+		fi
+	}
+	bind '"\C-f":"lfcd\C-m"'
 
 
 # EXTRA AUTO COMPLETION #
