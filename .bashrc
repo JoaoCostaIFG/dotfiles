@@ -50,7 +50,7 @@
 			[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
 		fi
 	}
-	bind '"\C-f":"lfcd\C-m"'
+	bind '"\ef":"lfcd\C-m"'
 
 
 # EXTRA AUTO COMPLETION #
