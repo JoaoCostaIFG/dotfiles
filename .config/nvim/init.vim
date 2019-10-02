@@ -9,11 +9,7 @@ endif
 
 " PLUGINS
 call plug#begin('~/.config/nvim/plugged')
-<<<<<<< HEAD
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-=======
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#uninstall() } }
->>>>>>> 0574c911102e364fca9fe329137fc23d5bb2bed4
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
@@ -140,8 +136,8 @@ call plug#end()
 
 	let g:airline#extensions#ctrlspace#enabled = 1
 	let g:airline#extensions#coc#enabled = 1
-	let airline#extensions#coc#error_symbol = '!: '
-	let airline#extensions#coc#warning_symbol = '.:'
+	let airline#extensions#coc#error_symbol = '!'
+	let airline#extensions#coc#warning_symbol = '.'
 
 
 " LIMELIGHT
