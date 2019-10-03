@@ -20,6 +20,7 @@
 	export LC_COLLATE="C"
 	export EDITOR="nvim"
 	export VISUAL="nvim"
+	export PAGER="less"
 	export TERMINAL="st"
 	export BROWSER="firefox"
 	export READER="zathura"
@@ -50,7 +51,7 @@
 			[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
 		fi
 	}
-	bind '"\C-f":"lfcd\C-m"'
+	bind '"\ef":"lfcd\C-m"'
 
 
 # EXTRA AUTO COMPLETION #
