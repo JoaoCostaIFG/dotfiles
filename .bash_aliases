@@ -3,6 +3,8 @@
 	alias    ls='ls --group-directories-first --color=auto'
   	alias    ll='ls -lh --group-directories-first --color=auto'
   	alias    lll='ls -lAh --group-directories-first --color=auto'
+  	alias    cd..='cd ..'
+	alias    cd....='cd ../..'
 
 	alias    fperm='chmod 644'
 	alias    dperm='chmod 755'
