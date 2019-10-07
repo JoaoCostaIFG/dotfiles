@@ -51,11 +51,11 @@ cmd open ${{
 }}
 
 # DELETE COMMAND
-cmd delete ${{
+cmd delete %{{
 	set -f
 	printf "$fx\n"
 	printf "Delete? (y/n) "
-	read ans
+	read -r -N 1 ans
 	[ $ans = "y" ] && rm -rf $fx
 }}
 map <delete> delete
@@ -74,7 +74,7 @@ cmd decompress ${{
 }}
 
 # COMPRESS USING TAR
-cmd tar ${{
+cmd tar %{{
 	set -f
 	mkdir $1
 	cp -r $fx $1
@@ -83,7 +83,7 @@ cmd tar ${{
 }}
 
 # COMPRESS USING ZIP
-cmd zip ${{
+cmd zip %{{
 	set -f
 	mkdir $1
 	cp -r $fx $1

@@ -1,8 +1,8 @@
 #!/bin/sh
 
 case "$1" in
-	*.png | *.jpg | *.jpeg)
-		img2txt "$1"
+	*.png | *.jpg | *.jpeg | *.gif)
+		chafa "$1"
 		;;
 	*.pdf)
 		pdftotext "$1" -
