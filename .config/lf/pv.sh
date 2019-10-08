@@ -2,7 +2,10 @@
 
 case "$1" in
 	*.png | *.jpg | *.jpeg | *.gif)
-		chafa "$1"
+		w=$(tput cols)
+		w=$((w / 5 * 3))
+		echo "$w"
+		chafa -s "$w" "$1"
 		;;
 	*.pdf)
 		pdftotext "$1" -

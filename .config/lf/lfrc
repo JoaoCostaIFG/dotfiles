@@ -55,13 +55,13 @@ cmd delete %{{
 	set -f
 	printf "$fx\n"
 	printf "Delete? (y/n) "
-	read -r -N 1 ans
+	read ans
 	[ $ans = "y" ] && rm -rf $fx
 }}
 map <delete> delete
 
 # DECOMPRESS FILE
-cmd decompress ${{
+cmd decompress &{{
 	set -f
 	case $f in
 		*.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
@@ -74,7 +74,7 @@ cmd decompress ${{
 }}
 
 # COMPRESS USING TAR
-cmd tar %{{
+cmd tar &{{
 	set -f
 	mkdir $1
 	cp -r $fx $1
@@ -83,7 +83,7 @@ cmd tar %{{
 }}
 
 # COMPRESS USING ZIP
-cmd zip %{{
+cmd zip &{{
 	set -f
 	mkdir $1
 	cp -r $fx $1
@@ -94,4 +94,3 @@ cmd zip %{{
 # PREVIEW
 set previewer ~/.config/lf/pv.sh
 map i $~/.config/lf/pv.sh $f | less -R
-

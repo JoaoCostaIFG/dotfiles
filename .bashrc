@@ -20,6 +20,7 @@
 	export LC_COLLATE="C"
 	export EDITOR="nvim"
 	export VISUAL="nvim"
+	export OPENER="xdg-open"
 	export PAGER="less"
 	export TERMINAL="st"
 	export BROWSER="firefox"
