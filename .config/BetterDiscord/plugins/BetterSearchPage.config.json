@@ -1,0 +1,10 @@
+{
+	"changelog": {
+		"currentversion": "1.0.8"
+	},
+	"settings": {
+		"addFirstLast": true,
+		"addJumpTo": true,
+		"cloneToTheTop": true
+	}
+}

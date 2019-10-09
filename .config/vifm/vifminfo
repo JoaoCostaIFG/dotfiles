@@ -30,24 +30,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/joao/Music
-	..
-0
-d/home/joao
-	Scripts
-8
-d/home/joao/Scripts
-	colors
-1
-d/home/joao
-	Desktop
-2
-d/home/joao/Desktop
-	..
-0
-d/home/joao
-	Documents
-3
 d/home/joao/Documents
 	PersonalDocs
 4
@@ -112,8 +94,26 @@ d/home/joao/Downloads
 	a4-ph06-c118-end-unrevised.pdf
 2
 d/home/joao
-	.xinitrc
-28
+	Builds
+1
+d/home/joao/Builds
+	..
+0
+d/home/joao
+	Desktop
+2
+d/home/joao/Desktop
+	..
+0
+d/home/joao
+	Builds
+1
+d/home/joao/Builds
+	dotfiles
+2
+d/home/joao/Builds/dotfiles
+	wallpaper.jpg
+4
 
 # Right window history (oldest to newest):
 D/home/joao

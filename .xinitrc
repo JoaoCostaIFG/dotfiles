@@ -1,7 +1,7 @@
 #KEYBOARD LAYOUT AND CUSTOM KEYS
-xrdb $HOME/.Xresources
+xrdb "$HOME/.Xresources"
 setxkbmap -layout pt
-xmodmap $HOME/.Xmodmap
+xmodmap "$HOME/.Xmodmap"
 
 #DWM INFO
 dwm_statusmonitor &
@@ -23,7 +23,7 @@ dunst &
 [ ! -s ~/.config/mpd/pid ] && mpd &
 
 #Autostart
-keepassxc &
+# keepassxc &
 
 #DWM Starter
 while true
