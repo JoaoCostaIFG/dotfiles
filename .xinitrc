@@ -1,31 +1,28 @@
-#KEYBOARD LAYOUT AND CUSTOM KEYS
+# KEYBOARD LAYOUT AND CUSTOM KEYS #
 xrdb "$HOME/.Xresources"
 setxkbmap -layout pt
 xmodmap "$HOME/.Xmodmap"
 
-#DWM INFO
+# DWM INFO #
 dwm_statusmonitor &
 
-#Screen locking timer
+# LOCKING TIME #
 xsidle slock &
 
-#Start compositing window manager
+# COMPOSITE MANAGER #
 compton -b
 
-#Restore wallpaper
+# SET WALLPAPER #
 nitrogen --restore &
 
-#Start notification daemon (d-bus)
+# NOTIFICATION DAEMON #
 dunst &
 
-#Start music player shit
+# MUSIC PLAYER STUFF #
 #mpd >/dev/null 2>&1 &
 [ ! -s ~/.config/mpd/pid ] && mpd &
 
-#Autostart
-# keepassxc &
-
-#DWM Starter
+# DWM STARTING LOOP #
 while true
 do
         # Log stderror to a file

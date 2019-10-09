@@ -9,23 +9,22 @@
 
 # SHELL CONFIGS #
 	set -o vi
-	shopt -s autocd #Allows you to cd into directory merely by typing the directory name.
+	# allows you to cd into directory merely by typing the directory name.
+	shopt -s autocd 
 
 
 # VARS #
 	export PS1="\[$(tput setaf 2)\][\[$(tput setaf 1)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 6)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 2)\]]\[$(tput setaf 2)\]\\$ \[$(tput sgr0)\]"
 
-	[[ -f ~/.bash_aliases ]] && source "$HOME/.profile"
-
 
 # MY FUNCS #
-	# Edit and source ~/.bashrc
+	# edit and source ~/.bashrc
 	bashrc () {
 		nvim $HOME/.bashrc
 		source $HOME/.bashrc
 	}
 
-	# Opens lf and cd's to the current folder on exit
+	# opens lf and cd's to the current folder on exit
 	lfcd () {
 		tmp="$(mktemp)"
 		lf -last-dir-path="$tmp" "$@"
@@ -44,5 +43,5 @@
 
 
 # ALIAS #
-	[[ -f ~/.bash_aliases ]] && source "$HOME/.bash_aliases"
+	[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
 
