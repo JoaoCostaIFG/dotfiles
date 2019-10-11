@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# requires maim and xclip
+# no arguments - take a fullscreen screenshot and save it in a file
+# pass 1 as an argument - take a snip and pass it to the clipboard
+# pass 2 as an argument - color picker (needs work)
+
+if [ "$1" = 1 ]; then
+	# Sniping tool #
+	maim -u -s -o | xclip -selection clipboard -t image/png
+	notify-send -u low "Snipping Tool" "Snip saved to clipboard" &
+
+elif [ "$1" = 2 ]; then
+	# Color picker #
+	color_info=$(maim -u -s -o -B -t 0 | convert - -resize 1x1\! -format '%[pixel:p{0,0}]' info:-)
+	printf "%s" "$color_info" | xclip -selection clipboard
+	notify-send "Color Picker" "Color is $color_info" &
+
+else
+	# Fullscreen screenshot #
+	save_location="$HOME/Pictures/screenshots/"
+	mkdir -p "$save_location"
+
+	file_name="$(date +%s).png"
+	maim -u -m 10 "$save_location/$file_name"
+	notify-send -u low -i "$save_location/$file_name" "Print Screen" "Print saved to $save_location" &
+
+fi
+
