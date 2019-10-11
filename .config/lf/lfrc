@@ -61,8 +61,9 @@ cmd delete %{{
 map <delete> delete
 
 # DECOMPRESS FILE
-cmd decompress %{{
+cmd decompress ${{
 	set -f
+	mkdir -p "$1" && cd "$1"
 	case $f in
 		*.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
 		*.tar.gz|*.tgz) tar xzvf $f;;
@@ -74,18 +75,18 @@ cmd decompress %{{
 }}
 
 # COMPRESS USING TAR
-cmd tar %{{
+cmd tar ${{
 	set -f
-	mkdir $1
+	mkdir -p $1
 	cp -r $fx $1
 	tar czf $1.tar.gz $1
 	rm -rf $1
 }}
 
 # COMPRESS USING ZIP
-cmd zip %{{
+cmd zip ${{
 	set -f
-	mkdir $1
+	mkdir -p $1
 	cp -r $fx $1
 	zip -r $1.zip $1
 	rm -rf $1
