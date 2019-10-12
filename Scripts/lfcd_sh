@@ -1,0 +1,11 @@
+#!/bin/sh
+
+tmp="$(mktemp)"
+lf -last-dir-path="$tmp" "$@"
+if [ -f "$tmp" ]; then
+	dir="$(cat "$tmp")"
+	rm -f "$tmp"
+
+	# we cd to the folder even if we're already there so we always exec bash on that folder
+	[ -d "$dir" ] && cd "$dir" && exec bash
+fi
