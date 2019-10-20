@@ -29,6 +29,7 @@
 
 	alias    raposoflamejante='firefox &'
 	alias    passarinhorelampjante='thunderbird &'
+	alias    git='rlwrap git'
 	alias    calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse'
 	alias	 maxima='rlwrap -c -H $HOME/.config/maxima/maxima-history -f $HOME/.config/maxima/maxima-builtins-list.txt -r -D 2 maxima'
 
