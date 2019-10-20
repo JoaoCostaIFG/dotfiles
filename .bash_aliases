@@ -3,7 +3,9 @@
 	alias    ls='ls --group-directories-first --color=auto'
   	alias    ll='ls -lh --group-directories-first --color=auto'
   	alias    lll='ls -lAh --group-directories-first --color=auto'
+  	alias    llll='ls -lAh --group-directories-first --color=auto'
   	alias    cd..='cd ..'
+  	alias    cd...='cd ..'
 	alias    cd....='cd ../..'
 
 	alias    fperm='chmod 644'
@@ -29,9 +31,9 @@
 
 	alias    raposoflamejante='firefox &'
 	alias    passarinhorelampjante='thunderbird &'
-	alias    git='rlwrap git'
 	alias    calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse'
 	alias	 maxima='rlwrap -c -H $HOME/.config/maxima/maxima-history -f $HOME/.config/maxima/maxima-builtins-list.txt -r -D 2 maxima'
+	alias    git='rlwrap -D 2 git'
 
 	alias    yt='youtube-dl --add-metadata -ic'
 	alias    yta='youtube-dl --add-metadata -xic'
