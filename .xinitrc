@@ -4,7 +4,8 @@ setxkbmap -layout pt
 xmodmap "$HOME/.Xmodmap"
 
 # DWM INFO #
-dwm_statusmonitor &
+#dwm_statusmonitor &
+slslstatus &
 
 # LOCKING TIME #
 xsidle slock &

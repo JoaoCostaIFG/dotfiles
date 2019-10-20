@@ -1,12 +1,12 @@
 {
 	"python.linting.pylintEnabled": false,
-  	"python.linting.flake8Enabled": true,
+	"python.linting.flake8Enabled": true,
 	"python.linting.enabled": true,
 	"python.jediEnabled": false,
 
 	"diagnostic.errorSign": "!",
-  	"diagnostic.warningSign": ".",
-  	"diagnostic.infoSign": "?",
+	"diagnostic.warningSign": ".",
+	"diagnostic.infoSign": "?",
 	"diagnostic.hintSign": "?",
 
 	"suggest.enablePreview":true,
@@ -19,16 +19,9 @@
 	"suggest.disableMenu": true,
 
 	"languageserver": {
-		//"clangd": {
-		//	"command": "clangd",
-		//	"args": ["--background-index"],
-		//	"rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-	      	//	"filetypes": ["c", "cpp", "objc", "objcpp"]
-    		//},
-
 		"ccls": {
 			"command": "ccls",
-			"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+			"filetypes": ["c", "cpp", "objc", "objcpp"],
 			"rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
 			"initializationOptions": {
 				"cache": {
