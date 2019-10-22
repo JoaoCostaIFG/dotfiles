@@ -4,7 +4,6 @@ case "$1" in
 	*.png | *.jpg | *.jpeg | *.gif)
 		w=$(tput cols)
 		w=$((w / 5 * 3))
-		echo "$w"
 		chafa -s "$w" "$1"
 		;;
 	*.pdf)
