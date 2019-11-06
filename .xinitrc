@@ -11,7 +11,7 @@ slslstatus &
 xsidle slock &
 
 # COMPOSITE MANAGER #
-compton -b
+picom -CGb
 
 # SET WALLPAPER #
 nitrogen --restore &
