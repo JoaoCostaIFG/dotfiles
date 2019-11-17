@@ -1,5 +1,7 @@
 # VARS #
-	export HISTCONTROL=erasedups #erase duplicates from bash history
+	export HISTCONTROL=ignoreboth:erasedups  #ignore spaces and erase duplicates from bash history
+	export HISTSIZE=-1  #infinite list size
+	export HISTFILESIZE=-1  #infinite file size
 	export PATH=$PATH:$HOME/Scripts
 	export SUDO_ASKPASS="/usr/bin/dpass"
 	export LC_COLLATE="C"
