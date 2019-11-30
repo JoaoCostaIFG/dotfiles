@@ -9,24 +9,26 @@ endif
 
 " PLUGINS
 call plug#begin('~/.config/nvim/plugged')
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#uninstall() } }
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'abnt713/vim-hashpunk'
 Plug 'fenetikm/falcon'
-Plug 'tpope/vim-eunuch'
-Plug 'vim-ctrlspace/vim-ctrlspace'
+
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'scrooloose/nerdcommenter'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'scrooloose/nerdtree'
+
 Plug 'lervag/vimtex'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#uninstall() } }
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-Plug 'vim-scripts/DoxygenToolkit.vim'
 call plug#end()
 
 
@@ -61,6 +63,8 @@ call plug#end()
 	"set foldmethod=indent
 	"set nofoldenable
 
+	" Repeat last macro
+	noremap C-. @@
 	" Save File and Exits
 	noremap <silent> <F5> :w<CR>
 	noremap <silent> <F6> :wq<CR>
@@ -72,8 +76,8 @@ call plug#end()
 	" Disables automatic commenting on newline
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-	" Automatically deletes all trailing whitespace on save.
 	nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
+	" Automatically deletes all trailing whitespace on save.
 	autocmd BufWritePre *.py,*.c,*.cpp,*.h,*.txt :call <SID>StripTrailingWhitespaces()
 	function! <SID>StripTrailingWhitespaces()
 		" Preparation: save last search, and cursor position.
@@ -106,7 +110,7 @@ call plug#end()
 
 	" Use <C-k> for jump to previous placeholder
 	let g:coc_snippet_prev = '<c-k>'
-	" Use <C-j> for both expand and jump (make expand higher priority.)
+	" Use <C-j> for both expand and jump (make expand higher priority)
 	imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 	" Close the preview window when completion is done
@@ -116,10 +120,10 @@ call plug#end()
 	nnoremap <silent> K :call <SID>show_documentation()<CR>
 	function! s:show_documentation()
 		if (index(['vim','help'], &filetype) >= 0)
-		 execute 'h '.expand('<cword>')
-		 else
-		 call CocAction('doHover')
-		 endif
+			execute 'h '.expand('<cword>')
+		else
+			call CocAction('doHover')
+		endif
 	endfunction
 
 
@@ -157,7 +161,6 @@ call plug#end()
 " TABLEMODE
 	let g:table_mode_header_fillchar = '='
 
-
 " AUTO-PAIRS
 	let g:AutoPairsMapBS = 1
 	let g:AutoPairsMapCh = 0
@@ -166,7 +169,10 @@ call plug#end()
 " SPELL-CHECK
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
 
-
+" NERD COMMENTER
+	let g:NERDSpaceDelims = 1
+	let g:NERDTrimTrailingWhitespace = 1
+	
 " NERDTREE
 	map <leader>f :NERDTreeToggle<CR>
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -201,4 +207,3 @@ call plug#end()
 	map <silent> <C-l> :CtrlSpaceGoDown<CR>
 	map <leader>bq :bp <BAR> bd #<CR>
 	map <leader>bs :ls<CR>
-
