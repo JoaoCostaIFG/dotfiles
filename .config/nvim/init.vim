@@ -103,8 +103,8 @@ call plug#end()
 
 
 " COC
-        " Make <tab> used for trigger completion, completion confirm, snippet expand and jump like VSCode
-        " in neovim <0.4 needs suggest.noselect": false, in :CocConfig
+        " Make <tab> used for trigger completion, completion confirm,
+        " snippet expand and jump like VSCode
         inoremap <silent><expr> <TAB>
                 \ pumvisible() ? coc#_select_confirm() :
                 \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -116,24 +116,40 @@ call plug#end()
         " Use <C-j> for both expand and jump (make expand higher priority)
         " imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-        " Close the preview window when completion is done
+        " CLOSE THE PREVIEW WINDOW WHEN COMPLETION IS DONE
         autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-        " Use K to show documentation in preview window
-        nn <silent> K :call CocActionAsync('doHover')<cr>
-        " nnoremap <silent> K :call <SID>show_documentation()<CR>
-        " function! s:show_documentation()
-                " if (index(['vim','help'], &filetype) >= 0)
-                        " execute 'h '.expand('<cword>')
-                " else
-                        " call CocAction('doHover')
-                " endif
-        " endfunction
+        " USE K TO SHOW DOCUMENTATION IN PREVIEW WINDOW
+        " nn <silent> K :call CocActionAsync('doHover')<cr>
+        nnoremap <silent> K :call <SID>show_documentation()<CR>
+        function! s:show_documentation()
+                if (index(['vim','help'], &filetype) >= 0)
+                        execute 'h '.expand('<cword>')
+                else
+                        call CocAction('doHover')
+                endif
+        endfunction
 
-" CCLS
-        nmap <silent> <leader>d <Plug>(coc-definition)
-        nmap <silent> <leader>r <Plug>(coc-references)
+        " REMAP KEYS FOR GOTOS
+        nmap <silent> gd <Plug>(coc-definition)
+        nmap <silent> gy <Plug>(coc-type-definition)
+        nmap <silent> gi <Plug>(coc-implementation)
+        nmap <silent> gr <Plug>(coc-references)
 
+        " REMAP FOR FORMAT SELECTED REGION
+        xmap <leader><leader>f  <Plug>(coc-format-selected)
+        nmap <leader><leader>f  <Plug>(coc-format-selected)
+        " Use `:Format` to format current buffer
+        command! -nargs=0 Format :call CocAction('format')
+
+        " Show all diagnostics
+        nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+        " Find symbol of current document
+        nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+        " Search workspace symbols
+        nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+        " Resume latest coc list
+        nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " AIRLINE
         let g:airline_theme = 'falcon'
