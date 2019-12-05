@@ -26,7 +26,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#uninstall() } }
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/vim-easy-align'
 
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'honza/vim-snippets'
@@ -42,7 +44,8 @@ call plug#end()
 
         " Tabs
         noremap <silent> <F1> :retab! <CR>
-        noremap <silent> <F3> :set list! <CR>
+        " noremap <silent> <F3> :set list! <CR>
+        noremap <silent> <F3> :IndentLinesToggle <CR>
         set ts=8 sts=8 sw=8 expandtab
         set number relativenumber
 
@@ -137,8 +140,8 @@ call plug#end()
         nmap <silent> gr <Plug>(coc-references)
 
         " REMAP FOR FORMAT SELECTED REGION
-        xmap <leader><leader>f  <Plug>(coc-format-selected)
-        nmap <leader><leader>f  <Plug>(coc-format-selected)
+        " xmap <leader><leader>f  <Plug>(coc-format-selected)
+        " nmap <leader><leader>f  <Plug>(coc-format-selected)
         " Use `:Format` to format current buffer
         command! -nargs=0 Format :call CocAction('format')
 
@@ -201,13 +204,11 @@ call plug#end()
         map <leader>f :NERDTreeToggle<CR>
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
-" Shortcutting split navigation, saving a keypress:
-        "map <C-h> <C-w>h
-        "map <C-j> <C-w>j
-        "map <C-k> <C-w>k
-        "map <C-l> <C-w>l
-
+" EASY-ALIGN
+        " Start interactive EasyAlign in visual mode (e.g. vipga)
+        xmap ga <Plug>(EasyAlign)
+        " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+        nmap ga <Plug>(EasyAlign)
 
 " CTRLSPACE
         let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
