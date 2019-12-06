@@ -9,6 +9,7 @@ endif
 
 " PLUGINS
 call plug#begin('~/.config/nvim/plugged')
+Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'abnt713/vim-hashpunk'
@@ -30,11 +31,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 
-Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+" Plug 'jackguo380/vim-lsp-cxx-highlight'
 call plug#end()
-
 
 " BASICS
         set nocompatible
@@ -58,16 +58,13 @@ call plug#end()
         set mouse=a
         set cmdheight=2
         set updatetime=300
-        set shortmess=ac
+        set shortmess=a
         set signcolumn=yes
         set encoding=utf-8
         set splitbelow splitright
-        set showtabline=0
         set nohlsearch
         set clipboard+=unnamedplus
-        set smartcase
-        "set foldmethod=indent
-        "set nofoldenable
+        set ignorecase smartcase
 
         " Repeat last macro
         noremap C-. @@
@@ -97,13 +94,11 @@ call plug#end()
                 call cursor(l, c)
         endfunction
 
-
 " THEME
         set termguicolors
         set background = "dark"
         set bg=dark
         colorscheme my_hashpunk
-
 
 " COC
         " Make <tab> used for trigger completion, completion confirm,
@@ -113,11 +108,8 @@ call plug#end()
                 \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
                 \ "<TAB>"
         let g:coc_snippet_next = '<tab>'
-
         " Use <S-tab> to jump to the previous placeholder
         let g:coc_snippet_prev = '<S-tab>'
-        " Use <C-j> for both expand and jump (make expand higher priority)
-        " imap <C-j> <Plug>(coc-snippets-expand-jump)
 
         " CLOSE THE PREVIEW WINDOW WHEN COMPLETION IS DONE
         autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -139,9 +131,6 @@ call plug#end()
         nmap <silent> gi <Plug>(coc-implementation)
         nmap <silent> gr <Plug>(coc-references)
 
-        " REMAP FOR FORMAT SELECTED REGION
-        " xmap <leader><leader>f  <Plug>(coc-format-selected)
-        " nmap <leader><leader>f  <Plug>(coc-format-selected)
         " Use `:Format` to format current buffer
         command! -nargs=0 Format :call CocAction('format')
 
@@ -160,16 +149,13 @@ call plug#end()
         let g:airline#extensions#tabline#enabled = 1
         let g:airline#extensions#bufferline#enabled = 1
         let g:airline#extensions#tabline#formatter = 'unique_tail'
-        let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
+        " let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
         let g:airline_detect_modified = 0
         let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
-        "let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
+        " let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
 
-        let g:airline#extensions#ctrlspace#enabled = 1
-        let g:airline#extensions#coc#enabled = 1
         let airline#extensions#coc#error_symbol = '!'
         let airline#extensions#coc#warning_symbol = '.'
-
 
 " LIMELIGHT
         let g:limelight_conceal_ctermfg = 'gray'
@@ -178,12 +164,10 @@ call plug#end()
         let g:limelight_conceal_guifg = '#777777'
         map <leader>n :Limelight!!<CR>
 
-
 " GOYO
         map <leader>m :Goyo \| set bg=dark \| set linebreak<CR>
         autocmd! User GoyoEnter Limelight
         autocmd! User GoyoLeave Limelight!
-
 
 " TABLEMODE
         let g:table_mode_header_fillchar = '='
@@ -191,7 +175,6 @@ call plug#end()
 " AUTO-PAIRS
         let g:AutoPairsMapBS = 1
         let g:AutoPairsMapCh = 0
-
 
 " SPELL-CHECK
         map <leader>o :setlocal spell! spelllang=en_us<CR>
@@ -211,18 +194,15 @@ call plug#end()
         nmap ga <Plug>(EasyAlign)
 
 " CTRLSPACE
-        let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-        let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-        let g:CtrlSpaceSaveWorkspaceOnExit = 1
         let g:CtrlSpaceDefaultMappingKey = "<C-space> "
         nnoremap <silent> <C-p> :CtrlSpace O<CR>
         let g:CtrlSpaceCacheDir = expand("$HOME/.config/nvim/")
-        let g:CtrlSpaceUseUnicode = 0
-        let g:CtrlSpaceUseTabline = 1
-        let g:CtrlSpaceUseArrowsInTerm = 1
+        let g:CtrlSpaceSaveWorkspaceOnExit = 1
         let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
         let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-        map <leader>s :CtrlSpaceSaveWorkspace<CR>
+        let g:CtrlSpaceUseUnicode = 0
+        let g:CtrlSpaceUseTabline = 0
+        let g:CtrlSpaceUseArrowsInTerm = 1
 
         tnoremap <Esc> <C-\><C-n>
         map <leader>T :enew<cr>
