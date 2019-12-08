@@ -1,36 +1,37 @@
 {
-	"coc.preferences.extensionUpdateCheck": "never",
+  "coc.preferences.extensionUpdateCheck": "never",
 
-	"python.linting.pylintEnabled": false,
-	"python.linting.flake8Enabled": true,
-	"python.linting.enabled": true,
-	"python.jediEnabled": false,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "python.jediEnabled": false,
+  "python.formatting.provider": "black",
 
-	"diagnostic.errorSign": "!",
-	"diagnostic.warningSign": ".",
-	"diagnostic.infoSign": "?",
-	"diagnostic.hintSign": "?",
+  "diagnostic.errorSign": "!",
+  "diagnostic.warningSign": ".",
+  "diagnostic.infoSign": "?",
+  "diagnostic.hintSign": "?",
 
-	"suggest.enablePreview":true,
+  "suggest.enablePreview":true,
 
-	"suggest.labelMaxLength": 40,
-	"suggest.maxCompleteItemCount": 20,
-	"suggest.minTriggerInputLength": 2,
-	"suggest.snippetIndicator": " ►",
-	"suggest.disableKind": true,
-	"suggest.disableMenu": true,
+  "suggest.labelMaxLength": 60,
+  "suggest.maxCompleteItemCount": 20,
+  "suggest.minTriggerInputLength": 2,
+  "suggest.snippetIndicator": " ►",
+  "suggest.disableKind": true,
+  "suggest.disableMenu": true,
 
-	"languageserver": {
-		"ccls": {
-			"command": "ccls",
-			"filetypes": ["c", "cpp", "objc", "objcpp"],
-			"rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-			"initializationOptions": {
-				"cache": {
-					"directory": ".ccls-cache"
-				}
-                                //"highlight": { "lsRanges" : true }
-			}
-		}
-	}
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+        "cache": {
+          "directory": ".ccls-cache"
+        }
+      }
+    }
+
+  }
 }
