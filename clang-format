@@ -1,0 +1,30 @@
+﻿---
+Language:        Cpp
+BasedOnStyle: Mozilla
+AlignConsecutiveMacros: true
+AlignConsecutiveAssignments: true
+AlignEscapedNewlines: Left
+AllowShortFunctionsOnASingleLine: All
+AlwaysBreakAfterReturnType: TopLevelDefinitions
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterCaseLabel: false
+  AfterClass: true
+  AfterControlStatement: false
+  AfterEnum: false
+  AfterFunction: true
+  AfterNamespace: false
+  AfterObjCDeclaration: false
+  AfterStruct: true
+  AfterUnion: false
+  AfterExternBlock: true
+  BeforeCatch: true
+  BeforeElse: true
+  IndentBraces: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: true
+FixNamespaceComments: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+...
