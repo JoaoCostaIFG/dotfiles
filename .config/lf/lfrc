@@ -51,7 +51,7 @@ cmd open ${{
 }}
 
 # DELETE COMMAND
-cmd delete %{{
+cmd delete ${{
 	set -f
 	printf "$fx\n"
 	printf "Delete? (y/n) "

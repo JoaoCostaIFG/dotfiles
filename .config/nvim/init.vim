@@ -27,7 +27,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#uninstall() } }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
-Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'tpope/vim-fugitive'
 Plug 'vim-ctrlspace/vim-ctrlspace'
@@ -64,11 +63,12 @@ set shortmess=a
 set signcolumn=yes
 set encoding=utf-8
 set splitbelow splitright
+set showtabline=0
 set nohlsearch ignorecase smartcase
 set clipboard+=unnamedplus
 
 " Repeat last macro
-noremap C-. @@
+noremap , @@
 " Save File and Exits
 noremap <silent> <F5> :w<CR>
 noremap <silent> <F6> :wq<CR>
@@ -202,8 +202,3 @@ map <silent> <C-h> :CtrlSpaceGoUp<CR>
 map <silent> <C-l> :CtrlSpaceGoDown<CR>
 map <leader>bq :bp <BAR> bd #<CR>
 map <leader>bs :ls<CR>
-
-" GUIDE-LINES
-let g:indent_guides_enable_on_vim_startup = 0
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
