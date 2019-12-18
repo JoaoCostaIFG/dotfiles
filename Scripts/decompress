@@ -22,12 +22,12 @@ fi
 
 if [ -f "$archive" ] ; then
 	case "$archive" in
-		*.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $archive;;
-		*.tar.gz|*.tgz) tar xzvf $archive;;
-		*.tar.xz|*.txz) tar xJvf $archive;;
-		*.zip) unzip $archive;;
-		*.rar) unrar x $archive;;
-		*.7z) 7z x $archive;;
+		*.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf "$archive";;
+		*.tar.gz|*.tgz) tar xzvf "$archive";;
+		*.tar.xz|*.txz) tar xJvf "$archive";;
+		*.zip) unzip "$archive";;
+		*.rar) unrar x "$archive";;
+		*.7z) 7z x "$archive";;
 		*) printf "extract: '%s' - unknown archive method\\n" "$archive" ;;
 	esac
 else

@@ -1,6 +1,0 @@
-1564535220 N rtorrent main: Starting thread.
-1564535220 N rtorrent scgi: Starting thread.
-1564542014 E Closed torrents due to low diskspace.
-1564542192 N rtorrent scgi: Shutting down thread.
-1564542192 N rtorrent main: Shutting down thread.
-1564542192 N rtorrent disk: Shutting down thread.

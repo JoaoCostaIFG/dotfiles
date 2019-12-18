@@ -1,7 +1,0 @@
-1566345916 N rtorrent main: Starting thread.
-1566345916 N rtorrent scgi: Starting thread.
-1566345916 E 25CF980739DE8E4157CA4D514D600A2DD66C691B->file_list: Failed to prepare file '/albums/1992. Rage Against The Machine [1993, 483788 2]/CD1/01. Bombtrack.mp3': Could not open file: No such file or directory
-1566345916 E Could not resume download: Could not open file: No such file or directory
-1566345999 N rtorrent scgi: Shutting down thread.
-1566345999 N rtorrent main: Shutting down thread.
-1566345999 N rtorrent disk: Shutting down thread.
