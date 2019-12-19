@@ -1,21 +1,26 @@
-# VARS #
+# Add ~/Scripts to the PATH #
+export PATH="$PATH:$(du "$HOME/Scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+
+# Default programs
+export BROWSER="firefox"
+export EDITOR="nvim"
+export FILE="vifm"
+export OPENER="xdg-open"
+export PAGER="less"
+export READER="zathura"
+export TERMINAL="st"
+export VISUAL="nvim"
+
+# Clean-up
+export LESSHISTFILE="-"
+export INPUTRC="$HOME/.config/.inputrc"
+export MAXIMA_USERDIR="$HOME/.config/maxima"
 export HISTCONTROL=ignoreboth:erasedups  #ignore spaces and erase duplicates from bash history
 export HISTSIZE=-1  #infinite list size
 export HISTFILESIZE=-1  #infinite file size
-export PATH=$PATH:$HOME/Scripts
-export SUDO_ASKPASS="/usr/bin/dpass"
+
+# Other program settings
 export LC_COLLATE="C"
-export EDITOR="nvim"
-export VISUAL="nvim"
-export OPENER="xdg-open"
-export PAGER="less"
-export TERMINAL="st"
-export BROWSER="firefox"
-export READER="zathura"
-export FILE="vifm"
-export MAXIMA_USERDIR=$HOME/.config/maxima
+export SUDO_ASKPASS="/usr/bin/dpass"
 export GPG_TTY=$(tty)
 export _JAVA_AWT_WM_NONREPARENTING=1
-
-export MYSCRIPTS="$HOME/Scripts"
-export MYBUILDS="$HOME/Builds"
