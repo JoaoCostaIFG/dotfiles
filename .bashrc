@@ -2,20 +2,16 @@
 # ~/.bashrc
 #
 
-
 # If not running interactively, don't do anything #
 	[[ $- != *i* ]] && return
-
 
 # SHELL CONFIGS #
 	set -o vi
 	# allows you to cd into directory merely by typing the directory name.
 	shopt -s autocd 
 
-
 # VARS #
 	export PS1="\[$(tput setaf 2)\][\[$(tput setaf 1)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 6)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 2)\]]\[$(tput setaf 2)\]\\$ \[$(tput sgr0)\]"
-
 
 # MY FUNCS #
 	# edit and source ~/.bashrc
@@ -37,10 +33,8 @@
 	}
 	bind '"\ef":"lfcd\C-m"'
 
-
 # EXTRA AUTO COMPLETION #
 	source /usr/share/bash-completion/completions/git
 
-
 # ALIAS #
-	[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+	[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"

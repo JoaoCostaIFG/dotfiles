@@ -14,6 +14,7 @@ export VISUAL="nvim"
 # Clean-up
 export LESSHISTFILE="-"
 export INPUTRC="$HOME/.config/.inputrc"
+export XAUTHORITY="$HOME/.config/.Xauthority"
 export MAXIMA_USERDIR="$HOME/.config/maxima"
 export HISTCONTROL=ignoreboth:erasedups  #ignore spaces and erase duplicates from bash history
 export HISTSIZE=-1  #infinite list size

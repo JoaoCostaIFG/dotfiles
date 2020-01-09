@@ -1,7 +1,7 @@
 # KEYBOARD LAYOUT AND CUSTOM KEYS #
-xrdb "$HOME/.Xresources"
+xrdb "$HOME/.config/.Xresources"
 setxkbmap -layout pt
-xmodmap "$HOME/.Xmodmap"
+xmodmap "$HOME/.config/.Xmodmap"
 
 # DWM INFO #
 #dwm_statusmonitor &
@@ -11,7 +11,7 @@ slslstatus &
 xsidle slock &
 
 # COMPOSITE MANAGER #
-picom -CGb
+picom --experimental-backends -b
 
 # SET WALLPAPER #
 nitrogen --restore &
