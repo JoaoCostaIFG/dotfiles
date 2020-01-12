@@ -4,8 +4,7 @@
 # If a file is provide, all the other files inside it's folder are also opened with sxiv
 # Requiers gnu core utils dirname, grep (extend-regex support) and sxiv
 
-[ -f "$1" ] && working_folder="$(dirname $1)" || working_folder="$1"
+[ -f "$1" ] && working_folder="$(dirname "$1")" || working_folder="$1"
 
-
-[ "$(find $working_folder -maxdepth 1 -type f | grep -E '\.jpe?g|\.png')" ] && sxiv "$working_folder" 2> /dev/null
+[ "$(find "$working_folder" -maxdepth 1 -type f | grep -E '\.jpe?g|\.png')" ] && sxiv "$working_folder" 2> /dev/null
 
