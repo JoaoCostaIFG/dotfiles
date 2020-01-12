@@ -17,4 +17,3 @@ tags=$(exiv2 -q pr -pi "$1" | awk '$1~"Keywords" { printf("%s,", $4); }')
 tags=${tags%,}
 
 echo "${filesize}${s}${geometry}${tags:+$s}${tags}${s}${filename}"
-
