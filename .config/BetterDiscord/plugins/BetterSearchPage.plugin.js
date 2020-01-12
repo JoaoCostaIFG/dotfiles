@@ -3,7 +3,7 @@
 class BetterSearchPage {
 	getName () {return "BetterSearchPage";}
 
-	getVersion () {return "1.0.8";}
+	getVersion () {return "1.1.0";}
 
 	getAuthor () {return "DevilBro";}
 
@@ -11,12 +11,14 @@ class BetterSearchPage {
 
 	constructor () {
 		this.changelog = {
-			"fixed":[["Light Theme Update","Fixed bugs for the Light Theme Update, which broke 99% of my plugins"]]
+			"fixed":[["Jump to","Pressing the Jump to button now properly works again"]],
+			"improved":[["New Library Structure & React","Restructured my Library and switched to React rendering instead of DOM manipulation"]]
 		};
 
-		this.patchModules = {
-			"SearchResults":["componentDidMount","componentDidUpdate"],
-			"StandardSidebarView":"componentWillUnmount"
+		this.patchedModules = {
+			after: {
+				SearchResults: "render"
+			}
 		};
 	}
 
@@ -69,14 +71,14 @@ class BetterSearchPage {
 
 	getSettingsPanel () {
 		if (!global.BDFDB || typeof BDFDB != "object" || !BDFDB.loaded || !this.started) return;
-		var settings = BDFDB.getAllData(this, "settings");
-		var settingshtml = `<div class="${this.name}-settings BDFDB-settings"><div class="${BDFDB.disCNS.titledefault + BDFDB.disCNS.title + BDFDB.disCNS.size18 + BDFDB.disCNS.height24 + BDFDB.disCNS.weightnormal + BDFDB.disCN.marginbottom8}">${this.name}</div><div class="BDFDB-settings-inner">`;
+		let settings = BDFDB.DataUtils.get(this, "settings");
+		var settingshtml = `<div class="${this.name}-settings BDFDB-settings"><div class="${BDFDB.disCNS.titledefault + BDFDB.disCNS.titlesize18 + BDFDB.disCNS.height24 + BDFDB.disCNS.weightnormal + BDFDB.disCN.marginbottom8}">${this.name}</div><div class="BDFDB-settings-inner">`;
 		for (let key in settings) {
-			settingshtml += `<div class="${BDFDB.disCNS.flex + BDFDB.disCNS.flex2 + BDFDB.disCNS.horizontal + BDFDB.disCNS.horizontal2 + BDFDB.disCNS.directionrow + BDFDB.disCNS.justifystart + BDFDB.disCNS.aligncenter + BDFDB.disCNS.nowrap + BDFDB.disCN.marginbottom8}" style="flex: 1 1 auto;"><h3 class="${BDFDB.disCNS.titledefault + BDFDB.disCNS.title + BDFDB.disCNS.marginreset + BDFDB.disCNS.weightmedium + BDFDB.disCNS.size16 + BDFDB.disCNS.height24 + BDFDB.disCN.flexchild}" style="flex: 1 1 auto;">${this.defaults.settings[key].description}</h3><div class="${BDFDB.disCNS.flexchild + BDFDB.disCNS.switchenabled + BDFDB.disCNS.switch + BDFDB.disCNS.switchvalue + BDFDB.disCNS.switchsizedefault + BDFDB.disCNS.switchsize + BDFDB.disCN.switchthemedefault}" style="flex: 0 0 auto;"><input type="checkbox" value="settings ${key}" class="${BDFDB.disCNS.switchinnerenabled + BDFDB.disCN.switchinner} settings-switch"${settings[key] ? " checked" : ""}></div></div>`;
+			settingshtml += `<div class="${BDFDB.disCNS.flex + BDFDB.disCNS.horizontal + BDFDB.disCNS.justifystart + BDFDB.disCNS.aligncenter + BDFDB.disCNS.nowrap + BDFDB.disCN.marginbottom8}" style="flex: 1 1 auto;"><h3 class="${BDFDB.disCNS.titledefault + BDFDB.disCNS.marginreset + BDFDB.disCNS.weightmedium + BDFDB.disCNS.titlesize16 + BDFDB.disCNS.height24 + BDFDB.disCN.flexchild}" style="flex: 1 1 auto;">${this.defaults.settings[key].description}</h3><div class="${BDFDB.disCNS.flexchild + BDFDB.disCNS.switchenabled + BDFDB.disCNS.switch + BDFDB.disCNS.switchvalue + BDFDB.disCNS.switchsizedefault + BDFDB.disCNS.switchsize + BDFDB.disCN.switchthemedefault}" style="flex: 0 0 auto;"><input type="checkbox" value="settings ${key}" class="${BDFDB.disCNS.switchinnerenabled + BDFDB.disCN.switchinner} settings-switch"${settings[key] ? " checked" : ""}></div></div>`;
 		}
 		settingshtml += `</div></div>`;
 
-		let settingspanel = BDFDB.htmlToElement(settingshtml);
+		let settingspanel = BDFDB.DOMUtils.create(settingshtml);
 
 		BDFDB.initElements(settingspanel, this);
 		return settingspanel;
@@ -94,138 +96,114 @@ class BetterSearchPage {
 			libraryScript = document.createElement("script");
 			libraryScript.setAttribute("id", "BDFDBLibraryScript");
 			libraryScript.setAttribute("type", "text/javascript");
-			libraryScript.setAttribute("src", "https://mwittrien.github.io/BetterDiscordAddons/Plugins/BDFDB.js");
+			libraryScript.setAttribute("src", "https://mwittrien.github.io/BetterDiscordAddons/Plugins/BDFDB.min.js");
 			libraryScript.setAttribute("date", performance.now());
 			libraryScript.addEventListener("load", () => {this.initialize();});
 			document.head.appendChild(libraryScript);
-			this.libLoadTimeout = setTimeout(() => {
-				libraryScript.remove();
-				BDFDB.LibraryRequires.request("https://mwittrien.github.io/BetterDiscordAddons/Plugins/BDFDB.js", (error, response, body) => {
-					if (body) {
-						libraryScript = document.createElement("script");
-						libraryScript.setAttribute("id", "BDFDBLibraryScript");
-						libraryScript.setAttribute("type", "text/javascript");
-						libraryScript.setAttribute("date", performance.now());
-						libraryScript.innerText = body;
-						document.head.appendChild(libraryScript);
-					}
-					this.initialize();
-				});
-			}, 15000);
 		}
 		else if (global.BDFDB && typeof BDFDB === "object" && BDFDB.loaded) this.initialize();
-		this.startTimeout = setTimeout(() => {this.initialize();}, 30000);
+		this.startTimeout = setTimeout(() => {
+			try {return this.initialize();}
+			catch (err) {console.error(`%c[${this.getName()}]%c`, "color: #3a71c1; font-weight: 700;", "", "Fatal Error: Could not initiate plugin! " + err);}
+		}, 30000);
 	}
 
 	initialize () {
 		if (global.BDFDB && typeof BDFDB === "object" && BDFDB.loaded) {
 			if (this.started) return;
-			BDFDB.loadMessage(this);
-
-			BDFDB.WebModules.forceAllUpdates(this);
+			BDFDB.PluginUtils.init(this);
+			
+			BDFDB.ModuleUtils.forceAllUpdates(this);
 		}
-		else {
-			console.error(`%c[${this.getName()}]%c`, 'color: #3a71c1; font-weight: 700;', '', 'Fatal Error: Could not load BD functions!');
-		}
+		else console.error(`%c[${this.getName()}]%c`, "color: #3a71c1; font-weight: 700;", "", "Fatal Error: Could not load BD functions!");
 	}
 
 	stop () {
 		if (global.BDFDB && typeof BDFDB === "object" && BDFDB.loaded) {
-			BDFDB.removeEles(".BSP-pagination",".BSP-pagination-button",".BSP-pagination-jumpinput");
-			BDFDB.unloadMessage(this);
+			this.stopping = true;
+			
+			BDFDB.ModuleUtils.forceAllUpdates(this);
+
+			BDFDB.PluginUtils.clear(this);
 		}
 	}
 
 
 	// begin of own functions
 
-	processSearchResults (instance, wrapper, returnvalue) {
-		if (instance.props && instance.props.searchId) this.addNewControls(wrapper.querySelector(BDFDB.dotCN.searchresultspagination), instance.props.searchId);
-	}
-
-	processStandardSidebarView (instance, wrapper, returnvalue) {
+	onSettingsClosed (e) {
 		if (this.SettingsUpdated) {
 			delete this.SettingsUpdated;
-			BDFDB.removeEles(".BSP-pagination",".BSP-pagination-button",".BSP-pagination-jumpinput");
-			BDFDB.WebModules.forceAllUpdates(this);
+			BDFDB.ModuleUtils.forceAllUpdates(this);
 		}
 	}
 
-	addNewControls (pagination, searchId) {
-		if (!pagination || !searchId || document.querySelector(".BSP-pagination, .BSP-pagination-button, .BSP-pagination-jumpinput")) return;
-		let searchResultsWrapper = BDFDB.getParentEle(BDFDB.dotCN.searchresultswrapper, pagination);
-		if (!searchResultsWrapper) return;
-		let numbers = pagination.textContent.replace(/[\s\.\,]/g,"").split(/[^\d]/).filter(n => n);
-		let currentpage = parseInt(numbers[0]);
-		let maxpage = parseInt(numbers[1]);
-		if (isNaN(currentpage) || isNaN(maxpage)) return;
-		let temppage = currentpage;
-		currentpage = currentpage < maxpage ? currentpage : maxpage;
-		maxpage = temppage < maxpage ? maxpage : temppage;
-		if (maxpage > 201) {
-			if (currentpage == 201) BDFDB.showToast("Discord doesn't allow you to go further than page 201.",{type:"error"});
-			maxpage = 201;
-		}
-		if (currentpage == maxpage && maxpage == 201) BDFDB.addClass(pagination.querySelector(BDFDB.dotCN.searchresultspaginationnext), BDFDB.disCN.searchresultspaginationdisabled);
-		let settings = BDFDB.getAllData(this, "settings");
-		for (let btn of pagination.querySelectorAll(BDFDB.dotCNC.searchresultspaginationprevious + BDFDB.dotCN.searchresultspaginationnext)) BDFDB.addClass(btn, "pagination-button");
-		if (settings.addFirstLast) {
-			pagination.insertBefore(BDFDB.htmlToElement(`<div aria-label="First" class="${currentpage == 1 ? BDFDB.disCNS.searchresultspaginationdisabled : ""}pagination-button BSP-pagination-button BSP-pagination-first"></div>`), pagination.firstElementChild);
-			pagination.appendChild(BDFDB.htmlToElement(`<div aria-label="Last" class="${currentpage == maxpage ? BDFDB.disCNS.searchresultspaginationdisabled : ""}pagination-button BSP-pagination-button BSP-pagination-last"></div>`));
-		}
-		if (settings.addJumpTo) {
-			pagination.appendChild(BDFDB.htmlToElement(`<div class="inputNumberWrapper inputNumberWrapperMini BSP-pagination-jumpinput ${BDFDB.disCN.inputwrapper}"><span class="numberinput-buttons-zone"><span class="numberinput-button-up"></span><span class="numberinput-button-down"></span></span><input type="number" min="1" max="${maxpage}" placeholder="${currentpage}" value="${currentpage}" class="${BDFDB.disCNS.inputmini + BDFDB.disCNS.input + BDFDB.disCN.size16}"></div>`));
-			pagination.appendChild(BDFDB.htmlToElement(`<div aria-label="Go To" class="pagination-button BSP-pagination-button BSP-pagination-jump"></div>`));
-		}
-		BDFDB.initElements(pagination, this);
-		if (settings.cloneToTheTop) {
-			let BSPpaginaton = pagination.cloneNode(true);
-			BDFDB.addClass(BSPpaginaton, "BSP-pagination");
-			searchResultsWrapper.insertBefore(BSPpaginaton, searchResultsWrapper.firstElementChild);
-			BDFDB.initElements(BSPpaginaton, this);
-		}
-		var doJump = (input) => {
-			let value = input.value;
-			if (value < 1 || value > maxpage) {
-				input.value = currentpage;
-				if (maxpage == 201 && value > maxpage) BDFDB.showToast("Discord doesn't allow you to go further than page 201.",{type:"error"});
+	processSearchResults (e) {
+		if (e.instance.props.search) {
+			let [children, index] = BDFDB.ReactUtils.findChildren(e.returnvalue, {name:"Pagination"});
+			if (index > -1) {
+				let settings = BDFDB.DataUtils.get(this, "settings");
+				let currentpage = parseInt(Math.floor(e.instance.props.search.offset / BDFDB.DiscordConstants.SEARCH_PAGE_SIZE)) + 1;
+				let maxpage = e.instance.props.search.totalResults > 5000 ? parseInt(Math.ceil(5000 / BDFDB.DiscordConstants.SEARCH_PAGE_SIZE)) : parseInt(Math.ceil(e.instance.props.search.totalResults / BDFDB.DiscordConstants.SEARCH_PAGE_SIZE));
+				let doJump = page => {
+					page = page < 1 ? 1 : (page > maxpage ? maxpage : page);
+					if (page < currentpage) BDFDB.LibraryModules.SearchPageUtils.searchPreviousPage(e.instance.props.searchId, (currentpage - page) * BDFDB.DiscordConstants.SEARCH_PAGE_SIZE);
+					else if (page > currentpage) BDFDB.LibraryModules.SearchPageUtils.searchNextPage(e.instance.props.searchId, (page - currentpage) * BDFDB.DiscordConstants.SEARCH_PAGE_SIZE);
+				};
+				let pagination = BDFDB.ReactUtils.createElement("div", {
+					className: BDFDB.disCN.searchresultspagination, 
+					children: [
+						settings.addFirstLast ? BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, {
+							className: ["BSP-pagination-button", "BSP-pagination-first", currentpage == 1 ? BDFDB.disCN.searchresultspaginationdisabled : null].filter(n => n).join(" "),
+							text: "First",
+							"aria-label": "First",
+							onClick: () => {if (currentpage != 1) doJump(1);}
+						}) : null,
+						BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, {
+							className: [BDFDB.disCN.searchresultspaginationprevious, currentpage == 1 ? BDFDB.disCN.searchresultspaginationdisabled : null].filter(n => n).join(" "),
+							text: BDFDB.LanguageUtils.LanguageStrings.PAGINATION_PREVIOUS,
+							"aria-label": BDFDB.LanguageUtils.LanguageStrings.PAGINATION_PREVIOUS,
+							onClick: () => {if (currentpage != 1) doJump(currentpage - 1);}
+						}),
+						BDFDB.LanguageUtils.LanguageStringsFormat("PAGINATOR_OF_PAGES", currentpage, maxpage),
+						BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, {
+							className: [BDFDB.disCN.searchresultspaginationnext, currentpage == maxpage ? BDFDB.disCN.searchresultspaginationdisabled : null].filter(n => n).join(" "),
+							text: BDFDB.LanguageUtils.LanguageStrings.PAGINATION_NEXT,
+							"aria-label": BDFDB.LanguageUtils.LanguageStrings.PAGINATION_NEXT,
+							onClick: () => {if (currentpage != maxpage) doJump(currentpage + 1);}
+						}),
+						settings.addFirstLast ? BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, {
+							className: ["BSP-pagination-button", "BSP-pagination-last", currentpage == maxpage ? BDFDB.disCN.searchresultspaginationdisabled : null].filter(n => n).join(" "),
+							text: "Last",
+							"aria-label": "Last",
+							onClick: () => {if (currentpage != maxpage) doJump(maxpage);}
+						}) : null,
+						settings.addJumpTo ? BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TextInput, {
+							id: "BSP-pagination-jumpinput",
+							type: "number",
+							size: BDFDB.LibraryComponents.TextInput.Sizes.MINI,
+							suppress: true,
+							value: currentpage,
+							min: 1,
+							max: maxpage,
+							onKeyDown: (e, inputinstance) => {
+								if (e.which == 13) doJump(inputinstance.props.value);
+							}
+						}) : null,
+						settings.addJumpTo ? BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, {
+							className: "BSP-pagination-button BSP-pagination-jump",
+							text: BDFDB.LanguageUtils.LanguageStrings.JUMP,
+							"aria-label": BDFDB.LanguageUtils.LanguageStrings.JUMP,
+							onClick: (e, buttoninstance) => {
+								let jumpinput = BDFDB.ReactUtils.findOwner(buttoninstance._reactInternalFiber.return, {props:[["id","BSP-pagination-jumpinput"]]});
+								if (jumpinput) doJump(jumpinput.props.value);
+							}
+						}) : null
+					]
+				});
+				children.splice(index, 1, pagination);
+				if (settings.cloneToTheTop) children.unshift(pagination);
 			}
-			else if (value < currentpage) {
-				for (; currentpage - value > 0; value++) {
-					BDFDB.LibraryModules.SearchPageUtils.searchPreviousPage(searchId);
-				}
-			}
-			else if (value > currentpage) {
-				for (; value - currentpage > 0; value--) {
-					BDFDB.LibraryModules.SearchPageUtils.searchNextPage(searchId);
-				}
-			}
-		};
-		BDFDB.addEventListener(this, searchResultsWrapper, "click", BDFDB.dotCN.searchresultspaginationdisabled, e => {
-			BDFDB.stopEvent(e);
-		});
-		BDFDB.addEventListener(this, searchResultsWrapper, "click", `.BSP-pagination ${BDFDB.dotCN.searchresultspaginationprevious + BDFDB.notCN.searchresultspaginationdisabled}`, () => {
-			BDFDB.LibraryModules.SearchPageUtils.searchPreviousPage(searchId);
-		});
-		BDFDB.addEventListener(this, searchResultsWrapper, "click", `.BSP-pagination ${BDFDB.dotCN.searchresultspaginationnext + BDFDB.notCN.searchresultspaginationdisabled}`, () => {
-			BDFDB.LibraryModules.SearchPageUtils.searchNextPage(searchId);
-		});
-		BDFDB.addEventListener(this, searchResultsWrapper, "click", `.BSP-pagination-first${BDFDB.notCN.searchresultspaginationdisabled}`, () => {
-			for (let i = 0; currentpage - 1 - i > 0; i++) BDFDB.LibraryModules.SearchPageUtils.searchPreviousPage(searchId);
-		});
-		BDFDB.addEventListener(this, searchResultsWrapper, "click", `.BSP-pagination-last${BDFDB.notCN.searchresultspaginationdisabled}`, () => {
-			for (let i = 0; maxpage - currentpage - i > 0; i++) BDFDB.LibraryModules.SearchPageUtils.searchNextPage(searchId);
-		});
-		BDFDB.addEventListener(this, searchResultsWrapper, "click", `.BSP-pagination-jump${BDFDB.notCN.searchresultspaginationdisabled}`, e => {
-			doJump(e.currentTarget.parentElement.querySelector(`.BSP-pagination-jumpinput ${BDFDB.dotCN.inputmini}`));
-		});
-		BDFDB.addEventListener(this, searchResultsWrapper, "keydown", `.BSP-pagination-jumpinput ${BDFDB.dotCN.inputmini}`, e => {
-			let label = e.currentTarget.getAttribute("aria-label");
-			if (label) BDFDB.createTooltip(label, e.currentTarget, {type:"top"});
-		});
-		BDFDB.addEventListener(this, searchResultsWrapper, "mouseenter", `.pagination-button${BDFDB.notCN.searchresultspaginationdisabled}`, e => {
-			let label = e.currentTarget.getAttribute("aria-label");
-			if (label) BDFDB.createTooltip(label, e.currentTarget, {type:"top"});
-		});
+		}
 	}
 }

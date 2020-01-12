@@ -31,9 +31,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'honza/vim-snippets'
+Plug 'Chiel92/vim-autoformat',
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-Plug 'Chiel92/vim-autoformat'
-
 " Plug 'jackguo380/vim-lsp-cxx-highlight'
 call plug#end()
 
