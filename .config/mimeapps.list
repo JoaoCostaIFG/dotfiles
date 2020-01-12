@@ -52,3 +52,5 @@ video/vnd.rn-realvideo=mpv.desktop;
 video/vnd.vivo=mpv.desktop;
 video/wavelet=mpv.desktop;
 video/webm=mpv.desktop;
+
+text/plain=nvim.desktop;
