@@ -23,7 +23,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#uninstall() } }
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
@@ -34,6 +33,7 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'Chiel92/vim-autoformat'
+
 " Plug 'jackguo380/vim-lsp-cxx-highlight'
 call plug#end()
 
@@ -173,6 +173,7 @@ let g:AutoPairsMapCh = 0
 
 " SPELL-CHECK
 map <leader>o :setlocal spell! spelllang=en_us<CR>
+map <leader>O :setlocal spell! spelllang=pt_pt<CR>
 
 " NERD COMMENTER
 let g:NERDSpaceDelims = 1
