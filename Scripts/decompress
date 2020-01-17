@@ -22,6 +22,7 @@ fi
 
 if [ -f "$archive" ] ; then
 	case "$archive" in
+    *.tar) tar -xvf "$archive";;
 		*.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf "$archive";;
 		*.tar.gz|*.tgz) tar xzvf "$archive";;
 		*.tar.xz|*.txz) tar xJvf "$archive";;

@@ -89,12 +89,14 @@ cmd decompress ${{
 	set -f
 	mkdir -p "$1" && cd "$1"
 	case "$f" in
+    *.tar) tar -xvf "$archive";;
 		*.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf "$f";;
 		*.tar.gz|*.tgz) tar xzvf "$f";;
 		*.tar.xz|*.txz) tar xJvf "$f";;
 		*.zip) unzip "$f";;
 		*.rar) unrar x "$f";;
 		*.7z) 7z x "$f";;
+		*) printf "extract: '%s' - unknown archive method\\n" "$archive" ;;
 	esac
 }}
 

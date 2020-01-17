@@ -543,50 +543,43 @@
 #
 #
 #def_key "f"
-#	find
+# find
 #def_key "f"
-#	find_item_forward
+# find_item_forward
 
 def_key "+"
-    show_clock
-def_key "="
-    volume_up
+  show_clock
+def_key "."
+  show_lyrics
 
 def_key "j"
-    scroll_down
+  scroll_down
 def_key "k"
-    scroll_up
-
+  scroll_up
 def_key "ctrl-u"
-    page_up
-#push_characters "kkkkkkkkkkkkkkk"
+  page_up
 def_key "ctrl-d"
-    page_down
-#push_characters "jjjjjjjjjjjjjjj"
+  page_down
 def_key "u"
-    page_up
-#push_characters "kkkkkkkkkkkkkkk"
+  page_up
 def_key "d"
-    page_down
-#push_characters "jjjjjjjjjjjjjjj"
-def_key "h"
-    previous_column
-def_key "l"
-    next_column
+  page_down
 
-def_key "."
-    show_lyrics
+def_key "h"
+  previous_column
+def_key "l"
+  next_column
 
 def_key "n"
-    next_found_item
+  next_found_item
 def_key "N"
-    previous_found_item
+  previous_found_item
 
 # not used but bound
 def_key "J"
-    move_sort_order_down
+  move_sort_order_down
 def_key "K"
-    move_sort_order_up
+  move_sort_order_up
 def_key "h"
   jump_to_parent_directory
 def_key "l"
@@ -607,7 +600,6 @@ def_key "G"
   move_end
 def_key "g"
   move_home
-#jump_to_position_in_song
 def_key "U"
   update_database
 def_key "s"

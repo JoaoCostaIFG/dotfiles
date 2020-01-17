@@ -20,6 +20,11 @@
 		source $HOME/.bashrc
 	}
 
+	aliasrc () {
+		nvim $HOME/.config/aliasrc
+		source $HOME/.bashrc
+	}
+
 	# opens lf and cd's to the current folder on exit
 	lfcd () {
 		tmp="$(mktemp)"
@@ -37,4 +42,4 @@
 	source /usr/share/bash-completion/completions/git
 
 # ALIAS #
-	[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+  [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
