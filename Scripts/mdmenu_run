@@ -1,0 +1,39 @@
+#!/bin/sh
+
+term="st -e" # end a command with ; to run in term
+search_dir="$HOME"
+max_dep=5
+
+# list commands ordered by usage date data
+cmds_l="$(printf "%s" "$PATH" | tr ':' '\n' | uniq | sed 's#$#/#' | # List directories in $PATH
+  xargs ls -luU --time-style=+%s |  # Add atime epoch
+  awk '/^(-|l)/ { print $6, $7 }' | # Only print timestamp and name
+  sort -rn | cut -d' ' -f 2)"       # sort items by epoch and keep the entry only
+
+# list of directories (and cut the search_dir from it)
+dirs_l="$(find "$search_dir" -maxdepth $max_dep -type d | sed 's|^/home/joao||')"
+
+# store selection using dmenu
+selection="$(printf "%s\n%s\n---files---" "$cmds_l" "$dirs_l" | dmenu "$@")"
+
+if [ "$selection" ]; then
+  case "$selection" in
+    "---files---")
+      # trigger file searching
+      selection="$(find "$search_dir" -type f | sed 's|^/home/joao||' | dmenu "$@")"
+      $term "$FILE" "$search_dir/$selection"
+      ;;
+    /*)
+      # cd to directory or file location
+      $term "$FILE" "$search_dir/$selection"
+      ;;
+    *\;)
+      # exec command in a terminal
+      exec $(echo "$term" "$selection" | sed -e 's/;$//')
+      ;;
+    *)
+      # exec command
+      exec "$selection"
+      ;;
+  esac
+fi
