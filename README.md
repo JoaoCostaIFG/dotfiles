@@ -43,6 +43,11 @@ the clipboard) and as a color picker (save RGB color code in clipboard and show
 a notification for it too).
 Depends on [maim](https://github.com/naelstrof/maim).  
 
+- **mdmenu_run** - This dmenu wrapper is a replacement for the default
+dmenu_run: sorts entries by date (solves conflicts by sorting by name); has
+option to list and browse files (cd to them using file manager); also lists
+directories up to a certain depth and cd's to them if selected.  
+
 - **mepapemaker** - script to add a transparent and blured Arch Linux logo
 to the center of an image. Source is listed in the script's code.  
 
