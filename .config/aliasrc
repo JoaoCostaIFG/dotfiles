@@ -47,7 +47,7 @@ alias   openports="ss --all --numeric --processes --ipv4 --ipv6"
 alias   pp="ps -Af | grep"  # requires an argument
 alias   yt="youtube-dl --add-metadata -ic"
 alias   yta="yt -x -f bestaudio/best"
-alias   clndep="sudo pacman -R $(pacman -Qdtq)"
+alias   clndep='sudo pacman -R $(pacman -Qdtq)'
 alias   clnrep="printf 'Cleaning uninstalled packages\n'; sudo paccache -ruk0; printf 'Leaving last version of installed packages\n'; sudo paccache -rk1"
 
 # abbreviations #
@@ -58,11 +58,11 @@ alias   v="$EDITOR"
 alias   p="sudo pacman"
 
 # programs #
-alias   yay="yay --aur"    # prevent partial upgrades
+alias   yay="yay --aur" # prevent partial upgrades
 alias   raposoflamejante="firefox &"
 alias   passarinhorelampjante="thunderbird &"
 alias   calcurse="calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse"
 alias   maxima="mmaxima"
-alias   git="rlwrap -D 2 git"
+alias   git="rlwrap -s 0 -D 2 git"
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" nano="nvim"  # use neovim for vim and nano if present.
 alias   pizhid="ssh -l piz_hid 192.168.7.2"

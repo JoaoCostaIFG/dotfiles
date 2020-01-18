@@ -1,17 +1,22 @@
-# Add ~/Scripts to the PATH #
-export PATH="$PATH:$(du "$HOME/Scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+# important files and directories
+export SCRIPTS="$HOME/Scripts/"
+export ALIASF="$HOME/.config/aliasrc"
+export BASHRC="$HOME/.bashrc"
 
-# Default programs
+# add scripts directory recursively to the PATH #
+export PATH="$PATH:$(du "$SCRIPTS" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+
+# default programs
 export BROWSER="firefox"
 export EDITOR="nvim"
-export FILE="vifm"
+export FILE="lfcd_sh"
 export OPENER="xdg-open"
 export PAGER="less"
 export READER="zathura"
 export TERMINAL="st"
 export VISUAL="nvim"
 
-# Clean-up
+# clean-up
 export LESSHISTFILE="-"
 export INPUTRC="$HOME/.config/.inputrc"
 export XAUTHORITY="$HOME/.config/.Xauthority"
@@ -20,7 +25,7 @@ export HISTCONTROL=ignoreboth:erasedups  #ignore spaces and erase duplicates fro
 export HISTSIZE=-1  #infinite list size
 export HISTFILESIZE=-1  #infinite file size
 
-# Other program settings
+# other program settings
 export LC_COLLATE="C"
 export SUDO_ASKPASS="/usr/bin/dpass"
 export GPG_TTY=$(tty)

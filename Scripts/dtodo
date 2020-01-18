@@ -13,137 +13,132 @@ notes_file="TODO.txt"
 
 
 switch_file () {
-	#Open another file for editing (if the selected name doesn't exist, a file is created)
+  #Open another file for editing (if the selected name doesn't exist, a file is created)
 
-	notes_file_temp=$(find "$notes_path" -maxdepth 1 -type f -printf "%f\n" |
-                dmenu -i -l 5 -p "File to read:")
+  notes_file_temp=$(find "$notes_path" -maxdepth 1 -type f -printf "%f\n" |
+    dmenu -i -l 5 -p "File to read:")
 
-	if [ "$notes_file_temp" ]; then
-                existance=$(find "$notes_path" -maxdepth 1 -type f -printf "%f\n" |
-                        awk -v cmp_var="$notes_file_temp" '$0 == cmp_var')
+  if [ "$notes_file_temp" ]; then
+    existance=$(find "$notes_path" -maxdepth 1 -type f -printf "%f\n" |
+      awk -v cmp_var="$notes_file_temp" '$0 == cmp_var')
 
-                if ! [ "$existance" ]; then
-			#Notification sounded like a good idea but they are hidden by dmenu on the top of the screen
-                        touch "$notes_path/$notes_file_temp"
-			#notify-send -u low "$notes_file created."
-                fi
+    if ! [ "$existance" ]; then
+      #Notification sounded like a good idea but they are hidden by dmenu on the top of the screen
+      touch "$notes_path/$notes_file_temp"
+      #notify-send -u low "$notes_file created."
+    fi
 
-                notes_file="$notes_file_temp"
-
-	fi
+    notes_file="$notes_file_temp"
+  fi
 }
 
 
 clean_file () {
-	#Sort and remove blank and duplicate lines from current file
+  #Sort and remove blank and duplicate lines from current file
 
-	tempfile=$(mktemp /tmp/dtodo-script.XXXXXX)
-        grep -ve '^[[:space:]]*$' "$notes_path/$notes_file" > "$tempfile"
-        cp "$tempfile" "$notes_path/$notes_file"
+  tempfile=$(mktemp /tmp/dtodo-script.XXXXXX)
+  grep -ve '^[[:space:]]*$' "$notes_path/$notes_file" > "$tempfile"
+  cp "$tempfile" "$notes_path/$notes_file"
 
-        sort -u "$notes_path/$notes_file" > "$tempfile"
-        mv "$tempfile" "$notes_path/$notes_file"
-        #notify-send -u low "$notes_file cleaned."
+  sort -u "$notes_path/$notes_file" > "$tempfile"
+  mv "$tempfile" "$notes_path/$notes_file"
+  #notify-send -u low "$notes_file cleaned."
 }
 
 
 del_file () {
-	#Delete the current file and wait for user to choose another to open or quit
-        #If no file is selected, we go back to the default
+  #Delete the current file and wait for user to choose another to open or quit
+  #If no file is selected, we go back to the default
 
-	if [ "$(printf "No\nYes" | dmenu -i -p "Really delete $notes_file?")" = "Yes" ]; then
-                rm "$notes_path/$notes_file"
-                #notify-send -u low "$notes_file deleted."
-                notes_file=TODO.txt
-                switch_file
-
-	fi
+  if [ "$(printf "No\nYes" | dmenu -i -p "Really delete $notes_file?")" = "Yes" ]; then
+    rm "$notes_path/$notes_file"
+    #notify-send -u low "$notes_file deleted."
+    notes_file=TODO.txt
+    switch_file
+  fi
 }
 
 
 exis_str () {
-	#Show new dmenu prompt with selected string
-	# Editing it will change it to new edit in the original file
-	# "Delete" option will remove the string from the original file (and it's duplicates)
-	# "Copy" option is the default option (when nothing is inserted) and will copy the string to the clipboard
-	# "Cut" option will copy the removed string to the clipboard (while also removing it from the file)
+  #Show new dmenu prompt with selected string
+  # Editing it will change it to new edit in the original file
+  # "Delete" option will remove the string from the original file (and it's duplicates)
+  # "Copy" option is the default option (when nothing is inserted) and will copy the string to the clipboard
+  # "Cut" option will copy the removed string to the clipboard (while also removing it from the file)
 
-	ed_str=$(printf "%s\n---Copy---\n---Cut---\n---Delete---\n" "$op" | dmenu -i -l 5 -p "Edit line:") || return
+  ed_str=$(printf "%s\n---Copy---\n---Cut---\n---Delete---\n" "$op" | dmenu -i -l 5 -p "Edit line:") || return
 
-	if [ "$ed_str" = "---Copy---" ]; then
-		printf "%s" "$op" | xclip -selection clipboard
+  if [ "$ed_str" = "---Copy---" ]; then
+    printf "%s" "$op" | xclip -selection clipboard
 
-	elif [ "$ed_str" = "---Cut---" ]; then
-		printf "%s" "$op" | xclip -selection clipboard
+  elif [ "$ed_str" = "---Cut---" ]; then
+    printf "%s" "$op" | xclip -selection clipboard
 
-		tempfile=$(mktemp /tmp/dtodo-script.XXXXXX)
-		grep -Fvx "$op" "$notes_path/$notes_file" > "$tempfile"
-		mv "$tempfile" "$notes_path/$notes_file"
+    tempfile=$(mktemp /tmp/dtodo-script.XXXXXX)
+    grep -Fvx "$op" "$notes_path/$notes_file" > "$tempfile"
+    mv "$tempfile" "$notes_path/$notes_file"
 
-	elif [ "$ed_str" = "---Delete---" ]; then
-		tempfile=$(mktemp /tmp/dtodo-script.XXXXXX)
-		grep -Fvx "$op" "$notes_path/$notes_file" > "$tempfile"
-		mv "$tempfile" "$notes_path/$notes_file"
+  elif [ "$ed_str" = "---Delete---" ]; then
+    tempfile=$(mktemp /tmp/dtodo-script.XXXXXX)
+    grep -Fvx "$op" "$notes_path/$notes_file" > "$tempfile"
+    mv "$tempfile" "$notes_path/$notes_file"
 
-	elif [ "$ed_str" ]; then
-		tempfile=$(mktemp /tmp/dtodo-script.XXXXXX)
-                awk -v cmp_var="$op" -v out_var="$ed_str" '$0 == cmp_var {$0 = out_var} {print $0}' "$notes_path/$notes_file" >"$tempfile"
-		mv "$tempfile" "$notes_path/$notes_file"
+  elif [ "$ed_str" ]; then
+    tempfile=$(mktemp /tmp/dtodo-script.XXXXXX)
+    awk -v cmp_var="$op" -v out_var="$ed_str" '$0 == cmp_var {$0 = out_var} {print $0}' "$notes_path/$notes_file" >"$tempfile"
+    mv "$tempfile" "$notes_path/$notes_file"
 
-	else
-		printf "%s" "$op" | xclip -selection clipboard
-
-	fi
+  else
+    printf "%s" "$op" | xclip -selection clipboard
+  fi
 }
 
 
 op=1
 while [ "$op" ]; do
-	#dmenu_text=$(cat $notes_path/$notes_file
+  #dmenu_text=$(cat $notes_path/$notes_file
 
-	dmenu_text=$(grep -ve '^[[:space:]]*$' "$notes_path/$notes_file")
+  dmenu_text=$(grep -ve '^[[:space:]]*$' "$notes_path/$notes_file")
 
-	if [ "$dmenu_text" ]; then
-		op=$(printf "%s\n---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n" "$dmenu_text" |
-			dmenu -i -l 5 -p "$notes_file:") || exit
+  if [ "$dmenu_text" ]; then
+    op=$(printf "%s\n---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n" "$dmenu_text" |
+      dmenu -i -l 5 -p "$notes_file:") || exit
 
-	else
-		op=$(printf "%s---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n" "$dmenu_text" |
-			dmenu -i -l 5 -p "$notes_file:") || exit
-	fi
+  else
+    op=$(printf "%s---Paste---\n---URL Mode---\n---Switch File---\n---Clean File---\n---Delete File---\n" "$dmenu_text" |
+      dmenu -i -l 5 -p "$notes_file:") || exit
+  fi
 
-	if [ "$op" = "---Paste---" ]; then
-		xclip -o -selection clipboard >> "$notes_path/$notes_file"
-		printf "\n" >> "$notes_path/$notes_file"
+  if [ "$op" = "---Paste---" ]; then
+    xclip -o -selection clipboard >> "$notes_path/$notes_file"
+    printf "\n" >> "$notes_path/$notes_file"
 
-	elif [ "$op" = "---URL Mode---" ]; then
-		sed 's/.*│//g' "$notes_path/$notes_file" |
-			grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' |
-			uniq |
-			dmenu -i -p 'Open which URL:' -l 5 |
-			tr -d '\n' |
-			xargs -r xdg-open &
+  elif [ "$op" = "---URL Mode---" ]; then
+    sed 's/.*│//g' "$notes_path/$notes_file" |
+      grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' |
+      uniq |
+      dmenu -i -p 'Open which URL:' -l 5 |
+      tr -d '\n' |
+      xargs -r xdg-open &
 
-	elif [ "$op" = "---Switch File---" ]; then
-		switch_file
+  elif [ "$op" = "---Switch File---" ]; then
+    switch_file
 
-        elif [ "$op" = "---Clean File---" ]; then
-		clean_file
+  elif [ "$op" = "---Clean File---" ]; then
+    clean_file
 
-	elif [ "$op" = "---Delete File---" ]; then
-		del_file
+  elif [ "$op" = "---Delete File---" ]; then
+    del_file
 
-	elif grep -Fxq "$op" "$notes_path/$notes_file"; then
-		exis_str
+  elif grep -Fxq "$op" "$notes_path/$notes_file"; then
+    exis_str
 
-	elif [ "$op" ]; then
-		#Append new string to file
-		#Doing the same test as the while loop because we don't want to insert empty lines
-		printf "%s\n" "$op" >> "$notes_path/$notes_file"
-	
-	else
-		op=1
+  elif [ "$op" ]; then
+    #Append new string to file
+    #Doing the same test as the while loop because we don't want to insert empty lines
+    printf "%s\n" "$op" >> "$notes_path/$notes_file"
 
-	fi
+  else
+    op=1
+  fi
 done
-
