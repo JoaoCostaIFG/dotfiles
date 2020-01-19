@@ -8,7 +8,7 @@ $include /etc/inputrc
 # prefix yes | and press enter
 "\ey": "\C-ayes | \C-m"
 # prefix sudo
-"\es": "\C-asudo \C-e"
+"\es": "\C-asudo "
 
 # Color files by types
 set colored-stats off
