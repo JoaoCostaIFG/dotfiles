@@ -63,6 +63,7 @@ alias   raposoflamejante="firefox &"
 alias   passarinhorelampjante="thunderbird &"
 alias   calcurse="calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse"
 alias   maxima="mmaxima"
-alias   git="rlwrap -s 0 -D 2 git"
+# alias   git="rlwrap -s 0 -D 2 git"
+alias   git="rlwrap -s -0 -H /dev/null git"
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" nano="nvim"  # use neovim for vim and nano if present.
 alias   pizhid="ssh -l piz_hid 192.168.7.2"
