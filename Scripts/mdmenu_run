@@ -2,6 +2,7 @@
 
 term="st -e" # end a command with ; to run in term
 search_dir="$HOME"
+min_dep=2
 max_dep=5
 
 # list commands ordered by usage date data
@@ -11,17 +12,22 @@ cmds_l="$(printf "%s" "$PATH" | tr ':' '\n' | uniq | sed 's#$#/#' | # List direc
   sort -rn | cut -d' ' -f 2)"       # sort items by epoch and keep the entry only
 
 # list of directories (and cut the search_dir from it)
-dirs_l="$(find "$search_dir" -maxdepth $max_dep -type d | sed 's|^/home/joao||')"
+dirs_l="$(find "$search_dir" -maxdepth $min_dep -type d | sed 's|^/home/joao||')"
 
 # store selection using dmenu
-selection="$(printf "%s\n%s\n---files---" "$cmds_l" "$dirs_l" | dmenu "$@")"
+selection="$(printf "%s\n%s\n---directories----\n---files---" "$cmds_l" "$dirs_l" | dmenu "$@")"
 
 if [ "$selection" ]; then
   case "$selection" in
+    "---directories----")
+      # trigger directories searching
+      selection="$(find "$search_dir" -maxdepth $max_dep -type d | sed 's|^/home/joao||' | dmenu "$@")"
+      [ "$selection" ] && $term "$FILE" "$search_dir/$selection"
+      ;;
     "---files---")
       # trigger file searching
-      selection="$(find "$search_dir" -type f | sed 's|^/home/joao||' | dmenu "$@")"
-      $term "$FILE" "$search_dir/$selection"
+      selection="$(find "$search_dir" -maxdepth $max_dep -type f | sed 's|^/home/joao||' | dmenu "$@")"
+      [ "$selection" ] && $term "$FILE" "$search_dir/$selection"
       ;;
     /*)
       # cd to directory or file location
@@ -29,11 +35,12 @@ if [ "$selection" ]; then
       ;;
     *\;)
       # exec command in a terminal
-      exec $(echo "$term" "$selection" | sed -e 's/;$//')
+      # exec $(echo $term "$selection" | sed -e 's/;$//')
+      printf "%s %s" "$term" "$selection" | ${SHELL:-"/bin/sh"} &
       ;;
     *)
       # exec command
-      exec "$selection"
+      printf "%s" "$selection" | ${SHELL:-"/bin/sh"} &
       ;;
   esac
 fi
