@@ -29,11 +29,4 @@ color listfocus_unread black default bold
 color info white red
 color article white default
 
-browser linkhandler
-macro , open-in-browser
-macro d set browser "tsp youtube-dl --add-metadata -ic"; open-in-browser ; set browser "elinks %u"
-macro s set browser "tsp youtube-dl --add-metadata -xic -f bestaudio/best"; open-in-browser ; set browser "elinks %u"
-macro v set browser "mpv %u"; open-in-browser ; set browser "elinks %u"
-macro w set browser "w3m"; open-in-browser ; set browser "elinks %u"
-macro l set browser "xsel -b <<<" ; open-in-browser ; set browser "elinks %u"
-
+browser $BROWSER

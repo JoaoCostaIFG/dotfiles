@@ -21,6 +21,8 @@
   "suggest.disableKind": true,
   "suggest.disableMenu": true,
 
+  "session.directory": "~/.config/nvim/sessions/",
+
   "languageserver": {
     "ccls": {
       "command": "ccls",
