@@ -5,6 +5,10 @@
 # If not running interactively, don't do anything #
 	[[ $- != *i* ]] && return
 
+# set umask
+# read/write for new files && read/write/execute for new directories
+umask 077
+
 # SHELL CONFIGS #
 	set -o vi
 	# allows you to cd into directory merely by typing the directory name.
