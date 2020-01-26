@@ -70,8 +70,9 @@ start_func() {
 	printf "\e[32m%s\e[0m\n" "	 o"
 	printf "\e[32m%s\e[0m\n\n" "	    o o o"
 	printf "\e[34m%s\e[0m\n" "Movement - W A S D"
-	printf "\e[34m%s\e[0m\n" "Close Game - X"
 	printf "\e[34m%s\e[0m\n" "New Game - N"
+	printf "\e[34m%s\e[0m\n" "Pause Game - P"
+	printf "\e[34m%s\e[0m\n" "Close Game - X"
 	printf "\n\e[34m%s\e[0m\n" "Press ENTER to Start the Game.."
 	read -r
 
