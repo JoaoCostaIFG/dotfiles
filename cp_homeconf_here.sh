@@ -5,6 +5,21 @@ homedir="$HOME"
 # directory to copy files to
 destdir="$HOME/.config/homedir_conf"
 
+# command line arguments
+case "$1" in
+  "-i" | "-r")
+    temp="$homedir"
+    homedir="$destdir"
+    destdir="$temp"
+    ;;
+  *)
+    if [ "$1" ]; then
+      printf "Unkown option: %s" "$1"
+      exit 1
+    fi
+    ;;
+esac
+
 # list of files to copy (can be path's from 'homedir')
 file_l=".bash_profile
 .bashrc
