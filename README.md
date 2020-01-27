@@ -3,6 +3,12 @@
 My current dotfiles and scripts. Scripts were written by me as mostly learning
 exercises but also to improve my system usability.  
 
+## Notes
+
+The **homedir_conf** directory contents are kept in the user's Home directory.  
+The **Scripts** directory contents should be kept somewhere in the user's **PATH**.  
+The rest of contents of this repository are kept in the user's **.config** directory.
+
 ## Scripts
 
 - **colors** - displays space invaders in the different terminal colors (I think
