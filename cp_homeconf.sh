@@ -1,16 +1,23 @@
 #!/bin/sh
 
-# directory to get files from
-homedir="$HOME"
+# directory to get files and directories from
+homedir_f="$HOME"
+homedir_d="$homedir_f"
 # directory to copy files to
-destdir="$HOME/.config/homedir_conf"
+destdir_f="$HOME/.config/homedir_conf"
+# directory to copy directories to
+destdir_d="$HOME/.config"
 
 # command line arguments
 case "$1" in
   "-i" | "-r")
-    temp="$homedir"
-    homedir="$destdir"
-    destdir="$temp"
+    temp="$homedir_f"
+    homedir_f="$destdir_f"
+    destdir_f="$temp"
+
+    temp="$homedir_d"
+    homedir_d="$destdir_d"
+    destdir_d="$temp"
     ;;
   *)
     if [ "$1" ]; then
@@ -27,9 +34,13 @@ file_l=".bash_profile
 .rtorrent.rc
 .xinitrc"
 
-printf "Going to copy the following files from %s to %s:\n%s\n" "$homedir" "$destdir" "$file_l"
+# list of directories to copy (can be path's from 'homedir')
+dir_l="Scripts"
+
+printf "Going to copy the following files from %s to %s:\n%s\n" "$homedir_f" "$destdir_f" "$file_l"
+printf "Going to copy the following directories from %s to %s:\n%s\n" "$homedir_d" "$destdir_d" "$dir_l"
 printf "Do you want to preceed? [Y/n] "
-read ans
+read -r ans
 
 # exit if answer isn't yes or nothing
 if [ "$ans" != "y" ] && [ "$ans" != "Y" ] && [ "$ans" ]; then
@@ -38,11 +49,21 @@ if [ "$ans" != "y" ] && [ "$ans" != "Y" ] && [ "$ans" ]; then
 fi
 
 for file in $file_l; do
-  if ! test -r "$homedir/$file"; then
-    printf "File %s doesn't exist or isn't readable. Skipping..\n" "$homedir/$file"
+  if ! test -r "$homedir_f/$file"; then
+    printf "File %s doesn't exist or isn't readable. Skipping..\n" "$homedir_f/$file"
     continue
   else
-    cp "$homedir/$file" "$destdir"
+    cp "$homedir_f/$file" "$destdir_f"
   fi
 done
-printf "Copying process finished.\n"
+printf "File copying process finished.\n"
+
+for direc in $dir_l; do
+  if ! test -d "$homedir_d/$direc"; then
+    printf "Directory %s doesn't exist or isn't readable. Skipping..\n" "$homedir_d/$direc"
+    continue
+  else
+    cp -r "$homedir_d/$direc" "$destdir_d"
+  fi
+done
+printf "Directory copying process finished.\n"
