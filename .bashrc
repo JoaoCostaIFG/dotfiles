@@ -7,7 +7,7 @@
 
 # set umask
 # read/write for new files && read/write/execute for new directories
-umask 077
+# umask 077
 
 # SHELL CONFIGS #
 	set -o vi
