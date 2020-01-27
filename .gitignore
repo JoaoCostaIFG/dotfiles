@@ -20,6 +20,7 @@ mpd/pid
 mpd/state
 mpd/sticker.sql
 ncmpcpp/error.log
+newsboat/urls
 nitrogen
 nvim/autoload
 nvim/plugged
