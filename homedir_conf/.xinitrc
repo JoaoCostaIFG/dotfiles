@@ -26,9 +26,8 @@ dunst &
 # DWM STARTING LOOP #
 while true
 do
-        # Log stderror to a file
-        #dwm 2> ~/.dwm.log
-        # No Logging
-        dwm >/dev/null 2>&1
+  # Log stderror to a file
+  #dwm 2> ~/.dwm.log
+  # No Logging
+  dwm >/dev/null 2>&1
 done
-
