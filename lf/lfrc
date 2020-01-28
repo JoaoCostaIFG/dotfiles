@@ -30,6 +30,11 @@ map <c-k> push 10k
 cmd q :quit
 cmd Q :quit
 
+# DIR SHORTCUTS
+map gb cd ~/Documents/Builds
+map gc cd ~/.config
+map gp cd ~/Documents/Projs
+
 # EXECUTE CURRENT FILE COMMAND
 map x $$f
 map X !$f
