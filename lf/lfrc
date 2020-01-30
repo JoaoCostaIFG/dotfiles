@@ -59,6 +59,7 @@ map o open $f
 map O open $f
 
 # RENAME COMMAND
+map r push :rename<space>
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 
 # DELETE COMMAND
