@@ -20,17 +20,17 @@ to and from my dotfile repository (makes the commits faster).
 - **decompress** - decompress/inflates archives using the right command
 for the job.
 
-- **dmount** - helpful tool to mount external devices/Android phone. Might not
+- **dmount** - helpful tool to mount external devices/Android phones. Might not
 work for all kinds of Android phones
-(check: [Arch wiki android](https://wiki.archlinux.org/index.php/Android)).
+(check: [Arch wiki android](https://wiki.archlinux.org/index.php/Android#Transferring_files)).
 Depends on suckless's [dmenu](https://tools.suckless.org/dmenu/).
 
 - **dpass** - simple script to get the sudo password from a user using **dmenu**
 (hides the typed characters). Depends on suckless's [dmenu](https://tools.suckless.org/dmenu/).
 
 - **dtodo** - tool I use to take quick notes and keep track of information.
-Can handle multiple files, organize lines alphabetically, get rid of blank/empty lines.
-Depends on suckless's [dmenu](https://tools.suckless.org/dmenu/).
+It can handle multiple files, organize lines alphabetically, get rid of blank/empty
+lines. Depends on suckless's [dmenu](https://tools.suckless.org/dmenu/).
 
 - **dwm_statusmonitor** - old script I used to use to update suckless's
 [dwm](https://dwm.suckless.org/) top bar information.
@@ -46,16 +46,17 @@ screenshots and as a snipping tool. Too slow for my liking so I switched to
 the last visited directory on exit. Usefull for keybinds. Slight adaptation from
 the suggestion given on [lf's](https://github.com/gokcehan/lf) github wiki.
 
-- **maim_handler** - script I use to take fullscreen screenshots and save them
-automatically in a specific folder, use as a snipping tool (saves snipps in
-the clipboard) and as a color picker (save RGB color code in clipboard and show
-a notification for it too).
+- **maim_handler** - script that can: take full-screen screen-shots (saves them in
+a previously specified folder), screen-shot a selection of the screen (places the
+image in the clipboard), output color information of a selection (saves RGB color
+code in clipboard and show a notification for it too).
 Depends on [maim](https://github.com/naelstrof/maim).
 
 - **mdmenu_run** - This dmenu wrapper is a replacement for the default
-dmenu_run: uses a cache file and sorts it by number of usages (has max entries
-forcache file); has option to list and browse files (cd's to them using file
-manager); also lists directories up to a certain depth and cd's to them if selected.
+**dmenu_run**: uses a cache file and sorts it by number of usages (has max entries
+for cache file); runs command in a new terminal window if **';'** is appended to
+a command; has option to list and browse files (cd's to them using file manager);
+also lists directories up to a certain depth and cd's to them if selected.
 Depends on suckless's [dmenu](https://tools.suckless.org/dmenu/).
 
 - **mepapemaker** - script to add a transparent and blured Arch Linux logo
@@ -64,8 +65,9 @@ to the center of an image. Source is listed in the script's code.
 - **mmaxima** - script that calls maxima on a terminal. It uses **rlwrap**
 for history and built-ins file (and getline). It is based on **rmaxima**
 but it has a few improvements.
+Depends on [maxima](http://maxima.sourceforge.net/).
 
-- **skane** - a snake clone I made (and have been slightly modifing/improving
+- **skane** - a Snake clone I made (and have been slightly modifing/improving
 over time) as a final project for a linux terminal workflow/bash scripting
 school class. It has a lot of "bashisms" so it needs to be run on bash.
 Sometimes I just call it on a terminal to kill time.

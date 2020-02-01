@@ -21,9 +21,11 @@ export LESSHISTFILE="-"
 export INPUTRC="$HOME/.config/.inputrc"
 export XAUTHORITY="$HOME/.config/.Xauthority"
 export MAXIMA_USERDIR="$HOME/.config/maxima"
-export HISTCONTROL=ignoreboth:erasedups  #ignore spaces and erase duplicates from bash history
-export HISTSIZE=-1  #infinite list size
-export HISTFILESIZE=-1  #infinite file size
+export HISTCONTROL="ignoreboth:erasedups"  # ignore spaces and erase duplicates from bash history
+# export HISTIGNORE="exit"  # don't record some commands
+export PROMPT_DIRTRIM=2  # automatically trim long paths in the prompt (requires Bash 4.x)
+export HISTSIZE=-1  # infinite hist entries
+export HISTFILESIZE=-1  # infinite hist file size
 
 # other program settings
 export LC_COLLATE="C"

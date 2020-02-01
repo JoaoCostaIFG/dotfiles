@@ -202,3 +202,9 @@ map <silent> <C-h> :CtrlSpaceGoUp<CR>
 map <silent> <C-l> :CtrlSpaceGoDown<CR>
 map <leader>bq :bp <BAR> bd #<CR>
 map <leader>bs :ls<CR>
+
+" misc
+" substitute all non-ascii chars by a space
+function! RM_non_ascii()
+  %s/[^[:alnum:][:punct:][:space:]]/ /g
+endfunction
