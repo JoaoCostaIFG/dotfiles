@@ -32,7 +32,7 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'tpope/vim-fugitive'
 
 " check auto-pairs + vim-surround (maybe only vim-surround is needed)
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdcommenter'

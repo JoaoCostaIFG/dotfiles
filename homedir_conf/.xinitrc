@@ -23,6 +23,9 @@ dunst &
 #mpd >/dev/null 2>&1 &
 [ ! -s ~/.config/mpd/pid ] && mpd &
 
+# Ironic JVM fx
+wmname "LG3D"
+
 # DWM STARTING LOOP #
 while true
 do
