@@ -49,12 +49,12 @@ let s:none        =   'NONE'
 " Helper function to set up highlight executions
 function! s:highlight(group, fg, bg, style)
   exec  "highlight "  . a:group
-    \ . " ctermfg="   . a:fg[0]
-    \ . " ctermbg="   . a:bg[0]
-    \ . " cterm="     . a:style
-    \ . " guifg="     . a:fg[1]
-    \ . " guibg="     . a:bg[1]
-    \ . " gui="       . a:style
+        \ . " ctermfg="   . a:fg[0]
+        \ . " ctermbg="   . a:bg[0]
+        \ . " cterm="     . a:style
+        \ . " guifg="     . a:fg[1]
+        \ . " guibg="     . a:bg[1]
+        \ . " gui="       . a:style
 endfunction
 
 " Syntax highlighting groups
@@ -110,11 +110,19 @@ call s:highlight('ColorColumn', s:MainColor, s:Grey15, s:none)
 call s:highlight('Folded', s:Green, s:clear, s:none)
 call s:highlight('FoldColumn', s:Green, s:clear, s:none)
 
+" ALE plugin
+call s:highlight('ALEErrorSign', s:Green, s:clear, s:none)
+call s:highlight('ALEWarningSign', s:Green, s:clear, s:none)
+
 " Ctrl-Space
 call s:highlight('CtrlSpaceSearch', s:Pink, ['235', '#282C34'], s:italic)
 call s:highlight('CtrlSpaceNormal', s:MainColor, ['235', '#282C34'], s:none)
 call s:highlight('CtrlSpaceSelected', s:Green, ['235', '#282C34'], s:italic)
 call s:highlight('CtrlSpaceStatus', s:Grey93, ['236', '#3E4452'], s:bold)
+
+" LanguageTool.nvim
+call s:highlight('LanguageToolGrammarError', s:Green, s:clear, s:none)
+call s:highlight('LanguageToolSpellingError', s:Green, s:clear, s:none)
 
 " Interface highlighting
 call s:highlight('Normal', s:clear, s:clear, s:none)
@@ -153,7 +161,6 @@ call s:highlight('cType', s:MainColor, s:clear, s:none)
 call s:highlight('cRepeat', s:MainColor, s:clear, s:none)
 call s:highlight('cppSTLtype', s:MainColor, s:clear, s:none)
 
-
 " Java syntax highlighting
 call s:highlight('javaParen', s:MainColor, s:clear, s:none)
 call s:highlight('javaCommentTitle', s:Grey42, s:clear, s:none)
@@ -162,15 +169,12 @@ call s:highlight('javaDocTags', s:Grey54, s:clear, s:none)
 call s:highlight('javaScopeDecl', s:Grey54, s:clear, s:none)
 call s:highlight('javaStorageClass', s:MainColor, s:clear, s:none)
 
-
 " Python syntax highlighting
 call s:highlight('pythonFunction', s:Grey93, s:clear, s:none)
 call s:highlight('pythonBuiltin', s:Grey54, s:clear, s:italic)
 
-
 " Vimscript syntax highlighting
 call s:highlight('vimOption', s:Grey93, s:clear, s:none)
-
 
 " NERDTree
 call s:highlight('NERDTreeClosable', s:Green, s:clear, s:none)
@@ -190,7 +194,6 @@ call s:highlight('Magenta2Alias', s:Grey66, s:clear, s:none)
 call s:highlight('Magenta2TopLevelDecl', s:SkyBlue1, s:clear, s:bold)
 call s:highlight('Magenta2Braces', s:DarkMagenta, s:clear, s:none)
 
-
 " Elixir syntax highlighting
 " Requires plug: elixir-editors/vim-elixir
 "
@@ -199,13 +202,11 @@ call s:highlight('elixirDefine', s:MediumOrchid1, s:clear, s:none)
 call s:highlight('elixirBlockDefinition', s:MediumOrchid1, s:clear, s:none)
 call s:highlight('elixirFunctionDeclaration', s:Grey66, s:clear, s:none)
 
-
 " GOLang syntax highlighting
 " Requires plug: fatih/vim-go
 "
 call s:highlight('goPackage', s:Magenta2, s:clear, s:italic)
 call s:highlight('goImport', s:Purple4, s:clear, s:italic)
-
 
 " Rust syntax highlighting
 " Requires plug: rust-lang/rust.vim

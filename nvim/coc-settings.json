@@ -1,27 +1,24 @@
 {
   "coc.preferences.extensionUpdateCheck": "never",
 
-  "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "python.linting.enabled": true,
-  "python.jediEnabled": true,
-  "python.formatting.provider": "black",
-
   "diagnostic.errorSign": "!",
   "diagnostic.warningSign": ".",
   "diagnostic.infoSign": "?",
   "diagnostic.hintSign": "?",
-
-  "suggest.enablePreview":true,
-
+  "suggest.enablePreview": true,
   "suggest.labelMaxLength": 60,
   "suggest.maxCompleteItemCount": 20,
   "suggest.minTriggerInputLength": 2,
   "suggest.snippetIndicator": " ►",
   "suggest.disableKind": true,
   "suggest.disableMenu": true,
-
   "session.directory": "~/.config/nvim/sessions/",
+
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "python.jediEnabled": true,
+  "python.formatting.provider": "black",
 
   "languageserver": {
     "ccls": {
@@ -34,6 +31,5 @@
         }
       }
     }
-
   }
 }

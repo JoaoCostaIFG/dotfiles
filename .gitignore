@@ -5,6 +5,7 @@ BetterDiscord/plugins/*json
 BetterDiscord/plugins/res
 cef_user_data
 coc
+configstore
 dconf
 discord
 GIMP
@@ -24,6 +25,7 @@ newsboat/urls
 nitrogen
 nvim/autoload
 nvim/plugged
+nvim/spell
 nvim/sessions
 nvim/.cs_cache
 nvim/.netrwhist

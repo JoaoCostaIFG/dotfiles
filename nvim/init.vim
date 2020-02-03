@@ -1,5 +1,11 @@
 let mapleader ='\'
 
+" getting used to no arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 " PLUG
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
   echo "Downloading junegunn/vim-plug to manage plugins..."
@@ -9,31 +15,32 @@ endif
 
 " PLUGINS
 call plug#begin('~/.config/nvim/plugged')
+Plug 'fenetikm/falcon'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'abnt713/vim-hashpunk'
-Plug 'fenetikm/falcon'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'dhruvasagar/vim-table-mode'
 Plug 'junegunn/vim-easy-align'
+Plug 'dhruvasagar/vim-table-mode'
 
-Plug 'scrooloose/nerdcommenter'
-Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'vim-scripts/DoxygenToolkit.vim'
-
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
-
-Plug 'tpope/vim-fugitive'
+Plug 'ptzz/lf.vim'
+Plug 'moll/vim-bbye'
 Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'tpope/vim-fugitive'
+
+" check auto-pairs + vim-surround (maybe only vim-surround is needed)
+" Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/nerdcommenter'
 Plug 'honza/vim-snippets'
-Plug 'Chiel92/vim-autoformat',
+Plug 'tpope/vim-surround'
+
+Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-" Plug 'jackguo380/vim-lsp-cxx-highlight'
 call plug#end()
 
 " BASICS
@@ -42,20 +49,10 @@ filetype plugin on
 syntax on
 syntax enable
 
-" Tabs
 noremap <silent> <F3> :set list! <CR>
-noremap <silent> <F1> :Autoformat <CR>
-command Format Autoformat
-
 set ts=2 sts=2 sw=2 expandtab
 set number relativenumber
 
-" Turn off backup
-set noswapfile
-set nobackup
-set nowritebackup
-
-set hidden
 set mouse=a
 set cmdheight=2
 set updatetime=300
@@ -66,7 +63,11 @@ set splitbelow splitright
 set showtabline=0
 set nohlsearch ignorecase smartcase
 set clipboard+=unnamedplus
-
+" Turn off backup
+set noswapfile
+set nobackup
+set nowritebackup
+set hidden
 " Repeat last macro
 noremap , @@
 " Save File and Exits
@@ -76,24 +77,8 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
-
 " Disables automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
-" Automatically deletes all trailing whitespace on save.
-autocmd BufWritePre *.py,*.c,*.cpp,*.h,*.txt :call <SID>StripTrailingWhitespaces()
-function! <SID>StripTrailingWhitespaces()
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the business:
-  %s/\s\+$//e
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
 
 " THEME
 set termguicolors
@@ -101,26 +86,24 @@ set background=dark
 colorscheme my_hashpunk
 
 " COC
-" make <tab> used for trigger completion, completion confirm,
-" snippet expand and jump like VSCode
+" make <tab> used for trigger completion, completion confirm, snippet expand and jump
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ "<TAB>"
 let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<S-tab>'
-
 " close the preview window when completion is done
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " use k to show documentation in preview window
-" nn <silent> K :call CocActionAsync('doHover')<cr>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    " nn <silent> K :call CocActionAsync('doHover')<cr>
+    call CocActionAsync('doHover')
   endif
 endfunction
 
@@ -129,15 +112,61 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>o :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 " Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>p :<C-u>CocListResume<CR>
+
+" ALE
+let g:airline#extensions#ale#enabled = 1
+let g:ale_set_balloons = 1
+" format
+nmap <F1> <Plug>(ale_fix)
+command Format ALEFix
+let g:ale_fixers = {
+      \ 'bash': ['shfmt'],
+      \ 'c': ['clang-format'],
+      \ 'cpp': ['clang-format'],
+      \ 'java': ['clang-format'],
+      \ 'javascript': ['prettier'],
+      \ 'markdown': ['prettier'],
+      \ 'python': ['black'],
+      \ 'sh': ['shfmt'],
+      \ 'text': ['SimpFormat'],
+      \}
+" lint
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+      \ 'bash': ['shellcheck'],
+      \ 'mail': ['languagetool'],
+      \ 'markdown': ['redpen', 'languagetool'],
+      \ 'sh': ['shellcheck'],
+      \ 'text': ['languagetool'],
+      \}
+" signs
+let g:ale_sign_error = '!'
+let g:ale_sign_warning = '.'
+
+" WRITING
+" limelight
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+map <leader>n :Limelight!!<CR>
+" goyo
+map <leader>m :Goyo \| set bg=dark \| set linebreak<CR>
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+" misc
+set thesaurus+=~/Documents/WorkRes/thesaurus.txt
+" spell-check
+map <leader>o :setlocal spell! spelllang=en_us<CR>
+map <leader>O :setlocal spell! spelllang=pt_pt<CR>
 
 " AIRLINE
 let g:airline_theme = 'falcon'
@@ -151,17 +180,9 @@ let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
 let airline#extensions#coc#error_symbol = '!'
 let airline#extensions#coc#warning_symbol = '.'
 
-" LIMELIGHT
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
-map <leader>n :Limelight!!<CR>
-
-" GOYO
-map <leader>m :Goyo \| set bg=dark \| set linebreak<CR>
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+" EASY-ALIGN
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " TABLEMODE
 let g:table_mode_header_fillchar = '='
@@ -170,20 +191,12 @@ let g:table_mode_header_fillchar = '='
 let g:AutoPairsMapBS = 1
 let g:AutoPairsMapCh = 0
 
-" SPELL-CHECK
-map <leader>o :setlocal spell! spelllang=en_us<CR>
-map <leader>O :setlocal spell! spelllang=pt_pt<CR>
-
 " NERD COMMENTER
 let g:NERDSpaceDelims = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 " LF
 let g:lf_replace_netrw = 1 " open lf when vim open a directory
-
-" EASY-ALIGN
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
 
 " CTRLSPACE
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
@@ -203,8 +216,37 @@ map <silent> <C-l> :CtrlSpaceGoDown<CR>
 map <leader>bq :bp <BAR> bd #<CR>
 map <leader>bs :ls<CR>
 
-" misc
+" MISC
 " substitute all non-ascii chars by a space
 function! RM_non_ascii()
   %s/[^[:alnum:][:punct:][:space:]]/ /g
+endfunction
+
+" save state/pos of cursor -> execute cmd -> restore cursor
+" source: http://vimcasts.org/episodes/tidying-whitespace/
+function! Preserve(command)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  execute a:command
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
+" formating
+" strip white spaces
+command StripTrailWhiteChars call Preserve("%s/\\s\\+$//e")
+nmap <silent> _$ :StripTrailWhiteChars<CR>
+autocmd BufWritePre *.txt StripTrailWhiteChars
+" retab
+nmap <silent> _= :call Preserve("normal gg=G")<CR>
+
+" simple format (variatic because of ALE)
+function! SimpFormat(...)
+  call Preserve("retab")
+  call Preserve("%s/\\s\\+$//e")
+  call Preserve("normal gg=G")
 endfunction
