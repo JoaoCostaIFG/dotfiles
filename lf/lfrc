@@ -33,6 +33,7 @@ cmd Q :quit
 # DIR SHORTCUTS
 map gb cd ~/Documents/Builds
 map gc cd ~/.config
+map gd cd ~/dir
 map gp cd ~/Documents/Projs
 
 # EXECUTE CURRENT FILE COMMAND

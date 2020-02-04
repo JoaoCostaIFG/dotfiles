@@ -31,7 +31,6 @@ Plug 'moll/vim-bbye'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'tpope/vim-fugitive'
 
-" check auto-pairs + vim-surround (maybe only vim-surround is needed)
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'easymotion/vim-easymotion'
@@ -82,7 +81,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " THEME
 set termguicolors
-set background=dark
+" set background=dark
 colorscheme my_hashpunk
 
 " COC
@@ -122,6 +121,7 @@ nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>p :<C-u>CocListResume<CR>
 
 " ALE
+let g:ale_enabled = 0
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_balloons = 1
 " format
@@ -133,6 +133,7 @@ let g:ale_fixers = {
       \ 'cpp': ['clang-format'],
       \ 'java': ['clang-format'],
       \ 'javascript': ['prettier'],
+      \ 'json': ['prettier'],
       \ 'markdown': ['prettier'],
       \ 'python': ['black'],
       \ 'sh': ['shfmt'],
@@ -140,10 +141,11 @@ let g:ale_fixers = {
       \}
 " lint
 let g:ale_linters_explicit = 1
+"'redpen', 'write-good'
 let g:ale_linters = {
       \ 'bash': ['shellcheck'],
       \ 'mail': ['languagetool'],
-      \ 'markdown': ['redpen', 'languagetool'],
+      \ 'markdown': ['languagetool'],
       \ 'sh': ['shellcheck'],
       \ 'text': ['languagetool'],
       \}
