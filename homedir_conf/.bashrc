@@ -32,7 +32,13 @@ bind "set completion-ignore-case on"
 bind "set mark-symlinked-directories on"
 
 # VARS #
-export PS1="\[$(tput setaf 2)\][\[$(tput setaf 1)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 6)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 2)\]]\[$(tput setaf 2)\]\\$ \[$(tput sgr0)\]"
+RT="\[$(tput sgr0)\]" # reset
+BD="\[$(tput bold)\]" # bold
+C1="\[$(tput setaf 1)\]"
+C2="\[$(tput setaf 2)\]"
+C3="\[$(tput setaf 5)\]"
+C4="\[$(tput setaf 6)\]"
+export PS1="${BD}${C2}[${C1}\u${C4}@\h${C3} \W${C2}]$ ${RT}"
 
 # MY FUNCS #
 # edit and source ~/.bashrc

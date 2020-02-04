@@ -121,7 +121,7 @@ nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>p :<C-u>CocListResume<CR>
 
 " ALE
-let g:ale_enabled = 0
+" let g:ale_enabled = 0
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_balloons = 1
 " format
