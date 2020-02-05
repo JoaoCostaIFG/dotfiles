@@ -1,7 +1,7 @@
 # KEYBOARD LAYOUT AND CUSTOM KEYS #
-xrdb "$HOME/.config/.Xresources"
+[ -f "$HOME/.config/.Xresources" ] && xrdb "$HOME/.config/.Xresources"
 setxkbmap -layout pt
-xmodmap "$HOME/.config/.Xmodmap"
+[ -f "$HOME/.config/.Xmodmap" ] && xmodmap "$HOME/.config/.Xmodmap"
 
 # DWM INFO #
 #dwm_statusmonitor &

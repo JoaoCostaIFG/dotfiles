@@ -2,34 +2,42 @@
 # ~/.bashrc
 #
 
+# source for many options: https://github.com/mrzool/bash-sensible
+
 # If not running interactively, don't do anything #
 [[ $- != *i* ]] && return
 
-# SHELL CONFIGS #
-# set umask
+# GENERAL CONFIGS #
 # umask 077
-
-# vim mode
 set -o vi
 
-# # allows you to cd into directory merely by typing the directory name.
-shopt -s autocd
-
-# # Update window size after every command
+# Prevent file overwrite on stdout redirection
+# Use `>|` to force redirection to an existing file
+# set -o noclobber
+# Update window size after every command
 shopt -s checkwinsize
 
-# # Enable history expansion with space
-# # E.g. typing !!<space> will replace the !! with your last command
+# TAB-COMPLETION #
+# allows you to cd into directory merely by typing the directory name.
+shopt -s autocd 2> /dev/null
+# Perform file completion in a case insensitive fashion
+bind "set completion-ignore-case on"
+# Treat hyphens and underscores as equivalent
+# bind "set completion-map-case on"
+# Display matches for ambiguous patterns at first tab press
+# bind "set show-all-if-ambiguous on"
+# Immediately add a trailing slash when autocompleting symlinks to directories
+bind "set mark-symlinked-directories on"
+# Enable history expansion with space
 bind Space:magic-space
 
-# # Perform file completion in a case insensitive fashion
-bind "set completion-ignore-case on"
-
-# # Treat hyphens and underscores as equivalent
-# bind "set completion-map-case on"
-
-# # Immediately add a trailing slash when autocompleting symlinks to directories
-bind "set mark-symlinked-directories on"
+# HISTORY #
+# append history file
+shopt -s histappend
+# Save multi-line commands as one command
+shopt -s cmdhist
+# Record each line as it gets issued
+PROMPT_COMMAND='history -a'
 
 # VARS #
 RT="\[$(tput sgr0)\]" # reset
@@ -38,7 +46,7 @@ C1="\[$(tput setaf 1)\]"
 C2="\[$(tput setaf 2)\]"
 C3="\[$(tput setaf 5)\]"
 C4="\[$(tput setaf 6)\]"
-export PS1="${BD}${C2}[${C1}\u${C4}@\h${C3} \W${C2}]$ ${RT}"
+export PS1="${BD}${C2}[${C1}\u${C4}@\h${C3} \W${C2}]\$ ${RT}"
 
 # MY FUNCS #
 # edit and source ~/.bashrc

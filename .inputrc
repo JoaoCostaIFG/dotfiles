@@ -31,8 +31,10 @@ set keymap vi-command
 Control-l: clear-screen
 Control-a: beginning-of-line
 # history search on up arrow on command mode only
-"\e[A": history-search-backward
-"\e[B": history-search-forward
+# "\e[A": history-search-backward
+# "\e[B": history-search-forward
+"K": history-search-backward
+"J": history-search-forward
 
 set keymap vi-insert
 Control-l: clear-screen
