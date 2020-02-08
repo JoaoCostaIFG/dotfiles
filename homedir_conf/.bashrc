@@ -21,7 +21,7 @@ shopt -s checkwinsize
 # allows you to cd into directory merely by typing the directory name.
 shopt -s autocd 2> /dev/null
 # Perform file completion in a case insensitive fashion
-bind "set completion-ignore-case on"
+# bind "set completion-ignore-case on"
 # Treat hyphens and underscores as equivalent
 # bind "set completion-map-case on"
 # Display matches for ambiguous patterns at first tab press
