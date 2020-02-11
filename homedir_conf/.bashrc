@@ -46,7 +46,8 @@ C1="\[$(tput setaf 1)\]"
 C2="\[$(tput setaf 2)\]"
 C3="\[$(tput setaf 5)\]"
 C4="\[$(tput setaf 6)\]"
-export PS1="${BD}${C2}[${C1}\u${C4}@\h${C3} \W${C2}]\$ ${RT}"
+# export PS1="${BD}${C2}[${C1}\u${C4}@\h${C3} \W${C2}]\$ ${RT}"
+export PS1="${BD}${C1}[${C4}\W${C1}]${C2}\$ ${RT}"
 
 # MY FUNCS #
 # edit and source ~/.bashrc
