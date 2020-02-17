@@ -57,6 +57,14 @@ alias   e="$EDITOR"
 alias   v="$EDITOR"
 alias   p="sudo pacman"
 
+# git #
+alias   gad="git add"
+alias   gbr="git branch"
+alias   gck="git checkout"
+alias   gcm="git commit"
+alias   gst="git status"
+
+
 # programs #
 alias   yay="yay --aur" # prevent partial upgrades
 alias   raposoflamejante="firefox &"
