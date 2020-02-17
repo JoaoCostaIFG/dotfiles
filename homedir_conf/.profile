@@ -28,7 +28,7 @@ export PROMPT_DIRTRIM=2                   # automatically trim long paths in the
 export HISTSIZE=-1                        # infinite hist entries
 export HISTFILESIZE=-1                    # infinite hist file size
 # don't record some commands
-export HISTIGNORE="clear:exit:history:lf:lfcd:startx"
+export HISTIGNORE="bye:byer:clear:exit:history:lf:lfcd:startx"
 
 # other program settings
 export LC_COLLATE="C"
