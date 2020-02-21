@@ -1,13 +1,13 @@
 #!/bin/sh
 
-SAVE_DIR="$HOME/.steam/steam/steamapps/compatdata/881100/pfx/drive_c/users/steamuser/AppData/LocalLow/Nolla_Games_Noita/"
+SAVE_DIR="$HOME/Games/SteamLibrary/steamapps/compatdata/881100/pfx/drive_c/users/steamuser/AppData/LocalLow/Nolla_Games_Noita"
 SAVE_NAME="save00_$2.bck"
 
 backup() {
-  echo "Backup? [Y/n]"
+  printf "Backup? [Y/n] "
   read -r ans
   if [ ! "$ans" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
-    if ! test -d "$SAVE_DIR$SAVE_NAME"; then
+    if test -d "$SAVE_DIR$SAVE_NAME"; then
       rm -r "$SAVE_DIR$SAVE_NAME"
     fi
 
@@ -20,14 +20,14 @@ backup() {
 }
 
 restore() {
-  echo "Restore? [Y/n]"
+  printf "Restore? [Y/n] "
   read -r ans
   if [ ! "$ans" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
     if ! test -d "$SAVE_DIR$SAVE_NAME"; then
       echo "No such save. Aborting.."
       exit 1
     fi
-    if ! test -d "$SAVE_DIR/save00"; then
+    if test -d "$SAVE_DIR/save00"; then
       rm -r "$SAVE_DIR/save00"
     fi
 
