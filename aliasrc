@@ -62,6 +62,8 @@ alias   gad="git add"
 alias   gbr="git branch"
 alias   gck="git checkout"
 alias   gcm="git commit"
+alias   gpsh="git push"
+alias   gpl="git pull"
 alias   gst="git status"
 
 # programs #
