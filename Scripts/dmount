@@ -3,85 +3,73 @@
 
 op=$(printf "Mount drive\nUmount drive\nMount android\nUmount android\n" | dmenu -i -p "What to do:") || exit
 
-if [ "$op" ]
-then
-	if [ "$op" = "Mount drive" ]
-	then
-		selected_drive=$(lsblk -nr |
-			awk '$6!="disk" && $7=="" {print $1 " " $4}' |
-			dmenu -i -p "Drive to mount:" |
-			sed -e 's/\s.*$//')
-		existance=$(lsblk -nr |
-			awk '$6!="disk" && $7=="" {print $1 " " $4}' |
-			sed -e 's/\s.*$//' |
-			awk -v cmp_var="$selected_drive" '$0 == cmp_var')
+if [ "$op" ]; then
+  if [ "$op" = "Mount drive" ]; then
+    selected_drive=$(lsblk -nr |
+      awk '$6!="disk" && $7=="" {print $1 " " $4}' |
+      dmenu -i -p "Drive to mount:" |
+      sed -e 's/\s.*$//')
+    existance=$(lsblk -nr |
+      awk '$6!="disk" && $7=="" {print $1 " " $4}' |
+      sed -e 's/\s.*$//' |
+      awk -v cmp_var="$selected_drive" '$0 == cmp_var')
 
-		if [ "$existance" ]
-		then
-			sudo -A mkdir /mnt/"$selected_drive"
-			sudo -A mount /dev/"$selected_drive" /mnt/"$selected_drive"
-			notify-send "DMOUNT" "$selected_drive partition mounted to /mnt/$selected_drive" &
-		fi
+    if [ "$existance" ]; then
+      sudo -A mkdir /mnt/"$selected_drive"
+      sudo -A mount /dev/"$selected_drive" /mnt/"$selected_drive"
+      notify-send "DMOUNT SUCCESS" "$selected_drive partition mounted to /mnt/$selected_drive" &
+    fi
 
-	elif [ "$op" = "Umount drive" ]
-	then
-		selected_drive=$(lsblk -nr |
-			awk '$6!="disk" && $7!="" {print $1 " " $4}' |
-			dmenu -i -p "Drive to umount:" |
-			sed -e 's/\s.*$//')
-		existance=$(lsblk -nr |
-			awk '$6!="disk" && $7!="" {print $1 " " $4}' |
-			sed -e 's/\s.*$//' |
-			awk -v cmp_var="$selected_drive" '$0 == cmp_var')
+  elif [ "$op" = "Umount drive" ]; then
+    selected_drive=$(lsblk -nr |
+      awk '$6!="disk" && $7!="" {print $1 " " $4}' |
+      dmenu -i -p "Drive to umount:" |
+      sed -e 's/\s.*$//')
+    existance=$(lsblk -nr |
+      awk '$6!="disk" && $7!="" {print $1 " " $4}' |
+      sed -e 's/\s.*$//' |
+      awk -v cmp_var="$selected_drive" '$0 == cmp_var')
 
-		if [ "$existance" ]
-		then
-                	sudo -A umount /dev/"$selected_drive"
-			sudo -A rmdir /mnt/"$selected_drive"
-			if [ -d /mnt/"$selected_drive" ]; then
-				notify-send "DMOUNT" "Can't umount $selected_drive partition from from /mnt/$selected_drive" &
-			else
-				notify-send "DMOUNT" "$selected_drive partition umounted from /mnt/$selected_drive" &
-			fi
-		fi
+    if [ "$existance" ]; then
+      sudo -A umount /dev/"$selected_drive"
+      sudo -A rmdir /mnt/"$selected_drive"
+      if [ -d /mnt/"$selected_drive" ]; then
+        notify-send "DMOUNT FAILURE" "Can't umount $selected_drive partition from from /mnt/$selected_drive" &
+      else
+        notify-send "DMOUNT SUCCESS" "$selected_drive partition umounted from /mnt/$selected_drive" &
+      fi
+    fi
 
-	elif [ "$op" = "Mount android" ]
-	then
-		selected_drive=$(simple-mtpfs -l |
-			dmenu -i -p "Drive to umount:" |
-			sed s/:.*$//)
-		existance=$(simple-mtpfs -l |
-			sed s/:.*$// |
-                        awk -v cmp_var="$selected_drive" '$0 == cmp_var')
+  elif [ "$op" = "Mount android" ]; then
+    selected_drive=$(simple-mtpfs -l |
+      dmenu -i -p "Drive to umount:" |
+      sed s/:.*$//)
+    existance=$(simple-mtpfs -l |
+      sed s/:.*$// |
+      awk -v cmp_var="$selected_drive" '$0 == cmp_var')
 
-		if [ "$existance" ]
-		then
-			mkdir "$HOME"/Android"$selected_drive"
-			simple-mtpfs --device "$selected_drive" "$HOME"/Android"$selected_drive"
-			notify-send "DMOUNT" "Android partition $selected_drive mounted to ~/Android$selected_drive" &
-		fi
+    if [ "$existance" ]; then
+      mkdir "$HOME"/Android"$selected_drive"
+      simple-mtpfs --device "$selected_drive" "$HOME"/Android"$selected_drive"
+      notify-send "DMOUNT SUCCESS" "Android partition $selected_drive mounted to ~/Android$selected_drive" &
+    fi
 
-	elif [ "$op" = "Umount android" ]
-	then
-		selected_drive=$(simple-mtpfs -l |
-			dmenu -i -p "Drive to umount:" |
-			sed s/:.*$//)
-		existance=$(simple-mtpfs -l |
-			sed s/:.*$// |
-			awk -v cmp_var="$selected_drive" '$0 == cmp_var')
+  elif [ "$op" = "Umount android" ]; then
+    selected_drive=$(simple-mtpfs -l |
+      dmenu -i -p "Drive to umount:" |
+      sed s/:.*$//)
+    existance=$(simple-mtpfs -l |
+      sed s/:.*$// |
+      awk -v cmp_var="$selected_drive" '$0 == cmp_var')
 
-		if [ "$existance" ]
-		then
-			fusermount -u "$HOME"/Android"$selected_drive"
-			rmdir "$HOME"/Android"$selected_drive"
-			if [ -d "$HOME"/Android"$selected_drive" ]; then
-				notify-send "DMOUNT" "Can't umount $selected_drive android partition from from ~/Android$selected_drive" &
-			else
-				notify-send "DMOUNT" "Android partition $selected_drive umounted from ~/Android$selected_drive" &
-			fi
-
-		fi
-
-	fi
+    if [ "$existance" ]; then
+      fusermount -u "$HOME"/Android"$selected_drive"
+      rmdir "$HOME"/Android"$selected_drive"
+      if [ -d "$HOME"/Android"$selected_drive" ]; then
+        notify-send "DMOUNT FAILURE" "Can't umount $selected_drive android partition from from ~/Android$selected_drive" &
+      else
+        notify-send "DMOUNT SUCCESS" "Android partition $selected_drive umounted from ~/Android$selected_drive" &
+      fi
+    fi
+  fi
 fi
-
