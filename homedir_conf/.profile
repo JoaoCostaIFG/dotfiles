@@ -4,7 +4,7 @@ export ALIASF="$HOME/.config/aliasrc"
 export BASHRC="$HOME/.bashrc"
 
 # add scripts directory recursively to the PATH #
-export PATH="$PATH:$(du "$SCRIPTS" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$(du "$SCRIPTS" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$PATH"
 
 # default programs
 export BROWSER="firefox"
