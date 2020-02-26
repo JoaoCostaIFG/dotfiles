@@ -64,6 +64,7 @@ alias   gck="git checkout"
 alias   gcm="git commit"
 alias   gpsh="git push"
 alias   gpl="git pull"
+alias   gpul="git pull"
 alias   gst="git status"
 
 # programs #
