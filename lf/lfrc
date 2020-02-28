@@ -64,6 +64,13 @@ map O open $f
 map r push :rename<space>
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 
+# DETOX COMMAND (clean file name)
+cmd detox ${{
+  set -f
+  detox $fx
+}}
+map R detox
+
 # DELETE COMMAND
 cmd delete ${{
 	set -f
