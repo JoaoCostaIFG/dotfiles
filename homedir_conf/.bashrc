@@ -29,7 +29,7 @@ shopt -s autocd 2> /dev/null
 # Immediately add a trailing slash when autocompleting symlinks to directories
 bind "set mark-symlinked-directories on"
 # Enable history expansion with space
-bind Space:magic-space
+# bind Space:magic-space
 
 # HISTORY #
 # append history file
