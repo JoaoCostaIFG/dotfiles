@@ -3,6 +3,7 @@
 alias   :q=" exit"
 alias   :Q=" exit"
 alias   :x=" exit"
+alias   cd:="cd .."
 alias   cd..="cd .."
 alias   cd...="cd .."
 alias   cd....="cd ../.."
