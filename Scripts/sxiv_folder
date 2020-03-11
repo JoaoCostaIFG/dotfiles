@@ -12,4 +12,4 @@ else
   working_folder="$1"
 fi
 
-find "$working_folder" -maxdepth 1 -type f ! -name "$first_file" -print0 | xargs -0 sxiv "$first_file"
+find "$working_folder" -maxdepth 1 -type f ! -name "$first_file" -print0 | xargs -0 sxiv "$first_file" >/dev/null 2>&1
