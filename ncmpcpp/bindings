@@ -575,7 +575,6 @@ def_key "n"
 def_key "N"
   previous_found_item
 
-# not used but bound
 def_key "J"
   move_sort_order_down
 def_key "K"
@@ -606,9 +605,9 @@ def_key "s"
   reset_search_engine
 def_key "s"
   show_search_engine
-def_key "f"
+def_key "F"
   show_browser
-def_key "f"
+def_key "F"
   change_browse_mode
 def_key "x"
   delete_playlist_items
