@@ -17,7 +17,9 @@ export TERMINAL="st"
 export VISUAL="nvim"
 
 # clean-up
+export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
+export WGETRC="$HOME/.config/wget/wgetrc"
 export INPUTRC="$HOME/.config/.inputrc"
 export XAUTHORITY="$HOME/.config/.Xauthority"
 export MAXIMA_USERDIR="$HOME/.config/maxima"

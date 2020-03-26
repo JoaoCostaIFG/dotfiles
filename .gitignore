@@ -33,7 +33,10 @@ Pinta
 procps
 protonfixes
 pulse
-rtorrent
+rtorrent/.session
+rtorrent/download
+rtorrent/log
+rtorrent/watch
 syncthing
 unity3d
 vifm/vifminfo

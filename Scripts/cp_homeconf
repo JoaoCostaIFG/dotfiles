@@ -31,7 +31,6 @@ esac
 file_l=".bash_profile
 .bashrc
 .profile
-.rtorrent.rc
 .xinitrc"
 
 # list of directories to copy (can be path's from 'homedir')
