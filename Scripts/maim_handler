@@ -5,17 +5,18 @@
 # pass 1 as an argument - take a snip and pass it to the clipboard
 # pass 2 as an argument - color picker (needs work)
 
-if [ "$1" = 1 ]; then
-  # Sniping tool #
+SNIP=1
+CPICKER=2
+
+if [ "$1" = $SNIP ]; then # Sniping tool
   maim -u -s -B -m 5 | xclip -selection clipboard -t image/png
   notify-send -u low "Snipping Tool" "Snip saved to clipboard" &
-elif [ "$1" = 2 ]; then
-  # Color picker #
-  color_info=$(maim -u -s -B -t 0 | convert - -resize 1x1\! -format '%[pixel:p{0,0}]' info:-)
+elif [ "$1" = $CPICKER ]; then # Color picker
+  color_info=$(maim -u -s -B -t 0 | convert - -resize 1x1\! -format \
+    '%[pixel:p{0,0}]' txt:- | tail -n 1 | awk -F' ' '{print $3}')
   printf "%s" "$color_info" | xclip -selection clipboard
   notify-send "Color Picker" "Color is $color_info" &
-else
-  # Fullscreen screenshot #
+else # Fullscreen screenshot
   save_location="$HOME/Pictures/screenshots/"
   mkdir -p "$save_location"
 
@@ -23,4 +24,3 @@ else
   maim -u -m 10 "$save_location/$file_name"
   notify-send -u low -i "$save_location/$file_name" "Print Screen" "Print saved to $save_location" &
 fi
-

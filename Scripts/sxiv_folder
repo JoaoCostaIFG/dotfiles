@@ -2,14 +2,18 @@
 
 # This scripts opens all image files inside a directory with sxiv.
 # If a file is provide, all the other files inside it's folder are also opened with sxiv
-# Requires gnu core utils dirname, find, xargs and sxiv
+# Requires find, xargs and sxiv
 
-if [ -f "$1" ]; then
-  first_file="$1"
-  working_folder="$(dirname "$1")"
-else
-  first_file=""
-  working_folder="$1"
-fi
+[ $# -eq 0 ] && echo "Usage: ${0##*/} Image Files/Dirs" && exit 1
 
-find "$working_folder" -maxdepth 1 -type f ! -name "$first_file" -print0 | xargs -0 sxiv "$first_file" >/dev/null 2>&1
+abspath() {
+  case "$1" in
+  /*) printf "%s\n" "$1" ;;
+  *) printf "%s\n" "$PWD/$1" ;;
+  esac
+}
+
+target="$(abspath "$1")"
+find -L "$(dirname "$target")" -maxdepth 1 -type f -iregex \
+  '.*\(jpe?g\|bmp\|png\|gif\|webp\)$' ! -wholename "$target" \
+  -print0 | sort -z | xargs -0 sxiv "$target" >/dev/null 2>&1
