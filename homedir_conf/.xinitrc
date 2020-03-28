@@ -14,7 +14,7 @@ xsidle slock &
 picom --experimental-backends -b
 
 # SET WALLPAPER #
-nitrogen --restore &
+xwallpaper --zoom "$HOME/.config/wallpaper.png" &
 
 # NOTIFICATION DAEMON #
 dunst &

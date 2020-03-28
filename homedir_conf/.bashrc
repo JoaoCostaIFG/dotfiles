@@ -74,6 +74,8 @@ lfcd() {
 }
 bind '"\ef":"lfcd\C-m"'
 
+cf() { du -a "$SCRIPTS"/* "$HOME/.config"/* | awk '{print $2}' | fzf | xargs -r "$EDITOR"; }
+
 # EXTRA AUTO COMPLETION #
 # source /usr/share/bash-completion/completions/git
 

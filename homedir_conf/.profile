@@ -1,5 +1,5 @@
 # important files and directories
-export SCRIPTS="$HOME/Scripts/"
+export SCRIPTS="$HOME/Scripts"
 export ALIASF="$HOME/.config/aliasrc"
 export BASHRC="$HOME/.bashrc"
 

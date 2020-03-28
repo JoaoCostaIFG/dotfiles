@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# Feed this script a link and it will give dmenu
+# some choice programs to use to open it.
+# Based on Luke Smith's dmenuhandler script
+
+[ $# -eq 0 ] && echo "Usage: ${0##*/} URL" && exit 1
+
+LINK_OUT_DIR="$HOME/Documents"
+VIDEO_OUT_DIR="$HOME/Videos"
+
+op="$(printf "browser\ncopy\ndownload\nmpv\nmpv (loop)\nsxiv\nyoutube-dl" |
+  dmenu -i -p "Open with?")"
+
+case "$op" in
+"browser")
+  setsid "$BROWSER" "$1" >/dev/null 2>&1 &
+  ;;
+"copy")
+  printf "%s" "$1" | xclip -selection clipboard
+  ;;
+"download")
+  mkdir "$LINK_OUT_DIR" && cd "$LINK_OUT_DIR" || exit
+  curl -LO "$1" >/dev/null 2>&1
+  ;;
+"mpv")
+  setsid mpv -quiet "$1" >/dev/null 2>&1 &
+  ;;
+"mpv (loop)")
+  # --input-ipc-server=/tmp/mpvsoc$(date +%s)
+  setsid mpv -quiet --loop "$1" >/dev/null 2>&1 &
+  ;;
+"sxiv")
+  # setsid feh "$1" >/dev/null 2>&1 &
+  img_name="/tmp/dlink_img$(date +%s)"
+  curl -L -o "$img_name" "$1" >/dev/null 2>&1 && sxiv "$img_name" >/dev/null 2>&1
+  rm "$img_name"
+  ;;
+"youtube-dl")
+  mkdir "$VIDEO_OUT_DIR" && cd "$VIDEO_OUT_DIR" || exit
+  youtube-dl --write-metadata -ic "$1" >/dev/null 2>&1
+  ;;
+esac
