@@ -6,6 +6,15 @@ DFLT_NOTE_DIR="$HOME/Documents/Notes/dtodo_notes"
 DMENU="dmenu -i -l 5"
 
 update_working_file() {
+  [ "$notes_path" != "$(dirname "$1")" ] && return 1
+
+  [ -f "$1" ] || touch "$1"
+  notes_file="$(basename "$1")"
+
+  return 0
+}
+
+set_working_file() {
   if [ -n "$1" ]; then
     notes_path="$(dirname "$1")"
     notes_file="$(basename "$1")"
@@ -19,10 +28,14 @@ update_working_file() {
 
 switch_file() {
   # Open another file for editing (if the selected name doesn't exist, a file is created).
-  notes_file_temp=$(find "$notes_path" -type f -printf "%f\n" |
-    $DMENU -p "File to read:") || return
+  fail=1
+  while [ $fail -eq 1 ]; do
+    notes_file_temp=$(find "$notes_path" -type f -printf "%f\n" |
+      $DMENU -p "File to read:") || return
 
-  update_working_file "$notes_path/$notes_file_temp"
+    update_working_file "$notes_path/$notes_file_temp"
+    fail=$?
+  done
 }
 
 clean_file() {
@@ -80,7 +93,7 @@ url_mode() {
   [ -n "$chosen_url" ] && dlinkhandler "$chosen_url"
 }
 
-update_working_file "$@"
+set_working_file "$@"
 
 while true; do
   dmenu_text=$(grep -ve '^[[:space:]]*$' "$notes_path/$notes_file")
