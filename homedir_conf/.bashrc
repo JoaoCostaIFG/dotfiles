@@ -19,7 +19,7 @@ shopt -s checkwinsize
 
 # TAB-COMPLETION #
 # allows you to cd into directory merely by typing the directory name.
-shopt -s autocd 2> /dev/null
+shopt -s autocd 2>/dev/null
 # Perform file completion in a case insensitive fashion
 # bind "set completion-ignore-case on"
 # Treat hyphens and underscores as equivalent
@@ -74,7 +74,7 @@ lfcd() {
 }
 bind '"\ef":"lfcd\C-m"'
 
-cf() { du -a "$SCRIPTS"/* "$HOME/.config"/* | awk '{print $2}' | fzf | xargs -r "$EDITOR"; }
+cf() { du -a "$SCRIPTS"/* "$HOME/.config"/* | cut -f2 | fzf | xargs -r -d '\n' "$EDITOR"; }
 
 # EXTRA AUTO COMPLETION #
 # source /usr/share/bash-completion/completions/git

@@ -3,16 +3,6 @@
 #requires imagemagick
 #pass any/amount of argument(s) to make a snipping tool instead
 
-#op=$(printf "Print Screen\nSnipping Tool\n" | dmenu -i -p "What to do:")
-
-#ptr_name=$(date '+%d-%m-%y')
-#if [ -f "$HOME/Pictures/screenshots/$ptr_name.png" ]
-#then
-	#dup_count=$(find "$HOME/Pictures/screenshots/$ptr_name" -maxdepth 1 -type f -printf "%f\n" | wc -l)
-	#dup_count=$(("$dup_count" + 1))
-	#ptr_name=$ptr_name"_"$dup_count
-#fi
-
 ptr_name="$(mktemp -u "$HOME/Pictures/screenshots/$(date '+%d-%m-%y').XXX.png")"
 
 if [ -z "$1" ]

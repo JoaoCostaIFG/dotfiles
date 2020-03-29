@@ -1,0 +1,43 @@
+#!/bin/sh
+
+CURL="curl --connect-timeout 5 -k"
+DMENU="dmenu -i -l 5"
+remote="https://192.168.7.2"
+
+login_cmd="$CURL $remote/cgi/login"
+
+## Login Funtion ##
+if [ -z "$($login_cmd)" ]; then
+  if [ "$($login_cmd -d "$(dmenu -nf '#000000' -nb '#000000' -p 'PIZ_HID Login:' <&-)")" = "authenticated" ]; then
+    notify-send "DPIZHID" "Piz_Hid authenticated" &
+  else
+    notify-send "DPIZHID" "Piz_Hid authentication failed" &
+  fi
+
+  exit
+fi
+
+## PIZ_HID Communication ##
+entry_list="$($CURL $remote/cgi/vault)"
+entry_sel="$(printf "%s\n---Lock---\n---Shutdown---\n---Multiline---\n---ClipPass---" "$entry_list" |
+  $DMENU -p "Entry:")" || exit
+
+## PIZ_HID Data Processing ##
+if [ "$entry_sel" = "---Lock---" ]; then
+  $CURL $remote/cgi/lock
+elif [ "$entry_sel" = "---Shutdown---" ]; then
+  $CURL $remote/cgi/shutdown
+elif [ "$entry_sel" = "---Multiline---" ]; then
+  ## list non-passwd info in entry and clip it ##
+  entry_sel="$(printf "%s" "$entry_list" | $DMENU -p "Multiline:")" || exit
+  entry_contents="$($CURL -d "$entry_sel" $remote/cgi/vault-multi | $DMENU -p "Multiline:")" || exit
+
+  [ "$entry_contents" ] && printf "%s" "$entry_contents" | xclip -selection clipboard
+elif [ "$entry_sel" = "---ClipPass---" ]; then
+  ## insert pass into clipboard ##
+  entry_sel="$(printf "%s" "$entry_list" | $DMENU -p "Entry:")" || exit
+  $CURL -d "$entry_sel" $remote/cgi/vault-raw | xclip -selection clipboard && notify-send "DPIZHID" "ClipPass" &
+else
+  ## autowrite pass and clip user ##
+  $CURL -d "$entry_sel" $remote/cgi/vault | xclip -selection clipboard
+fi

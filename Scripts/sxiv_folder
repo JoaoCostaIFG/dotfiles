@@ -16,4 +16,4 @@ abspath() {
 target="$(abspath "$1")"
 find -L "$(dirname "$target")" -maxdepth 1 -type f -iregex \
   '.*\(jpe?g\|bmp\|png\|gif\|webp\)$' ! -wholename "$target" \
-  -print0 | sort -z | xargs -0 sxiv "$target" >/dev/null 2>&1
+  -print0 | sort -z | xargs -0 -r sxiv "$target" >/dev/null 2>&1

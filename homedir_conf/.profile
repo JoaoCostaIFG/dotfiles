@@ -23,6 +23,7 @@ export WGETRC="$HOME/.config/wget/wgetrc"
 export INPUTRC="$HOME/.config/.inputrc"
 export XAUTHORITY="$HOME/.config/.Xauthority"
 export MAXIMA_USERDIR="$HOME/.config/maxima"
+export SQLITE_HISTORY="$HOME/.cache/sqlite_history"
 
 # bash
 export HISTCONTROL="ignoreboth:erasedups" # ignore spaces and erase duplicates from bash history
