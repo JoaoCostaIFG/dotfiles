@@ -1,13 +1,12 @@
 #!/bin/sh
-
 # Feed this script a link and it will give dmenu
 # some choice programs to use to open it.
 # Based on Luke Smith's dmenuhandler script
 
 [ $# -eq 0 ] && echo "Usage: ${0##*/} URL" && exit 1
 
-LINK_OUT_DIR="$HOME/Documents"
-VIDEO_OUT_DIR="$HOME/Videos"
+LINK_OUT_DIR="${DLINKHANDLER_DOWNDIR:-"$HOME/Documents"}"
+VIDEO_OUT_DIR="${DLINKHANDLER_VIDDIR:-"$HOME/Videos"}"
 
 op="$(printf "browser\ncopy\ndownload\nmpv\nmpv (loop)\nsxiv\nyoutube-dl" |
   dmenu -i -p "Open with?")"
@@ -40,6 +39,6 @@ case "$op" in
 "youtube-dl")
   [ ! -d "$VIDEO_OUT_DIR" ] && mkdir -p "$VIDEO_OUT_DIR"
   cd "$VIDEO_OUT_DIR" || exit
-  youtube-dl --write-metadata -ic "$1" >/dev/null 2>&1
+  youtube-dl --add-metadata -ic "$1" >/dev/null 2>&1
   ;;
 esac

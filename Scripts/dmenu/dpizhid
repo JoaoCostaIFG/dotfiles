@@ -23,21 +23,27 @@ entry_sel="$(printf "%s\n---Lock---\n---Shutdown---\n---Multiline---\n---ClipPas
   $DMENU -p "Entry:")" || exit
 
 ## PIZ_HID Data Processing ##
-if [ "$entry_sel" = "---Lock---" ]; then
+case "$entry_sel" in
+"---Lock---")
   $CURL $remote/cgi/lock
-elif [ "$entry_sel" = "---Shutdown---" ]; then
+  ;;
+"---Shutdown---")
   $CURL $remote/cgi/shutdown
-elif [ "$entry_sel" = "---Multiline---" ]; then
+  ;;
+"---Multiline---")
   ## list non-passwd info in entry and clip it ##
   entry_sel="$(printf "%s" "$entry_list" | $DMENU -p "Multiline:")" || exit
   entry_contents="$($CURL -d "$entry_sel" $remote/cgi/vault-multi | $DMENU -p "Multiline:")" || exit
 
   [ "$entry_contents" ] && printf "%s" "$entry_contents" | xclip -selection clipboard
-elif [ "$entry_sel" = "---ClipPass---" ]; then
+  ;;
+"---ClipPass---")
   ## insert pass into clipboard ##
   entry_sel="$(printf "%s" "$entry_list" | $DMENU -p "Entry:")" || exit
   $CURL -d "$entry_sel" $remote/cgi/vault-raw | xclip -selection clipboard && notify-send "DPIZHID" "ClipPass" &
-else
+  ;;
+*)
   ## autowrite pass and clip user ##
   $CURL -d "$entry_sel" $remote/cgi/vault | xclip -selection clipboard
-fi
+  ;;
+esac

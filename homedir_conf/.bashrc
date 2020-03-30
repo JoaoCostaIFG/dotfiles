@@ -44,37 +44,10 @@ RT="\[$(tput sgr0)\]" # reset
 BD="\[$(tput bold)\]" # bold
 C1="\[$(tput setaf 1)\]"
 C2="\[$(tput setaf 2)\]"
-C3="\[$(tput setaf 5)\]"
+# C3="\[$(tput setaf 5)\]"
 C4="\[$(tput setaf 6)\]"
 # export PS1="${BD}${C2}[${C1}\u${C4}@\h${C3} \W${C2}]\$ ${RT}"
 export PS1="${BD}${C1}[${C4}\W${C1}]${C2}\$ ${RT}"
-
-# MY FUNCS #
-# edit and source ~/.bashrc
-bashrc() {
-  nvim "$HOME/.bashrc"
-  source "$HOME/.bashrc"
-}
-
-aliasrc() {
-  nvim "$HOME/.config/aliasrc"
-  source "$HOME/.bashrc"
-}
-
-# opens lf and cd's to the current folder on exit
-lfcd() {
-  tmp="$(mktemp)"
-  lf -last-dir-path="$tmp" "$@"
-  if [ -f "$tmp" ]; then
-    dir="$(cat "$tmp")"
-    rm -f "$tmp"
-
-    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-  fi
-}
-bind '"\ef":"lfcd\C-m"'
-
-cf() { du -a "$SCRIPTS"/* "$HOME/.config"/* | cut -f2 | fzf | xargs -r -d '\n' "$EDITOR"; }
 
 # EXTRA AUTO COMPLETION #
 # source /usr/share/bash-completion/completions/git

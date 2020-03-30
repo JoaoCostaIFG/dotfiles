@@ -20,10 +20,10 @@ export VISUAL="nvim"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
 export WGETRC="$HOME/.config/wget/wgetrc"
-export INPUTRC="$HOME/.config/.inputrc"
+export INPUTRC="$HOME/.config/inputrc"
 export XAUTHORITY="$HOME/.config/.Xauthority"
 export MAXIMA_USERDIR="$HOME/.config/maxima"
-export SQLITE_HISTORY="$HOME/.cache/sqlite_history"
+export SQLITE_HISTORY="${XDG_DATA_HOME:-"$HOME/.local/share"}/sqlite_history"
 
 # bash
 export HISTCONTROL="ignoreboth:erasedups" # ignore spaces and erase duplicates from bash history
@@ -38,3 +38,11 @@ export LC_COLLATE="C"
 export SUDO_ASKPASS="/usr/bin/dpass"
 export GPG_TTY=$(tty)
 export _JAVA_AWT_WM_NONREPARENTING=1
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+
+# my scripts
+export SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots/"
+export DLINKHANDLER_DOWNDIR="$HOME/Documents"
+export DLINKHANDLER_VIDDIR="$HOME/Videos"
+export DRECORD_SAVEDIR="$HOME/Videos"
+export DTODO_DFLT_FILE="$HOME/Documents/Notes/dtodo_notes/TODO.txt"

@@ -1,8 +1,7 @@
 #!/bin/sh
 
 # Constants
-DFLT_NOTE_FILE="TODO.txt"
-DFLT_NOTE_DIR="$HOME/Documents/Notes/dtodo_notes"
+DFLT_FILE="${DTODO_DFLT_FILE:-"$HOME/Documents/Notes/TODO.txt"}"
 DMENU="dmenu -i -l 5"
 
 update_working_file() {
@@ -19,9 +18,10 @@ set_working_file() {
     notes_path="$(dirname "$1")"
     notes_file="$(basename "$1")"
   else
-    notes_path="$DFLT_NOTE_DIR"
-    notes_file="$DFLT_NOTE_FILE"
+    notes_path="$(dirname "$DFLT_FILE")"
+    notes_file="$(basename "$DFLT_FILE")"
   fi
+
   [ -d "$notes_path" ] || mkdir -p "$notes_path"
   [ -f "$notes_path/$notes_file" ] || touch "$notes_path/$notes_file"
 }

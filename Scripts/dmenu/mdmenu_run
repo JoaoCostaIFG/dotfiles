@@ -1,55 +1,67 @@
-#!/bin/bash
+#!/bin/sh
 
 # end a command with ; to run in term
 term="st -e"
+
 # find related constants
-search_dir="$HOME" # dir to call find in
+search_dir="$HOME"
 min_dep=2
 max_dep=5
+
 # cache file related constants
 max_size=100
-cachedir=${XDG_CACHE_HOME:-"$HOME/.cache"}
-cache_f="$cachedir/mdmenu_run" # cache file
-# create cache file if needed
-touch "$cache_f"
+cachedir=${XDG_DATA_HOME:-"$HOME/.local/share"}
+hist_file="$cachedir/mdmenu_run" # cache file
+[ -f "$hist_file" ] || touch "$hist_file"
 
 # list commands in cache ordered by number of usages
-cmds_l=$(sort "$cache_f" | uniq -c | sort -r | awk '{for (i=2; i<NF; i++) printf $i " "; print $NF}')
-# list of directories (and cut the search_dir from it)
+cmds_l=$(sort "$hist_file" | uniq -c | sort -r | awk '{for (i=2; i<NF; i++) printf $i " "; print $NF}')
+# list of directories (and strip $search_dir from it)
 dirs_l="$(find "$search_dir" -maxdepth $min_dep -type d | sed 's|^/home/joao||')"
 
 # store sel using dmenu
-sel=$( (printf "%s\n" "$cmds_l"; dmenu_path | grep -vxF "$cmds_l"; printf "%s\n---directories----\n---files---" "$dirs_l") | dmenu "$@")
 
-if [ "$sel" ]; then
-  case "$sel" in
-    "---directories----")
-      # trigger directories searching
-      sel="$(find "$search_dir" -maxdepth $max_dep -type d | sed 's|^/home/joao||' | dmenu "$@")"
-      [ "$sel" ] && $term "$FILE" "$search_dir/$sel"
-      ;;
-    "---files---")
-      # trigger file searching
-      sel="$(find "$search_dir" -maxdepth $max_dep -type f | sed 's|^/home/joao||' | dmenu "$@")"
-      [ "$sel" ] && $term "$FILE" "$search_dir/$sel"
-      ;;
-    /*)
-      # cd to directory or file location
-      $term "$FILE" "$search_dir/$sel"
-      ;;
-    *\;)
-      # exec command in a terminal
-      printf "%s %s" "$term" "$sel" | ${SHELL:-"/bin/sh"} &
-      # save command in cache
-      (printf "%s\n" "$sel"; head -n $max_size "$cache_f") > "$cache_f.tmp"
-      mv "$cache_f.tmp" "$cache_f"
-      ;;
-    *)
-      # exec command
-      printf "%s" "$sel" | ${SHELL:-"/bin/sh"} &
-      # save command in cache
-      (printf "%s\n" "$sel"; head -n $max_size "$cache_f") > "$cache_f.tmp"
-      mv "$cache_f.tmp" "$cache_f"
-      ;;
-  esac
-fi
+sel=$( (
+  printf "%s\n" "$cmds_l"
+  dmenu_path | grep -vxF "$cmds_l"
+  printf "%s\n---directories----\n---files---" "$dirs_l"
+) | dmenu "$@" || exit)
+
+[ -z "$sel" ] && exit
+
+case "$sel" in
+"---directories----")
+  # trigger directories searching
+  sel="$(find "$search_dir" -maxdepth $max_dep -type d | sed 's|^/home/joao||' | dmenu "$@")"
+  [ "$sel" ] && $term "$FILE" "$search_dir/$sel"
+  ;;
+"---files---")
+  # trigger file searching
+  sel="$(find "$search_dir" -maxdepth $max_dep -type f | sed 's|^/home/joao||' | dmenu "$@")"
+  [ "$sel" ] && $term "$FILE" "$search_dir/$sel"
+  ;;
+/*)
+  # cd to directory or file location
+  $term "$FILE" "$search_dir/$sel"
+  ;;
+*\;)
+  # exec command in a new terminal
+  printf "%s %s" "$term" "$sel" | ${SHELL:-"/bin/sh"} &
+  # save command in cache
+  (
+    printf "%s\n" "$sel"
+    head -n $max_size "$hist_file"
+  ) >"$hist_file.tmp"
+  mv "$hist_file.tmp" "$hist_file"
+  ;;
+*)
+  # exec command
+  printf "%s" "$sel" | ${SHELL:-"/bin/sh"} &
+  # save command in cache
+  (
+    printf "%s\n" "$sel"
+    sed ${max_size}q "$hist_file"
+  ) >"$hist_file.tmp"
+  mv "$hist_file.tmp" "$hist_file"
+  ;;
+esac

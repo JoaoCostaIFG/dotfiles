@@ -82,3 +82,32 @@ alias   pizhid="ssh -l piz_hid 192.168.7.2"
 
 # misc #
 alias   upsidedown="echo ':c'"
+
+# funcs #
+bashrc() {
+  nvim "$HOME/.bashrc"
+  source "$HOME/.bashrc"
+}
+
+aliasrc() {
+  nvim "$HOME/.config/aliasrc"
+  source "$HOME/.config/aliasrc"
+}
+
+# opens lf and cd's to the current folder on exit
+lfcd() {
+  tmp="$(mktemp)"
+  lf -last-dir-path="$tmp" "$@"
+  if [ -f "$tmp" ]; then
+    dir="$(cat "$tmp")"
+    rm -f "$tmp"
+
+    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+  fi
+}
+bind '"\ef":"lfcd\C-m"'
+
+cf() {
+  du -a "$SCRIPTS"/* "$HOME/.config"/* | cut -f2 | fzf |
+    xargs -r -d '\n' "$EDITOR";
+}

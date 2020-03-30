@@ -1,7 +1,6 @@
 #!/bin/sh
-
 # Based on Luke Smith's dmenurecord
-
+#
 # Usage:
 # `$0`: Ask for recording type via dmenu
 # `$0 screencast`: Record both audio and screen
@@ -11,9 +10,10 @@
 #
 # If there is already a running instance, user will be prompted to end it.
 
+OUTPUT_DIR="${DRECORD_SAVEDIR:-"$HOME/Videos"}"
+[ -d "$OUTPUT_DIR" ] || mkdir -p "$OUTPUT_DIR"
+
 RECORDPID_FILE="/tmp/recordingpid"
-OUTPUT_DIR="$HOME/Videos"
-mkdir -p "$OUTPUT_DIR"
 
 savepid() {
   echo $! >"$RECORDPID_FILE"
