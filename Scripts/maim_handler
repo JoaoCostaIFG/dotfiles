@@ -1,5 +1,4 @@
 #!/bin/sh
-
 # requires maim and xclip
 # no arguments - take a fullscreen screenshot and save it in a file
 # pass 1 as an argument - take a snip and pass it to the clipboard
