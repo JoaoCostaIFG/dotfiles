@@ -62,10 +62,20 @@ set splitbelow splitright
 set showtabline=0
 set nohlsearch ignorecase smartcase
 set clipboard+=unnamedplus
-" Turn off backup
-set noswapfile
+
+" Backup stuff
+set swapfile
+set directory^=~/.local/share/vim/swap//
+" protect against crash-during-write
+set writebackup
+" but do not persist backup after successful write
 set nobackup
-set nowritebackup
+" use rename-and-write-new method whenever safe
+set backupcopy=auto
+" persist the undo tree for each file
+set undofile
+set undodir^=~/.local/share/vim/undo//
+
 set hidden
 " Repeat last macro
 noremap , @@
@@ -203,7 +213,7 @@ let g:lf_replace_netrw = 1 " open lf when vim open a directory
 " CTRLSPACE
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
 nnoremap <silent> <C-p> :CtrlSpace O<CR>
-let g:CtrlSpaceCacheDir = expand("$HOME/.config/nvim/")
+let g:CtrlSpaceCacheDir = expand("$HOME/.local/share/vim/")
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1

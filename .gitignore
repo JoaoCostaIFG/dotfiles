@@ -26,8 +26,6 @@ nitrogen
 nvim/autoload
 nvim/plugged
 nvim/spell
-nvim/sessions
-nvim/.cs_cache
 nvim/.netrwhist
 Pinta
 procps
