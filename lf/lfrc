@@ -1,82 +1,42 @@
-# INTERPRETER FOR SHELL COMMANDS (NEEDS TO BE POSIX COMPLIANT)
-set shell bash
+# IFG lf stuff
 
-# MAKES SHELL COMMANDS SAFER
-# '-e' - EXIT ON ERROR
-# '-u' - EXIT ON UNSET VARIABLE
-set shellopts '-eu'
-
-# SET INTERNAL FIELD SEPARATOR TO '\n' FOR SHELL COMMANDS
+# Options
+set shell sh # needs to be posix compliant
+set shellopts '-eu' # makes shell commands safer
+set previewer ~/.config/lf/previewer
 set ifs "\n"
-
-# LEAVE SPACE AT THE TOP AND BOTTOM OF THE SCREEN
 set scrolloff 10
-
-# MAKE SCROLLING WRAP
-set wrapscroll
-
-# 256COLORS AND BETTER RATIO FOR FILE PREVIEW
 set color256
 set ratios '1:1:3'
+set wrapscroll # make scrolling wrap
 
-# USE <enter> FOR SHELL COMMANDS
-map <enter> shell
-
-# MOVE KEYBINDS
-map <c-j> push 10j
-map <c-k> push 10k
-
-# QUIT COMMANDS
+# Commands
 cmd q :quit
 cmd Q :quit
 
-# DIR SHORTCUTS
-map gb cd ~/Documents/Builds
-map gc cd ~/.config
-map gd cd ~/dir
-map gp cd ~/Documents/Projs
-map gu cd ~/Documents/UniStuff
-
-# EXECUTE CURRENT FILE COMMAND
-map x $$f
-map X !$f
-
-# OTHER COMMANDS
-map <esc> reload
-map <c-r> reload
-
-# define a custom 'open' command
-# This command is called when current file is not a directory. You may want to
-# use either file extensions and/or mime types here. Below uses an editor for
-# text files and a file opener for the rest.
 cmd open ${{
-	case $(file --mime-type $f -b) in
-		text/*) $EDITOR "$fx";;
-    image/*) sxiv_folder "$fx" &;;
-		*) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
-	esac
+    case $(file --mime-type $f -b) in
+    	text/troff) man ./ $f;;
+        text/*) $EDITOR $fx;;
+	image/x-xcf|image/svg+xml) setsid gimp $f >/dev/null 2>&1 & ;;
+	image/*) rotdir $f | setsid sxiv -aio 2>/dev/null | lf-select & ;;
+	audio/*) mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f ;;
+	video/*) setsid mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f -quiet >/dev/null 2>&1 & ;;
+	application/pdf) setsid zathura $fx >/dev/null 2>&1 & ;;
+        *) for f in $fx; do setsid $OPENER $f >/dev/null 2>&1 & done;;
+    esac
 }}
 
-# DEDICATED KEYS FOR FILE OPENER ACTIONS
-map o open "$f"
-map O open "$f"
-
-# RENAME COMMANDS
-# full rename
-map r push :rename<enter>
-# detox name (clean file name)
-cmd detox ${{
+cmd detox ${{ # detox name (clean file name)
   set -f
   detox $fx
 }}
-map Rd detox
-# edit filename before the extension
-cmd rename_ext ${{
+
+cmd rename_ext ${{ # edit filename before the extension
   lf -remote "send $id push :rename<enter><a-b><c-b>"
 }}
-map Re rename_ext
-# blunk-rename (in file manager)
-cmd rename_bulk ${{
+
+cmd rename_bulk ${{ # blunk-rename (in file manager)
     old=$(mktemp)
     new=$(mktemp)
     [ -n $fs ] && fs=$(ls)
@@ -94,38 +54,32 @@ cmd rename_bulk ${{
     rm $old $new
     lf -remote "send $id unselect"
 }}
-map Rb rename_bulk
 
-# DELETE COMMAND
 cmd delete ${{
 	set -f
 	printf "%s\n\t" "$fx"
-	printf "Delete? (y/n) "
+	printf "Delete? [y/N] "
 	read ans
 	[ $ans = "y" ] && rm -rf $fx
 }}
-map <delete> delete
 
-# MOVETO COMMAND
 cmd moveto ${{
 	set -f
-	printf "Move to where?"
+	clear; echo "Move to where?"
 	dest="$(find $HOME -type d | fzf)" &&
-	eval mv -iv $fx $dest &&
-	notify-send "File(s) moved." "File(s) moved to $dest."
+	  eval mv -iv $fx $dest &&
+	  notify-send "File(s) moved." "File(s) moved to $dest."
 }}
 
-# COPYTO COMMAND
 cmd copyto ${{
 	set -f
 	clear; echo "Copy to where?"
 	dest="$(find $HOME -type d | fzf)" &&
-	eval cp -ivr $fx $dest &&
-	notify-send "File(s) copied." "File(s) copies to $dest."
+	  eval cp -ivr $fx $dest &&
+	  notify-send "File(s) copied." "File(s) copies to $dest."
 }}
 
-# DECOMPRESS FILE
-cmd decompress ${{
+cmd decompress ${{ # inflate archive
 	set -f
 	mkdir -p "$1" && cd "$1"
 	case "$f" in
@@ -140,8 +94,7 @@ cmd decompress ${{
 	esac
 }}
 
-# COMPRESS USING TAR GZ
-cmd tar ${{
+cmd tar ${{ # compress using tar gz
 	set -f
 	mkdir -p "$1"
 	cp -r $fx "$1"
@@ -149,8 +102,7 @@ cmd tar ${{
 	rm -rf "$1"
 }}
 
-# COMPRESS USING ZIP
-cmd zip ${{
+cmd zip ${{ # compress using zip
 	set -f
 	mkdir -p "$1"
 	cp -r $fx "$1"
@@ -158,9 +110,35 @@ cmd zip ${{
 	rm -rf "$1"
 }}
 
-# PREVIEW
-set previewer ~/.config/lf/previewer
-map i $~/.config/lf/pv.sh $f | less -R
+# Mappings
+map <c-z> $ kill -STOP $PPID # put lf into de background
 
-# Put lf into de background
-map <c-z> $ kill -STOP $PPID
+map <enter> shell # use <enter> for shell commands
+map <esc> reload
+map <c-r> reload
+map Q quit
+map <c-j> push 10j
+map <c-k> push 10k
+
+map o open "$f"
+map O open "$f"
+map x $$f # execute current file
+map X !$f
+map i $ ~/.config/lf/previewer $f 60 | less -R
+
+map r push :rename<enter> # shows full current name
+map Rd detox
+map Re rename_ext
+map Rb rename_bulk
+map <delete> delete
+
+# Shortcuts
+map gb cd ~/Documents/Builds
+map gc cd ~/.config
+map gd cd ~/dir
+map gp cd ~/Documents/Projs
+map gu cd ~/Documents/UniStuff
+
+# working on it
+# map c $lf -remote "send $id cd $(cut -d'	' -f2 ~/dir/new_scripts/dirs | fzf)"
+# map <c-f> $lf -remote "send $id select '$(fzf)'"

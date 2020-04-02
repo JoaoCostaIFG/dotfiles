@@ -67,7 +67,7 @@ handle_mime() {
   case "${mimetype}" in
   # Text
   text/troff) man ./ "${FILE_PATH}" | col -b ;;
-  text/* | */xml)
+  text/* | */xml | */json)
     [ "$(stat --printf='%s' -- "${FILE_PATH}")" -gt "${HIGHLIGHT_SIZE_MAX}" ] &&
       echo "File is a text file larger than 256KiB." && return
 
