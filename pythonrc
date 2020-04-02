@@ -4,7 +4,9 @@ import os
 import atexit
 import readline
 
-readline_histfile = os.path.join(os.path.expanduser("~"), ".cache", "python_history")
+readline_histfile = os.path.join(
+    os.path.expanduser("~"), ".local", "share", "python_history"
+)
 try:
     readline.read_history_file(readline_histfile)
 except IOError:

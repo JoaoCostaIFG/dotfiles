@@ -42,6 +42,7 @@ map x $$f
 map X !$f
 
 # OTHER COMMANDS
+map <esc> reload
 map <c-r> reload
 
 # define a custom 'open' command
@@ -57,19 +58,43 @@ cmd open ${{
 }}
 
 # DEDICATED KEYS FOR FILE OPENER ACTIONS
-map o open $f
-map O open $f
+map o open "$f"
+map O open "$f"
 
-# RENAME COMMAND
-map r push :rename<space>
-cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
-
-# DETOX COMMAND (clean file name)
+# RENAME COMMANDS
+# full rename
+map r push :rename<enter>
+# detox name (clean file name)
 cmd detox ${{
   set -f
   detox $fx
 }}
-map R detox
+map Rd detox
+# edit filename before the extension
+cmd rename_ext ${{
+  lf -remote "send $id push :rename<enter><a-b><c-b>"
+}}
+map Re rename_ext
+# blunk-rename (in file manager)
+cmd rename_bulk ${{
+    old=$(mktemp)
+    new=$(mktemp)
+    [ -n $fs ] && fs=$(ls)
+    printf "$fs\n" > $old
+    printf "$fs\n" > $new
+    $EDITOR $new
+    [ $(cat $new | wc -l) -ne $(cat $old | wc -l) ] && exit
+    paste $old $new | while read names; do
+        src=$(printf $names | cut -f1)
+        dst=$(printf $names | cut -f2)
+        [ $src = $dst ] && continue
+        [ -e $dst ] && continue
+        mv $src $dst
+    done
+    rm $old $new
+    lf -remote "send $id unselect"
+}}
+map Rb rename_bulk
 
 # DELETE COMMAND
 cmd delete ${{
@@ -115,7 +140,7 @@ cmd decompress ${{
 	esac
 }}
 
-# COMPRESS USING TAR
+# COMPRESS USING TAR GZ
 cmd tar ${{
 	set -f
 	mkdir -p "$1"
@@ -134,5 +159,8 @@ cmd zip ${{
 }}
 
 # PREVIEW
-set previewer ~/.config/lf/pv.sh
+set previewer ~/.config/lf/previewer
 map i $~/.config/lf/pv.sh $f | less -R
+
+# Put lf into de background
+map <c-z> $ kill -STOP $PPID

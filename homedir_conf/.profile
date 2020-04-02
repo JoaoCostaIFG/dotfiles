@@ -24,6 +24,7 @@ export INPUTRC="$HOME/.config/inputrc"
 export XAUTHORITY="$HOME/.config/.Xauthority"
 export MAXIMA_USERDIR="$HOME/.config/maxima"
 export SQLITE_HISTORY="${XDG_DATA_HOME:-"$HOME/.local/share"}/sqlite_history"
+export PYTHONSTARTUP="$HOME/.config/pythonrc"
 
 # bash
 export HISTCONTROL="ignoreboth:erasedups" # ignore spaces and erase duplicates from bash history
