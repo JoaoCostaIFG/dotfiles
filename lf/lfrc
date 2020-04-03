@@ -15,16 +15,20 @@ cmd q :quit
 cmd Q :quit
 
 cmd open ${{
-    case $(file --mime-type $f -b) in
-    	text/troff) man ./ $f;;
-        text/*) $EDITOR $fx;;
+  case $(file --mime-type $f -b) in
+  text/troff) man ./ $f ;;
+  text/*) $EDITOR $fx ;;
 	image/x-xcf|image/svg+xml) setsid gimp $f >/dev/null 2>&1 & ;;
-	image/*) rotdir $f | setsid sxiv -aio 2>/dev/null | lf-select & ;;
+	image/*) sxiv_folder $f & ;;
 	audio/*) mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f ;;
 	video/*) setsid mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f -quiet >/dev/null 2>&1 & ;;
 	application/pdf) setsid zathura $fx >/dev/null 2>&1 & ;;
-        *) for f in $fx; do setsid $OPENER $f >/dev/null 2>&1 & done;;
-    esac
+  *)
+    for f in $fx; do
+      setsid $OPENER $f >/dev/null 2>&1 &
+    done
+    ;;
+  esac
 }}
 
 cmd detox ${{ # detox name (clean file name)
@@ -120,12 +124,13 @@ map Q quit
 map <c-j> push 10j
 map <c-k> push 10k
 
-map o open "$f"
-map O open "$f"
+map o open $f
+map O open $f
 map x $$f # execute current file
 map X !$f
 map i $ ~/.config/lf/previewer $f 60 | less -R
 
+map a push %mkdir<space>
 map r push :rename<enter> # shows full current name
 map Rd detox
 map Re rename_ext
