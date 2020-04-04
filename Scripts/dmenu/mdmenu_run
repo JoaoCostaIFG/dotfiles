@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# end a command with ; to run in term
-term="st -e"
-
 # find related constants
 search_dir="$HOME"
 min_dep=2
@@ -33,20 +30,20 @@ case "$sel" in
 "---directories----")
   # trigger directories searching
   sel="$(find "$search_dir" -maxdepth $max_dep -type d | sed 's|^/home/joao||' | dmenu "$@")"
-  [ "$sel" ] && $term "$FILE" "$search_dir/$sel"
+  [ "$sel" ] && "$TERMINAL" -e "$FILE" "$search_dir/$sel"
   ;;
 "---files---")
   # trigger file searching
   sel="$(find "$search_dir" -maxdepth $max_dep -type f | sed 's|^/home/joao||' | dmenu "$@")"
-  [ "$sel" ] && $term "$FILE" "$search_dir/$sel"
+  [ "$sel" ] && "$TERMINAL" -e "$FILE" "$search_dir/$sel"
   ;;
 /*)
   # cd to directory or file location
-  $term "$FILE" "$search_dir/$sel"
+  "$TERMINAL" -e "$FILE" "$search_dir/$sel"
   ;;
 *\;)
   # exec command in a new terminal
-  printf "%s %s" "$term" "$sel" | ${SHELL:-"/bin/sh"} &
+  printf "%s %s" "$TERMINAL -e" "$sel" | ${SHELL:-"/bin/sh"} &
   # save command in cache
   (
     printf "%s\n" "$sel"
