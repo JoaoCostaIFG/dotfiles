@@ -36,27 +36,32 @@ cmd detox ${{ # detox name (clean file name)
   detox $fx
 }}
 
+cmd rename %{{
+  [ -e $1 ] && printf "file exists" && exit
+  mv $f $1
+}}
+
 cmd rename_ext ${{ # edit filename before the extension
-  lf -remote "send $id push :rename<enter><a-b><c-b>"
+  lf -remote "send $id push :rename<space>$f<a-b><c-b>"
 }}
 
 cmd rename_bulk ${{ # blunk-rename (in file manager)
-    old=$(mktemp)
-    new=$(mktemp)
-    [ -n $fs ] && fs=$(ls)
-    printf "$fs\n" > $old
-    printf "$fs\n" > $new
-    $EDITOR $new
-    [ $(cat $new | wc -l) -ne $(cat $old | wc -l) ] && exit
-    paste $old $new | while read names; do
-        src=$(printf $names | cut -f1)
-        dst=$(printf $names | cut -f2)
-        [ $src = $dst ] && continue
-        [ -e $dst ] && continue
-        mv $src $dst
-    done
-    rm $old $new
-    lf -remote "send $id unselect"
+  old=$(mktemp)
+  new=$(mktemp)
+  [ -n $fs ] && fs=$(ls)
+  printf "$fs\n" > $old
+  printf "$fs\n" > $new
+  $EDITOR $new
+  [ $(cat $new | wc -l) -ne $(cat $old | wc -l) ] && exit
+  paste $old $new | while read names; do
+    src=$(printf $names | cut -f1)
+    dst=$(printf $names | cut -f2)
+    [ $src = $dst ] && continue
+    [ -e $dst ] && continue
+    mv $src $dst
+  done
+  rm $old $new
+  lf -remote "send $id unselect"
 }}
 
 cmd delete ${{
@@ -131,7 +136,7 @@ map X !$f
 map i $ ~/.config/lf/previewer $f 60 | less -R
 
 map a push %mkdir<space>
-map r push :rename<enter> # shows full current name
+map r push :rename<space> # shows full current name
 map Rd detox
 map Re rename_ext
 map Rb rename_bulk
@@ -145,5 +150,5 @@ map gp cd ~/Documents/Projs
 map gu cd ~/Documents/UniStuff
 
 # working on it
-# map c $lf -remote "send $id cd $(cut -d'	' -f2 ~/dir/new_scripts/dirs | fzf)"
-# map <c-f> $lf -remote "send $id select '$(fzf)'"
+map , $lf -remote "send $id cd $(cut -d'	' -f2 ~/.config/directories | fzf)"
+map <c-f> $lf -remote "send $id select '$(fzf)'"

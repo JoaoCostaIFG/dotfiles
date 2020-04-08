@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#based on https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/shortcuts
+
+# Input files
+dirs_file="$HOME/.config/directories"
+files_file="$HOME/.config/files"
+
+# Output locations. Unactivated progs should go to /dev/null
+shell_shortcuts="$HOME/.config/shortcutrc"
+
+# Prepare files
+printf "# vim: filetype=sh\\nalias " > "$shell_shortcuts"
+
+# Format the `directories` file in the correct syntax
+# cmd="cd dir && ls -Ah dir"
+sed "s/\s*#.*$//;/^\s*$/d" "$dirs_file" | awk '{print $1"=\"cd "$2" && ls -Ah\" \\"}' >> "$shell_shortcuts"
+
+# Format the `files` file in the correct syntax
+sed "s/\s*#.*$//;/^\s*$/d"  "$files_file" | awk '{print $1"=\"$EDITOR "$2"\" \\"}' >> "$shell_shortcuts"
+

@@ -1,11 +1,5 @@
 let mapleader ='\'
 
-" getting used to no arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
 " PLUG
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
   echo "Downloading junegunn/vim-plug to manage plugins..."
@@ -141,6 +135,8 @@ let g:ale_fixers = {
       \ 'bash': ['shfmt'],
       \ 'c': ['clang-format'],
       \ 'cpp': ['clang-format'],
+      \ 'css': ['prettier'],
+      \ 'html': ['prettier'],
       \ 'java': ['clang-format'],
       \ 'javascript': ['prettier'],
       \ 'json': ['prettier'],

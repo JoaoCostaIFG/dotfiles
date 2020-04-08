@@ -1,7 +1,13 @@
 #!/bin/sh
 # Needs dmenu
 
-filter_drives() {
+op=$(printf "Mount drive\nUmount drive\nMount android\nUmount android" |
+  dmenu -i -p "What to do:") || exit
+
+[ -z "$op" ] && exit
+
+case "$op" in
+"Mount drive")
   selected_drive=$(lsblk -nr |
     awk '$6!="disk" && $7=="" {print $1 " " $4}' |
     dmenu -i -p "Drive to mount:" |
@@ -11,25 +17,6 @@ filter_drives() {
     awk '$6!="disk" && $7=="" {print $1 " " $4}' |
     sed -e 's/\s.*$//' |
     awk -v cmp_var="$selected_drive" '$0 == cmp_var')
-}
-
-filter_android() {
-  selected_drive=$(simple-mtpfs -l |
-    dmenu -i -p "Drive to umount:" |
-    sed s/:.*$//)
-  existance=$(simple-mtpfs -l |
-    sed s/:.*$// |
-    awk -v cmp_var="$selected_drive" '$0 == cmp_var')
-}
-
-op=$(printf "Mount drive\nUmount drive\nMount android\nUmount android" |
-  dmenu -i -p "What to do:") || exit
-
-[ -z "$op" ] && exit
-
-case "$op" in
-"Mount drive")
-  filter_drives
   [ -z "$existance" ] && exit
 
   sudo -A mkdir /mnt/"$selected_drive"
@@ -37,7 +24,15 @@ case "$op" in
   notify-send "DMOUNT SUCCESS" "$selected_drive partition mounted to /mnt/$selected_drive" &
   ;;
 "Umount drive")
-  filter_drives
+  selected_drive=$(lsblk -nr |
+    awk '$6!="disk" && $7!="" {print $1 " " $4}' |
+    dmenu -i -p "Drive to mount:" |
+    sed -e 's/\s.*$//')
+
+  existance=$(lsblk -nr |
+    awk '$6!="disk" && $7!="" {print $1 " " $4}' |
+    sed -e 's/\s.*$//' |
+    awk -v cmp_var="$selected_drive" '$0 == cmp_var')
   [ -z "$existance" ] && exit
 
   sudo -A umount /dev/"$selected_drive"
@@ -49,7 +44,13 @@ case "$op" in
   fi
   ;;
 "Mount android")
-  filter_android
+  selected_drive=$(simple-mtpfs -l |
+    dmenu -i -p "Drive to mount:" |
+    sed s/:.*$//)
+
+  existance=$(simple-mtpfs -l |
+    sed s/:.*$// |
+    awk -v cmp_var="$selected_drive" '$0 == cmp_var')
   [ -z "$existance" ] && exit
 
   mkdir "$HOME"/Android"$selected_drive"
@@ -57,7 +58,13 @@ case "$op" in
   notify-send "DMOUNT SUCCESS" "Android partition $selected_drive mounted to ~/Android$selected_drive" &
   ;;
 "Umount android")
-  filter_android
+  selected_drive=$(simple-mtpfs -l |
+    dmenu -i -p "Drive to umount:" |
+    sed s/:.*$//)
+
+  existance=$(simple-mtpfs -l |
+    sed s/:.*$// |
+    awk -v cmp_var="$selected_drive" '$0 == cmp_var')
   [ -z "$existance" ] && exit
 
   fusermount -u "$HOME"/Android"$selected_drive"

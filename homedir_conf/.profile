@@ -42,8 +42,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 
 # my scripts
-export SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots/"
+export BIB="$HOME/Documents/WorkRes/bibliography.bib"
 export DLINKHANDLER_DOWNDIR="$HOME/Documents"
 export DLINKHANDLER_VIDDIR="$HOME/Videos"
 export DRECORD_SAVEDIR="$HOME/Videos"
 export DTODO_DFLT_FILE="$HOME/Documents/Notes/dtodo_notes/TODO.txt"
+export SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots/"

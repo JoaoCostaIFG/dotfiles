@@ -4,7 +4,6 @@ setxkbmap -layout pt
 [ -f "$HOME/.config/.Xmodmap" ] && xmodmap "$HOME/.config/.Xmodmap"
 
 # DWM INFO #
-#dwm_statusmonitor &
 slslstatus &
 
 # LOCKING TIME #
@@ -23,14 +22,12 @@ dunst &
 #mpd >/dev/null 2>&1 &
 [ ! -s ~/.config/mpd/pid ] && mpd &
 
-# Ironic JVM fx
+# JVM fx #
 wmname "LG3D"
 
 # DWM STARTING LOOP #
 while true
 do
-  # Log stderror to a file
-  #dwm 2> ~/.dwm.log
-  # No Logging
-  dwm >/dev/null 2>&1
+  # dwm 2> ~/.dwm.log # log stderror to a file
+  dwm >/dev/null 2>&1 # No Logging
 done

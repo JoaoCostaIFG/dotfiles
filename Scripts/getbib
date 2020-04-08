@@ -1,0 +1,8 @@
+#!/bin/sh
+
+[ -z "$1" ] && echo "Needs pdf file or DOI as argument" && exit 1
+
+doi="$1"
+[ -f "$1" ] && doi=$(pdfinfo "$1" 2>/dev/null | grep -io "doi:.*" || pdftotext "$1" - 2>/dev/null | grep -io "doi:.*" -m 1 || exit 1)
+
+curl -s "https://api.crossref.org/works/$doi/transform/application/x-bibtex" -w "\\n"
