@@ -37,8 +37,17 @@ cmd detox ${{ # detox name (clean file name)
 }}
 
 cmd rename %{{
-  [ -e $1 ] && printf "file exists" && exit
-  mv $f $1
+  [ -z "$1" ] && printf "needs file name" && exit
+
+  file="$1"
+  skip=1
+  for arg in $@; do
+    [ $skip -eq 0 ] && file="${file} $arg"
+    skip=0
+  done
+
+  [ -e "$file" ] && printf "file exists" && exit
+  mv $f "$file"
 }}
 
 cmd rename_ext ${{ # edit filename before the extension
@@ -142,13 +151,6 @@ map Re rename_ext
 map Rb rename_bulk
 map <delete> delete
 
-# Shortcuts
-map gb cd ~/Documents/Builds
-map gc cd ~/.config
-map gd cd ~/dir
-map gp cd ~/Documents/Projs
-map gu cd ~/Documents/UniStuff
-
-# working on it
-map , $lf -remote "send $id cd $(cut -d'	' -f2 ~/.config/directories | fzf)"
+# Shortcuts and navigation
+map , $lf -remote "send $id cd $(grep $(cut -d'	' -f1 ~/.config/directories | fzf) ~/.config/directories | cut -d'	' -f2)"
 map <c-f> $lf -remote "send $id select '$(fzf)'"

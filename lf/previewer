@@ -2,7 +2,7 @@
 # base from https://github.com/ranger/ranger (scope.sh script)
 
 set -o noclobber -o noglob -o nounset
-IFS="$(printf "%b_" '\n')"
+IFS="$(printf '\n')"
 
 # Meanings of exit codes:
 # code | meaning | action
