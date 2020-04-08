@@ -44,3 +44,5 @@ QtProject.conf
 Scripts/dpizhid
 Signal
 .Xauthority
+directories
+shortcutrc
