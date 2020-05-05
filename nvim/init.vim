@@ -56,6 +56,7 @@ set splitbelow splitright
 set showtabline=0
 set nohlsearch ignorecase smartcase
 set clipboard+=unnamedplus
+set nojoinspaces
 
 " Backup stuff
 set swapfile
@@ -76,6 +77,7 @@ noremap , @@
 " Save File and Exits
 noremap <silent> <F5> :w<CR>
 noremap <silent> <F6> :wq<CR>
+command E e
 command WQ wq
 command Wq wq
 command W w
@@ -143,7 +145,9 @@ let g:ale_fixers = {
       \ 'markdown': ['prettier'],
       \ 'python': ['black'],
       \ 'sh': ['shfmt'],
+      \ 'tex': ['latexindent'],
       \ 'text': ['SimpFormat'],
+      \ 'xml': ['xmllint'],
       \}
 " lint
 let g:ale_linters_explicit = 1

@@ -13,7 +13,18 @@ abspath() {
   esac
 }
 
+listfiles() {
+  find -L "$(dirname "$target")" -maxdepth 1 -type f -iregex \
+    '.*\(jpe?g\|bmp\|png\|gif\|webp\)$' -print0 | sort -zg
+}
+
 target="$(abspath "$1")"
-find -L "$(dirname "$target")" -maxdepth 1 -type f -iregex \
-  '.*\(jpe?g\|bmp\|png\|gif\|webp\)$' ! -wholename "$target" \
-  -print0 | sort -z | xargs -0 -r sxiv "$target" >/dev/null 2>&1
+if [ ! -f "$target" ]; then
+  sxiv "$@" >/dev/null 2>&1
+  exit $?
+fi
+
+count="$(listfiles | grep -m 1 -Zz -n -Fx "$target" | cut -d: -f1)"
+[ -z "$count" ] && echo "No such file or directory" && exit 1
+
+listfiles | xargs -r0 sxiv -n "$count" >/dev/null 2>&1

@@ -32,10 +32,11 @@ export PROMPT_DIRTRIM=2                   # automatically trim long paths in the
 export HISTSIZE=-1                        # infinite hist entries
 export HISTFILESIZE=-1                    # infinite hist file size
 # don't record some commands
-export HISTIGNORE="bg:bye:byer:clear:exit:fg:jobs:history:lf:lfcd:startx"
+export HISTIGNORE="bg:bye:byer:cf:clear:exit:fg:jobs:history:lf:lfcd:startx"
 
 # other program settings
 export LC_COLLATE="C"
+export LESS="-iFMRSX"
 export SUDO_ASKPASS="/usr/bin/dpass"
 export GPG_TTY=$(tty)
 export _JAVA_AWT_WM_NONREPARENTING=1

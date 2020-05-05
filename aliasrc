@@ -74,13 +74,9 @@ alias   raposoflamejante="firefox &"
 alias   passarinhorelampjante="thunderbird &"
 alias   calcurse="calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse"
 alias   maxima="mmaxima"
-# alias   git="rlwrap -s 0 -D 2 git"
+alias   ssync="rsnapshot full"
 alias   git="rlwrap -s -0 -H /dev/null git"
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" nano="nvim"  # use neovim for vim and nano if present.
-
-# misc #
-alias   upsidedown="echo ':c'"
-alias   pizhid="ssh piz_hid@192.168.7.2"
 
 # funcs #
 bashrc() {
@@ -107,6 +103,6 @@ lfcd() {
 bind '"\ef":"lfcd\C-m"'
 
 cf() {
-  du -a "$SCRIPTS"/* "$HOME/.config"/* | cut -f2 | fzf |
-    xargs -r -d '\n' "$EDITOR";
+  find "${SCRIPTS}"/* "$HOME/.config"/* -type f -print0 | fzf --read0 --print0 |
+    xargs -r -0 "$EDITOR"
 }

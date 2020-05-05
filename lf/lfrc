@@ -4,6 +4,7 @@
 set shell sh # needs to be posix compliant
 set shellopts '-eu' # makes shell commands safer
 set previewer ~/.config/lf/previewer
+set filesep "\n"
 set ifs "\n"
 set scrolloff 10
 set color256
@@ -48,6 +49,10 @@ cmd rename %{{
 
   [ -e "$file" ] && printf "file exists" && exit
   mv $f "$file"
+}}
+
+cmd rename_full ${{
+  lf -remote "send $id push :rename<space>$f"
 }}
 
 cmd rename_ext ${{ # edit filename before the extension
@@ -128,6 +133,13 @@ cmd zip ${{ # compress using zip
 	rm -rf "$1"
 }}
 
+cmd shortcuts ${{
+  dir="$(cut -d'	' -f1 ~/.config/directories | fzf)"
+  [ -z "$dir" ] && exit
+
+  lf -remote "send $id cd $(grep ${dir} ~/.config/directories | cut -d'	' -f2)"
+}}
+
 # Mappings
 map <c-z> $ kill -STOP $PPID # put lf into de background
 
@@ -145,12 +157,14 @@ map X !$f
 map i $ ~/.config/lf/previewer $f 60 | less -R
 
 map a push %mkdir<space>
+map t push %touch<space>
 map r push :rename<space> # shows full current name
+map Rr rename_full
 map Rd detox
 map Re rename_ext
 map Rb rename_bulk
 map <delete> delete
 
 # Shortcuts and navigation
-map , $lf -remote "send $id cd $(grep $(cut -d'	' -f1 ~/.config/directories | fzf) ~/.config/directories | cut -d'	' -f2)"
+map , shortcuts
 map <c-f> $lf -remote "send $id select '$(fzf)'"

@@ -7,5 +7,8 @@ if [ -f "$tmp" ]; then
 	rm -f "$tmp"
 
 	# we cd to the folder even if we're already there so we always exec bash on that folder
-	[ -d "$dir" ] && cd "$dir" && exec bash
+	if [ -d "$dir" ]; then
+    cd "$dir"
+    exec bash
+  fi
 fi
