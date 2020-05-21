@@ -60,7 +60,7 @@ set nojoinspaces
 
 " Backup stuff
 set swapfile
-set directory^=~/.local/share/vim/swap//
+set directory^=~/.local/share/nvim/swap//
 " protect against crash-during-write
 set writebackup
 " but do not persist backup after successful write
@@ -69,7 +69,7 @@ set nobackup
 set backupcopy=auto
 " persist the undo tree for each file
 set undofile
-set undodir^=~/.local/share/vim/undo//
+set undodir^=~/.local/share/nvim/undo//
 
 set hidden
 " Repeat last macro

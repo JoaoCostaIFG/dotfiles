@@ -12,7 +12,7 @@
   "suggest.snippetIndicator": " ►",
   "suggest.disableKind": true,
   "suggest.disableMenu": true,
-  "session.directory": "~/.local/share/vim/sessions/",
+  "session.directory": "~/.local/share/nvim/sessions/",
 
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,

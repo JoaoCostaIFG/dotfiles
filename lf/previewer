@@ -56,11 +56,11 @@ handle_extension() {
     ;;
 
   # HTML
-  htm | html | xhtml)
-    # Preview as text conversion
-    pandoc -s -t markdown -- "${FILE_PATH}" && exit 0
-    exit 1
-    ;;
+  # htm | html | xhtml)
+    # # Preview as text conversion
+    # pandoc -s -t markdown -- "${FILE_PATH}" && exit 0
+    # exit 1
+    # ;;
   esac
 }
 

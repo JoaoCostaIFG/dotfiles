@@ -54,3 +54,4 @@ video/wavelet=mpv.desktop;
 video/webm=mpv.desktop;
 
 text/plain=nvim.desktop;
+x-scheme-handler/discord-478576776990425110=discord-478576776990425110.desktop
