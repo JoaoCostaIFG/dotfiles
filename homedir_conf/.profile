@@ -1,7 +1,8 @@
 # important files and directories
-export SCRIPTS="$HOME/Scripts"
 export ALIASF="$HOME/.config/aliasrc"
 export BASHRC="$HOME/.bashrc"
+export NOTES="$HOME/Documents/Notes"
+export SCRIPTS="$HOME/Scripts"
 
 # add scripts directory recursively to the PATH #
 export PATH="$(du "$SCRIPTS" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$PATH"
