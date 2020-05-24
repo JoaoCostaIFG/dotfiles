@@ -209,6 +209,7 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " LF
 let g:lf_replace_netrw = 1 " open lf when vim open a directory
+nnoremap - :LfCurrentFileNewTab<cr>
 
 " CTRLSPACE
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
