@@ -51,22 +51,10 @@ alias   clndep='sudo pacman -R $(pacman -Qdtq)'
 alias   clnrep="printf 'Cleaning uninstalled packages\n'; sudo paccache -ruk0; printf 'Leaving last version of installed packages\n'; sudo paccache -rk1"
 
 # abbreviations #
-alias   g="git"
 alias   f="$FILE"
 alias   e="$EDITOR"
 alias   v="$EDITOR"
 alias   p="sudo pacman"
-
-# git #
-alias   gad="git add"
-alias   gadd="git add"
-alias   gbr="git branch"
-alias   gck="git checkout"
-alias   gcm="git commit"
-alias   gpsh="git push"
-alias   gpl="git pull"
-alias   gpul="git pull"
-alias   gst="git status"
 
 # programs #
 alias   yay="yay --aur" # prevent partial upgrades
@@ -75,7 +63,7 @@ alias   passarinhorelampjante="thunderbird &"
 alias   calcurse="calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse"
 alias   maxima="mmaxima"
 alias   ssync="rsnapshot full"
-alias   git="rlwrap -s -0 -H /dev/null git"
+alias   git="g" # usa my wrapper script, g, for git
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" nano="nvim"  # use neovim for vim and nano if present.
 
 # funcs #

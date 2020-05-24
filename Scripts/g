@@ -1,0 +1,96 @@
+#!/bin/sh
+
+[ "$#" -eq 0 ] && {
+  echo "JoaoCostaIFG git wrapper because he was lazy and tired of creating alias."
+  exit 1
+}
+
+case "$1" in
+"ad"*)
+  # ADD #
+  shift
+  git add "$@"
+  ;;
+"br")
+  # BRANCH #
+  shift
+  git branch "$@"
+  ;;
+"ck")
+  # CHECKOUT #
+  shift
+  git checkout "$@"
+  ;;
+"ckb")
+  shift
+  git checkout -b "$@"
+  ;;
+"cm")
+  # COMMIT #
+  shift
+  git commit "$@"
+  ;;
+"cma")
+  shift
+  git commit -a -m "$1" -m "$2"
+  ;;
+"cmA" | "cmaa")
+  shift
+  git add -A
+  git commit -m "$1" -m "$2"
+  ;;
+"cmam")
+  shift
+  git commit --amend -m "$1" -m "$2"
+  ;;
+"d" | "df")
+  # DIFF #
+  shift
+  git diff "$@"
+  ;;
+"l")
+  # LOG #
+  shift
+  git log -p -1 "$@"
+  ;;
+"pl" | "pul")
+  # PULL #
+  shift
+  git pull "$@"
+  ;;
+"pulu" | "pullu")
+  shift
+  git fetch
+
+  git branch --set-upstream-to="$1"/"$2"
+  if [ "$#" -gt 2 ]; then
+    shift 2
+  elif [ "$#" -gt 1 ]; then
+    shift
+  fi
+
+  git pull "$@"
+  ;;
+"p" | "psh")
+  # GIT PUSH #
+  shift
+  git push "$@"
+  ;;
+"pshu")
+  shift
+  git push -u "$@"
+  ;;
+"rs | rst | rv")
+  shift
+  git reset "$@"
+  ;;
+"st")
+  # STATUS #
+  shift
+  git status
+  ;;
+*)
+  # DUNNO #
+  git "$@"
+  ;;
+esac
