@@ -58,7 +58,7 @@ case "$1" in
   shift
   git pull "$@"
   ;;
-"pulu" | "pullu")
+"plu" | "pulu" | "pullu")
   shift
   git fetch
 
@@ -76,9 +76,13 @@ case "$1" in
   shift
   git push "$@"
   ;;
-"pshu")
+"pu" | "pshu")
   shift
-  git push -u "$@"
+  if [ "$#" -eq 1 ]; then
+    git push -u origin "$@"
+  else
+    git push -u "$@"
+  fi
   ;;
 "rs | rst | rv")
   shift
