@@ -1,6 +1,10 @@
-# KEYBOARD LAYOUT AND CUSTOM KEYS #
+# XRESOURCES #
 [ -f "$HOME/.config/.Xresources" ] && xrdb "$HOME/.config/.Xresources"
+
+# KEYBOARD STUFF #
+xset r rate 300 50
 setxkbmap -layout pt
+setxkbmap -option caps:escape
 [ -f "$HOME/.config/.Xmodmap" ] && xmodmap "$HOME/.config/.Xmodmap"
 
 # DWM INFO #

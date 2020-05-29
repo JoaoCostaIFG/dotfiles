@@ -1,8 +1,10 @@
 #!/bin/sh
+# JoaoCostaIFG's git wrapper because he was lazy and tired of creating aliases.
+# DWTFYW LICENSE
 
 [ "$#" -eq 0 ] && {
-  echo "JoaoCostaIFG git wrapper because he was lazy and tired of creating alias."
-  exit 1
+  git status
+  exit 0
 }
 
 case "$1" in
@@ -28,7 +30,7 @@ case "$1" in
 "cm")
   # COMMIT #
   shift
-  git commit "$@"
+  git commit -m "$1" -m "$2"
   ;;
 "cma")
   shift
@@ -78,7 +80,10 @@ case "$1" in
   ;;
 "pu" | "pshu")
   shift
-  if [ "$#" -eq 1 ]; then
+  if [ "$#" -eq 0 ]; then
+    branch_name="$(git rev-parse --abbrev-ref HEAD)"
+    git push -u origin "$branch_name"
+  elif [ "$#" -eq 1 ]; then
     git push -u origin "$@"
   else
     git push -u "$@"
