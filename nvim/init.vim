@@ -75,8 +75,6 @@ set hidden
 " Repeat last macro
 noremap , @@
 " Save File and Exits
-noremap <silent> <F5> :w<CR>
-noremap <silent> <F6> :wq<CR>
 command E e
 command WQ wq
 command Wq wq
@@ -209,7 +207,7 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " LF
 let g:lf_replace_netrw = 1 " open lf when vim open a directory
-nnoremap - :LfCurrentFileNewTab<cr>
+nnoremap - :Lf<cr>
 
 " CTRLSPACE
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
