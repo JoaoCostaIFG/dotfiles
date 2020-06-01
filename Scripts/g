@@ -96,7 +96,7 @@ case "$1" in
 "st")
   # STATUS #
   shift
-  git status
+  git status "$@"
   ;;
 *)
   # DUNNO #

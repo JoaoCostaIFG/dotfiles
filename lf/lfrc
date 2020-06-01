@@ -149,6 +149,7 @@ map <c-r> reload
 map Q quit
 map <c-j> push 10j
 map <c-k> push 10k
+map g top
 
 map o open $f
 map O open $f
