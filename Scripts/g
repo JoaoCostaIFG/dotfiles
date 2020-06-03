@@ -89,9 +89,18 @@ case "$1" in
     git push -u "$@"
   fi
   ;;
-"rs | rst | rv")
+"rs" | "rst" | "rv")
   shift
   git reset "$@"
+  ;;
+"rem" | "remote")
+  # GIT REMOTE #
+  shift
+  if [ -z "$1" ]; then
+    git remote -v
+  else
+    git remote "$@"
+  fi
   ;;
 "st")
   # STATUS #
