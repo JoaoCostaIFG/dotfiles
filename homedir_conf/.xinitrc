@@ -8,7 +8,7 @@ setxkbmap -option caps:escape
 [ -f "$HOME/.config/.Xmodmap" ] && xmodmap "$HOME/.config/.Xmodmap"
 
 # DWM INFO #
-slslstatus &
+dwmblocks -b
 
 # LOCKING TIME #
 xsidle slock &

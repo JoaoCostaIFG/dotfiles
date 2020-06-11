@@ -68,7 +68,7 @@ exis_str() {
     # "Cut" line from file
     printf "%s" "$op" | xclip -selection clipboard
     tempfile=$(mktemp /tmp/dtodo_script.XXXXXX)
-    grep -Fvx "$op" "$notes_path/$notes_file" >"$tempfile"
+    grep -Fvx -e "$op" "$notes_path/$notes_file" >"$tempfile"
     mv "$tempfile" "$notes_path/$notes_file"
     ;;
   "---Append---")
@@ -84,7 +84,7 @@ exis_str() {
   "---Delete---")
     # "Delete" line from file
     tempfile=$(mktemp /tmp/dtodo_script.XXXXXX)
-    grep -Fvx "$op" "$notes_path/$notes_file" >"$tempfile"
+    grep -Fvx -e "$op" "$notes_path/$notes_file" >"$tempfile"
     mv "$tempfile" "$notes_path/$notes_file"
     ;;
   *)
@@ -134,7 +134,7 @@ while true; do
     del_file
     ;;
   *)
-    if grep -Fxq "$op" "$notes_path/$notes_file"; then
+    if grep -Fxq -e "$op" "$notes_path/$notes_file"; then
       exis_str
     else
       printf "%s\\n" "$op" >>"$notes_path/$notes_file"
