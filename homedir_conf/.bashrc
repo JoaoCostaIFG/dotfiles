@@ -24,8 +24,9 @@ bind "set mark-symlinked-directories on"
 shopt -s histappend
 # Save multi-line commands as one command
 shopt -s cmdhist
-# Record each line as it gets issued
-PROMPT_COMMAND='history -a'
+# Record each line as it gets issued and print %+newline after commands with
+# no trailing new line finish (https://www.vidarholen.net/contents/blog/?p=878)
+PROMPT_COMMAND='history -a; printf "%%%$((COLUMNS-1))s\\r"'
 
 # VARS #
 RT="\[$(tput sgr0)\]" # reset
