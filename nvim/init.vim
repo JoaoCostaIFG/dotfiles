@@ -9,6 +9,8 @@ endif
 
 " PLUGINS
 call plug#begin('~/.config/nvim/plugged')
+Plug 'ziglang/zig.vim'
+
 Plug 'fenetikm/falcon'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'

@@ -90,6 +90,11 @@ lfcd() {
 }
 bind '"\ef":"lfcd\C-m"'
 
+h() {
+  # https://samizdat.dev/help-message-for-shell-scripts/
+  sed -rn 's/^### ?//;T;p' "$0"
+}
+
 cf() {
   find "${SCRIPTS}"/* "$HOME/.config"/* -type f -print0 | fzf --read0 --print0 |
     xargs -r -0 "$EDITOR"
@@ -100,3 +105,12 @@ notes() {
     xargs -r -0 "$EDITOR"
 }
 alias   note="notes"
+
+clndepl () {
+  yes|clndep
+  cont=$?
+  while [ "$cont" -eq 0 ]; do
+    yes|clndep
+    cont=$?
+  done
+}

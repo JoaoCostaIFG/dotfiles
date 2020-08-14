@@ -36,6 +36,10 @@
           "directory": ".ccls-cache"
         }
       }
+    },
+    "zls" : {
+      "command": "zls",
+      "filetypes": ["zig"]
     }
   }
 }

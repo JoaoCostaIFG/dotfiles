@@ -5,6 +5,8 @@
 dirs_file="$HOME/.config/directories"
 files_file="$HOME/.config/files"
 
+! [ -r "$dirs_file" ] && ! [ -r "$files_file" ] && exit
+
 # Output locations. Unactivated progs should go to /dev/null
 shell_shortcuts="$HOME/.config/shortcutrc"
 

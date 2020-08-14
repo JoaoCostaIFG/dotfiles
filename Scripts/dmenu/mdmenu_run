@@ -14,7 +14,7 @@ hist_file="$cachedir/mdmenu_run" # cache file
 # list commands in cache ordered by number of usages
 cmds_l=$(sort "$hist_file" | uniq -c | sort -r | awk '{for (i=2; i<NF; i++) printf $i " "; print $NF}')
 # list of directories (and strip $search_dir from it)
-dirs_l="$(find "$search_dir" -maxdepth $min_dep -type d | sed 's|^/home/joao||')"
+#dirs_l="$(find "$search_dir" -maxdepth $min_dep -type d | sed 's|^/home/joao||')"
 
 # store sel using dmenu
 
