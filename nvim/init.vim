@@ -35,7 +35,7 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 
 Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " BASICS
