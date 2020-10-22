@@ -165,6 +165,7 @@ map Rd detox
 map Re rename_ext
 map Rb rename_bulk
 map P delete # <delete> now maps to P
+map <delete> delete
 
 # Shortcuts and navigation
 map , shortcuts
