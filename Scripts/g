@@ -78,6 +78,14 @@ case "$1" in
   shift
   git push "$@"
   ;;
+"pa" | "psha")
+  shift
+  branch="$(git rev-parse --abbrev-ref HEAD)"
+  remotes="$(g remote | awk '{print $1}' | uniq)"
+  for rem in $remotes; do
+    git push "$rem" "$branch"
+  done
+  ;;
 "pu" | "pshu")
   shift
   if [ "$#" -eq 0 ]; then

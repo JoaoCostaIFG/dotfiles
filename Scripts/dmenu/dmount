@@ -26,7 +26,7 @@ case "$op" in
 "Umount drive")
   selected_drive=$(lsblk -nr |
     awk '$6!="disk" && $7!="" {print $1 " " $4}' |
-    dmenu -i -p "Drive to mount:" |
+    dmenu -i -p "Drive to umount:" |
     sed -e 's/\s.*$//')
 
   existance=$(lsblk -nr |
