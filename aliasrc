@@ -14,6 +14,7 @@ alias   llll="ls -lAh --group-directories-first --color=auto"
 
 # changed commands #
 alias   bye=" shutdown now"
+alias   sbye=" sleep 10; shutdown now"
 alias   byer=" shutdown -r now"
 alias   dir="dir --color=auto"
 alias   vdir="vdir --color=auto"
@@ -53,10 +54,12 @@ alias   clnrep="printf 'Cleaning uninstalled packages\n'; sudo paccache -ruk0; p
 # abbreviations #
 alias   f="$FILE"
 alias   e="$EDITOR"
+alias   E="sudo -E $EDITOR"
 alias   v="$EDITOR"
 alias   p="sudo pacman"
 
 # programs #
+alias   crono="time read -r stop"
 alias   yay="yay --aur" # prevent partial upgrades
 alias   raposoflamejante="firefox &"
 alias   passarinhorelampjante="thunderbird &"
