@@ -1,4 +1,5 @@
 #!/bin/sh
+### dmenu TODO list and file editor
 
 # Constants
 DFLT_FILE="${DTODO_DFLT_FILE:-"$HOME/Documents/Notes/TODO.txt"}"

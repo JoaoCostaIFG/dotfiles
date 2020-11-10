@@ -1,0 +1,20 @@
+#!/bin/sh
+### requires xdotool
+### vê a distancia entre os 2 pontos onde temos o rato
+### 2 secs é perfeito para mim, play around with it if u want
+### maybe we detect mouse clicks someday?
+
+sleep 2
+eval "$(xdotool getmouselocation --shell)"
+X1="$X"
+Y1="$Y"
+
+sleep 2
+eval "$(xdotool getmouselocation --shell)"
+
+dX="$((X1 - X))"
+[ "$dX" -lt 0 ] && dX=$((-dX))
+dY="$((Y1 - Y))"
+[ "$dY" -lt 0 ] && dY=$((-dY))
+
+notify-send "Screen measure" "X:${dX}\nY:${dY}"

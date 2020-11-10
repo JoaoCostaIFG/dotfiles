@@ -1,7 +1,5 @@
 #!/bin/sh
-#
-# Use xset s $time to control the timeout when this will run.
-#
+### Use xset s $time to control the timeout when this will run.
 
 if [ $# -lt 1 ];
 then

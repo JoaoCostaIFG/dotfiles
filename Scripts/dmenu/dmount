@@ -1,5 +1,6 @@
 #!/bin/sh
-# Needs dmenu
+### Menu to help mount external devices/android devices
+### Requires dmenu
 
 op=$(printf "Mount drive\nUmount drive\nMount android\nUmount android" |
   dmenu -i -p "What to do:") || exit

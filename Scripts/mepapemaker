@@ -1,5 +1,6 @@
 #!/usr/bin/bash
-# base taken from autor: https://gitlab.com/SillyPill/arch-pape-maker
+### adds arch symbol to image with a blue effect
+### base taken from autor: https://gitlab.com/SillyPill/arch-pape-maker
 
 pape="$1"
 

@@ -1,8 +1,7 @@
 #!/bin/sh
-
-# This scripts opens all image files inside a directory with sxiv.
-# If a file is provide, all the other files inside it's folder are also opened with sxiv
-# Requires find, xargs and sxiv
+### This scripts opens all image files inside a directory with sxiv.
+### If a file is provide, all the other files inside it's folder are also opened with sxiv
+### Requires find, xargs and sxiv
 
 [ $# -eq 0 ] && echo "Usage: ${0##*/} Image Files/Dirs" && exit 1
 

@@ -1,4 +1,5 @@
 #!/bin/sh
+### My password helper script
 
 CURL="curl --connect-timeout 5 -k"
 DMENU="dmenu -i -l 5"

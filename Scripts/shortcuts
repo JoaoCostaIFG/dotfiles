@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#based on https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/shortcuts
+### add alias (shortcuts) for configured dirs
+### based on https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/shortcuts
 
 # Input files
 dirs_file="$HOME/.config/directories"

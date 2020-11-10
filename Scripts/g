@@ -1,6 +1,6 @@
 #!/bin/sh
-# JoaoCostaIFG's git wrapper because he was lazy and tired of creating aliases.
-# DWTFYW LICENSE
+### JoaoCostaIFG's git wrapper because he was lazy and tired of creating aliases.
+### DWTFYW LICENSE
 
 [ "$#" -eq 0 ] && {
   git status

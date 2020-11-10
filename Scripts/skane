@@ -1,5 +1,7 @@
 #!/bin/bash
-
+### Snake game in bash
+### W, A, S, D for movement. P for pause. Esc/Q for quit
+### Eat the @ signs (apples). Don't eat the # (walls) or yourself.
 
 #GAME MODE SETTINGS
 stty="$(stty -g)" #save settings

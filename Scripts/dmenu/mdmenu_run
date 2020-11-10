@@ -1,4 +1,5 @@
 #!/bin/sh
+### my dmenu run wrapper
 
 # find related constants
 search_dir="$HOME"

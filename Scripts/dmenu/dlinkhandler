@@ -1,7 +1,7 @@
 #!/bin/sh
-# Feed this script a link and it will give dmenu some choice programs to use
-# to open it.
-# Based on Luke Smith's dmenuhandler script
+### Feed this script a link and it will give dmenu some choice programs to use
+### to open it.
+### Based on Luke Smith's dmenuhandler script
 
 if [ $# -eq 0 ]; then
   echo "Usage: ${0##*/} URL"

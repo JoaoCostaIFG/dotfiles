@@ -1,4 +1,5 @@
 #!/bin/sh
+### open lf on current directory and cd to the last shown dir on exit
 
 tmp="$(mktemp)"
 lf -last-dir-path="$tmp" "$@"

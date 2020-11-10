@@ -1,4 +1,5 @@
 #!/bin/sh
+### manage my noita backups
 
 SAVE_DIR="$HOME/Games/SteamLibrary/steamapps/compatdata/881100/pfx/drive_c/users/steamuser/AppData/LocalLow/Nolla_Games_Noita/"
 SAVE_NAME="save00_$2.bck"

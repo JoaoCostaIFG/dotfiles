@@ -1,4 +1,5 @@
 #!/bin/sh
+### switch to the next sink on pulseaudio
 
 get_default_sink() {
   pacmd list-sinks | grep "\* index:" | cut -d' ' -f5

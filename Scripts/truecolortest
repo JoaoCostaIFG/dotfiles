@@ -1,4 +1,5 @@
 #!/bin/sh
+### If you see a continuous color spectrum, you have truecolor support
 
 awk 'BEGIN{
     s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;

@@ -1,4 +1,6 @@
 #!/bin/sh
+### a wrapper for terminal maxima
+### depends on rlwrap
 
 # check if rlwrap is installed
 RLWRAP=rlwrap

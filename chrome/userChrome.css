@@ -1,0 +1,375 @@
+/* REMOVE MEGABAR START
+ * VERSION 1.0.4
+ * CODE AT: http://userchrome.wesleybranton.com/megabar
+ * RELEASE NOTES: http://userchrome.wesleybranton.com/notes/megabar */
+@-moz-document url(chrome://browser/content/browser.xhtml) {
+    /* DISABLE EXPANDING START */
+    #urlbar[breakout][breakout-extend] {
+        top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+        left: 0 !important;
+        width: 100% !important;
+    }
+    
+    #urlbar[breakout][breakout-extend] > #urlbar-input-container {
+        height: var(--urlbar-height) !important;
+        padding-block: 0 !important;
+        padding-inline: 0 !important;
+    }
+    
+    #urlbar[breakout][breakout-extend] > #urlbar-background {
+        animation-name: none !important;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .05) !important;
+    }
+    /* DISABLE EXPANDING END */
+    
+    /* REMOVE URL RESULT PADDING START */
+    .urlbarView {
+        margin-inline: 0 !important;
+        width: 100% !important;
+    }
+
+    .urlbarView-row {
+        padding-block: 0 !important;
+    }
+    /* REMOVE URL RESULT PADDING END */
+    
+    /* MOVE URL RESULT TYPE ICON TO LEFT START */
+    .urlbarView-type-icon {
+        min-width: 16px !important;
+        height: 16px !important;
+        margin-bottom: 0 !important;
+        margin-inline-start: 0 !important;
+    }
+    
+    .urlbarView-favicon {
+        margin-inline-start: 20px !important;
+    }
+    /* MOVE URL RESULT TYPE ICON TO LEFT END */
+
+    /* DISPLAY GO BUTTON WHEN TYPING START */
+    #urlbar-input-container[pageproxystate="invalid"] #urlbar-go-button {
+        display: block !important;
+    }
+    /* DISPLAY GO BUTTON WHEN TYPING END */
+
+    /* ALWAYS SHOW PAGE ACTIONS START */
+    /* DISABLED BY DEFAULT - UNCOMMENT TO ENABLE */
+    /*#pageActionButton {
+        display: block !important;
+    }*/
+    /* ALWAYS SHOW PAGE ACTIONS END */
+}
+/* REMOVE MEGABAR END */
+
+/* REMOVE TAB CLOSE BUTTON */
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+.tab-close-button {
+  display: none !important;
+}
+/* REMOVE TAB CLOSE BUTTON END */
+
+/* MFF */
+/* https://github.com/mut-ex/minimal-functional-fox */
+:root {
+  /* Minimal Functional Fox variables*/
+  --mff-bg: #292f36;
+  --mff-icon-color: #e0fbfc;
+  --mff-nav-toolbar-padding: 8px;
+  --mff-sidebar-bg: var(--mff-bg);
+  --mff-sidebar-color: #e0fbfc;
+  --mff-tab-border-radius: 0px;
+  --mff-tab-color: #fefefa;
+  --mff-tab-font-family: "Cantarell", sans;
+  --mff-tab-font-size: 11pt;
+  --mff-tab-font-weight: 400;
+  --mff-tab-height: 32px;
+  --mff-tab-pinned-bg: #70c1b3;
+  --mff-tab-selected-bg: #a82f45;
+  --mff-tab-unselected-bg: #523137;
+  --mff-tab-soundplaying-bg: #9c89b8;
+  --mff-urlbar-color: #98c1d9;
+  --mff-urlbar-focused-color: #e0fbfc;
+  --mff-urlbar-font-family: "Cantarell", serif;
+  --mff-urlbar-font-size: 12pt;
+  --mff-urlbar-font-weight: 700;
+  --mff-urlbar-results-color: #e0fbfc;
+  --mff-urlbar-results-font-family: "mononoki Nerd Font", serif;
+  --mff-urlbar-results-font-size: 12pt;
+  --mff-urlbar-results-font-weight: 700;
+  --mff-urlbar-results-url-color: #98c1d9;
+
+  /* Overriden Firefox variables*/
+  --autocomplete-popup-background: var(--mff-bg) !important;
+  --default-arrowpanel-background: var(--mff-bg) !important;
+  --default-arrowpanel-color: #fefefa !important;
+  --lwt-toolbarbutton-icon-fill: var(--mff-icon-color) !important;
+  --panel-disabled-color: #f9f9fa80;
+  --toolbar-bgcolor: var(--mff-bg) !important;
+  --urlbar-separator-color: transparent !important;
+}
+
+/*
+  _____ _   ___ ___
+ |_   _/_\ | _ ) __|
+   | |/ _ \| _ \__ \
+   |_/_/ \_\___/___/
+
+*/
+
+.tab-background[selected="true"] {
+  background: var(--mff-tab-selected-bg) !important;
+}
+
+.tab-background:not[visuallyselected] {
+  background: var(--mff-tab-selected-bg) !important;
+  opacity: 0.5 !important;
+}
+
+/* This positions the tabs under the navaigator container */
+#titlebar {
+  -moz-box-ordinal-group: 3 !important;
+}
+
+.tabbrowser-tab::after,
+.tabbrowser-tab::before {
+  border-left: none !important;
+}
+
+.tab-background {
+  border: none !important;
+  background-color: var(--mff-tab-unselected-bg) !important;
+}
+
+.tabbrowser-arrowscrollbox {
+  margin-inline-start: 4px !important;
+  margin-inline-end: 0px !important;
+}
+
+.tab-close-button {
+  display: none !important;
+}
+
+.tab-text {
+  font-family: var(--mff-tab-font-family);
+  font-weight: var(--mff-tab-font-weight);
+  font-size: var(--mff-tab-font-size) !important;
+  color: var(--mff-tab-color);
+}
+
+#tabbrowser-tabs {
+  --tab-loading-fill: #033433 !important;
+}
+
+.tab-label-container:not([textoverflow]) {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  width: 50% !important;
+  max-width: 50% !important;
+  min-width: 50% !important;
+}
+
+.tab-line {
+  display: none !important;
+}
+
+.tabbrowser-tab {
+  border-radius: var(--mff-tab-border-radius) !important;
+  border-width: 0;
+  height: var(--mff-tab-height) !important;
+  margin-bottom: 4px !important;
+  margin-inline-end: 4px !important;
+  margin-top: 4px !important;
+  max-height: var(--mff-tab-height) !important;
+  min-height: var(--mff-tab-height) !important;
+}
+
+.tabbrowser-tab[soundplaying="true"] {
+  background-color: var(--mff-tab-soundplaying-bg) !important;
+}
+
+#tabs-newtab-button {
+  list-style-image: url("add.svg") !important;
+  opacity: 0.7;
+}
+
+/*
+  _____ ___   ___  _    ___   _   ___
+|_   _/ _ \ / _ \| |  | _ ) /_\ | _ \
+  | || (_) | (_) | |__| _ \/ _ \|   /
+  |_| \___/ \___/|____|___/_/  \_\_|_\
+*/
+
+.urlbar-icon > image {
+  fill: var(--mff-icon-color) !important;
+  color: var(--mff-icon-color) !important;
+}
+
+.toolbarbutton-text {
+  color: var(--mff-icon-color) !important;
+}
+.urlbar-icon {
+  color: var(--mff-icon-color) !important;
+}
+
+#urlbar-results {
+  font-family: var(--mff-urlbar-results-font-family);
+  color: var(--mff-urlbar-results-color) !important;
+}
+
+.urlbarView-row[type="bookmark"] > span {
+  color: #d08254 !important;
+  font-weight: bold;
+}
+
+.urlbarView-row[type="switchtab"] > span {
+  color: orange !important;
+}
+
+.urlbarView-url,
+.search-panel-one-offs-container {
+  color: var(--mff-urlbar-results-url-color) !important;
+  font-family: var(--mff-urlbar-font-family);
+}
+
+.urlbarView-favicon,
+.urlbarView-type-icon {
+  display: none !important;
+}
+
+#urlbar-input {
+  font-size: var(--mff-urlbar-font-size) !important;
+  color: var(--mff-urlbar-color) !important;
+  font-family: var(--mff-urlbar-font-family) !important;
+  text-align: center !important;
+}
+
+#tracking-protection-icon-container,
+#identity-box {
+  display: none;
+}
+
+#back-button > .toolbarbutton-icon {
+  --backbutton-background: transparent !important;
+  border: none !important;
+}
+
+#back-button {
+  list-style-image: url("left-arrow.svg") !important;
+}
+
+#forward-button {
+  list-style-image: url("right-arrow.svg") !important;
+}
+
+toolbar {
+  background-image: none !important;
+}
+
+#urlbar-background {
+  opacity: 0.98 !important;
+}
+
+#navigator-toolbox,
+toolbaritem {
+  border: none !important;
+}
+
+#urlbar-background {
+  background-color: var(--mff-bg) !important;
+  border: none !important;
+}
+
+.toolbar-items {
+  background-color: var(--mff-bg) !important;
+}
+
+#sidebar-search-container {
+  background-color: var(--mff-sidebar-bg) !important;
+}
+
+box.panel-arrowbox {
+  display: none;
+}
+
+box.panel-arrowcontent {
+  border-radius: 8px !important;
+  border: none !important;
+}
+
+tab.tabbrowser-tab {
+  overflow: hidden;
+}
+
+tab.tabbrowser-tab:hover {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+image#star-button {
+  display: none;
+}
+
+toolbar#nav-bar {
+  padding: var(--mff-nav-toolbar-padding) !important;
+}
+
+toolbar#nav-bar {
+  padding: 4px !important;
+}
+
+#urlbar-input:focus {
+  color: var(--mff-urlbar-focused-color) !important;
+}
+
+toolbarbutton {
+  box-shadow: none !important;
+}
+
+/*
+  ___ ___ ___  ___ ___   _   ___
+ / __|_ _|   \| __| _ ) /_\ | _ \
+ \__ \| || |) | _|| _ \/ _ \|   /
+ |___/___|___/|___|___/_/ \_\_|_\
+*/
+
+.close-icon,
+.urlbar-icon {
+  fill: var(--mff-icon-color) !important;
+}
+
+.sidebar-placesTree {
+  color: var(--mff-sidebar-color) !important;
+}
+
+#sidebar-box {
+  --sidebar-background-color: var(--mff-sidebar-bg) !important;
+}
+
+splitter#sidebar-splitter {
+  opacity: 0 !important;
+}
+
+splitter#sidebar-splitter {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+image#sidebar-icon {
+  display: none;
+}
+
+/*
+    _   ___ ___  _____      _____  _   _  _ ___ _
+   /_\ | _ \ _ \/ _ \ \    / / _ \/_\ | \| | __| |
+  / _ \|   /   / (_) \ \/\/ /|  _/ _ \| .` | _|| |__
+ /_/ \_\_|_\_|_\\___/ \_/\_/ |_|/_/ \_\_|\_|___|____|
+ */
+
+.panel-arrowcontent {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+toolbarseparator {
+  display: none;
+}
