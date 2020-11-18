@@ -157,6 +157,7 @@ let g:ale_linters = {
       \ 'mail': ['languagetool'],
       \ 'markdown': ['languagetool'],
       \ 'sh': ['shellcheck'],
+      \ 'tex': ['languagetool'],
       \ 'text': ['languagetool'],
       \}
 " signs
