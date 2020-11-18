@@ -34,6 +34,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 
+Plug 'dart-lang/dart-vim-plugin'
+
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
@@ -138,6 +140,7 @@ let g:ale_fixers = {
       \ 'c': ['clang-format'],
       \ 'cpp': ['clang-format'],
       \ 'css': ['prettier'],
+      \ 'dart': ['dartfmt'],
       \ 'html': ['prettier'],
       \ 'java': ['clang-format'],
       \ 'javascript': ['prettier'],
