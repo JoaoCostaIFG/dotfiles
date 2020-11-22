@@ -9,6 +9,7 @@ endif
 
 " PLUGINS
 call plug#begin('~/.config/nvim/plugged')
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'ziglang/zig.vim'
 
 Plug 'fenetikm/falcon'
@@ -33,8 +34,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdcommenter'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
-
-Plug 'dart-lang/dart-vim-plugin'
 
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

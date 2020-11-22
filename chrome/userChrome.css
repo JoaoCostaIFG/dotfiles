@@ -1,3 +1,9 @@
+/* Reduce the "white flash" in new tabs */
+browser[type="content-primary"], 
+browser[type="content"] {
+  background: black !important;
+}
+
 /* REMOVE MEGABAR START
  * VERSION 1.0.4
  * CODE AT: http://userchrome.wesleybranton.com/megabar
