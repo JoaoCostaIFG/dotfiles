@@ -60,6 +60,7 @@ alias   p="sudo pacman"
 
 # programs #
 alias   crono="time read -r stop"
+alias   cronol="while true; do crono; done"
 alias   yay="yay --aur" # prevent partial upgrades
 alias   raposoflamejante="firefox &"
 alias   passarinhorelampjante="thunderbird &"
