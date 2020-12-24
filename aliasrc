@@ -96,7 +96,7 @@ bind '"\ef":"lfcd\C-m"'
 
 h() {
   # https://samizdat.dev/help-message-for-shell-scripts/
-  sed -rn 's/^### ?//;T;p' "$0"
+  sed -rn 's/^### ?//;T;p' "$1"
 }
 
 cf() {

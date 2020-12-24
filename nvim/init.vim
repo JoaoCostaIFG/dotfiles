@@ -145,6 +145,7 @@ let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'json': ['prettier'],
       \ 'markdown': ['prettier'],
+      \ 'php': ['phpcbf'],
       \ 'python': ['black'],
       \ 'sh': ['shfmt'],
       \ 'tex': ['latexindent'],
