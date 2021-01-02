@@ -28,7 +28,8 @@ case "$1" in
 esac
 
 # list of files to copy (can be path's from 'homedir')
-file_l=".bash_profile
+file_l=".bash_completion
+.bash_profile
 .bashrc
 .profile
 .xinitrc"

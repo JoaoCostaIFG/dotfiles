@@ -81,7 +81,7 @@ case "$1" in
 "pa" | "psha")
   shift
   branch="$(git rev-parse --abbrev-ref HEAD)"
-  remotes="$(g remote | awk '{print $1}' | uniq)"
+  remotes="$(git remote | awk '{print $1}' | uniq)"
   for rem in $remotes; do
     echo "Pushing to ${rem} ${branch}"
     git push "$rem" "$branch"

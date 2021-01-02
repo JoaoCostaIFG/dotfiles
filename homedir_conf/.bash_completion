@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+__git_heads() {
+  git for-each-ref --format="%(refname:strip=2)" \
+    "refs/heads/**" "refs/remotes/**"
+}
+
+__git_tags() {
+  git for-each-ref --format="%(refname:strip=2)" \
+    "refs/tags/**"
+}
+
+_g_completions() {
+  if [ "${#COMP_WORDS[@]}" == "2" ]; then
+    # mai options
+    COMPREPLY=($(compgen -W "$(g getallalias)" "${COMP_WORDS[1]}"))
+  elif [ "${#COMP_WORDS[@]}" == "3" ]; then
+    # sub options
+    case ${COMP_WORDS[1]} in
+    "br" | "ck" | "ckb")
+      # complete branch names
+      COMPREPLY=($(compgen -W "$(__git_heads)" -- ${COMP_WORDS[2]}))
+      ;;
+    "pl" | "pul")
+      # complete fetch remotes
+      COMPREPLY=($(compgen -W "$(git remote | awk '($3=="(fetch)") {print $1}')" -- ${COMP_WORDS[2]}))
+      ;;
+    "p" | "pu" | "psh")
+      # complete fetch remotes
+      COMPREPLY=($(compgen -W "$(git remote | awk '($3=="(push)") {print $1}')" -- ${COMP_WORDS[2]}))
+      ;;
+    "t" | "tag" | "tags")
+      # complete tag names
+      COMPREPLY=($(compgen -W "$(__git_tags)" -- ${COMP_WORDS[2]}))
+      ;;
+    *) ;;
+    esac
+  fi
+}
+
+complete -F _g_completions g
