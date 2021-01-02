@@ -116,6 +116,15 @@ case "$1" in
   shift
   git status "$@"
   ;;
+"t" | "tags")
+  # tags
+  shift
+  git tag "$@"
+  ;;
+"getallalias")
+  # list all script alias (for completion)
+  echo "add br ck ckb cm cma cmA cmam d l pl plu p pa pu rs rem st t"
+  ;;
 *)
   # DUNNO #
   git "$@"
