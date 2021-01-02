@@ -5,7 +5,7 @@
 ### pass 2 as an argument - color picker (needs work)
 
 if [ "$1" -eq 1 ]; then # Sniping tool
-  maim -u -s -B -m 5 | xclip -selection clipboard -t image/png
+  maim -u -s -B -m 10 | xclip -selection clipboard -t image/png
   notify-send -u low "Snipping Tool" "Snip saved to clipboard" &
 elif [ "$1" -eq 2 ]; then # Color picker
   color_info=$(maim -u -s -B -t 0 | convert - -resize 1x1\! -format \
