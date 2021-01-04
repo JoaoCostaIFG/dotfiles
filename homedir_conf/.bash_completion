@@ -1,41 +1,50 @@
 #!/usr/bin/env bash
 # many things taken from bash-completion
 
-__git_heads() {
+__g_heads() {
   git for-each-ref --format="%(refname:strip=2)" \
     "refs/heads/**" "refs/remotes/**" 2>/dev/null
 }
 
-__git_tags() {
+__g_tags() {
   git for-each-ref --format="%(refname:strip=2)" \
     "refs/tags/**" 2>/dev/null
 }
 
 is_git_repo() {
   if [ -d .git ]; then
-    echo .git;
+    echo .git
   else
-    git rev-parse --git-dir 2> /dev/null;
-  fi;
+    git rev-parse --git-dir 2>/dev/null
+  fi
+}
+
+_g_complete_files() {
+  COMPREPLY=($(compgen -W "$(ls -A)" "${COMP_WORDS[$1]}"))
 }
 
 _g_completions() {
   # don't complete on non git repos
-  test -z "$(is_git_repo)" && return
+  # test -z "$(is_git_repo)" && return
 
-  if [ "${#COMP_WORDS[@]}" == "2" ]; then
+  currentCompInd=$((${#COMP_WORDS[@]} - 1))
+
+  if [ "$currentCompInd" -eq 1 ]; then
     # mai options
     COMPREPLY=($(compgen -W "$(g getallalias)" "${COMP_WORDS[1]}"))
-  elif [ "${#COMP_WORDS[@]}" == "3" ]; then
+  elif [ "$currentCompInd" -eq 2 ]; then
     # sub options
     case ${COMP_WORDS[1]} in
     "br" | "ck" | "ckb")
       # complete branch names
-      COMPREPLY=($(compgen -W "$(__git_heads)" -- ${COMP_WORDS[2]}))
+      COMPREPLY=($(compgen -W "$(__g_heads)" -- ${COMP_WORDS[2]}))
       ;;
     "pl" | "pul")
       # complete fetch remotes
       COMPREPLY=($(compgen -W "$(git remote 2>/dev/null | awk '($3=="(fetch)") {print $1}')" -- ${COMP_WORDS[2]}))
+      ;;
+    "m" | "merge")
+      COMPREPLY=($(compgen -W "$(__g_heads)" -- ${COMP_WORDS[2]}))
       ;;
     "p" | "pu" | "psh")
       # complete fetch remotes
@@ -43,10 +52,29 @@ _g_completions() {
       ;;
     "t" | "tag" | "tags")
       # complete tag names
-      COMPREPLY=($(compgen -W "$(__git_tags)" -- ${COMP_WORDS[2]}))
+      COMPREPLY=($(compgen -W "$(__g_tags)" -- ${COMP_WORDS[2]}))
       ;;
-    *) ;;
+    *)
+      _g_complete_files "$currentCompInd"
+      ;;
     esac
+  elif [ "$currentCompInd" -gt 2 ]; then
+    # sub sub options
+    case ${COMP_WORDS[1]} in
+    "br" | "pl" | "pul" | "p" | "pu" | "psh")
+      # complete branch names
+      COMPREPLY=($(compgen -W "$(__g_heads)" -- ${COMP_WORDS[$currentCompInd]}))
+      ;;
+    "t" | "tag" | "tags")
+      # complete tag names
+      COMPREPLY=($(compgen -W "$(__g_tags)" -- ${COMP_WORDS[$currentCompInd]}))
+      ;;
+    *)
+      _g_complete_files "$currentCompInd"
+      ;;
+    esac
+  else
+    _g_complete_files "$currentCompInd"
   fi
 }
 
