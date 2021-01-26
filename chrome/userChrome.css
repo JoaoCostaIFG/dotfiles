@@ -1,8 +1,10 @@
 /* Reduce the "white flash" in new tabs */
-browser[type="content-primary"], 
-browser[type="content"] {
-  background: black !important;
-}
+/*
+ * browser[type="content-primary"],
+ * browser[type="content"] {
+ *   background: black !important;
+ * }
+ */
 
 /* REMOVE MEGABAR START
  * VERSION 1.0.4
@@ -79,6 +81,7 @@ browser[type="content"] {
 :root {
   /* Minimal Functional Fox variables*/
   --mff-bg: #292f36;
+  --mff-url-bg: #2F343F;
   --mff-icon-color: #e0fbfc;
   --mff-nav-toolbar-padding: 8px;
   --mff-sidebar-bg: var(--mff-bg);
@@ -282,7 +285,7 @@ toolbaritem {
 }
 
 #urlbar-background {
-  background-color: var(--mff-bg) !important;
+  background-color: var(--mff-url-bg) !important;
   border: none !important;
 }
 
