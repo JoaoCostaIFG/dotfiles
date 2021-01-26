@@ -35,3 +35,6 @@ do
   # dwm 2> ~/.dwm.log # log stderror to a file
   dwm >/dev/null 2>&1 # No Logging
 done
+
+# KILL THE DAEMON #
+dwmblocks -k

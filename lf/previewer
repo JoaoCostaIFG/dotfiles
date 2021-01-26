@@ -14,7 +14,10 @@ IFS="
 
 # Script arguments
 FILE_PATH="${1}"
-PV_HEIGHT="${2}"
+PV_WIDTH="${2}"
+PV_HEIGHT="${3}"
+H_POS="${4}"
+V_POS="${5}"
 FILE_EXTENSION="$(printf "%s" "${FILE_PATH##*.}" | tr '[:upper:]' '[:lower:]')"
 
 # Settings
@@ -89,7 +92,7 @@ handle_mime() {
   # Image
   image/*)
     # -c 256
-    chafa --fill=block --symbols=block -s 80x"${PV_HEIGHT}" "${FILE_PATH}" && exit 0
+    chafa --fill=block --symbols=block -s "${PV_WIDTH}"x"${PV_HEIGHT}" "${FILE_PATH}" && exit 0
     ;;
 
   # Video and audio

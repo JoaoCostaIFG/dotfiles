@@ -1,28 +1,40 @@
 #!/bin/sh
 ### my dmenu run wrapper
 
+# CONSTS #
 # find related constants
 search_dir="$HOME"
 min_dep=2
 max_dep=5
 
 # cache file related constants
-max_size=100
+max_size=10
 cachedir=${XDG_DATA_HOME:-"$HOME/.local/share"}
-hist_file="$cachedir/mdmenu_run" # cache file
+hist_file="$cachedir/mdmenu_run" # history file
 [ -f "$hist_file" ] || touch "$hist_file"
 
 # list commands in cache ordered by number of usages
-cmds_l=$(sort "$hist_file" | uniq -c | sort -r | awk '{for (i=2; i<NF; i++) printf $i " "; print $NF}')
+#hist_l=$(sort "$hist_file" | uniq -c | sort -r | awk '{for (i=2; i<NF; i++) printf $i " "; print $NF}')
+hist_l="$(cat "$hist_file")"
 # list of directories (and strip $search_dir from it)
 #dirs_l="$(find "$search_dir" -maxdepth $min_dep -type d | sed 's|^/home/joao||')"
 
-# store sel using dmenu
+save_hist() {
+  # save command in history file
+  newentry="$1"
+
+  (
+    printf "%s\n" "$newentry"
+    printf "%s" "$hist_l" | grep -vxF "$newentry"
+  ) | head -n $max_size >"$hist_file.tmp"
+
+  mv "$hist_file.tmp" "$hist_file"
+}
 
 sel=$( (
-  printf "%s\n" "$cmds_l"
-  dmenu_path | grep -vxF "$cmds_l"
-  printf "%s\n---directories----\n---files---" "$dirs_l"
+  printf "%s\n" "$hist_l"
+  dmenu_path | grep -vxF "$hist_l"
+  printf "%s\n%s" "---directories----" "---files---"
 ) | dmenu "$@" || exit)
 
 [ -z "$sel" ] && exit
@@ -30,12 +42,12 @@ sel=$( (
 case "$sel" in
 "---directories----")
   # trigger directories searching
-  sel="$(find "$search_dir" -maxdepth $max_dep -type d | sed 's|^/home/joao||' | dmenu "$@")"
+  sel="$(find "$search_dir" -mindepth $min_dep -maxdepth $max_dep -type d | sed 's|^/home/joao||' | dmenu "$@")"
   [ "$sel" ] && "$TERMINAL" -e "$FILE" "$search_dir/$sel"
   ;;
 "---files---")
   # trigger file searching
-  sel="$(find "$search_dir" -maxdepth $max_dep -type f | sed 's|^/home/joao||' | dmenu "$@")"
+  sel="$(find "$search_dir" -mindepth $min_dep -maxdepth $max_dep -type f | sed 's|^/home/joao||' | dmenu "$@")"
   [ "$sel" ] && "$TERMINAL" -e "$FILE" "$search_dir/$sel"
   ;;
 /*)
@@ -44,22 +56,12 @@ case "$sel" in
   ;;
 *\;)
   # exec command in a new terminal
-  printf "%s %s" "$TERMINAL -e" "$sel" | ${SHELL:-"/bin/sh"} &
-  # save command in cache
-  (
-    printf "%s\n" "$sel"
-    head -n $max_size "$hist_file"
-  ) >"$hist_file.tmp"
-  mv "$hist_file.tmp" "$hist_file"
+  printf "%s %s" "$TERMINAL -e" "$sel" | "${SHELL:-"/bin/sh"}" "-i" &
+  save_hist "$sel"
   ;;
 *)
   # exec command
-  printf "%s" "$sel" | ${SHELL:-"/bin/sh"} &
-  # save command in cache
-  (
-    printf "%s\n" "$sel"
-    sed ${max_size}q "$hist_file"
-  ) >"$hist_file.tmp"
-  mv "$hist_file.tmp" "$hist_file"
+  printf "%s" "$sel" | "${SHELL:-"/bin/sh"}" "-i" &
+  save_hist "$sel"
   ;;
 esac
