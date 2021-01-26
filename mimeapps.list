@@ -1,6 +1,6 @@
 [Default Applications]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
-application/xhtml+xml=firefox.desktop;
+application/xhtml+xml=firefox.desktop
 image/jpg=sxiv.desktop;
 image/png=sxiv.desktop;
 image/jpeg=sxiv.desktop;
@@ -9,6 +9,7 @@ image/webp=sxiv.desktop;
 image/bmp=sxiv.desktop;
 image/jp2=sxiv.desktop;
 image/tiff=sxiv.desktop;
+image/x-portable-pixmap=sxiv.desktop;
 image/x-gimp-gbr=gimp.desktop;
 image/x-gimp-gih=gimp.desktop;
 image/x-gimp-pat=gimp.desktop;
@@ -50,6 +51,27 @@ video/wavelet=mpv.desktop;
 video/webm=mpv.desktop;
 text/plain=nvim.desktop;
 x-scheme-handler/discord-478576776990425110=discord-478576776990425110.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/ftp=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+text/html=firefox.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
 
 [Added Associations]
 doesn/matter=nvim.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/ftp=firefox.desktop;
+x-scheme-handler/chrome=firefox.desktop;
+text/html=firefox.desktop;
+application/x-extension-htm=firefox.desktop;
+application/x-extension-html=firefox.desktop;
+application/x-extension-shtml=firefox.desktop;
+application/xhtml+xml=firefox.desktop;
+application/x-extension-xhtml=firefox.desktop;
+application/x-extension-xht=firefox.desktop;
