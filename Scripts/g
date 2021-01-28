@@ -83,8 +83,10 @@ case "$1" in
   branch="$(git rev-parse --abbrev-ref HEAD)"
   remotes="$(git remote | awk '{print $1}' | uniq)"
   for rem in $remotes; do
-    echo "Pushing to ${rem} ${branch}"
-    git push "$rem" "$branch"
+    printf "Push to %s %s [Y/n] " "${rem}" "${branch}"
+    read -r ans
+    [ -z "$ans" ] || [ "$ans" = "y" ] || [ "$ans" = "Y" ] &&
+      git push "$rem" "$branch"
   done
   ;;
 "pu" | "pshu")
