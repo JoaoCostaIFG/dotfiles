@@ -81,3 +81,10 @@ _g_completions() {
 }
 
 complete -F _g_completions g
+
+_ka_completions() {
+  currentWord="${COMP_WORDS[$COMP_CWORD]}"
+  COMPREPLY=($(compgen -W "$(ps axch -o cmd)" "$currentWord"))
+}
+
+complete -F _ka_completions ka
