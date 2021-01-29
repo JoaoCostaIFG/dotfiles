@@ -49,3 +49,10 @@
 ! Black color that will not be affected by bold highlighting.
 *.color66: #0b0a18
 *color66:  #0b0a18
+
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
