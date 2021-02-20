@@ -24,6 +24,7 @@ Plug 'dhruvasagar/vim-table-mode'
 
 Plug 'rbgrouleff/bclose.vim'
 Plug 'ptzz/lf.vim'
+Plug 'voldikss/vim-floaterm'
 Plug 'moll/vim-bbye'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'tpope/vim-fugitive'
