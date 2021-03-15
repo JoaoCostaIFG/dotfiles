@@ -16,6 +16,8 @@ Plug 'fenetikm/falcon'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'abnt713/vim-hashpunk'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " python syntax highlighting
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'

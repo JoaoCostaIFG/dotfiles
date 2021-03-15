@@ -69,6 +69,7 @@ alias   maxima="mmaxima"
 alias   ssync="rsnapshot full"
 alias   git="g" # usa my wrapper script, g, for git
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" nano="nvim"  # use neovim for vim and nano if present.
+alias   internetdolucassimulator="while true; do amixer set Capture toggle >/dev/null 2>&1; done"
 
 # funcs #
 bashrc() {

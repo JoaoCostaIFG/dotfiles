@@ -19,6 +19,7 @@
   "python.linting.enabled": true,
   "python.jediEnabled": true,
   "python.formatting.provider": "black",
+  "python.linting.flake8Args": ["--ignore=E501"],
 
   "languageserver": {
     "ccls": {
@@ -37,7 +38,7 @@
         }
       }
     },
-    "zls" : {
+    "zls": {
       "command": "zls",
       "filetypes": ["zig"]
     }
