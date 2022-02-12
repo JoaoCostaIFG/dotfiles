@@ -5,13 +5,13 @@
 - clean: ['~']
 
 - link:
-    ~/.bash_completion: dot_bash_completion
-    ~/.bash_profile: dot_bash_profile
-    ~/.bashrc: dot_bashrc
-    ~/.gtkrc-2.0: dot_gtkrc-2.0
-    ~/.profile: dot_profile
-    ~/.xinitrc: dot_xinitrc
-    ~/.xserverrc: dot_xserverrc
+    ~/.bash_completion: homedir/dot_bash_completion
+    ~/.bash_profile: homedir/dot_bash_profile
+    ~/.bashrc: homedir/dot_bashrc
+    ~/.gtkrc-2.0: homedir/dot_gtkrc-2.0
+    ~/.profile: homedir/dot_profile
+    ~/.xinitrc: homedir/dot_xinitrc
+    ~/.xserverrc: homedir/dot_xserverrc
     ~/.local/bin: scripts
     ~/.config/:
         glob: true
