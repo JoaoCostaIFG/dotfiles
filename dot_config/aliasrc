@@ -1,0 +1,132 @@
+# ALIAS #
+# typo friendly #
+alias   :q=" exit"
+alias   :Q=" exit"
+alias   :x=" exit"
+alias   cd..="cd .."
+alias   ...="cd ../.."
+alias   cd...="cd ../.."
+alias   lhome="ls -lAh --group-directories-first --color=auto $HOME"
+alias   ls="ls --group-directories-first --color=auto"
+alias   ll="ls -lh --group-directories-first --color=auto"
+alias   lll="ls -lAh --group-directories-first --color=auto"
+alias   llll="ls -lAh --group-directories-first --color=auto"
+
+# changed commands #
+alias   bye=" systemctl shutdown"
+alias   sbye=" sleep 10; systemctl shutdown"
+alias   byer=" systemctl reboot"
+alias   dir="dir --color=auto"
+alias   vdir="vdir --color=auto"
+alias   diff="diff --color=auto"
+alias   du="du -ch"
+alias   df="df -h"
+alias   ffmpeg="ffmpeg -hide_banner"
+alias   mkdir="mkdir -p -v"
+alias   dmesg="dmesg -HL"
+alias   grep="grep --color=auto"
+alias   egrep="egrep --color=auto"
+alias   fgrep="fgrep --color=auto"
+
+# safety measures #
+alias   cp="cp -i"
+alias   ln="ln -i"
+alias   mv="mv -i"
+alias   rm="rm -I"
+alias   chown="chown --preserve-root"
+alias   chmod="chmod --preserve-root"
+alias   chgrp="chgrp --preserve-root"
+
+# new commands #
+alias   bat="acpi -b"
+alias   dperm="chmod 750"
+alias   fperm="chmod 640"
+alias   dsize="du -sh"
+alias   hist="history | fzf"
+alias   ka="killall"  # requires an argument
+alias   openports="ss --all --numeric --processes --ipv4 --ipv6"
+alias   pp="ps -Af | grep"  # requires an argument
+alias   yt="youtube-dl --add-metadata -ic"
+alias   yta="yt -x -f bestaudio/best"
+alias   clndep='sudo pacman -R $(pacman -Qdtq)'
+alias   clnrep="printf 'Cleaning uninstalled packages\n'; sudo paccache -ruk0; printf 'Leaving last version of installed packages\n'; sudo paccache -rk1"
+
+# abbreviations #
+alias   f="$FILE"
+alias   e="$EDITOR"
+alias   E="sudo -E $EDITOR"
+alias   v="$EDITOR"
+alias   p="sudo pacman"
+
+# programs #
+alias   crono="time read -r stop"
+alias   cronol="while true; do crono; done"
+alias   yay="yay --aur" # prevent partial upgrades
+alias   raposoflamejante="firefox &"
+alias   passarinhorelampjante="thunderbird &"
+alias   calcurse="calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse"
+alias   maxima="mmaxima"
+alias   ssync="rsnapshot full"
+alias   git="g" # usa my wrapper script, g, for git
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" nano="nvim"  # use neovim for vim and nano if present.
+alias   internetdolucassimulator="while true; do amixer set Capture toggle >/dev/null 2>&1; done"
+
+# funcs #
+bashrc() {
+  nvim "$HOME/.bashrc"
+  source "$HOME/.bashrc"
+}
+
+aliasrc() {
+  nvim "$HOME/.config/aliasrc"
+  source "$HOME/.config/aliasrc"
+}
+
+# opens lf and cd's to the current folder on exit
+lfcd() {
+  tmp="$(mktemp)"
+  lf -last-dir-path="$tmp" "$@"
+  # cleanup terminal window name changes (not standard)
+  printf "\033]0;st\007" > /dev/tty
+
+  if [ -f "$tmp" ]; then
+    dir="$(cat "$tmp")"
+    rm -f "$tmp"
+
+    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+  fi
+}
+bind '"\ef":"lfcd\C-m"'
+
+h() {
+  # https://samizdat.dev/help-message-for-shell-scripts/
+  sed -rn 's/^### ?//;T;p' "$1"
+}
+
+cf() {
+  inputStr="$@"
+  find "${SCRIPTS}"/* "$HOME/.config"/* -type f -print0 |
+    fzf --read0 --print0 -q "$inputStr" |
+    xargs -r -0 "$EDITOR"
+}
+
+notes() {
+  find "${NOTES}"/* -type f -print0 | fzf --read0 --print0 |
+    xargs -r -0 "$EDITOR"
+}
+alias   note="notes"
+
+help() {
+  path="$(find "${SCRIPTS}"/* -type f -print0 | fzf --read0 --print0)"
+  [ ! -f "$path" ] && return
+  sed -rn 's/^### ?//;T;p' "$path"
+}
+
+clndepl () {
+  yes|clndep
+  cont=$?
+  while [ "$cont" -eq 0 ]; do
+    yes|clndep
+    cont=$?
+  done
+}

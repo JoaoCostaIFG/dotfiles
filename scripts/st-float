@@ -1,0 +1,20 @@
+#!/bin/sh
+### Spawns an instance of the st terminal with a fixed geometry and name
+### Class: $TERM
+### Instance: st-float
+### Position: 180x40
+### X-offset: 300
+### Y-offset: 16
+
+wid="$(xdotool search --classname st-float)"
+if [ -z "$wid" ]; then
+  # not spawned, so spawn window
+  setsid st -n "st-float" -g "180x40+300+16"
+else
+  map_state="$(xwininfo -id "$wid" | grep "Map State:" | cut -d':' -f2 | tr -d ' ')"
+  if [ "$map_state" = "IsViewable" ]; then
+    xdotool windowunmap "$wid"
+  else
+    xdotool windowmap "$wid"
+  fi
+fi

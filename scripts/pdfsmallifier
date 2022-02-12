@@ -1,0 +1,21 @@
+#!/bin/sh
+### Attempts to make PDF file smaller. Doesn't work everytime.
+### Depends on: ghostscript (compress PDF).
+### For input file "input.pdf", the output is "input.sml.pdf"
+### Usage: pdfsmallifier [--bw] <input.pdf>
+
+if [ $# -eq 0 ]; then
+  echo "pdfsmallifier [--bw] <input.pdf>"
+  exit 1
+fi
+
+gs="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH"
+if [ "$1" = "--bw" ]; then
+  gs="${gs} -dColorConversionStrategy=/Gray -dProcessColorModel=/DeviceGray"
+  filename="$(basename "$2" .pdf)"
+else
+  filename="$(basename "$1" .pdf)"
+fi
+
+# generate PDF
+$gs -sOutputFile="${filename}.sml.pdf" "${filename}.pdf"

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+was_paused="$(dunstctl is-paused)"
+
+if [ "$was_paused" = "false" ]; then
+  dunstctl set-paused true
+else
+  dunstctl set-paused false
+  notify-send "Dunst ON"
+fi
+

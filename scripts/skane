@@ -1,0 +1,427 @@
+#!/bin/bash
+### Snake game in bash
+### W, A, S, D for movement. P for pause. Esc/Q for quit
+### Eat the @ signs (apples). Don't eat the # (walls) or yourself.
+
+#GAME MODE SETTINGS
+stty="$(stty -g)" #save settings
+tput civis
+stty -echo -icanon #sem respostas do terminal
+exec 2>/dev/null #comer erros
+declare -i score #maçâ +=1
+declare -i score_st
+declare -i scorehs
+path=~/Scripts/a
+#SIGINT OVERLOAD
+trap 'pkill -P $$; stty $stty; tput cnorm; clear; kill $$;' SIGINT
+
+
+#COLORS
+#blue - \e[34m
+#light blue - \e[34m
+#grey - \e[100m
+#green - \e[32m
+#red - \e[31m
+#background
+#blue - \e[44m
+#green - \e[42m
+#red - \e[41m
+#dark blue - \e[104m
+
+
+#boarda IS AN ASSOCIATIVE ARRAY
+declare -A boarda
+
+
+#BOARD SIZE
+declare -i board_h=$(($(tput lines)-2))
+declare -i board_w=$(($(tput cols)-22))
+score_st=$((board_w + 5))
+
+
+#SKANE PROPS
+declare -i x
+declare -i y
+declare -i x_fin
+declare -i y_fin
+declare -i comp
+declare -a corpo
+corpo[0]=-1
+speed=0
+declare -i dead #0 - Alive  1 - Dead
+#SKANE MOVEMENT DIRECTION
+declare -i direc
+declare -i direc_acc
+# 0 - stopped
+# 1 - right
+# 2 - up
+# 3 - left
+# 4 - down
+
+
+start_func() {
+	clear
+	#INTO SCREEN
+	printf "\n\e[32m%s\e[0m\n\n" "WELCOME TO SKANE"
+	printf "\e[31m%s\e[0m\n" "    @"
+	printf "\e[32m%s\e[0m\n" "	 S o"
+	printf "\e[32m%s\e[0m\n" "	    o"
+	printf "\e[32m%s\e[0m\n" "	     o"
+	printf "\e[32m%s\e[0m\n" "	     o"
+	printf "\e[32m%s\e[0m\n" "	   o"
+	printf "\e[32m%s\e[0m\n" "	 o"
+	printf "\e[32m%s\e[0m\n\n" "	    o o o"
+	printf "\e[34m%s\e[0m\n" "Movement - W A S D"
+	printf "\e[34m%s\e[0m\n" "New Game - N"
+	printf "\e[34m%s\e[0m\n" "Pause Game - P"
+	printf "\e[34m%s\e[0m\n" "Close Game - X"
+	printf "\n\e[34m%s\e[0m\n" "Press ENTER to Start the Game.."
+	read -r
+
+	#START SKANE IN MIDDLE
+	x=$((board_h / 2))
+	x_fin=$x
+	y=$((board_w / 2))
+	y_fin=$y
+	dead=0
+	direc=0
+	direc_acc=0
+	score=-1
+	comp=-1
+	speed=0.12
+
+	#GET LAST HIGHSCORE
+	[ -f $path ] && scorehs=$(< $path) || scorehs=0
+
+	c_board
+	printaru
+	c_skane
+	c_macas
+	info
+	printf "\033[%d;%dHHigh Score - %d" "$((board_h - 1))" "$((score_st + 1))" "$scorehs"
+
+	#CAPTURE KEYS
+	trap moves ALRM
+	moves
+
+	#INTERPRET KEYS
+	inputer
+}
+
+
+ending() {
+	#normal mode
+	trap : ALRM
+	pkill -P $$
+	clear
+	#save highscore
+	[ $score -gt $scorehs ] && scorehs=$score
+	if [ -f $path ]; then
+		[ $score -gt $scorehs ] && printf "%s" "$score" > "$path"
+	fi
+	printf "\n\e[32mScore - %d\n" "$score"
+	printf "\n\e[32mHigh Score - %d\n" "$scorehs"
+	printf "\n\e[34mPress Enter to CLOSE the Game\n"
+	read -r
+	stty "$stty"
+	tput cnorm
+	clear
+	exit 0
+}
+
+
+restart() {
+	dead=1
+	trap : ALRM
+	start_func
+}
+
+
+info() {
+	score=$((score + 1))
+	printf "\033[5;%dHScore - %d" "$((score_st + 1))" "$score"
+}
+
+
+c_board() {
+	# " " - free (0)
+	# "#" - borders (-1)
+
+	#make board all free
+	for ((i=1;i<board_h;i++)) do
+		for ((j=1;j<board_w;j++)) do
+			boarda[$i,$j]=0
+		done
+	done
+
+	#borders
+	for ((i=0;i<=board_w;i++)) do
+		boarda[0,$i]=-1
+	done
+	for ((i=0;i<=board_w;i++)) do
+		boarda[$board_h,$i]=-1
+	done
+	for ((i=1;i<=board_h;i++)) do
+		boarda[$i,0]=-1
+	done
+	for ((i=1;i<=board_h;i++)) do
+		boarda[$i,$board_w]=-1
+	done
+}
+
+
+c_skane() {
+	printf "\033[%d;%dH\e[32m%s\e[0m" "$((x_fin + 1))" "$((y_fin + 1))" " "
+	boarda[$x_fin,$y_fin]=0
+
+	# "S" - Skane
+	printf "\033[%d;%dH\e[32mS\e[0m" "$((x + 1))" "$((y + 1))"
+
+	x_fin=$x
+	y_fin=$y
+
+	#Reorganizar o vetor
+	for ((i=comp;1<=i;i--)) do
+		corpo[$i]=${corpo[$((i - 1))]}
+	done
+
+	#Tratar de curvas
+	case $direc in
+		1)
+			corpo[0]=3
+			;;
+		2)
+			corpo[0]=4
+			;;
+		3)
+			corpo[0]=1
+			;;
+		4)
+			corpo[0]=2
+			;;
+	esac
+
+	#WRITE (skane's body array follows the same logic of moves)
+	if [ "$comp" -ge 0 ]
+	then
+		case ${corpo[0]} in
+			1)
+				y_fin=$((y_fin + 1))
+				;;
+			2)
+				x_fin=$((x_fin - 1))
+				;;
+			3)
+				y_fin=$((y_fin - 1))
+				;;
+			4)
+				x_fin=$((x_fin + 1))
+				;;
+		esac
+
+		printf "\033[%d;%dH\e[32mo\e[0m" "$((x_fin + 1))" "$((y_fin + 1))"
+		boarda[$x_fin,$y_fin]=2
+
+		for ((i=1;i<=comp;i++)) do
+			case ${corpo[$i]} in
+				1)
+					y_fin=$((y_fin + 1))
+					;;
+				2)
+					x_fin=$((x_fin - 1))
+					;;
+				3)
+					y_fin=$((y_fin - 1))
+					;;
+				4)
+					x_fin=$((x_fin + 1))
+					;;
+			esac
+			boarda[$x_fin,$y_fin]=2
+		done
+
+		printf "\033[%d;%dH\e[32mo\e[0m" "$((x_fin + 1))" "$((y_fin + 1))"
+		boarda[$x_fin,$y_fin]=2
+	fi
+}
+
+function c_macas {
+	#Needs DO While collision checker
+	# "@" - Maçãs
+	local a
+	local b
+	a=$(( RANDOM % $((board_h - 1)) + 1 ))
+	b=$(( RANDOM % $((board_w - 1)) + 1 ))
+	while [ ${boarda[$a,$b]} -ne 0 ] && [ $a -ne $x ] && [ $b -ne $y ]
+	do
+		a=$(( RANDOM % $((board_h - 1)) + 1 ))
+		b=$(( RANDOM % $((board_w - 1)) + 1 ))
+	done
+
+	printf "\033[%d;%dH\e[31m@\e[0m" "$((a + 1))" "$((b + 1))"
+	boarda[$a,$b]=1
+}
+
+
+printaru() {
+	#Can be optimized by using the comments bellow. tput cup was used here to make the animation intentionally slow
+	#for ((i=0;i<=board_h;i++)) do
+	#	for ((j=0;j<board_w;j++)) do
+	#		printf "\e[34m%s\e[0m" "${boarda[$i,$j]}"
+	#	done
+	#	printf "\e[34m%s\e[0m\n" "${boarda[$i,$board_w]}"
+	#done
+
+
+	clear
+	for ((i=0;i<=board_w;i++)) do
+		tput cup 0 $i
+	printf "\e[44;34m%s\e[0m" "#"
+		tput cup $board_h $i
+		printf "\e[44;34m%s\e[0m" "#"
+		#sleep 0.01s
+	done
+
+	for ((i=1;i<board_h;i++)) do
+		tput cup $i 0
+		printf "\e[44;34m%s\e[0m\n" "#"
+		tput cup $i $board_w
+		printf "\e[44;34m%s\e[0m\n" "#"
+		#sleep 0.03s
+	done
+}
+
+
+moves() {
+	#Tentar otimizar drawing
+	checker
+	( sleep ${speed}s; kill -ALRM $$ ) &
+	direc_acc=$direc
+	case $direc_acc in
+		1)
+			y=$((y + 1))
+			c_skane
+			;;
+		2)
+			x=$((x - 1))
+			c_skane
+			;;
+		3)
+			y=$((y - 1))
+			c_skane
+			;;
+		4)
+			x=$((x + 1))
+			c_skane
+			;;
+	esac
+}
+
+
+inputer() {
+	read -r -N1000 -t0.001
+	while [ $dead -eq 0 ]; do
+		read -r -n1 key
+		case $key in
+			d|D)
+				[ $direc_acc -ne 3 ] && direc=1
+				;;
+			w|W)
+				[ $direc_acc -ne 4 ] && direc=2
+				;;
+			a|A)
+				[ $direc_acc -ne 1 ] && direc=3
+				;;
+			s|S)
+				[ $direc_acc -ne 2 ] && direc=4
+				;;
+			p|P)	
+				pause_direc=$direc_acc
+				direc=0
+				while [ $direc -eq 0 ]; do
+					read -r -n1 key
+					case $key in
+						d|D)
+							[ $pause_direc -ne 3 ] && direc=1
+							;;
+						w|W)
+							[ $pause_direc -ne 4 ] && direc=2
+							;;
+						a|A)
+							[ $pause_direc -ne 1 ] && direc=3
+							;;
+						s|S)
+							[ $pause_direc -ne 2 ] && direc=4
+							;;
+						*)
+							direc=$pause_direc
+							;;
+
+					esac
+				done
+				;;
+			x|X|q|Q)
+				dead=1
+				ending
+				;;
+			n|N)
+				restart
+				;;
+		esac
+	done
+}
+
+
+checker() {
+	if [ ${boarda[$x,$y]} -eq -1 ] || [ ${boarda[$x,$y]} -eq 2 ]; then
+		dead=1
+		ending
+
+	elif [ ${boarda[$x,$y]} -eq 1 ]; then
+		info
+		comp=$((comp + 1))
+
+		if [ $comp -ge 1 ]; then
+			#change skane speed based on size
+			case $comp in
+				1)
+					speed=0.1
+					;;
+				5)
+					speed=0.09
+					;;
+				9)
+					speed=0.08
+					;;
+				14)
+					speed=0.07
+					;;
+				19)
+					speed=0.06
+					;;
+				24)
+					speed=0.05
+					;;
+				29)
+					speed=0.04
+					;;
+				34)
+					speed=0.03
+					;;
+			esac
+
+			corpo[$comp]=${corpo[$((comp - 1))]}
+			boarda[$x_fin,$y_fin]=2
+
+		fi
+
+		c_macas
+		#makes it so the place isn't repeated
+		boarda[$x,$y]=0
+	fi
+}
+
+
+#echo "Loading..."
+#sleep 1s
+start_func

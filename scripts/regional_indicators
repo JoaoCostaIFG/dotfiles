@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+
+from sys import argv
+from string import ascii_letters
+
+numbers = {
+    "0": "zero",
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven",
+    "8": "eight",
+    "9": "nine",
+}
+
+
+def printChar(char):
+    if char in "áàãâǎä":
+        emoji = ":regional_indicator_a:"
+    elif char in "éèẽêě":
+        emoji = ":regional_indicator_e:"
+    elif char in "íìĩîǐ":
+        emoji = ":regional_indicator_i:"
+    elif char in "óòõôǒö":
+        emoji = ":regional_indicator_o:"
+    elif char in "úùũûǔü":
+        emoji = ":regional_indicator_u:"
+    elif char == "ç":
+        emoji = ":regional_indicator_c:"
+    elif char in "+":
+        emoji = ":heavy_plus_sign:"
+    elif char in "-_":
+        emoji = ":heavy_minus_sign:"
+    elif char in "*":
+        emoji = ":heavy_multiplication_x:"
+    elif char in "/":
+        emoji = ":heavy_division_sign:"
+    elif char in "$":
+        emoji = ":heavy_dollar_sign:"
+    elif char in "?":
+        emoji = ":question:"
+    elif char in "!":
+        emoji = ":exclamation:"
+    elif char in numbers:
+        emoji = ":%s:" % numbers[char]
+    elif char in ascii_letters:
+        emoji = ":regional_indicator_%c:" % (char)
+    else:
+        return
+
+    print(emoji, end=" ")
+
+
+clocks = [
+    "1",
+    "130",
+    "2",
+    "230",
+    "3",
+    "330",
+    "4",
+    "430",
+    "5",
+    "530",
+    "6",
+    "630",
+    "7",
+    "730",
+    "8",
+    "830",
+    "9",
+    "10",
+    "1030",
+    "11",
+    "1130",
+    "12",
+    "1230",
+]
+
+curr_arg = 1
+from_file = False
+if argv[curr_arg] == "-f":
+    curr_arg += 1
+    from_file = True
+
+mode = 0
+if argv[curr_arg] == "-c":
+    mode = 1
+    curr_arg += 1
+elif argv[curr_arg] == "-e":
+    mode = 2
+    curr_arg += 1
+elif argv[curr_arg] == "-p":
+    mode = 3
+    curr_arg += 1
+
+words = ""
+if from_file:
+    f = open(argv[curr_arg], "r")
+    words = f.readlines()
+else:
+    words = " ".join(argv[curr_arg:]).split()
+
+for char in words[0].lower():
+    printChar(char)
+for i in range(1, len(words)):
+    if mode == 0:
+        print(":clock%s:" % (clocks[(i - 1) % len(clocks)]), end=" ")
+    elif mode == 1:
+        print(":clap:", end=" ")
+    elif mode == 2:
+        print(":eyes:", end=" ")
+    elif mode == 3:
+        print(":partying_face:", end=" ")
+    for char in words[i].lower():
+        printChar(char)
+print()

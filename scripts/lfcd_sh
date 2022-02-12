@@ -1,0 +1,18 @@
+#!/bin/sh
+### open lf on current directory and cd to the last shown dir on exit
+
+tmp="$(mktemp)"
+lf -last-dir-path="$tmp" "$@"
+# cleanup terminal window name changes (not standard)
+printf "\033]0;st\007" > /dev/tty
+
+if [ -f "$tmp" ]; then
+	dir="$(cat "$tmp")"
+	rm -f "$tmp"
+
+	# we cd to the folder even if we're already there so we always exec bash on that folder
+	if [ -d "$dir" ]; then
+    cd "$dir" || cd "$HOME" || exit 1
+    exec "$SHELL"
+  fi
+fi

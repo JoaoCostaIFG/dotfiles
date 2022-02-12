@@ -1,0 +1,213 @@
+# IFG lf stuff
+
+# Options
+set shell sh # needs to be posix compliant
+set shellopts '-eu' # makes shell commands safer
+set previewer ~/.config/lf/previewer
+set filesep "\n"
+set ifs "\n"
+set scrolloff 10
+# set color256
+# set ratios '1:1:3'
+# dynamic ratios on startup
+%{{
+  w=$(tput cols)
+  if [ $w -le 80 ]; then
+    lf -remote "send $id set ratios 1:2"
+  else
+    lf -remote "send $id set ratios 1:2:3"
+  fi
+}}
+set drawbox
+set wrapscroll # make scrolling wrap
+
+# show current directory in window title (not standard so might not work on someplaces)
+cmd on-cd &{{
+  # '&' commands run silently in background (which is what we want here),
+  # but are not connected to stdout.
+  # To make sure our escape sequence still reaches stdout we pipe it to /dev/tty
+  basename "$(pwd | sed "s|$HOME|~|")" | chtermname
+}}
+# also run at startup
+on-cd
+
+# Commands
+cmd q :quit
+cmd Q :quit
+
+cmd open ${{
+  case $(file --mime-type $f -b) in
+  text/troff) man ./ $f ;;
+  text/*) $EDITOR $fx ;;
+  image/x-xcf|image/svg+xml) setsid gimp $f >/dev/null 2>&1 & ;;
+  image/*) setsid sxiv_folder $f & ;;
+  audio/*) mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f ;;
+  video/*) setsid mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f -quiet >/dev/null 2>&1 & ;;
+  application/pdf) setsid zathura $fx >/dev/null 2>&1 & ;;
+  *)
+    for f in $fx; do
+      setsid $OPENER $f >/dev/null 2>&1 &
+    done
+    ;;
+  esac
+}}
+
+cmd detox ${{ # detox name (clean file name)
+  set -f
+  detox $fx
+}}
+
+cmd rename %{{
+  [ -z "$1" ] && printf "needs file name" && exit
+
+  file="$1"
+  skip=1
+  for arg in $@; do
+    [ $skip -eq 0 ] && file="${file} $arg"
+    skip=0
+  done
+
+  [ -e "$file" ] && printf "file exists" && exit
+  mv $f "$file"
+}}
+
+cmd rename_full ${{
+  lf -remote "send $id push :rename<space>$f"
+}}
+
+cmd rename_ext ${{ # edit filename before the extension
+  lf -remote "send $id push :rename<space>$f<a-b><c-b>"
+}}
+
+cmd rename_bulk ${{ # blunk-rename (in file manager)
+  old=$(mktemp)
+  new=$(mktemp)
+  [ -n $fs ] && fs=$(ls)
+  printf "$fs\n" > $old
+  printf "$fs\n" > $new
+  $EDITOR $new
+  [ $(cat $new | wc -l) -ne $(cat $old | wc -l) ] && exit
+  paste $old $new | while read names; do
+    src=$(printf $names | cut -f1)
+    dst=$(printf $names | cut -f2)
+    [ $src = $dst ] && continue
+    [ -e $dst ] && continue
+    mv $src $dst
+  done
+  rm $old $new
+  lf -remote "send $id unselect"
+}}
+
+cmd delete ${{
+  set -f
+  printf "%s\n\t" "$fx"
+  printf "Delete? [y/N] "
+  read ans
+  [ $ans = "y" ] && rm -rf $fx
+}}
+
+cmd moveto ${{
+  set -f
+  echo "Move to where?"
+  dest="$(find $HOME -type d | fzf)" &&
+    eval mv -iv $fx $dest &&
+    notify-send "File(s) moved." "File(s) moved to $dest."
+}}
+
+cmd copyto ${{
+  set -f
+  echo "Copy to where?"
+  dest="$(find $HOME -type d | fzf)" &&
+    eval cp -ivr $fx $dest &&
+    notify-send "File(s) copied." "File(s) copies to $dest."
+}}
+
+cmd newfold ${{
+  set -f
+  echo "New folder name?"
+  read newd
+  mkdir -- "$newd"
+  mv -- $fx "$newd"
+}}
+
+cmd decompress ${{ # inflate archive
+  set -f
+  mkdir -p "$1" && cd "$1"
+  case "$f" in
+    *.tar) tar -xvf "$archive";;
+    *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf "$f";;
+    *.tar.gz|*.tgz) tar xzvf "$f";;
+    *.tar.xz|*.txz) tar xJvf "$f";;
+    *.zip) unzip "$f";;
+    *.rar) unrar x "$f";;
+    *.7z) 7z x "$f";;
+    *) printf "extract: '%s' - unknown archive method\\n" "$archive" ;;
+  esac
+}}
+
+cmd tar ${{ # compress using tar gz
+  set -f
+  mkdir -p "$1"
+  cp -r $fx "$1"
+  tar czf "$1".tar.gz "$1"
+  rm -rf "$1"
+}}
+
+cmd zip ${{ # compress using zip
+  set -f
+  mkdir -p "$1"
+  cp -r $fx "$1"
+  zip -r "$1".zip "$1"
+  rm -rf "$1"
+}}
+
+cmd shortcuts ${{
+  dir="$(cut -d'	' -f1 ~/.config/directories | fzf)"
+  [ -z "$dir" ] && exit
+
+  lf -remote "send $id cd $(grep ${dir} ~/.config/directories | cut -d'	' -f2)"
+}}
+
+cmd fzf_jump ${{
+  # find . -maxdepth 4 -printf '%P\n'  # this will show hidden files/dirs
+  res="$(find * -maxdepth 4 | fzf --reverse --header='Jump to' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+  if [ -d "$res" ]; then
+    cmd="cd"
+  else
+    cmd="select"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+# Mappings
+map <c-z> $ kill -STOP $PPID # put lf into de background
+
+map <enter> shell # use <enter> for shell commands
+map <esc> reload
+map <c-r> reload
+map Q quit
+map <c-j> push 10j
+map <c-k> push 10k
+map g top
+
+map o open $f
+map O open $f
+map x $$f # execute current file
+map X !$f
+map i $ ~/.config/lf/previewer $f 60 | less -R
+
+map a push %mkdir<space>
+map t push %touch<space>
+map r push :rename<space> # shows full current name
+map Rr rename_full
+map Rd detox
+map Re rename_ext
+map Rb rename_bulk
+map P delete # <delete> now maps to P
+map <delete> delete
+map <c-a> newfold
+
+# Shortcuts and navigation
+map , shortcuts
+# map <c-f> $lf -remote "send $id select '$(fzf)'"
+map <c-f> :fzf_jump

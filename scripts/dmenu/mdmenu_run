@@ -1,0 +1,93 @@
+#!/bin/sh
+### my dmenu run wrapper
+
+# CONSTS #
+# find related constants
+search_dir="$HOME"
+min_dep=2
+max_dep=5
+
+# cache file related constants
+max_size=10
+cachedir=${XDG_DATA_HOME:-"$HOME/.local/share"}
+hist_file="$cachedir/mdmenu_run" # history file
+[ -f "$hist_file" ] || touch "$hist_file"
+
+# list commands in cache ordered by number of usages
+#hist_l=$(sort "$hist_file" | uniq -c | sort -r | awk '{for (i=2; i<NF; i++) printf $i " "; print $NF}')
+hist_l="$(cat "$hist_file")"
+# list of directories (and strip $search_dir from it)
+#dirs_l="$(find "$search_dir" -maxdepth $min_dep -type d | sed 's|^/home/joao||')"
+
+saveHist() {
+  # save command in history file
+  newentry="$1"
+
+  (
+    printf "%s\n" "$newentry"
+    printf "%s" "$hist_l" | grep -vxF "$newentry"
+  ) | head -n $max_size >"$hist_file.tmp"
+
+  mv "$hist_file.tmp" "$hist_file"
+  hist_l="$(cat "$hist_file")"
+}
+
+removeFromHist() {
+  entry_to_rm="$1"
+  printf "%s" "$hist_l" |
+    grep -vxF "$entry_to_rm" |
+    head -n $max_size >"$hist_file.tmp"
+
+  mv "$hist_file.tmp" "$hist_file"
+  hist_l="$(cat "$hist_file")"
+}
+
+while true; do
+  # show various options
+  sel="$( (
+    printf "%s\n" "$hist_l"
+    dmenu_path | grep -vxF "$hist_l"
+    printf "%b" "---directories---\n---files---\n---remove histo entry---"
+  ) | dmenu "$@")"
+
+  [ -z "$sel" ] && exit 0
+
+  case "$sel" in
+  "---directories---")
+    # trigger directories searching
+    sel="$(find "$search_dir" -mindepth $min_dep -maxdepth $max_dep -type d | sed 's|^/home/joao||' | dmenu "$@")"
+    [ "$sel" ] && "$TERMINAL" -e "$FILE" "$search_dir/$sel"
+    ;;
+  "---files---")
+    # trigger file searching
+    sel="$(find "$search_dir" -mindepth $min_dep -maxdepth $max_dep -type f | sed 's|^/home/joao||' | dmenu "$@")"
+    [ "$sel" ] && "$TERMINAL" -e "$FILE" "$search_dir/$sel"
+    ;;
+  "---remove histo entry---")
+    # remove one or more entries from the history file
+    while true; do
+      entry_to_rm="$(printf "%s\n" "$hist_l" | dmenu "$@")"
+      [ -z "$entry_to_rm" ] && break
+      removeFromHist "$entry_to_rm"
+    done
+    ;;
+  /*)
+    # cd to directory or file location
+    echo "$search_dir/$sel"
+    "$TERMINAL" -e "$FILE" "$search_dir/$sel"
+    exit 0
+    ;;
+  *\;)
+    # exec command in a new terminal
+    printf "%s -e %s" "$TERMINAL" "$sel" | "${SHELL:-"/bin/sh"}" "-i" &
+    saveHist "$sel"
+    exit 0
+    ;;
+  *)
+    # exec command
+    printf "%s" "$sel" | "${SHELL:-"/bin/sh"}" "-i" &
+    saveHist "$sel"
+    exit 0
+    ;;
+  esac
+done

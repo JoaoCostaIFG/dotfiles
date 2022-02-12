@@ -1,0 +1,17 @@
+#!/bin/sh
+# Show current directory in window title. This is not standard so might not work
+# on someplaces.
+
+# no args/pipe means empty input
+wmname=" "
+if [ ! -t 0 ]; then
+  # is pipe
+  read -r wmname
+elif [ "$#" -gt 0 ]; then
+  # has args
+  wmname="$*"
+fi
+
+# To make sure our escape sequence still reaches stdout, even if we are not
+# connected to it, we pipe it to /dev/tty
+printf "\033]0;%s\007" "$wmname" >/dev/tty

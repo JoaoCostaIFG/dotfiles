@@ -1,0 +1,122 @@
+#!/bin/sh
+### Menu to help mount external devices/android devices.
+### Requires dmenu and simple-mtpfs. Prefers using udisks2 but falls back to mount/umount.
+
+mount_drive() {
+  drives="$(lsblk -nr |
+    awk '$6!="disk" && $7=="" {print $1 " (" $4 ")"}')"
+  # ask user to select drive
+  selected_drive=$(printf "%s" "$drives" |
+    dmenu -i -p "Drive to mount:" |
+    sed -e 's/\s.*$//')
+  # check if the selectiong is valid
+  existance=$(printf "%s" "$drives" |
+    sed -e 's/\s.*$//' |
+    awk -v cmp_var="$selected_drive" '$0 == cmp_var')
+
+  [ "$existance" ] && printf "%s" "$selected_drive"
+}
+
+umount_drive() {
+  drives="$(lsblk -nr |
+    awk '$6!="disk" && $7!="" {print $1 " (" $4 ")"}')"
+  # ask user to select drive
+  selected_drive=$(printf "%s" "$drives" |
+    dmenu -i -p "Drive to umount:" |
+    sed -e 's/\s.*$//')
+  # check if the selectiong is valid
+  existance=$(printf "%s" "$drives" |
+    sed -e 's/\s.*$//' |
+    awk -v cmp_var="$selected_drive" '$0 == cmp_var')
+
+  [ "$existance" ] && printf "%s" "$selected_drive"
+}
+
+# check for udisksctl
+fallback="$(command -v udisksctl)"
+[ -z "$fallback" ] && echo "udisksctl not found, falling back to mount/umount..."
+op=$(printf "Mount drive\nUmount drive\nMount android\nUmount android" |
+  dmenu -i -p "What to do:") || exit
+[ -z "$op" ] && exit
+
+case "$op" in
+"Mount drive")
+  selected_drive="$(mount_drive)"
+  [ -z "$selected_drive" ] && exit 1
+
+  if [ "$fallback" ]; then
+    # use udisks2
+    if udisksctl mount -b "/dev/${selected_drive}"; then
+      # technically this could be "optimized" but the code would look uglier imo
+      mount_point="$(udisksctl info -b "/dev/$selected_drive" | grep -iF MountPoints | awk '{print $2}')"
+      notify-send "DMOUNT SUCCESS" "$selected_drive partition mounted to $mount_point" &
+    else
+      notify-send "DMOUNT FAILURE" "Can't mount $selected_drive partition" &
+    fi
+  else
+    # fallback
+    sudo -A mkdir "/mnt/${selected_drive}"
+    if sudo -A mount "/dev/${selected_drive}" "/mnt/${selected_drive}"; then
+      mount_point="/mnt/${selected_drive}"
+      notify-send "DMOUNT SUCCESS" "$selected_drive partition mounted to $mount_point" &
+    else
+      notify-send "DMOUNT FAILURE" "Can't mount $selected_drive partition" &
+    fi
+  fi
+  ;;
+"Umount drive")
+  selected_drive="$(umount_drive)"
+  [ -z "$selected_drive" ] && exit 1
+
+  if [ "$fallback" ]; then
+    # use udisks2
+    mount_point="$(udisksctl info -b "/dev/$selected_drive" | grep -iF MountPoints | awk '{print $2}')"
+    if udisksctl unmount -b "/dev/${selected_drive}"; then
+      notify-send "DMOUNT SUCCESS" "$selected_drive partition umounted from $mount_point" &
+    else
+      notify-send "DMOUNT FAILURE" "Can't umount $selected_drive partition from $mount_point" &
+    fi
+  else
+    # fallback
+    mount_point="/mnt/${selected_drive}"
+    if sudo -A umount "/dev/${selected_drive}"; then
+      sudo -A rmdir /mnt/"$selected_drive"
+      notify-send "DMOUNT SUCCESS" "$selected_drive partition umounted from $mount_point" &
+    else
+      notify-send "DMOUNT FAILURE" "Can't umount $selected_drive partition from $mount_point" &
+    fi
+  fi
+  ;;
+"Mount android")
+  selected_drive=$(simple-mtpfs -l |
+    dmenu -i -p "Drive to mount:" |
+    sed s/:.*$//)
+
+  existance=$(simple-mtpfs -l |
+    sed s/:.*$// |
+    awk -v cmp_var="$selected_drive" '$0 == cmp_var')
+  [ -z "$existance" ] && exit
+
+  mkdir "$HOME"/Android"$selected_drive"
+  simple-mtpfs --device "$selected_drive" "$HOME"/Android"$selected_drive"
+  notify-send "DMOUNT SUCCESS" "Android partition $selected_drive mounted to ~/Android$selected_drive" &
+  ;;
+"Umount android")
+  selected_drive=$(simple-mtpfs -l |
+    dmenu -i -p "Drive to umount:" |
+    sed s/:.*$//)
+
+  existance=$(simple-mtpfs -l |
+    sed s/:.*$// |
+    awk -v cmp_var="$selected_drive" '$0 == cmp_var')
+  [ -z "$existance" ] && exit
+
+  fusermount -u "$HOME"/Android"$selected_drive"
+  rmdir "$HOME"/Android"$selected_drive"
+  if [ -d "$HOME"/Android"$selected_drive" ]; then
+    notify-send "DMOUNT FAILURE" "Can't umount $selected_drive android partition from from ~/Android$selected_drive" &
+  else
+    notify-send "DMOUNT SUCCESS" "Android partition $selected_drive umounted from ~/Android$selected_drive" &
+  fi
+  ;;
+esac

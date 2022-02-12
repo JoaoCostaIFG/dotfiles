@@ -1,0 +1,132 @@
+#!/bin/sh
+### Use dmenu to record stuff (screen, audio, camera, etc..)
+### If there is already a running instance, user will be prompted to end it.
+
+OUTPUT_DIR="${DRECORD_SAVEDIR:-"$HOME/Videos"}"
+[ -d "$OUTPUT_DIR" ] || mkdir -p "$OUTPUT_DIR"
+
+RECORDPID_FILE="/tmp/recordingpid"
+
+savepid() {
+  echo $! >"$RECORDPID_FILE"
+}
+
+killrecording() {
+  recpid="$(cat $RECORDPID_FILE)"
+  # kill with SIGTERM, allowing finishing touches.
+  kill -15 "$recpid"
+  rm -f "$RECORDPID_FILE"
+
+  # even after SIGTERM, ffmpeg may still run, so SIGKILL it.
+  sleep 3
+  kill -9 "$recpid"
+}
+
+askToEnd() {
+  if [ -f "$RECORDPID_FILE" ]; then
+    response=$(printf "No\nYes" | dmenu -i -p "Recording in progress. End it?" || return)
+    [ "$response" = "Yes" ] && killrecording
+
+    exit # exit either way
+  fi
+}
+
+startRecording() {
+  audioSources="$1"
+  hasVideo="$2"
+  shift 2
+
+  echo $audioSources
+
+  if [ "$hasVideo" -eq 0 ]; then
+    # only audio recording
+    ffmpeg $@ \
+      -filter_complex amerge=inputs="$audioSources" -ac 2 \
+      -c:a flac \
+      "$OUTPUT_DIR/drecord-$(date '+%y%m%d-%H%M-%S').flac" &
+  elif [ "$audioSources" -eq 0 ]; then
+    # only video recording
+    ffmpeg $@ \
+      -c:v libx264 -preset veryfast \
+      "$OUTPUT_DIR/drecord-$(date '+%y%m%d-%H%M-%S').mkv" &
+  else
+    ffmpeg $@ \
+      -filter_complex amerge=inputs="$audioSources" -ac 2 \
+      -c:v libx264 -preset veryfast -c:a flac \
+      "$OUTPUT_DIR/drecord-$(date '+%y%m%d-%H%M-%S').mkv" &
+  fi
+  savepid
+}
+
+inputLoop() {
+  prompt="$1"
+  options="$2"
+
+  # op="$(printf "%b" "$options" | dmenu -i -p "$prompt")"
+  printf "%b" "$options" | dmenu -i -p "$prompt"
+}
+
+getAudio() {
+  audio="$(
+    inputLoop "Which audio sources to record:" \
+      "$(ffmpeg -sources pulse 2>/dev/null | tail -n +2 | tr -d \* | awk '{print $1;}')"
+  )" || return
+
+  # only run if dmenu succedes
+  printf "%s %s " "-f pulse -i" "$audio"
+}
+
+getVideo() {
+  # TODO Select DISPLAY if multiple?
+
+  video="$(inputLoop "Config video to record:" \
+    "1920x1080 0,0\n1920x1080 1920,0\n1366x768 0,0\n3840x1080 0,0\n960x1080 0,0\n960x1080 960,0\n960x1080 1920,0\n960x1080 2880,0")" || return
+
+  size="$(echo "$video" | cut -f1 -d' ')"
+  [ -z "$size" ] && size="1920x1080" # default value
+  pos="$(echo "$video" | cut -f2 -d' ')"
+  [ -z "$pos" ] && pos="0,0"
+  printf "%s -s %s -i %s " "-f x11grab -thread_queue_size 512" "$size" "${DISPLAY}+${pos}"
+}
+
+getCamera() {
+  cam="$(inputLoop "Select camera to record:" \
+    "$(find /dev/video*)")" || return
+  printf "%s -i %s " "-f v4l2" "$cam"
+}
+
+# end session (if any)
+askToEnd
+
+# TODO fix video frozen on startup
+
+ops=""
+audioSources=0
+hasVideo=0
+while true; do
+  op="$(inputLoop "What to record:" "Audio\nVideo\nCamera\n---Start---")"
+  [ $? -ne 0 ] && exit 1
+
+  case "$op" in
+  "Audio")
+    newAudioOp=$(getAudio)
+    [ "$newAudioOp" ] && ops="${ops}${newAudioOp}" && audioSources=$((audioSources + 1))
+    ;;
+  "Video")
+    newVideoOp="$(getVideo)"
+    [ "$newVideoOp" ] && ops="${ops}${newVideoOp}" && hasVideo=1
+    ;;
+  "Camera")
+    newCamOp="$(getCamera)"
+    [ "$newCamOp" ] && ops="${ops}${newCamOp}" && hasVideo=1
+    ;;
+  "---Start---")
+    startRecording "$audioSources" "$hasVideo" $ops
+    exit
+    ;;
+  *)
+    # TODO ?
+    exit 1
+    ;;
+  esac
+done

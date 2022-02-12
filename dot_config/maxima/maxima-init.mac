@@ -1,0 +1,18 @@
+clear():= remvalue(all);
+clr():= clear();
+
+rad(x):= x * %pi / 180;
+deg(x):= x * 180 / %pi;
+
+COS(x):=cos(rad(x));
+ACOS(x):=deg(acos(x));
+SIN(x):=sin(rad(x));
+ASIN(x):=deg(asin(x));
+
+Polarizesys(a, b):= (x:r*cos(q), y:r*sin(q), gradef(r,t,v), gradef(q,t,w), eq1:diff(x,t)=a, eq2:diff(y,t)=b, trigreduce(trigsimp(ratsimp(solve([eq1, eq2], [v,w])))));
+~(a, b):= determinant(matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]], a, b));
+infix(~);
+lagrangeident(a, b, tet):=sqrt(a^2*b^2-(a*b*cos(tet))^2);
+
+norm(F):= sqrt(F.F);
+rt(x):= ratsimp(x);

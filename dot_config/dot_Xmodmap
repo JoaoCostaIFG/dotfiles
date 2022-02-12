@@ -1,0 +1,4 @@
+keycode 21 = less greater guillemotleft guillemotright dead_cedilla dead_ogonek dead_cedilla
+keycode 52 = z Z z Z less less guillemotleft
+keycode 53 = x X x X greater greater guillemotright
+add mod3 = Scroll_Lock

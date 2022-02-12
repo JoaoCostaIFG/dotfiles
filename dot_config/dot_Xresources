@@ -1,0 +1,58 @@
+! X colors.
+*.foreground:       #dda4a9
+*foreground:        #dda4a9
+*.background:       #0b0a18
+*background:        #0b0a18
+
+! Colors 0-15.
+! Black
+*.color0:  #6C6C6C
+*color0:   #6C6C6C
+*.color8:  #76a15d
+*color8:   #76a15d
+! Red
+*.color1:  #5D284F
+*color1:   #5D284F
+*.color9:  #5D284F
+*color9:   #5D284F
+! Green
+*.color2:  #5A475F
+*color2:   #5A475F
+*.color10: #5A475F
+*color10:  #5A475F
+! Yellow
+*.color3:  #9B0830
+*color3:   #9B0830
+*.color11: #9B0830
+*color11:  #9B0830
+! Blue
+*.color4:  #E2122E
+*color4:   #E2122E
+*.color12: #E2122E
+*color12:  #E2122E
+! Magenta
+*.color5:  #9B2551
+*color5:   #9B2551
+*.color13: #9B2551
+*color13:  #9B2551
+! Cyan
+*.color6:  #E0254C
+*color6:   #E0254C
+*.color14: #E0254C
+*color14:  #E0254C
+! White
+*.color7:  #DDA4A9
+*color7:   #DDA4A9
+*.color15: #DDA4A9
+*color15:  #DDA4A9
+
+! Black color that will not be affected by bold highlighting.
+*.color66: #0b0a18
+*color66:  #0b0a18
+
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb

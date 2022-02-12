@@ -1,0 +1,3 @@
+#!/bin/sh
+### Read input from the user without showing it
+dmenu -nf "#000000" -nb "#000000" -p "$1" <&- && echo

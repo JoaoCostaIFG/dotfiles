@@ -1,0 +1,61 @@
+#!/bin/sh
+### manage my noita backups
+
+SAVE_DIR="$HOME/Games/SteamLibrary/steamapps/compatdata/881100/pfx/drive_c/users/steamuser/AppData/LocalLow/Nolla_Games_Noita/"
+SAVE_NAME="save00_$2.bck"
+
+backup() {
+  printf "Backup? [Y/n] "
+  read -r ans
+  if [ ! "$ans" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
+    if test -d "$SAVE_DIR$SAVE_NAME"; then
+      rm -r "$SAVE_DIR$SAVE_NAME"
+    fi
+
+    cp -r "$SAVE_DIR/save00" "$SAVE_DIR$SAVE_NAME"
+    echo "Done"
+  else
+    echo "Aborted"
+    exit 1
+  fi
+}
+
+restore() {
+  printf "Restore? [Y/n] "
+  read -r ans
+  if [ ! "$ans" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
+    if ! test -d "$SAVE_DIR$SAVE_NAME"; then
+      echo "No such save. Aborting.."
+      exit 1
+    fi
+    if test -d "$SAVE_DIR/save00"; then
+      rm -r "$SAVE_DIR/save00"
+    fi
+
+    cp -r "$SAVE_DIR$SAVE_NAME" "$SAVE_DIR/save00"
+    echo "Done"
+  else
+    echo "Aborted"
+    exit 1
+  fi
+}
+
+list() {
+  ls -lA "$SAVE_DIR"
+}
+
+case $1 in
+"-b")
+  backup
+  ;;
+"-l")
+  list
+  ;;
+"-r")
+  restore
+  ;;
+*)
+  echo "No op given."
+  backup
+  ;;
+esac

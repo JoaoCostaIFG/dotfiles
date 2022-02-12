@@ -1,0 +1,41 @@
+#!/bin/sh
+### switch to the next sink on pulseaudio
+
+get_default_sink() {
+  pacmd list-sinks | grep "\* index:" | cut -d' ' -f5
+}
+
+get_next_sink() {
+  dflt_sink="$(get_default_sink)"
+  first_sink=""
+
+  sinks="$(pactl list short sinks |
+    cut -d '	' -f 1 |
+    grep -v "${dflt_sink}")"
+
+  for sink in ${sinks}; do
+    [ -z "${first_sink}" ] && first_sink="${sink}"
+
+    if [ "${sink}" -gt "${dflt_sink}" ]; then
+      echo "${sink}"
+      return 0
+    fi
+  done
+
+  echo "${first_sink}"
+}
+
+set_new_sink() {
+  pacmd set-default-sink "$1"
+
+  pactl list short sink-inputs |
+    cut -d'	' -f1 | while read -r stream_id; do
+    pactl move-sink-input "$stream_id" "$1"
+  done
+}
+
+if [ "$1" ]; then
+  set_new_sink "$1"
+else
+  set_new_sink "$(get_next_sink)"
+fi

@@ -1,0 +1,120 @@
+#!/bin/sh
+# base from https://github.com/ranger/ranger (scope.sh script)
+
+set -o noclobber -o noglob -o nounset
+# This is NOT AN ERROR. Setting newline char, '\n', as IFS
+IFS="
+"
+
+# Meanings of exit codes:
+# code | meaning | action
+# -----+------------+-----------------------------
+# 0    | success | Display stdout as preview
+# 1    | failure | Display 'file' info as preview
+
+# Script arguments
+FILE_PATH="${1}"
+PV_WIDTH="${2}"
+PV_HEIGHT="${3}"
+H_POS="${4}"
+V_POS="${5}"
+FILE_EXTENSION="$(printf "%s" "${FILE_PATH##*.}" | tr '[:upper:]' '[:lower:]')"
+
+# Settings
+HIGHLIGHT_SIZE_MAX=262143 # 256KiB
+HIGHLIGHT_TABWIDTH=2
+
+handle_extension() {
+  case "${FILE_EXTENSION}" in
+  # Archive
+  a | ace | alz | arc | arj | bz | bz2 | cab | cpio | deb | gz | jar | lha | lz | lzh | lzma | lzo | \
+    rpm | rz | t7z | tar | tbz | tbz2 | tgz | tlz | txz | tZ | tzo | war | xpi | xz | Z | zip)
+    atool --list -- "${FILE_PATH}" && exit 0
+    bsdtar --list --file "${FILE_PATH}" && exit 0
+    exit 1
+    ;;
+  rar)
+    # Avoid password prompt by providing empty password
+    unrar lt -p- -- "${FILE_PATH}" && exit 0
+    exit 1
+    ;;
+  7z)
+    # Avoid password prompt by providing empty password
+    7z l -p -- "${FILE_PATH}" && exit 0
+    exit 1
+    ;;
+
+  # PDF
+  pdf)
+    # Preview as text conversion
+    pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - && exit 0
+    exit 1
+    ;;
+
+  # OpenDocument
+  odt | ods | odp | sxw)
+    # Preview as text conversion
+    odt2txt "${FILE_PATH}" && exit 0
+    exit 1
+    ;;
+
+  # HTML
+  # htm | html | xhtml)
+    # # Preview as text conversion
+    # pandoc -s -t markdown -- "${FILE_PATH}" && exit 0
+    # exit 1
+    # ;;
+  esac
+}
+
+handle_mime() {
+  mimetype="${1}"
+  case "${mimetype}" in
+  # Text
+  text/troff) man ./ "${FILE_PATH}" | col -b ;;
+  text/* | */xml | */json)
+    [ "$(stat --printf='%s' -- "${FILE_PATH}")" -gt "${HIGHLIGHT_SIZE_MAX}" ] &&
+      echo "File is a text file larger than 256KiB." && return
+
+    # [ "$(tput colors)" -ge 256 ] && highlight_format='xterm256' || highlight_format='ansi'
+    highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="ansi" \
+      --force -- "${FILE_PATH}" && exit 0
+    ;;
+
+  # PDF
+  */pdf) pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - && exit 0 ;;
+
+  # DjVu
+  image/vnd.djvu)
+    djvutxt --page=1-10 "${FILE_PATH}" && exit 0
+    ;;
+
+  # Image
+  image/*)
+    # -c 256
+    chafa --fill=block --symbols=block -s "${PV_WIDTH}"x"${PV_HEIGHT}" "${FILE_PATH}" && exit 0
+    ;;
+
+  # Video and audio
+  video/* | audio/*)
+    mediainfo "${FILE_PATH}" && exit 0
+    ;;
+
+  # ZIP archive
+  application/zip) atool --list -- "${FILE_PATH}" && exit 0 ;;
+
+  # OpenDocument
+  *opendocument*) odt2txt "${FILE_PATH}" && exit 0 ;;
+  esac
+}
+
+handle_fallback() {
+  echo '----- File Type Classification -----' && file --dereference --brief -- "${FILE_PATH}"
+  exit 1
+}
+
+handle_extension
+handle_mime "$(file --dereference --brief --mime-type -- "${FILE_PATH}")"
+handle_fallback
+
+exit 1

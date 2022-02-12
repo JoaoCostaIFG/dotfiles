@@ -1,0 +1,16 @@
+#!/bin/sh
+###
+### pass any/amount of argument(s) to make a snipping tool instead
+### requires imagemagick
+
+ptr_name="$(mktemp -u "$HOME/Pictures/screenshots/$(date '+%d-%m-%y').XXX.png")"
+
+if [ -z "$1" ]
+then
+	import -window root "$ptr_name"
+	notify-send -u low -i "$ptr_name" "Print Screen" "Print saved to ~/Pictures/screenshots" &
+else
+	import "$ptr_name"
+	notify-send -u low -i "$ptr_name" "Snipping Tool" "Snip saved to ~/Pictures/screenshots" &
+fi
+

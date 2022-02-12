@@ -5,7 +5,55 @@
 - clean: ['~']
 
 - link:
-    ~/.bashrc: bashrc
-
+    ~/.bash_completion: dot_bash_completion
+    ~/.bash_profile: dot_bash_profile
+    ~/.bashrc: dot_bashrc
+    ~/.gtkrc-2.0: dot_gtkrc-2.0
+    ~/.profile: dot_profile
+    ~/.xinitrc: dot_xinitrc
+    ~/.xserverrc: dot_xserverrc
+    ~/.local/bin: scripts
+    ~/.config/:
+        glob: true
+        path: dot_config/*
+        exclude: [
+          dot_config/mpd,
+          dot_config/maxima,
+          dot_config/newsboat,
+          dot_config/nvim,
+          dot_config/pulse,
+          dot_config/rtorrent,
+          dot_config/qutebrowser,
+          dot_config/dot_Xmodmap,
+          dot_config/dot_Xresources
+        ]
+    ~/.config/mpd/mpd.conf:
+        create: true
+        path: dot_config/mpd/mpd.conf
+    ~/.config/maxima/:
+        create: true
+        glob: true
+        path: dot_config/maxima/*
+    ~/.config/newsboat/config:
+        create: true
+        path: dot_config/newsboat/config
+    ~/.config/nvim/:
+        create: true
+        glob: true
+        path: dot_config/nvim/*
+    ~/.config/pulse/:
+        create: true
+        glob: true
+        path: dot_config/pulse/*
+    ~/.config/rtorrent/rtorrent.rc:
+        create: true
+        path: dot_config/rtorrent/rtorrent.rc
+    ~/.config/qutebrowser/:
+        create: true
+        glob: true
+        path: dot_config/qutebrowser/*
+    ~/.config/.Xmodmap: dot_config/dot_Xmodmap
+    ~/.config/.Xresources: dot_config/dot_Xresources
+    
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

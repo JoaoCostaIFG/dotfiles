@@ -1,0 +1,134 @@
+#!/bin/sh
+### JoaoCostaIFG's git wrapper because he was lazy and tired of creating aliases.
+### DWTFYW LICENSE
+
+[ "$#" -eq 0 ] && {
+  git status
+  exit 0
+}
+
+case "$1" in
+"ad"*)
+  # ADD #
+  shift
+  git add "$@"
+  ;;
+"br")
+  # BRANCH #
+  shift
+  git branch "$@"
+  ;;
+"ck")
+  # CHECKOUT #
+  shift
+  git checkout "$@"
+  ;;
+"ckb")
+  shift
+  git checkout -b "$@"
+  ;;
+"cm")
+  # COMMIT #
+  shift
+  git commit -m "$1" -m "$2"
+  ;;
+"cma")
+  shift
+  git commit -a -m "$1" -m "$2"
+  ;;
+"cmA" | "cmaa")
+  shift
+  git add -A
+  git commit -m "$1" -m "$2"
+  ;;
+"cmam")
+  shift
+  git commit --amend -m "$1" -m "$2"
+  ;;
+"d" | "df")
+  # DIFF #
+  shift
+  git diff "$@"
+  ;;
+"l")
+  # LOG #
+  shift
+  git log -p -1 "$@"
+  ;;
+"pl" | "pul")
+  # PULL #
+  shift
+  git pull "$@"
+  ;;
+"plu" | "pulu" | "pullu")
+  shift
+  git fetch
+
+  git branch --set-upstream-to="$1"/"$2"
+  if [ "$#" -gt 2 ]; then
+    shift 2
+  elif [ "$#" -gt 1 ]; then
+    shift
+  fi
+
+  git pull "$@"
+  ;;
+"p" | "psh")
+  # GIT PUSH #
+  shift
+  git push "$@"
+  ;;
+"pa" | "psha")
+  shift
+  branch="$(git rev-parse --abbrev-ref HEAD)"
+  remotes="$(git remote | awk '{print $1}' | uniq)"
+  for rem in $remotes; do
+    printf "Push to %s %s [Y/n] " "${rem}" "${branch}"
+    read -r ans
+    [ -z "$ans" ] || [ "$ans" = "y" ] || [ "$ans" = "Y" ] &&
+      git push "$rem" "$branch"
+  done
+  ;;
+"pu" | "pshu")
+  shift
+  if [ "$#" -eq 0 ]; then
+    branch_name="$(git rev-parse --abbrev-ref HEAD)"
+    git push -u origin "$branch_name"
+  elif [ "$#" -eq 1 ]; then
+    git push -u origin "$@"
+  else
+    git push -u "$@"
+  fi
+  ;;
+"rs" | "rst" | "rv")
+  shift
+  git reset "$@"
+  ;;
+"rem" | "remote")
+  # GIT REMOTE #
+  shift
+  if [ -z "$1" ]; then
+    git remote -v
+  else
+    git remote "$@"
+  fi
+  ;;
+"st")
+  # STATUS #
+  shift
+  git status "$@"
+  ;;
+"t" | "tags")
+  # tags
+  shift
+  git tag "$@"
+  ;;
+"getallalias")
+  # list all script alias (for completion)
+  echo "add br ck ckb cm cma cmA cmam d l pl plu p pa pu rs rem st t"
+  ;;
+*)
+  # DUNNO #
+  git "$@"
+  ;;
+esac

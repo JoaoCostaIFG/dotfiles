@@ -1,0 +1,109 @@
+{
+  "coc.preferences.extensionUpdateCheck": "never",
+
+  "diagnostic.errorSign": "!",
+  "diagnostic.warningSign": ".",
+  "diagnostic.infoSign": "?",
+  "diagnostic.hintSign": "💡",
+  "suggest.enablePreview": true,
+  "suggest.labelMaxLength": 60,
+  "suggest.maxCompleteItemCount": 20,
+  "suggest.minTriggerInputLength": 2,
+  "suggest.snippetIndicator": " ►",
+  "suggest.disableKind": true,
+  "suggest.disableMenu": true,
+  "session.directory": "~/.local/share/nvim/sessions/",
+
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--ignore=E501"],
+  "python.formatting.provider": "black",
+
+  "diagnostic-languageserver.linters": {
+    "proselint": {
+      "command": "proselint",
+      "debounce": 300,
+      "args": ["-j"],
+      "sourceName": "proselint",
+      "parseJson": {
+        "errorsRoot": "data.errors",
+        "line": "line",
+        "column": "column",
+        "message": "${message} [check: ${check}] [replacement: ${replacements}]",
+        "security": "severity"
+      },
+      "securities": {
+        "error": "error",
+        "warning": "warning",
+        "info": "suggestion"
+      }
+    }
+  },
+  "diagnostic-languageserver.formatters": {
+    "prettier": {
+      "command": "prettier",
+      "args": ["--prose-wrap", "always", "--stdin-filepath", "%filepath"],
+      "rootPatterns": [
+        ".prettierrc",
+        ".prettierrc.json",
+        ".prettierrc.toml",
+        ".prettierrc.json",
+        ".prettierrc.yml",
+        ".prettierrc.yaml",
+        ".prettierrc.json5",
+        ".prettierrc.js",
+        ".prettierrc.cjs",
+        "prettier.config.js",
+        "prettier.config.cjs"
+      ]
+    }
+  },
+  "diagnostic-languageserver.filetypes": {
+    "bash": ["shellcheck"],
+    "mail": ["proselint"],
+    "markdown": ["proselint"],
+    "sh": ["shellcheck"],
+    "tex": ["proselint"],
+    "text": ["proselint"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "bash": ["shfmt"],
+    "c": ["clang-format"],
+    "cpp": ["clang-format"],
+    "css": ["prettier"],
+    "dart": ["dartfmt"],
+    "html": ["prettier"],
+    "java": ["clang-format"],
+    "javascript": ["prettier"],
+    "json": ["prettier"],
+    "markdown": ["prettier"],
+    "php": ["phpcbf"],
+    //"python": ["black"],
+    "sh": ["tchutcha"],
+    "tex": ["latexindent"],
+    "text": ["SimpFormat"],
+    "xml": ["xmllint"]
+  },
+
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": ".ccls-cache"
+        }
+      }
+    },
+    "zls": {
+      "command": "zls",
+      "filetypes": ["zig"]
+    }
+  }
+}

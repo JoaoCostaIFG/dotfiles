@@ -1,0 +1,25 @@
+#!/bin/sh
+### Compile a markdown file to pdf.
+### Depends on: pandoc (markdown to PDF), pdfsmallifier script (compress PDF)
+### Usage: md2pdf [--bw] <mdfile1>
+### https://leancrew.com/all-this/2022/01/reducing-the-size-of-large-pdfs
+
+if [ $# -eq 0 ]; then
+  echo "md2pdf [--bw] <mdfile>"
+  exit 1
+fi
+
+[ "$1" = "--bw" ] && filename="$(basename "$2" .md)" || filename="$(basename "$1" .md)"
+
+# generate PDF
+pandoc "${filename}.md" -o "${filename}.pdf"
+
+[ "$1" = "--bw" ] && pdfsmallifier "--bw" "${filename}.pdf" || pdfsmallifier "${filename}.pdf"
+
+if [ "$(stat -c%s "${filename}.sml.pdf")" -lt "$(stat -c%s "${filename}.pdf")" ]; then
+  # ghostscript file is smaller
+  mv "${filename}.sml.pdf" "${filename}.pdf"
+else
+  # ghostscript file isn't smaller
+  rm -f "${filename}.sml.pdf"
+fi

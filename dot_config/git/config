@@ -1,0 +1,27 @@
+[init]
+  defaultBranch = master
+[user]
+  email = joaocosta.work@posteo.net
+  name = JoaoCostaIFG
+[color]
+  ui = true
+  status = auto
+  branch = auto
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
+[credential]
+  username = JoaoCostaIFG
+[pager]
+  diff = less -iFMRSX --pattern='^(commit|diff)' +r
+  log = less -iFMRSX --pattern='^(commit|diff)' +r
+  show = less -iFMRSX --pattern='^(commit|diff)' +r
+  show-branch = true
+  status = true
+  whatchanged = less -iFMRSX --pattern='^(commit|diff)' +r
+[pull]
+  ; ff = only
+  rebase = false
+[push]
+  default = simple

@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+
+import os
+import atexit
+import readline
+
+readline_histfile = os.path.join(
+    os.path.expanduser("~"), ".local", "share", "python_history"
+)
+try:
+    readline.read_history_file(readline_histfile)
+except IOError:
+    pass
+
+atexit.register(readline.write_history_file, readline_histfile)
+readline.write_history_file = lambda *args: None

@@ -1,0 +1,39 @@
+#!/bin/bash
+
+while read -r file; do
+  case "$1" in
+  "c") # Copy file
+    destdir="$(dmenu -l 20 -i -p "Copy file(s) to where?" | sed "s|~|$HOME|g")"
+    [ -z "$destdir" ] && exit
+    cp "$file" "$destdir" && notify-send -u low -i "$(readlink -f "$file")" "SXIV" "file copied to $destdir." &
+    ;;
+  "C") # Copy file to clipboard
+    convert "$file" png:- | xclip -selection clipboard -t image/png
+    ;;
+  "m") # Move file
+    destdir="$(dmenu -l 20 -i -p "Move file(s) to where?" | sed "s|~|$HOME|g")"
+    [ -z "$destdir" ] && exit
+    mv "$file" "$destdir" && notify-send -u low -i "$(readlink -f "$file")" "SXIV" "file moved to $destdir." &
+    ;;
+  "r") # Rotate clockwise
+    convert -rotate 90 "$file" "$file" ;;
+  "R") # Rotate anti-clockwise
+    convert -rotate -90 "$file" "$file" ;;
+  "f") # Invert Image
+    convert -flop "$file" "$file" ;;
+  "y") # Copy image location
+    printf "%s" "$file" | xclip -selection clipboard &&
+      notify-send "$file copied to clipboard" &;;
+  "Y") # Copy image location (following links)
+    printf "%s" "$(readlink -f "$file")" | xclip -selection clipboard &&
+      notify-send "$(readlink -f "$file") copied to clipboard" &;;
+  "d") # File deletion with dmenu confirmation
+    [ "$(printf "No\nYes" | dmenu -i -p "Really delete $file?")" == "Yes" ] && rm "$file" && notify-send "$file deleted." &;;
+  "G") # Open file in Gimp
+    gimp "$file" &;;
+  "g") # Open file in Pinta
+    pinta "$file" &;;
+  "w") # Set as nitrogen wallpaper
+    nitrogen --save --set-zoom-fill "$file" ;;
+  esac
+done

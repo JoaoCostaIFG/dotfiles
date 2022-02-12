@@ -1,0 +1,145 @@
+#!/bin/sh
+### dmenu TODO list and file editor
+
+# Constants
+DFLT_FILE="${DTODO_DFLT_FILE:-"$HOME/Documents/Notes/TODO.txt"}"
+DMENU="dmenu -i -l 5"
+
+update_working_file() {
+  [ "$notes_path" != "$(dirname "$1")" ] && return 1
+
+  [ -f "$1" ] || touch "$1"
+  notes_file="$(basename "$1")"
+
+  return 0
+}
+
+set_working_file() {
+  if [ -n "$1" ]; then
+    notes_path="$(dirname "$1")"
+    notes_file="$(basename "$1")"
+  else
+    notes_path="$(dirname "$DFLT_FILE")"
+    notes_file="$(basename "$DFLT_FILE")"
+  fi
+
+  [ -d "$notes_path" ] || mkdir -p "$notes_path"
+  [ -f "$notes_path/$notes_file" ] || touch "$notes_path/$notes_file"
+}
+
+switch_file() {
+  # Open another file for editing (if the selected name doesn't exist, a file is created).
+  fail=1
+  while [ $fail -eq 1 ]; do
+    notes_file_temp=$(find "$notes_path" -type f -printf "%f\\n" |
+      $DMENU -p "File to read:") || return
+
+    update_working_file "$notes_path/$notes_file_temp"
+    fail=$?
+  done
+}
+
+clean_file() {
+  # Sort and remove blank and duplicate lines from current file.
+  tempfile=$(mktemp /tmp/dtodo_script.XXXXXX)
+  grep -ve '^[[:space:]]*$' "$notes_path/$notes_file" | sort -g | uniq >"$tempfile"
+  mv "$tempfile" "$notes_path/$notes_file"
+}
+
+del_file() {
+  # Ask to delete current file and wait. Go to the 'switch file' menu after deletion.
+  if [ "$(printf "No\\nYes" | dmenu -i -p "Really delete $notes_file?")" = "Yes" ]; then
+    # TODO constants needed
+    rm -f "$notes_path/$notes_file"
+    notes_file="$DFLT_NOTE_FILE"
+    switch_file
+  fi
+}
+
+exis_str() {
+  ed_str=$(printf "%s\\n---Copy---\\n---Cut---\\n---Append---\\n---URL---\\n---Delete---\\n" "$op" |
+    $DMENU -p "Edit line:") || return
+
+  case "$ed_str" in
+  "---Copy---")
+    # "Copy" line from file
+    printf "%s" "$op" | xclip -selection clipboard
+    ;;
+  "---Cut---")
+    # "Cut" line from file
+    printf "%s" "$op" | xclip -selection clipboard
+    tempfile=$(mktemp /tmp/dtodo_script.XXXXXX)
+    grep -Fvx -e "$op" "$notes_path/$notes_file" >"$tempfile"
+    mv "$tempfile" "$notes_path/$notes_file"
+    ;;
+  "---Append---")
+    tempfile=$(mktemp /tmp/dtodo_script.XXXXXX)
+    awk -v cmp_var="$op" -v out_var="$op $(xclip -selection clipboard -out)" \
+      '$0 == cmp_var {$0 = out_var} {print $0}' \
+      "$notes_path/$notes_file" >"$tempfile"
+    mv "$tempfile" "$notes_path/$notes_file"
+    ;;
+  "---URL---")
+    dlinkhandler "$op"
+    ;;
+  "---Delete---")
+    # "Delete" line from file
+    tempfile=$(mktemp /tmp/dtodo_script.XXXXXX)
+    grep -Fvx -e "$op" "$notes_path/$notes_file" >"$tempfile"
+    mv "$tempfile" "$notes_path/$notes_file"
+    ;;
+  *)
+    # Edit line from line
+    tempfile=$(mktemp /tmp/dtodo_script.XXXXXX)
+    awk -v cmp_var="$op" -v out_var="$ed_str" '$0 == cmp_var {$0 = out_var} {print $0}' \
+      "$notes_path/$notes_file" >"$tempfile"
+    mv "$tempfile" "$notes_path/$notes_file"
+    ;;
+  esac
+}
+
+url_mode() {
+  chosen_url="$(sed 's/.*│//g' "$notes_path/$notes_file" |
+    grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' |
+    $DMENU -p 'Open which URL:' | tr -d '\\n')"
+
+  [ -n "$chosen_url" ] && dlinkhandler "$chosen_url"
+}
+
+set_working_file "$@"
+
+while true; do
+  dmenu_text=$(grep -ve '^[[:space:]]*$' "$notes_path/$notes_file")
+
+  op=""
+  while [ -z "$op" ]; do
+    op=$(printf "%s\\n---Paste---\\n---URL Mode---\\n---Switch File---\\n---Clean File---\\n---Delete File---\\n" "$dmenu_text" |
+      $DMENU -p "$notes_file:") || exit
+  done
+
+  case "$op" in
+  "---Paste---")
+    xclip -o -selection clipboard >>"$notes_path/$notes_file"
+    printf "\\n" >>"$notes_path/$notes_file"
+    ;;
+  "---URL Mode---")
+    url_mode
+    ;;
+  "---Switch File---")
+    switch_file
+    ;;
+  "---Clean File---")
+    clean_file
+    ;;
+  "---Delete File---")
+    del_file
+    ;;
+  *)
+    if grep -Fxq -e "$op" "$notes_path/$notes_file"; then
+      exis_str
+    else
+      printf "%s\\n" "$op" >>"$notes_path/$notes_file"
+    fi
+    ;;
+  esac
+done
