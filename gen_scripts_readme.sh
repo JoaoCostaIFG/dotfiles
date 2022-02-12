@@ -10,5 +10,7 @@ for f in $(find "$scripts_dir" -type f | sed "s|^${scripts_dir}||"); do
   if [ "$desc" ]; then
     # only do something if there's a description for the script
     printf "%s\n\n%s\n\n" "## ${f}" "${desc}" >>"$outfile"
+  else
+    echo "Warning: script ${f} is missing a description."
   fi
 done
