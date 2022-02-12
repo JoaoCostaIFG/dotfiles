@@ -1,7 +1,14 @@
 #!/bin/bash
-### Snake game in bash
-### W, A, S, D for movement. P for pause. Esc/Q for quit
-### Eat the @ signs (apples). Don't eat the # (walls) or yourself.
+### A Snake clone I made (and have been slightly modifing/improving over time)
+### as a final project for a linux terminal workflow/bash scripting
+### school class. It has a lot of "bashisms" so it needs to be run on bash.
+### Sometimes I just call it on a terminal to kill time.
+### Instructions
+### - `W, A, S, D` for movement;
+### - `P` for pause.
+### - `Esc/Q` for quit.
+### - Eat the @ signs (apples)
+### - Don't eat the # (walls) or yourself.
 
 #GAME MODE SETTINGS
 stty="$(stty -g)" #save settings

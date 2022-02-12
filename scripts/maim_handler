@@ -1,11 +1,15 @@
 #!/bin/sh
-### requires maim and xclip
+### Script that can: take full-screen screen-shots (saves them
+### in a previously specified folder), screen-shot a selection of the screen
+### (places the image in the clipboard), output color information of a selection
+### (saves RGB color code in clipboard and show a notification for it too).
 ### Args:
-### "snip" - take a snip and pass it to the clipboard
-### "picker" - color picker (needs work)
-### "current" - snip current active window
-### "screenshot" - take a fullscreen screenshot and save it in a file
-### no args - dmenu arg selection
+### - "snip" - take a snip and pass it to the clipboard
+### - "picker" - color picker (needs work)
+### - "current" - snip current active window
+### - "screenshot" - take a fullscreen screenshot and save it in a file
+### - no args - dmenu arg selection
+### Requires [maim](https://github.com/naelstrof/maim) and xclip.
 
 parse_arg() {
   case "$1" in

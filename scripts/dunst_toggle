@@ -1,4 +1,5 @@
 #!/bin/sh
+### Toggles dunst's notifications.
 
 was_paused="$(dunstctl is-paused)"
 

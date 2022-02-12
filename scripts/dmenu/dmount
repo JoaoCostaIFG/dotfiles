@@ -1,6 +1,9 @@
 #!/bin/sh
-### Menu to help mount external devices/android devices.
-### Requires dmenu and simple-mtpfs. Prefers using udisks2 but falls back to mount/umount.
+### Helpful to help mount external devices/android devices.
+### Requires dmenu, simple-mtpfs, and optionally udisks2.
+### Prefers using udisks2 but falls back to mount/umount.
+### Might not work for all kinds of Android phones (check:
+### [Arch wiki android](https://wiki.archlinux.org/index.php/Android#Transferring_files)).
 
 mount_drive() {
   drives="$(lsblk -nr |

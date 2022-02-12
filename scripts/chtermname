@@ -1,6 +1,6 @@
 #!/bin/sh
-# Show current directory in window title. This is not standard so might not work
-# on someplaces.
+### Show current directory in window title.
+### This is not standard so might not work on someplaces.
 
 # no args/pipe means empty input
 wmname=" "

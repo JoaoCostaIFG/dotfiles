@@ -1,5 +1,8 @@
 #!/bin/sh
-### open lf on current directory and cd to the last shown dir on exit
+### Wrapper for [lf](https://github.com/gokcehan/lf) to **cd** to
+### the last visited directory on exit. Usefull for keybinds. Slight adaptation
+### from the suggestion given on [lf's](https://github.com/gokcehan/lf) wiki.
+### Open lf on current directory and cd to the last shown dir on exit
 
 tmp="$(mktemp)"
 lf -last-dir-path="$tmp" "$@"

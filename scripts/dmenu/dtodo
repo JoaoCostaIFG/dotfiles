@@ -1,5 +1,8 @@
 #!/bin/sh
 ### dmenu TODO list and file editor
+### Tool I use to take quick notes and keep track of information. It
+### can handle multiple files, organize lines alphabetically, and get
+### rid of blank/empty lines. Depends on suckless's.
 
 # Constants
 DFLT_FILE="${DTODO_DFLT_FILE:-"$HOME/Documents/Notes/TODO.txt"}"

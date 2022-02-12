@@ -1,6 +1,8 @@
 #!/usr/bin/bash
-### adds arch symbol to image with a blue effect
-### base taken from autor: https://gitlab.com/SillyPill/arch-pape-maker
+### Script to add a transparent and blured Arch Linux logo to
+### the center of an image.
+### Adds arch symbol to image with a blue effect base taken
+### from autor: https://gitlab.com/SillyPill/arch-pape-maker
 
 pape="$1"
 

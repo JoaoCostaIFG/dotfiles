@@ -1,5 +1,12 @@
 #!/bin/sh
-### my dmenu run wrapper
+### This dmenu wrapper is a replacement for the default **dmenu_run**:
+### - Uses a cache file and sorts it by number of usages (has max entries
+### for cache file);
+### - Runs command in a new terminal window if `;` is appended to the command;
+### - Has option to list and browse files (cd's to them using file manager);
+### - Also lists directories up to a certain depth and cd's to them
+### if selected.
+### Depends on suckless's [dmenu](https://tools.suckless.org/dmenu/).
 
 # CONSTS #
 # find related constants
