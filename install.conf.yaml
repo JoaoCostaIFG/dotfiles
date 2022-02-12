@@ -57,3 +57,4 @@
     
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [./gen_scripts_readme.sh]
