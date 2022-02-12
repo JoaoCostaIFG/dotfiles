@@ -19,4 +19,11 @@ The scripts were written by me for me. Feel free to adapt them to your needs.
 ## Scripts
 
 Go to the [scripts directory](./scripts) to find out more about all the scripts
-(the [README.md file](./scripts/README.md) of that directory).
+(the [README.md file](./scripts/README.md) of that directory). These descriptions
+are generated semi-automatically using the descriptions in the comments at the
+beginning of each file. Some files maybe have the descriptions missing, because
+I forgot to comment them.
+
+### License
+
+The scripts are licensed under an [MIT License](./LICENSE)
