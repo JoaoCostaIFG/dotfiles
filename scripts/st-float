@@ -1,10 +1,10 @@
 #!/bin/sh
 ### Spawns an instance of the st terminal with a fixed geometry and name
-### Class: $TERM
-### Instance: st-float
-### Position: 180x40
-### X-offset: 300
-### Y-offset: 16
+### - Class: $TERM
+### - Instance: st-float
+### - Position: 180x40
+### - X-offset: 300
+### - Y-offset: 16
 
 wid="$(xdotool search --classname st-float)"
 if [ -z "$wid" ]; then
