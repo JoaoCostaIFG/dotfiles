@@ -4,10 +4,13 @@
 ### from the suggestion given on [lf's](https://github.com/gokcehan/lf) wiki.
 ### Open lf on current directory and cd to the last shown dir on exit
 
+# this was needed because of a race condition so keep it in mind for the future :/
+#sleep 0.1
+
 tmp="$(mktemp)"
 lf -last-dir-path="$tmp" "$@"
 # cleanup terminal window name changes (not standard)
-printf "\033]0;st\007" > /dev/tty
+printf "st" | chtermname
 
 if [ -f "$tmp" ]; then
 	dir="$(cat "$tmp")"

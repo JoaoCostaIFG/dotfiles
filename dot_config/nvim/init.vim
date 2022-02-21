@@ -203,8 +203,12 @@ set thesaurus+=~/Documents/WorkRes/thesaurus.txt
 map <leader>o :setlocal spell! spelllang=en_us<CR>
 map <leader>O :setlocal spell! spelllang=pt<CR>
 
-" MARKDOWN IMAGE PASTE
+" MARKDOWN
+" image paste
 autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+" theme
+let g:mkdp_markdown_css="/home/joao/Documents/WorkRes/markdown.css"
+let g:mkdp_port = '8542'
 
 " AIRLINE
 let g:airline_theme = 'falcon'

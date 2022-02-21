@@ -2,10 +2,10 @@
 export ALIASF="$HOME/.config/aliasrc"
 export BASHRC="$HOME/.bashrc"
 export NOTES="$HOME/Documents/Notes"
-export SCRIPTS="$HOME/.local/bin"
+export SCRIPTS="$HOME/.local/bin/"
 
 # add scripts directory recursively to the PATH #
-export PATH="$(du "$SCRIPTS" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$PATH"
+export PATH="$(du "$SCRIPTS" | cut -f2 | tr '\n' ':')""$PATH"
 
 # default programs
 export BROWSER="firefox"
@@ -16,6 +16,7 @@ export PAGER="less"
 export READER="zathura"
 export TERMINAL="st"
 export VISUAL="nvim"
+export NACHOS="cute"
 
 # clean-up
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
@@ -24,7 +25,7 @@ export WGETRC="$HOME/.config/wget/wgetrc"
 export INPUTRC="$HOME/.config/inputrc"
 #export XAUTHORITY="$HOME/.config/.Xauthority" # sometimes causes problems
 export MAXIMA_USERDIR="$HOME/.config/maxima"
-export SQLITE_HISTORY="${XDG_DATA_HOME:-"$HOME/.local/share"}/sqlite_history"
+export SQLITE_HISTORY="$HOME/.local/share/sqlite_history"
 export PYTHONSTARTUP="$HOME/.config/pythonrc"
 
 # bash
@@ -39,7 +40,7 @@ export HISTIGNORE="bg:bye:byer:cf:clear:exit:fg:jobs:history:lf:lfcd:startx"
 export LC_COLLATE="C"
 export LESS="-iFMRSX"
 export SUDO_ASKPASS="/usr/bin/dpass"
-export GPG_TTY=$(tty)
+export GPG_TTY="$(tty)"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 
