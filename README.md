@@ -19,11 +19,29 @@ The scripts were written by me for me. Feel free to adapt them to your needs.
 ## Scripts
 
 Go to the [scripts directory](./scripts) to find out more about all the scripts
-(the [README.md file](./scripts/README.md) of that directory). These descriptions
-are generated semi-automatically using the descriptions in the comments at the
-beginning of each file. Some files maybe have the descriptions missing, because
-I forgot to comment them.
+(the [README.md file](./scripts/README.md) of that directory). These
+descriptions are generated semi-automatically using the descriptions in the
+comments at the beginning of each file. Some files maybe have the descriptions
+missing, because I forgot to comment them.
 
 ### License
 
 The scripts are licensed under an [MIT License](./LICENSE)
+
+## Notes on fish
+
+I'm currently using [Fish](https://fishshell.com/) as my "main" shell. Fish
+isn't POSIX compliant, which poses a problem: how to keep my Bash and Fish
+configs in sync. [Babelfish](https://github.com/bouk/babelfish) to the rescue
+(no, not the [translation application](https://www.babelfish.com)). I'm using
+babelfish to translate my existing POSIX compliant files
+([environment vars](./homedir/dot_profile), [aliases](./dot_config/aliasrc), and
+[functions](./dot_config/funcrc)) to Fish and sourcing them.
+
+## Other "dotfile-ish" stuff
+
+- Terminal - [st](https://github.com/JoaoCostaIFG/st)
+- Window Manager - [dwm](https://github.com/JoaoCostaIFG/dwm)
+- Application launcher - [dmenu](https://github.com/JoaoCostaIFG/dmenu)
+- Status bar - [dwmblocks](https://github.com/JoaoCostaIFG/dwmblocks)
+- Terminal font - [VictorCodePro](https://github.com/JoaoCostaIFG/VictorCodePro)
