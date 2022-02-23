@@ -41,5 +41,10 @@ export PS1="${BD}${C1}[${C4}\W${C1}]${C2}<>< ${RT}"
 # ALIAS #
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
+if [ -f "$HOME/.config/funcrc" ]; then
+  source "$HOME/.config/funcrc"
+  bind '"\ef":"lfcd\C-m"' # keybind for lf
+fi
+
 shortcuts 2>/dev/null
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"

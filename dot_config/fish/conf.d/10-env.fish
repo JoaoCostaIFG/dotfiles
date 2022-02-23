@@ -3,6 +3,4 @@
 
 status --is-login || exit
 
-for x in (sed 's/\s*#.*$//; /^\s*$/d; s/"\$(/(/g; s/)"/)/g;' "$HOME/.profile")
-  eval $x
-end
+babelfish <"$HOME/.profile" | source
