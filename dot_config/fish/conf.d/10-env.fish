@@ -3,4 +3,4 @@
 
 status --is-login || exit
 
-babelfish <"$HOME/.profile" | source
+sed 's/\s*#.*$//; /^\s*$/d; s/"\$(/(/g; s/)"/)/g;' "$HOME/.profile" | source
