@@ -45,6 +45,7 @@ export SUDO_ASKPASS="/usr/bin/dpass"
 export GPG_TTY="$(tty)"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # my scripts
 export BIB="$HOME/Documents/WorkRes/bibliography.bib"

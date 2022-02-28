@@ -15,8 +15,8 @@ alias   lll="ls -lAh --group-directories-first --color=auto"
 alias   llll="ls -lAh --group-directories-first --color=auto"
 
 # changed commands #
-alias   bye=" systemctl shutdown"
-alias   sbye=" sleep 10; systemctl shutdown"
+alias   bye=" systemctl poweroff"
+alias   sbye=" sleep 10; systemctl poweroff"
 alias   byer=" systemctl reboot"
 alias   dir="dir --color=auto"
 alias   vdir="vdir --color=auto"
