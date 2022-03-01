@@ -1,23 +1,24 @@
-#define fcolor #cbe3e7
-#define bcolor #1b182c
-#define ccolor #fbfcfc
+! inspired by https://github.com/arcticicestudio/nord-xresources
+#define c00   #0b0a18
+#define c01   #3B4252
+#define c02   #434C5E
+#define c03   #4C566A
+#define c04   #D8DEE9
+#define c05   #E5E9F0
+#define c06   #ECEFF4
+#define c07   #8FBCBB
+#define c08   #88C0D0
+#define c09   #81A1C1
+#define c10   #5E81AC
+#define c11   #BF616A
+#define c12   #D08770
+#define c13   #EBCB8B
+#define c14   #A3BE8C
+#define c15   #B48EAD
 
-#define c0  #100e23
-#define c1  #ff8080
-#define c2  #95ffa4
-#define c3  #ffe9aa
-#define c4  #91ddff
-#define c5  #c991e1
-#define c6  #aaffe4
-#define c7  #cbe3e7
-#define c8  #565575
-#define c9  #ff5458
-#define c10 #62d196
-#define c11 #ffb378
-#define c12 #65b2ff
-#define c13 #906cff
-#define c14 #63f2f1
-#define c15 #a6b3cc
+#define fcolor  c04
+#define bcolor  c00
+#define ccolor  c04
 
 ! X colors.
 *.foreground:   fcolor
@@ -29,45 +30,59 @@
 
 ! Colors 0-15.
 ! Black
-*.color0:  c0
-*color0:   c0
-*.color8:  c8
-*color8:   c8
+*.color0:  c01
+*color0:   c01
+*.color8:  c03
+*color8:   c03
 ! Red
-*.color1:  c1
-*color1:   c1
-*.color9:  c9
-*color9:   c9
+*.color1:  c11
+*color1:   c11
+*.color9:  c11
+*color9:   c11
 ! Green
-*.color2:  c2
-*color2:   c2
-*.color10: c10
-*color10:  c10
+*.color2:  c14
+*color2:   c14
+*.color10: c14
+*color10:  c14
 ! Yellow
-*.color3:  c3
-*color3:   c3
-*.color11: c11
-*color11:  c11
+*.color3:  c13
+*color3:   c13
+*.color11: c12
+*color11:  c12
 ! Blue
-*.color4:  c4
-*color4:   c4
-*.color12: c12
-*color12:  c12
+*.color4:  c09
+*color4:   c09
+*.color12: c10
+*color12:  c10
 ! Magenta
-*.color5:  c5
-*color5:   c5
-*.color13: c13
-*color13:  c13
+*.color5:  c15
+*color5:   c15
+*.color13: c15
+*color13:  c15
 ! Cyan
-*.color6:  c6
-*color6:   c6
-*.color14: c14
-*color14:  c14
+*.color6:  c08
+*color6:   c08
+*.color14: c07
+*color14:  c07
 ! White
-*.color7:  c7
-*color7:   c7
-*.color15: c15
-*color15:  c15
+*.color7:  c05
+*color7:   c05
+*.color15: c06
+*color15:  c06
+
+! DWM
+*.normbgcolor:      bcolor
+.normbgcolor:       bcolor
+*.normfgcolor:      fcolor
+.normfgcolor:       fcolor
+*.normbordercolor:  c03
+.normbordercolor:   c03
+*.selbgcolor:       c01
+.selbgcolor:        c01
+*.selfgcolor:       ccolor
+.selfgcolor:        ccolor
+*.selbordercolor:   c11
+.selbordercolor:    c11
 
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault

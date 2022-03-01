@@ -1,5 +1,5 @@
 if &shell =~# 'fish$'
-    set shell=sh
+    set shell=bash
 endif
 
 let mapleader ='\'
@@ -83,7 +83,6 @@ set clipboard+=unnamedplus
 " Backup stuff
 " use rename-and-write-new
 set backupcopy=yes
-
 if exists('$SUDO_USER')
   " don't create root owned files
   set nobackup
@@ -122,7 +121,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " THEME
 set termguicolors
 set background=dark
-"let g:solarized_termtrans = 1 " for transparency
 colorscheme my_hashpunk
 "color highlighting for CSS
 lua require'colorizer'.setup()
