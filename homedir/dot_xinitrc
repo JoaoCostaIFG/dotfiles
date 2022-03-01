@@ -34,7 +34,7 @@ xsidle slock &
 # composite manager
 picom --experimental-backends -b
 # wallpaper
-xwallpaper --zoom "$HOME/.config/wallpaper/anorlondo/anorlondo_dither2.png" &
+xwallpaper --no-randr --zoom "$HOME/.config/wallpaper/ds.png" &
 #maww -d "$HOME/.config/wallpaper/anorlondo" -s 80 &
 # notification daemon
 dunst &

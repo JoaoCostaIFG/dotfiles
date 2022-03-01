@@ -28,6 +28,15 @@ missing, because I forgot to comment them.
 
 The scripts are licensed under an [MIT License](./LICENSE)
 
+## Wallpaper
+
+I include in this repo the [wallpapers](./dot_config/wallpaper) I use. Sources:
+
+- [Anorlondo](./dot_config/wallpaper/anorlondo) - don't know;
+- [Firelink](./dot_config/wallpaper/firelink) -
+  [Zedotagger](https://www.deviantart.com/zedotagger);
+- [Forest](./dot_config/wallpaper/tree.png) - don't know.
+
 ## Notes on fish
 
 I'm currently using [Fish](https://fishshell.com/) as my "main" shell. Fish
