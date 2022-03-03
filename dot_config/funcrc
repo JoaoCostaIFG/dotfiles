@@ -5,22 +5,18 @@
 
 function bashrc {
   "$EDITOR" "$HOME/.bashrc"
-  source "$HOME/.bashrc"
 }
 
 function fishrc {
   "$EDITOR" "$HOME/.config/fish/config.fish"
-  source "$HOME/.config/fish/config.fish"
 }
 
 function aliasrc {
   "$EDITOR" "$HOME/.config/aliasrc"
-  source "$HOME/.config/aliasrc"
 }
 
 function funcrc {
   "$EDITOR" "$HOME/.config/funcrc"
-  source "$HOME/.config/funcrc"
 }
 
 # opens lf and cd's to the current folder on exit
