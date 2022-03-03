@@ -15,6 +15,7 @@
 #define c13   #EBCB8B
 #define c14   #A3BE8C
 #define c15   #B48EAD
+#define c16   #51484A
 
 #define fcolor  c04
 #define bcolor  c00
@@ -75,8 +76,8 @@
 .normbgcolor:       bcolor
 *.normfgcolor:      fcolor
 .normfgcolor:       fcolor
-*.normbordercolor:  c03
-.normbordercolor:   c03
+*.normbordercolor:  c16
+.normbordercolor:   c16
 *.selbgcolor:       c01
 .selbgcolor:        c01
 *.selfgcolor:       ccolor

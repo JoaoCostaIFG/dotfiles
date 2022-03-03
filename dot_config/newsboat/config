@@ -26,9 +26,9 @@ bind-key U show-urls
 bind-key x delete-article
 
 color listnormal white default
-color listfocus black default bold
+color listfocus green default bold
 color listnormal_unread cyan default
-color listfocus_unread black default bold
+color listfocus_unread green default bold
 color info white red
 color article white default
 
