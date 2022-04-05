@@ -16,7 +16,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'ziglang/zig.vim'
 
-Plug 'fenetikm/falcon'
+Plug 'sainnhe/everforest'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " python syntax highlighting
@@ -119,9 +119,15 @@ command Q q
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " THEME
-set termguicolors
+if has('termguicolors')
+  set termguicolors
+endif
 set background=dark
-colorscheme my_hashpunk
+let g:everforest_background = 'hard'
+let g:everforest_enable_italic = 1
+let g:everforest_transparent_background = 1
+let g:everforest_diagnostic_line_highlight = 1
+colorscheme everforest
 "color highlighting for CSS
 lua require'colorizer'.setup()
 
@@ -209,7 +215,7 @@ let g:mkdp_markdown_css="/home/joao/Documents/WorkRes/markdown.css"
 let g:mkdp_port = '8542'
 
 " AIRLINE
-let g:airline_theme = 'falcon'
+let g:airline_theme = 'everforest'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'

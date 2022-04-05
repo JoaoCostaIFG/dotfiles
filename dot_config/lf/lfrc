@@ -54,7 +54,7 @@ cmd open ${{
 
 cmd detox ${{ # detox name (clean file name)
   set -f
-  detox $fx
+  detox -r $fx
 }}
 
 cmd rename %{{
