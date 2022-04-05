@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "coc-diagnostic": ">=0.23.2",
+    "coc-java": ">=1.5.5",
+    "coc-json": ">=1.4.1",
+    "coc-lists": ">=1.4.2",
+    "coc-markdownlint": ">=1.12.4",
+    "coc-phpls": ">=2.2.2",
+    "coc-pyright": ">=1.1.232",
+    "coc-snippets": ">=3.0.8",
+    "coc-texlab": ">=2.3.0",
+    "coc-tsserver": ">=1.9.15"
+  }
+}

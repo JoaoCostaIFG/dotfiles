@@ -48,6 +48,9 @@ Plug 'dag/vim-fish'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
+" auto reload config on VIMRC save
+autocmd BufWritePost init.vim,.vimrc,_vimrc source $MYVIMRC
+
 " BASICS
 set nocompatible
 filetype plugin on

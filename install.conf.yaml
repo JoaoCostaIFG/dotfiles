@@ -25,7 +25,8 @@
           dot_config/rtorrent,
           dot_config/qutebrowser,
           dot_config/dot_Xmodmap,
-          dot_config/dot_Xresources
+          dot_config/dot_Xresources,
+          dot_config/coc-packages.json
         ]
     ~/.config/mpd/mpd.conf:
         create: true
@@ -54,6 +55,7 @@
         path: dot_config/qutebrowser/*
     ~/.config/.Xmodmap: dot_config/dot_Xmodmap
     ~/.config/.Xresources: dot_config/dot_Xresources
+    ~/.config/coc/extensions/package.json: dot_config/coc-packages.json
     
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
