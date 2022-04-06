@@ -122,9 +122,9 @@ cmd copyto ${{
     notify-send "File(s) copied." "File(s) copies to $dest."
 }}
 
-cmd newfold ${{
+cmd newdir ${{
   set -f
-  echo "New folder name?"
+  echo "New directory name?"
   read newd
   mkdir -- "$newd"
   mv -- $fx "$newd"
@@ -132,17 +132,7 @@ cmd newfold ${{
 
 cmd decompress ${{ # inflate archive
   set -f
-  mkdir -p "$1" && cd "$1"
-  case "$f" in
-    *.tar) tar -xvf "$archive";;
-    *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf "$f";;
-    *.tar.gz|*.tgz) tar xzvf "$f";;
-    *.tar.xz|*.txz) tar xJvf "$f";;
-    *.zip) unzip "$f";;
-    *.rar) unrar x "$f";;
-    *.7z) 7z x "$f";;
-    *) printf "extract: '%s' - unknown archive method\\n" "$archive" ;;
-  esac
+  aunpack "$1"
 }}
 
 cmd tar ${{ # compress using tar gz
@@ -205,7 +195,7 @@ map Re rename_ext
 map Rb rename_bulk
 map P delete # <delete> now maps to P
 map <delete> delete
-map <c-a> newfold
+map <c-a> newdir
 
 # Shortcuts and navigation
 map , shortcuts
