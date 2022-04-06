@@ -150,7 +150,7 @@ fuse-common
 fuse2
 fuse3
 fzf
-gamescope
+gamemode
 gawk
 gc
 gcc
@@ -177,6 +177,7 @@ glibmm
 glslang
 glu
 gmp
+gnome-desktop
 gnu-free-fonts
 gnu-netcat
 gnupg
@@ -234,6 +235,7 @@ imath
 imlib2
 inetutils
 iniparser
+innoextract
 intel-ucode
 iproute2
 iptables
@@ -326,6 +328,7 @@ lib32-flac
 lib32-fontconfig
 lib32-freetype2
 lib32-fribidi
+lib32-gamemode
 lib32-gcc-libs
 lib32-gdk-pixbuf2
 lib32-gettext
@@ -437,6 +440,7 @@ lib32-tdb
 lib32-util-linux
 lib32-v4l-utils
 lib32-vulkan-icd-loader
+lib32-vulkan-intel
 lib32-vulkan-radeon
 lib32-wayland
 lib32-xz
@@ -528,7 +532,6 @@ libksba
 liblangtag
 libldac
 libldap
-libliftoff
 liblqr
 libluv
 libmad
@@ -673,7 +676,6 @@ libxmu
 libxpm
 libxrandr
 libxrender
-libxres
 libxshmfence
 libxslt
 libxss
@@ -710,6 +712,7 @@ lua
 lua52
 luajit
 luit
+lutris
 lv2
 lvm2
 lxappearance-gtk3
@@ -871,8 +874,10 @@ python-cssselect
 python-cycler
 python-dateutil
 python-decorator
+python-distro
 python-dnspython
 python-entrypoints
+python-evdev
 python-executing
 python-fonttools
 python-future
@@ -956,6 +961,7 @@ python-w3lib
 python-wcwidth
 python-webencodings
 python-wxpython
+python-yaml
 python-zipp
 python-zope-interface
 qbittorrent
@@ -1003,7 +1009,6 @@ scons
 scrapy
 sdl2
 sdl2_image
-seatd
 sed
 semver
 serd
@@ -1112,7 +1117,6 @@ vulkan-radeon
 vulkan-tools
 wavpack
 wayland
-wayland-protocols
 webkit2gtk
 webrtc-audio-processing
 wget
@@ -1125,7 +1129,6 @@ winetricks
 wireplumber
 wireshark-cli
 wireshark-qt
-wlroots
 wmname
 woff2
 wpa_supplicant
@@ -1139,7 +1142,6 @@ xcape
 xcb-proto
 xcb-util
 xcb-util-cursor
-xcb-util-errors
 xcb-util-image
 xcb-util-keysyms
 xcb-util-renderutil
@@ -1172,7 +1174,6 @@ xorg-xrandr
 xorg-xrdb
 xorg-xset
 xorg-xsetroot
-xorg-xwayland
 xorg-xwininfo
 xorgproto
 xterm

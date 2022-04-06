@@ -65,6 +65,7 @@ x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/mailto=userapp-Thunderbird-O875A1.desktop
 message/rfc822=userapp-Thunderbird-O875A1.desktop
 x-scheme-handler/mid=userapp-Thunderbird-O875A1.desktop
+inode/directory=lf.desktop
 
 [Added Associations]
 doesn/matter=nvim.desktop;
