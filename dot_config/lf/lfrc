@@ -36,7 +36,7 @@ cmd q :quit
 cmd Q :quit
 
 cmd open ${{
-  case $(file --mime-type $f -b) in
+  case $(file --mime-type "$(readlink -f $f)" -b) in
   text/troff) man ./ $f ;;
   text/*) $EDITOR $fx ;;
   image/x-xcf|image/svg+xml) setsid gimp $f >/dev/null 2>&1 & ;;
