@@ -122,6 +122,15 @@ Usage: pdfsmallifier [--bw] <input.pdf>
 
 manage my noita backups
 
+## dimmer
+
+Dims all screens by lowering their brightness. Restores the brightness on exit/kill.
+Based on [xss-lock's dim-screen.sh](https://github.com/xdbob/xss-lock/blob/master/doc/dim-screen.sh).
+
+The ddcci kernel module (aur: ddcci-driver-linux-dkms) allows this script to work
+with external monitors.  
+Depends on brightnessctl.
+
 ## dunst_toggle
 
 Toggles dunst's notifications.

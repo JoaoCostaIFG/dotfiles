@@ -1,4 +1,5 @@
 acl
+acpid
 adobe-source-code-pro-fonts
 adobe-source-han-sans-otc-fonts
 adobe-source-han-serif-otc-fonts
@@ -49,6 +50,7 @@ breeze
 breeze-gtk
 breeze-icons
 bridge-utils
+brightnessctl
 brotli
 btrfs-progs
 bubblewrap
@@ -98,6 +100,7 @@ diffutils
 discord
 discord-canary
 djvulibre
+dkms
 dmraid
 dnssec-anchors
 docker
@@ -178,6 +181,7 @@ glslang
 glu
 gmp
 gnome-desktop
+gnome-desktop-common
 gnu-free-fonts
 gnu-netcat
 gnupg
@@ -1032,6 +1036,7 @@ spirv-tools
 sqlite
 sratom
 srt
+stalonetray
 startup-notification
 steam
 stfl
@@ -1176,6 +1181,8 @@ xorg-xset
 xorg-xsetroot
 xorg-xwininfo
 xorgproto
+xsecurelock
+xss-lock
 xterm
 xvidcore
 xwallpaper
@@ -1185,6 +1192,7 @@ yad
 yajl
 yaml-cpp
 yapf
+yarn
 youtube-dl
 zathura
 zathura-cb

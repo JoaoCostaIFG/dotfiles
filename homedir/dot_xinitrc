@@ -30,7 +30,8 @@ polkit-dumb-agent & # Polkit GUI authenticaion agent
 dwmblocks -b
 trap 'dwmblocks -k; exit 0' INT
 # lock screen
-xsidle slock &
+#xsidle slock &
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 # composite manager
 picom --experimental-backends -b
 # wallpaper

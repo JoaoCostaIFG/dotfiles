@@ -9,6 +9,6 @@
     "coc-pyright": ">=1.1.232",
     "coc-snippets": ">=3.0.8",
     "coc-texlab": ">=2.3.0",
-    "coc-tsserver": ">=1.9.15"
+    "coc-tsserver": ">=1.9.16"
   }
 }
