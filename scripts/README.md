@@ -2,7 +2,8 @@
 
 ## st-float
 
-Spawns an instance of the st terminal with a fixed geometry and name
+Spawns an instance of the st terminal with a fixed geometry and name:
+
 - Class: $TERM
 - Instance: st-float
 - Position: 180x40

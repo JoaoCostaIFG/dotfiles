@@ -6,9 +6,9 @@
     "coc-lists": ">=1.4.2",
     "coc-markdownlint": ">=1.12.4",
     "coc-phpls": ">=2.2.2",
-    "coc-pyright": ">=1.1.232",
+    "coc-pyright": ">=1.1.235",
     "coc-snippets": ">=3.0.8",
     "coc-texlab": ">=2.3.0",
-    "coc-tsserver": ">=1.9.16"
+    "coc-tsserver": ">=1.10.0"
   }
 }
