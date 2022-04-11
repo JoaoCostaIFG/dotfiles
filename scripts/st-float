@@ -6,6 +6,8 @@
 ### - Position: 180x40
 ### - X-offset: 300
 ### - Y-offset: 16
+###
+### Depends on: xdotool, xwininfo, wmctrl
 
 # how many monitors are connected
 scrn_cnt=2
@@ -22,15 +24,19 @@ while [ "$X" -gt $((single_w * curr_scrn)) ]; do
 done
 curr_scrn=$((curr_scrn - 1))
 
+st_x=$((curr_scrn * single_w + 300))
+st_y=16
+
 wid="$(xdotool search --classname st-float)"
 if [ -z "$wid" ]; then
   # not spawned, so spawn window
-  setsid st -n "st-float" -g "180x40+$((curr_scrn * single_w + 300))+16"
+  setsid st -n "st-float" -g "180x40+${st_x}+${st_y}"
 else
   map_state="$(xwininfo -id "$wid" | grep "Map State:" | cut -d':' -f2 | tr -d ' ')"
   if [ "$map_state" = "IsViewable" ]; then
     xdotool windowunmap "$wid"
   else
     xdotool windowmap "$wid"
+    wmctrl -x -r st-float.St -e 0,${st_x},${st_y},-1,-1
   fi
 fi

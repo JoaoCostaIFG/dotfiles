@@ -10,6 +10,8 @@ Spawns an instance of the st terminal with a fixed geometry and name:
 - X-offset: 300
 - Y-offset: 16
 
+Depends on: xdotool, xwininfo, wmctrl
+
 ## lfcd_sh
 
 Wrapper for [lf](https://github.com/gokcehan/lf) to **cd** to

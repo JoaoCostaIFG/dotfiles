@@ -1134,6 +1134,7 @@ winetricks
 wireplumber
 wireshark-cli
 wireshark-qt
+wmctrl
 wmname
 woff2
 wpa_supplicant
