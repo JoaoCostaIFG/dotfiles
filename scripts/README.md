@@ -10,7 +10,7 @@ Spawns an instance of the st terminal with a fixed geometry and name:
 - X-offset: 300
 - Y-offset: 16
 
-Depends on: xdotool, xwininfo, wmctrl
+Depends on: xdotool, and xwininfo.
 
 ## lfcd_sh
 
@@ -113,6 +113,15 @@ ANSI color scheme script featuring PACMAN
 Author: pfh
 Source: http://crunchbang.org/forums/viewtopic.php?pid=144481#p144481 
 Initializing procedure by lolilolicon
+
+## systray
+
+This spawns stalonetray (-s option) as a system-tray and hides it. When the script
+when the script is called again the system-tray is shown under the mouse, and hidden
+when the mouse leaves.  
+Yes, this is weird, but I like it.
+
+Depends on: stalonetray, and xdotool.
 
 ## pdfsmallifier
 

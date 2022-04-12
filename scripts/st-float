@@ -7,7 +7,7 @@
 ### - X-offset: 300
 ### - Y-offset: 16
 ###
-### Depends on: xdotool, xwininfo, wmctrl
+### Depends on: xdotool, and xwininfo.
 
 # how many monitors are connected
 scrn_cnt=2
@@ -36,7 +36,6 @@ else
   if [ "$map_state" = "IsViewable" ]; then
     xdotool windowunmap "$wid"
   else
-    xdotool windowmap "$wid"
-    wmctrl -x -r st-float.St -e 0,${st_x},${st_y},-1,-1
+    xdotool windowmap "$wid" windowmove "$wid" ${st_x} ${st_y}
   fi
 fi

@@ -27,8 +27,9 @@ fi
 eval $(ssh-agent) # SSH agent
 polkit-dumb-agent & # Polkit GUI authenticaion agent
 # DWM status bar (kill it on script end)
-dwmblocks -b
-trap 'dwmblocks -k; exit 0' INT
+dwmblocks &
+# system-tray
+systray -s &
 # lock screen
 #xsidle slock &
 xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &

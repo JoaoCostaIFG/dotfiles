@@ -17,7 +17,7 @@ dockapp_mode none
 
 # geometry <geometry>        # tray's geometry in standard X notation; width and
                              # height are specified in slot_size multiples
-geometry 1x1+1890+14
+#geometry 1x1+1890+14
 
 # grow_gravity <gravity>     # one of N, S, E, W, NW, NE, SW, SE; tray will grow
                              # in the direction opposite to one specified by
@@ -27,20 +27,24 @@ geometry 1x1+1890+14
 grow_gravity N
 
 # icon_gravity <gravity>     # icon placement gravity, one of NW, NE, SW, SE
-#icon_gravity N
+icon_gravity N
 
 # max_geometry <geometry>    # maximal tray dimensions; 0 in width/height means
                              # no limit
-max_geometry 1x0
+max_geometry 0x0
 
 # no_shrink [<bool>]         # disables shrink-back mode
 no_shrink false
 
 # icon_size <int>            # specifies dimensions of typical icon slot
-icon_size 12
+icon_size 16
 
 # slot_size <int>            # specifies size of icon slot, defaults to icon_size
 slot_size 24
+
+# vertical [<bool>]          # whether to use vertical layout (horisontal layout
+                             # is used by default)
+vertical true
 
 # kludges kludge[,kludge]    # enable specific kludges to work around
                              # non-conforming WMs and/or stalonetray bugs.
@@ -70,10 +74,6 @@ skip_taskbar false
 
 # sticky [<bool>]            # make a tray`s window sticky across the desktops/pages
 sticky false
-
-# vertical [<bool>]          # whether to use vertical layout (horisontal layout
-                             # is used by default)
-vertical true
 
 # window_layer <layer>       # set the EWMH-compatible window layer; one of:
                              # bottom, normal, top
@@ -119,4 +119,4 @@ xsync false
 # log_level <level>          # controls the amount of logging output, level can
                              # be err (default), info, or trace (enabled only
                              # when stalonetray configured with --enable-debug)
-log_level info
+log_level err
