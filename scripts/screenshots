@@ -1,0 +1,53 @@
+#!/bin/sh
+### Script that can:
+### - Take full-screen screen-shots (saves them in a previously specified folder);
+### - Screen-shot a selection of the screen (places the image in the clipboard);
+### - Output color information of a selection (saves RGB color code in clipboard and show a notification for it too).
+### 
+### Args:
+### - "snip" - take a snip and pass it to the clipboard (just clicking get the full clicked window);
+### - "picker" - color picker (needs work);
+### - "current" - snip current active window;
+### - "screenshot" - take a fullscreen screenshot and save it in a file;
+### - no args - dmenu arg selection.
+### Depends on [shotgun](https://github.com/neXromancers/shotgun), hacksaw,
+### [colorpicker](https://github.com/Jack12816/colorpicker), xdotool, xclip, and dmenu.
+
+parse_arg() {
+  case "$1" in
+  "snip")
+    # Sniping tool
+    # intentionally unquoted
+    shotgun $(hacksaw -f "-i %i -g %g") - | xclip -t 'image/png' -selection clipboard
+    notify-send -u low "Snipping Tool" "Snip saved to clipboard" &
+    ;;
+  "picker")
+    # Color picker
+    color="$(colorpicker --short --one-shot --preview)"
+    printf "%s" "$color" | xclip -selection clipboard
+    notify-send "Color Picker" "Color is $color" &
+    ;;
+  "current")
+    shotgun -i "$(xdotool getwindowfocus)" - | xclip -t 'image/png' -selection clipboard
+    notify-send "Current Window capture" "Current window saved to clipboard" &
+    ;;
+  "screenshot")
+    # Fullscreen screenshot
+    save_location="${SCREENSHOT_SAVEDIR:-$HOME/Pictures/screenshots/}"
+    [ -d "$save_location" ] || mkdir -p "$save_location"
+
+    file_name="$(date +%s).png"
+    shotgun "$save_location/$file_name"
+    notify-send -u low -i "$save_location/$file_name" "Print Screen" "Print saved to $save_location" &
+    ;;
+  *)
+    exit 1
+    ;;
+  esac
+}
+
+if [ "$1" ]; then
+  parse_arg "$1"
+else 
+  parse_arg "$(printf "snip\\npicker\\ncurrent\\nscreenshot" | dmenu -i -p "What to do?")"
+fi
