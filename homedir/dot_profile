@@ -47,6 +47,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 #export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_STYLE_OVERRIDE="kvantum"
+export COLORTERM="truecolor" # advertise truecolor
 
 # my scripts
 export BIB="$HOME/Documents/WorkRes/bibliography.bib"

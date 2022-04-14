@@ -7,19 +7,25 @@
   ui = true
   status = auto
   branch = auto
+[core]
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true # use n and N to move between diff sections
+  line-numbers = true
+  #side-by-side = true
 [diff]
   tool = vimdiff
+  colorMoved = default
 [merge]
   tool = vimdiff
+  conflictstyle = diff3
 [credential]
   username = JoaoCostaIFG
 [pager]
-  diff = less -iFMRSX --pattern='^(commit|diff)' +r
-  log = less -iFMRSX --pattern='^(commit|diff)' +r
-  show = less -iFMRSX --pattern='^(commit|diff)' +r
   show-branch = true
   status = true
-  whatchanged = less -iFMRSX --pattern='^(commit|diff)' +r
 [pull]
   ; ff = only
   rebase = false
