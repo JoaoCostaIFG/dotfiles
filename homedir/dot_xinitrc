@@ -36,7 +36,8 @@ xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 # composite manager
 picom --experimental-backends -b
 # wallpaper
-xwallpaper --no-randr --zoom "$HOME/.config/wallpaper/ds.png" &
+xwallpaper --no-randr --trim 1x1+0+0 --focus "$HOME/.config/wallpaper/ds.png" &
+#xwallpaper --no-randr --zoom "$HOME/.config/wallpaper/ds.png" &
 #maww -d "$HOME/.config/wallpaper/anorlondo" -s 80 &
 # notification daemon
 dunst &
