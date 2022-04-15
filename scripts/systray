@@ -31,8 +31,6 @@ case "$@" in
     ;;
 esac
 
-# get mouse location
-eval "$(xdotool getmouselocation --shell)"
 
 wid="$(getwid)"
 if [ -z "$wid" ]; then
@@ -40,11 +38,21 @@ if [ -z "$wid" ]; then
   exit 1
 fi
 
-# apply offset to mouse location
-X=$((X - 4))
-[ $X -lt 0 ] && X=0
-Y=$((Y - 4))
-[ $Y -lt 0 ] && Y=0
+map_state="$(xwininfo -id "$wid" | grep "Map State:" | cut -d':' -f2 | tr -d ' ')"
+if [ "$map_state" = "IsViewable" ]; then
+  # hide it
+  xdotool windowunmap "$wid"
+else
+  # get mouse location
+  eval "$(xdotool getmouselocation --shell)"
 
-# move window and make it visible
-xdotool windowmove "$wid" "${X}" "${Y}" windowmap "$wid"
+  # apply offset to mouse location
+  X=$((X - 12))
+  [ $X -lt 0 ] && X=0
+  Y=$((Y - 4))
+  [ $Y -lt 0 ] && Y=0
+
+  # move window and make it visible
+  xdotool windowmove "$wid" "${X}" "${Y}" windowmap "$wid"
+fi
+
