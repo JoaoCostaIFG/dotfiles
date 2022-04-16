@@ -9,6 +9,7 @@ hunspell-pt_pt
 intellij-idea-ultimate-edition
 intellij-idea-ultimate-edition-jre
 lf-bin
+librewolf-bin
 multimc-bin
 pandoc-bin
 parsec-bin
@@ -25,4 +26,3 @@ ttf-twemoji
 yay
 zig-git
 zls-git
-zotero

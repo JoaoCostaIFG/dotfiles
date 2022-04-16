@@ -60,5 +60,5 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [./gen_scripts_readme.sh]
-    - [pacman -Qnq >pacman_native]
-    - [pacman -Qmq >pacman_foreign]
+    - [pacman -Qenq >pacman_native]
+    - [pacman -Qemq >pacman_foreign]
