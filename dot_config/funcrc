@@ -68,3 +68,11 @@ function internetdolucassimulator {
     amixer set Capture toggle >/dev/null 2>&1;
   done
 }
+
+function copy {
+    cat | xclip -selection clipboard
+}
+
+function paste {
+    xclip -selection clipboard -o
+}
