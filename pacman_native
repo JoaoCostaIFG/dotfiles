@@ -25,6 +25,7 @@ at-spi2-atk
 at-spi2-core
 atk
 atkmm
+atool
 attica
 attr
 audiofile
@@ -116,6 +117,7 @@ easyeffects
 ecl
 efibootmgr
 efivar
+electron
 elfutils
 embree
 enchant
@@ -998,6 +1000,7 @@ rapidjson
 raptor
 rasqal
 rav1e
+re2
 readline
 redland
 reflector
