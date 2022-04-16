@@ -25,6 +25,7 @@ at-spi2-atk
 at-spi2-core
 atk
 atkmm
+atool
 attica
 attr
 audiofile
@@ -116,6 +117,7 @@ easyeffects
 ecl
 efibootmgr
 efivar
+electron
 elfutils
 embree
 enchant
@@ -170,6 +172,7 @@ giflib
 gimp
 girara
 git
+git-delta
 gl2ps
 glab
 glew
@@ -218,10 +221,12 @@ guile
 gumbo-parser
 gvfs
 gzip
+hacksaw
 harfbuzz
 harfbuzz-icu
 hdf5
 hdparm
+hexyl
 hicolor-icon-theme
 hidapi
 highlight
@@ -466,6 +471,7 @@ libavif
 libb2
 libblockdev
 libbluray
+libbpf
 libbs2b
 libbsd
 libbytesize
@@ -511,6 +517,7 @@ libfreeaptx
 libfreehand
 libgcrypt
 libgexiv2
+libgit2
 libglvnd
 libgme
 libgpg-error
@@ -724,7 +731,6 @@ lz4
 lzo
 m4
 mailcap
-maim
 make
 man-db
 man-pages
@@ -968,6 +974,7 @@ python-wxpython
 python-yaml
 python-zipp
 python-zope-interface
+python-zstandard
 qbittorrent
 qhull
 qt5-base
@@ -993,6 +1000,7 @@ rapidjson
 raptor
 rasqal
 rav1e
+re2
 readline
 redland
 reflector
@@ -1020,8 +1028,8 @@ shaderc
 shadow
 shared-mime-info
 shfmt
+shotgun
 slang
-slop
 smbclient
 snappy
 solid
