@@ -12,6 +12,7 @@ lf-bin
 librewolf-bin
 multimc-bin
 pandoc-bin
+parsec-bin
 picom-git
 polkit-dumb-agent-git
 proselint
