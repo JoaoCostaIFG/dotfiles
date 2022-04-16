@@ -1,3 +1,4 @@
+acpi
 acpid
 adobe-source-han-sans-otc-fonts
 adobe-source-han-serif-otc-fonts
@@ -49,6 +50,7 @@ fish
 flake8
 flex
 fontforge
+fprintd
 freecad
 fzf
 gamemode
@@ -160,7 +162,6 @@ p7zip
 pacman-contrib
 patch
 perf
-perl
 pipewire-alsa
 pipewire-pulse
 pkgconf
@@ -247,6 +248,7 @@ xorg-twm
 xorg-xdpyinfo
 xorg-xev
 xorg-xinit
+xorg-xinput
 xorg-xkill
 xorg-xprop
 xorg-xrandr
