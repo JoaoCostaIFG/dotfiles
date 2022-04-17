@@ -1,5 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 ### Measure screen area. Basically a wrapper for hacksaw with notifications.  
 ### Depends on hacksaw (but could use something like slop as well).
 
-notify-send "Screen measure" "$(hacksaw -f 'X: %x -- Y: %y\nWidth: %w\nHeight: %h')"
+geometry="$(hacksaw -f '%w %h %x %y')"
+IFS=" " read -r w h x y <<< "$geometry"
+
+len="$(awk "BEGIN {print sqrt($w^2 + $h^2)}")"
+
+notify-send "Screen measure" "X: $x -- Y: $y\nWidth: $w\nHeight: $h\nLength: $len"
