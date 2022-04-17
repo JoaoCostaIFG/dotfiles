@@ -4,53 +4,6 @@ browser[type="content"] {
   background: black !important;
 }
 
-/* REMOVE MEGABAR START
- * VERSION 1.0.4
- * CODE AT: http://userchrome.wesleybranton.com/megabar
- * RELEASE NOTES: http://userchrome.wesleybranton.com/notes/megabar */
-@-moz-document url(chrome://browser/content/browser.xhtml) {
-  /* DISABLE EXPANDING START */
-  #urlbar[breakout][breakout-extend] {
-    top: calc(
-      (var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2
-    ) !important;
-    left: 0 !important;
-    width: 100% !important;
-  }
-
-  #urlbar[breakout][breakout-extend] > #urlbar-input-container {
-    height: var(--urlbar-height) !important;
-    padding-block: 0 !important;
-    padding-inline: 0 !important;
-  }
-
-  #urlbar[breakout][breakout-extend] > #urlbar-background {
-    animation-name: none !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) !important;
-  }
-  /* DISABLE EXPANDING END */
-
-  /* REMOVE URL RESULT PADDING START */
-  .urlbarView {
-    margin-inline: 0 !important;
-    width: 100% !important;
-  }
-
-  .urlbarView-row {
-    padding-block: 0 !important;
-  }
-  /* REMOVE URL RESULT PADDING END */
-}
-/* REMOVE MEGABAR END */
-
-
-/* This positions the tabs under the navaigator container */
-/*
-#titlebar {
-  -moz-box-ordinal-group: 3 !important;
-}
- */
-
 /* || REMOVE TAB CLOSE BUTTON */
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 .tab-close-button {
@@ -60,39 +13,24 @@ browser[type="content"] {
 .tab-close-button {
   display: none !important;
 }
-/* ||| REMOVE TAB CLOSE BUTTON END */
+/* || REMOVE TAB CLOSE BUTTON END */
 
 .tab-label-container:not([textoverflow]) {
   display: flex;
-  overflow: hidden;
   justify-content: center;
+  align-items: center;
+  overflow: hidden;
   width: 50% !important;
   max-width: 50% !important;
   min-width: 50% !important;
 }
 
-.tab-line {
-  display: none !important;
-}
-
-.tabbrowser-tab {
-  border-width: 0;
-  margin-bottom: 4px !important;
-  margin-inline-end: 4px !important;
-  margin-top: 4px !important;
-}
-
-.urlbarView-favicon,
-.urlbarView-type-icon {
-  display: none !important;
-  padding: 0;
-  margin: 0;
-}
-
+/* center urls */
 #urlbar-input {
   text-align: center !important;
 }
 
+/* hide some icons */
 #tracking-protection-icon-container,
 #identity-box {
   display: none;
@@ -103,6 +41,7 @@ toolbaritem {
   border: none !important;
 }
 
+/* hide bookmark star button */
 image#star-button {
   display: none;
 }

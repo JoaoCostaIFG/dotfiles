@@ -47,7 +47,7 @@ else
   eval "$(xdotool getmouselocation --shell)"
 
   # apply offset to mouse location
-  X=$((X - 12))
+  X=$((X - 26))
   [ $X -lt 0 ] && X=0
   Y=$((Y - 4))
   [ $Y -lt 0 ] && Y=0
