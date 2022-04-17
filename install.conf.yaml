@@ -64,6 +64,7 @@
     
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [./gen_scripts_readme.sh]
-    - [pacman -Qenq >pacman_native]
-    - [pacman -Qemq >pacman_foreign]
+    - [update-desktop-database ~/.local/share/applications/, Updating desktop entries database]
+    - [./gen_scripts_readme.sh, Generating scripts Readme]
+    - [pacman -Qenq >pacman_native, Saving native package list]
+    - [pacman -Qemq >pacman_foreign, Saving foreign package list]
