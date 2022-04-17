@@ -26,24 +26,23 @@ fi
 # PROGS #
 eval $(ssh-agent) # SSH agent
 polkit-dumb-agent & # Polkit GUI authenticaion agent
-# DWM status bar (kill it on script end)
-dwmblocks &
-# system-tray
-systray -s &
 # lock screen
 #xsidle slock &
 xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
-# composite manager
-picom --experimental-backends -b
-# wallpaper
-xwallpaper --no-randr --trim 1x1+0+0 --focus "$HOME/.config/wallpaper/ds.png" &
-#xwallpaper --no-randr --zoom "$HOME/.config/wallpaper/ds.png" &
-#maww -d "$HOME/.config/wallpaper/anorlondo" -s 80 &
+# system-tray
+systray -s &
 # notification daemon
 dunst &
 # start music player daemon (if it isn't started yet)
 [ ! -s ~/.config/mpd/pid ] && mpd >/dev/null 2>&1 &
 wmname "LG3D" # JVM fix (https://tools.suckless.org/x/wmname)
+# wallpaper
+xwallpaper --no-randr --trim 1x1+0+0 --focus "$HOME/.local/share/wallpaper/ds.png" &
+#maww -d "$HOME/.local/share/wallpaper/anorlondo" -s 80 &
+# composite manager
+picom --experimental-backends -b
+# DWM status bar (kill it on script end)
+dwmblocks &
 
 # WM LOOP #
 while true; do

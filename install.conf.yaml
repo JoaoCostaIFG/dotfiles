@@ -13,6 +13,7 @@
     ~/.xinitrc: homedir/dot_xinitrc
     ~/.xserverrc: homedir/dot_xserverrc
     ~/.local/bin: scripts
+    ~/.local/share/wallpaper: wallpaper
     ~/.config/:
         glob: true
         path: dot_config/*
