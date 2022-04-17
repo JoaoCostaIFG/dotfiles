@@ -63,12 +63,24 @@ function clndepl {
   done
 }
 
+# find package and install it
+function fpkg {
+  pkg="$( ( pacman -Slq && yay -Slq ) | fzf)"
+  [ -z "$pkg" ] && return 0
+  if pacman -Slq | grep -q -w "^${pkg}$"; then
+    sudo pacman -Syu "$pkg"
+  else
+    yay -Syu "$pkg"
+  fi
+}
+
 function internetdolucassimulator {
   while true; do
     amixer set Capture toggle >/dev/null 2>&1;
   done
 }
 
+# clipboard
 function copy {
     cat | xclip -selection clipboard
 }
