@@ -14,6 +14,9 @@
     ~/.xserverrc: homedir/dot_xserverrc
     ~/.local/bin: scripts
     ~/.local/share/wallpaper: wallpaper
+    ~/.local/share/applications/:
+        glob: true
+        path: applications/*
     ~/.local/share/applications/mimeapps.list: dot_config/mimeapps.list
     ~/.config/:
         glob: true

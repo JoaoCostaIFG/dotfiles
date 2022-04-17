@@ -27,4 +27,4 @@ fi
 count="$(listfiles | grep -m 1 -Zz -n -Fx "$target" | cut -d: -f1)"
 [ -z "$count" ] && echo "No such file or directory" && exit 1
 
-listfiles | xargs -r0 sxiv -n "$count" >/dev/null 2>&1
+listfiles | xargs -r0 sxiv -a -n "$count" >/dev/null 2>&1

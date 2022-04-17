@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=sxiv
+Exec=sxiv_folder %f
