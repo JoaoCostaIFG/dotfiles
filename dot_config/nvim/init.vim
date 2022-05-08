@@ -21,7 +21,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " python syntax highlighting
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
 Plug 'folke/zen-mode.nvim'
 Plug 'folke/twilight.nvim'
 Plug 'junegunn/vim-easy-align'

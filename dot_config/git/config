@@ -3,6 +3,9 @@
 [user]
   email = joaocosta.work@posteo.net
   name = JoaoCostaIFG
+  signingKey = EBBA3E93
+[commit]
+  gpgsign = true
 [color]
   ui = true
   status = auto
