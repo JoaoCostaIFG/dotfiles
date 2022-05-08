@@ -15,7 +15,7 @@ min_dep=2
 max_dep=5
 
 # cache file related constants
-max_size=10
+max_size=16
 cachedir=${XDG_DATA_HOME:-"$HOME/.local/share"}
 hist_file="$cachedir/mdmenu_run" # history file
 [ -f "$hist_file" ] || touch "$hist_file"

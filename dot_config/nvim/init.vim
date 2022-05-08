@@ -34,6 +34,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'moll/vim-bbye'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'tpope/vim-fugitive'
+Plug 'stevearc/dressing.nvim'
+Plug 'rcarriga/nvim-notify'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -50,6 +52,8 @@ call plug#end()
 
 " auto reload config on VIMRC save
 autocmd BufWritePost init.vim,.vimrc,_vimrc source $MYVIMRC
+
+lua vim.notify = require("notify")
 
 " BASICS
 set nocompatible
@@ -260,9 +264,6 @@ let g:CtrlSpaceUseUnicode = 0
 let g:CtrlSpaceUseTabline = 0
 let g:CtrlSpaceUseArrowsInTerm = 1
 
-tnoremap <Esc> <C-\><C-n>
-tnoremap <ESC><ESC> <NOP>
-"map <leader>T :enew<cr>
 map <silent> <C-h> :CtrlSpaceGoUp<CR>
 map <silent> <C-l> :CtrlSpaceGoDown<CR>
 map <leader>bq :bp <BAR> bd #<CR>
