@@ -7,10 +7,12 @@ adobe-source-serif-fonts
 alsa-utils
 arandr
 arc-gtk-theme
-arduino
+arduino-avr-core
 atool
 autoconf
 automake
+avr-gdb
+avrdude
 base
 bash-completion
 bison
@@ -31,7 +33,6 @@ dash
 detox
 dhcpcd
 discord
-discord-canary
 docker
 docker-compose
 docx2txt
@@ -56,6 +57,7 @@ fzf
 gamemode
 gcc
 gcc-fortran
+gdb
 gimp
 git
 git-delta
@@ -85,6 +87,7 @@ jre-openjdk
 jre11-openjdk
 jre11-openjdk-headless
 jshon
+kdenlive
 kvantum
 lib32-fakeroot
 lib32-gamemode
@@ -188,6 +191,7 @@ s-nail
 samba
 scons
 scrapy
+screen
 shfmt
 shotgun
 stalonetray

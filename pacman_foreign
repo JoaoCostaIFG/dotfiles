@@ -15,8 +15,8 @@ pandoc-bin
 parsec-bin
 picom-git
 polkit-dumb-agent-git
-proselint
 shellcheck-bin
+simavr
 simple-mtpfs
 slack-desktop
 steamtinkerlaunch
