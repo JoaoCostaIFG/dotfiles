@@ -1,3 +1,5 @@
+[ -f /etc/profile ] && . /etc/profile
+
 # important files and directories
 export ALIASF="$HOME/.config/aliasrc"
 export BASHRC="$HOME/.bashrc"
