@@ -13,41 +13,45 @@ endif
 
 " PLUGINS
 call plug#begin('~/.config/nvim/plugged')
+" default-ish things
 Plug 'tpope/vim-sensible'
-Plug 'ziglang/zig.vim'
+Plug 'moll/vim-bbye'
+Plug 'stevearc/dressing.nvim' " cute prompt windows
+Plug 'rcarriga/nvim-notify' " cure notifications
+Plug 'easymotion/vim-easymotion' " move fast
 
+" theming
 Plug 'sainnhe/everforest'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " python syntax highlighting
 
+" writing
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
-Plug 'folke/zen-mode.nvim'
-Plug 'folke/twilight.nvim'
+Plug 'ferrine/md-img-paste.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'ferrine/md-img-paste.vim'
+Plug 'folke/zen-mode.nvim' " the writting focus thing
+Plug 'folke/twilight.nvim' " the thing that dims colors in for zen-mode
 
-Plug 'rbgrouleff/bclose.vim'
+" tools
+Plug 'voldikss/vim-floaterm' " adds support for the floaterm of lf
 Plug 'ptzz/lf.vim'
-Plug 'voldikss/vim-floaterm'
-Plug 'moll/vim-bbye'
 Plug 'vim-ctrlspace/vim-ctrlspace'
-Plug 'tpope/vim-fugitive'
-Plug 'stevearc/dressing.nvim'
-Plug 'rcarriga/nvim-notify'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-Plug 'jiangmiao/auto-pairs'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdcommenter'
-Plug 'honza/vim-snippets'
-Plug 'tpope/vim-surround'
-Plug 'norcalli/nvim-colorizer.lua'
-
-Plug 'dag/vim-fish'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" programming
+Plug 'norcalli/nvim-colorizer.lua' " colors become colored
+Plug 'honza/vim-snippets' " snippets
+Plug 'windwp/nvim-autopairs' " pairs
+Plug 'scrooloose/nerdcommenter' " comments
+Plug 'tpope/vim-surround' " work with delimiters
+Plug 'lukas-reineke/indent-blankline.nvim' " indent guides
+Plug 'dag/vim-fish' " fish shell
+Plug 'ziglang/zig.vim' " zig lang
+Plug 'tpope/vim-fugitive' " git plugin
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " python syntax highlighting
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " the conqueror
 call plug#end()
 
 " auto reload config on VIMRC save
@@ -192,6 +196,7 @@ lua << EOF
     },
   }
 EOF
+nnoremap <leader>m :Twilight<CR>
 lua << EOF
   require("zen-mode").setup {
     on_open = function(_)
@@ -253,6 +258,8 @@ let g:lf_replace_netrw = 1 " open lf when vim open a directory
 let g:lf_map_keys = 0
 nnoremap - :LfWorkingDirectory<cr>
 
+lua require('nvim-autopairs').setup()
+
 " CTRLSPACE
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
 nnoremap <silent> <C-p> :CtrlSpace O<CR>
@@ -266,8 +273,8 @@ let g:CtrlSpaceUseArrowsInTerm = 1
 
 map <silent> <C-h> :CtrlSpaceGoUp<CR>
 map <silent> <C-l> :CtrlSpaceGoDown<CR>
-map <leader>bq :bp <BAR> bd #<CR>
-map <leader>bs :ls<CR>
+
+nnoremap <Leader>q :Bdelete<CR>
 
 " MISC
 " substitute all non-ascii chars by a space
