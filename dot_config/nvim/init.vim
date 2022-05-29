@@ -34,8 +34,8 @@ Plug 'folke/zen-mode.nvim' " the writting focus thing
 Plug 'folke/twilight.nvim' " the thing that dims colors in for zen-mode
 
 " tools
-Plug 'voldikss/vim-floaterm' " adds support for the floaterm of lf
 Plug 'ptzz/lf.vim'
+Plug 'voldikss/vim-floaterm' " adds support for the floaterm of lf
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -57,7 +57,7 @@ call plug#end()
 " auto reload config on VIMRC save
 autocmd BufWritePost init.vim,.vimrc,_vimrc source $MYVIMRC
 
-lua vim.notify = require("notify")
+"lua vim.notify = require("notify")
 
 " BASICS
 set nocompatible
@@ -196,7 +196,7 @@ lua << EOF
     },
   }
 EOF
-nnoremap <leader>m :Twilight<CR>
+"nnoremap <leader>m :Twilight<CR>
 lua << EOF
   require("zen-mode").setup {
     on_open = function(_)
@@ -258,7 +258,7 @@ let g:lf_replace_netrw = 1 " open lf when vim open a directory
 let g:lf_map_keys = 0
 nnoremap - :LfWorkingDirectory<cr>
 
-lua require('nvim-autopairs').setup()
+"lua require('nvim-autopairs').setup()
 
 " CTRLSPACE
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
@@ -274,7 +274,9 @@ let g:CtrlSpaceUseArrowsInTerm = 1
 map <silent> <C-h> :CtrlSpaceGoUp<CR>
 map <silent> <C-l> :CtrlSpaceGoDown<CR>
 
-nnoremap <Leader>q :Bdelete<CR>
+"nnoremap <Leader>q :Bdelete<CR>
+map <leader>bq :bp <BAR> bd #<CR>
+map <leader>bs :ls<CR>
 
 " MISC
 " substitute all non-ascii chars by a space
