@@ -274,7 +274,7 @@ let g:CtrlSpaceUseArrowsInTerm = 1
 map <silent> <C-h> :CtrlSpaceGoUp<CR>
 map <silent> <C-l> :CtrlSpaceGoDown<CR>
 
-"nnoremap <Leader>q :Bdelete<CR>
+nnoremap <Leader>q :Bdelete<CR>
 map <leader>bq :bp <BAR> bd #<CR>
 map <leader>bs :ls<CR>
 
