@@ -45,6 +45,8 @@ picom --experimental-backends -b
 dwmblocks &
 # Thunderbird
 birdtray &
+# Tailscale
+tailscale-systray &
 
 # WM LOOP #
 while true; do
