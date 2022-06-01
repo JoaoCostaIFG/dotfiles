@@ -17,6 +17,8 @@ base
 bash-completion
 bison
 blender
+bluez
+bluez-utils
 boost
 breeze
 breeze-gtk
@@ -156,6 +158,7 @@ nodejs
 npm
 nss-mdns
 ntfs-3g
+nvidia-utils
 ocl-icd
 odt2txt
 openblas
@@ -176,15 +179,20 @@ pulsemixer
 python
 python-black
 python-matplotlib
+python-mutagen
 python-pandas
 python-pillow
+python-pycryptodomex
 python-pynvim
 python-pypng
 python-scipy
 python-seaborn
+python-virtualenv
+python-websockets
 qbittorrent
 reflector
 reiserfsprogs
+ripgrep-all
 rlwrap
 rsnapshot
 s-nail
@@ -201,6 +209,7 @@ supertux
 sxiv
 syncthing
 sysfsutils
+tailscale
 texinfo
 texlab
 texlive-bibtexextra
@@ -264,8 +273,7 @@ xss-lock
 xterm
 xwallpaper
 yapf
-yarn
-youtube-dl
+yt-dlp
 zathura
 zathura-cb
 zathura-djvu
