@@ -5,6 +5,7 @@ adobe-source-han-serif-otc-fonts
 adobe-source-sans-fonts
 adobe-source-serif-fonts
 alsa-utils
+ansible
 arandr
 arc-gtk-theme
 arduino-avr-core
@@ -202,6 +203,7 @@ scrapy
 screen
 shfmt
 shotgun
+sshfs
 stalonetray
 steam
 sudo
