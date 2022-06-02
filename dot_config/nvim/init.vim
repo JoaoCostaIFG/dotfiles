@@ -41,6 +41,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " programming
+Plug 'kristijanhusak/vim-carbon-now-sh' " export code snippets
 Plug 'norcalli/nvim-colorizer.lua' " colors become colored
 Plug 'honza/vim-snippets' " snippets
 Plug 'windwp/nvim-autopairs' " pairs
@@ -57,7 +58,7 @@ call plug#end()
 " auto reload config on VIMRC save
 autocmd BufWritePost init.vim,.vimrc,_vimrc source $MYVIMRC
 
-"lua vim.notify = require("notify")
+lua vim.notify = require("notify")
 
 " BASICS
 set nocompatible
@@ -196,7 +197,7 @@ lua << EOF
     },
   }
 EOF
-"nnoremap <leader>m :Twilight<CR>
+nnoremap <leader>m :Twilight<CR>
 lua << EOF
   require("zen-mode").setup {
     on_open = function(_)
@@ -247,7 +248,11 @@ nmap ga <Plug>(EasyAlign)
 let g:table_mode_header_fillchar = '-'
 
 " AUTO-PAIRS
-let g:AutoPairsMapCh = 0
+lua << EOF
+require('nvim-autopairs').setup({
+  map_c_w = true
+})
+EOF
 
 " NERD COMMENTER
 let g:NERDSpaceDelims = 1
@@ -257,8 +262,6 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:lf_replace_netrw = 1 " open lf when vim open a directory
 let g:lf_map_keys = 0
 nnoremap - :LfWorkingDirectory<cr>
-
-"lua require('nvim-autopairs').setup()
 
 " CTRLSPACE
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
