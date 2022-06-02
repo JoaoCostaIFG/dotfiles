@@ -1,5 +1,5 @@
 if &shell =~# 'fish$'
-    set shell=bash
+  set shell=bash
 endif
 
 let mapleader ='\'
@@ -232,10 +232,9 @@ let g:airline_theme = 'everforest'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-" let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
 let g:airline_detect_modified = 0
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
-" let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
+let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
 let airline#extensions#coc#error_symbol = '!'
 let airline#extensions#coc#warning_symbol = '.'
 
@@ -249,9 +248,9 @@ let g:table_mode_header_fillchar = '-'
 
 " AUTO-PAIRS
 lua << EOF
-require('nvim-autopairs').setup({
+require('nvim-autopairs').setup{
   map_c_w = true
-})
+}
 EOF
 
 " NERD COMMENTER
@@ -262,6 +261,9 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:lf_replace_netrw = 1 " open lf when vim open a directory
 let g:lf_map_keys = 0
 nnoremap - :LfWorkingDirectory<cr>
+
+" Rip-grep
+nnoremap _ :Rg<cr>
 
 " CTRLSPACE
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
@@ -278,8 +280,6 @@ map <silent> <C-h> :CtrlSpaceGoUp<CR>
 map <silent> <C-l> :CtrlSpaceGoDown<CR>
 
 nnoremap <Leader>q :Bdelete<CR>
-map <leader>bq :bp <BAR> bd #<CR>
-map <leader>bs :ls<CR>
 
 " MISC
 " substitute all non-ascii chars by a space
@@ -288,7 +288,7 @@ function! RM_non_ascii()
 endfunction
 
 " save state/pos of cursor -> execute cmd -> restore cursor
-" source: http://vimcasts.org/episodes/tidying-whitespace/
+" source: http://vimcasts.org/episodes/tidying-whitespace
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
   let _s=@/
@@ -304,10 +304,6 @@ endfunction
 " formating
 " strip white spaces
 command StripTrailWhiteChars call Preserve("%s/\\s\\+$//e")
-nmap <silent> _$ :StripTrailWhiteChars<CR>
-autocmd BufWritePre *.txt StripTrailWhiteChars
-" retab
-nmap <silent> _= :call Preserve("normal gg=G")<CR>
 
 " simple format (variatic because of ALE)
 function! SimpFormat(...)
