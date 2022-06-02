@@ -13,7 +13,7 @@ endif
 
 " PLUGINS
 call plug#begin('~/.config/nvim/plugged')
-" default-ish things
+" basics/default-ish things
 Plug 'tpope/vim-sensible'
 Plug 'moll/vim-bbye'
 Plug 'stevearc/dressing.nvim' " cute prompt windows
@@ -24,12 +24,13 @@ Plug 'easymotion/vim-easymotion' " move fast
 Plug 'sainnhe/everforest'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'norcalli/nvim-colorizer.lua' " colors become colored
 
 " writing
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
 Plug 'ferrine/md-img-paste.vim'
-Plug 'junegunn/vim-easy-align'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'junegunn/vim-easy-align'
 Plug 'folke/zen-mode.nvim' " the writting focus thing
 Plug 'folke/twilight.nvim' " the thing that dims colors in for zen-mode
 
@@ -42,7 +43,6 @@ Plug 'junegunn/fzf.vim'
 
 " programming
 Plug 'kristijanhusak/vim-carbon-now-sh' " export code snippets
-Plug 'norcalli/nvim-colorizer.lua' " colors become colored
 Plug 'honza/vim-snippets' " snippets
 Plug 'windwp/nvim-autopairs' " pairs
 Plug 'scrooloose/nerdcommenter' " comments
@@ -55,12 +55,19 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " python syntax highlight
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " the conqueror
 call plug#end()
 
+ """"""""""""""""""""""""""""""""""""""""""""" 
+"      ___    ___    ____   ___  _____  ____  "
+"    / __ ) /   |  / ___/ /  _// ____// ___/  "
+"   / __  |/ /| |  \__ \  / / / /     \__ \   "
+"  / /_/ // ___ | ___/ /_/ / / /___  ___/ /   "
+" /_____//_/  |_|/____//___/ \____/ /____/    "
+"                                             "
+ """""""""""""""""""""""""""""""""""""""""""""
 " auto reload config on VIMRC save
 autocmd BufWritePost init.vim,.vimrc,_vimrc source $MYVIMRC
-
+nnoremap <Leader>q :Bdelete<CR>
 lua vim.notify = require("notify")
 
-" BASICS
 set nocompatible
 filetype plugin on
 syntax on
@@ -68,15 +75,6 @@ syntax enable
 
 set listchars+=lead:⋅
 noremap <silent> <F15> :set list!<CR>
-"can use "│" and "▏"
-lua << EOF
-  require("indent_blankline").setup {
-    char = "▏",
-    space_char_blankline = " ",
-    buftype_exclude = {"terminal"}
-  }
-EOF
-noremap <silent> <F3> :IndentBlanklineToggle<CR>
 set ts=2 sts=2 sw=2 expandtab
 set number relativenumber
 
@@ -92,8 +90,7 @@ set showtabline=0
 set nohlsearch ignorecase smartcase
 set clipboard+=unnamedplus
 
-" Backup stuff
-" use rename-and-write-new
+" backup stuff
 set backupcopy=yes
 if exists('$SUDO_USER')
   " don't create root owned files
@@ -127,10 +124,15 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
-" Disables automatic commenting on newline
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" THEME
+ """""""""""""""""""""""""""""""""""""""""""""""""""
+"    _____  _   _  _____  _   __  ___ _   __  _____ "
+"  /_  __// / / // ____//  |/  //  _// | / // ____/ "
+"   / /  / /_/ // __/  / /|_/ / / / /  |/ // / __   "
+"  / /  / __  // /___ / /  / /_/ / / /|  // /_/ /   "
+" /_/  /_/ /_//_____//_/  /_//___//_/ |_/ \____/    "
+"                                                   "
+ """"""""""""""""""""""""""""""""""""""""""""""""""" 
 if has('termguicolors')
   set termguicolors
 endif
@@ -141,54 +143,39 @@ let g:everforest_transparent_background = 1
 let g:everforest_diagnostic_line_highlight = 1
 colorscheme everforest
 "color highlighting for CSS
-lua require'colorizer'.setup()
+lua require("colorizer").setup()
+" AIRLINE
+let g:airline_theme = 'everforest'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_detect_modified = 0
+let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
+let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
+let airline#extensions#coc#error_symbol = '!'
+let airline#extensions#coc#warning_symbol = '.'
 
-" COC
-" make <tab> used for trigger completion, completion confirm, snippet expand and jump
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ "<TAB>"
-let g:coc_snippet_next = '<tab>'
-let g:coc_snippet_prev = '<S-tab>'
-" close the preview window when completion is done
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" use k to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    " nn <silent> K :call CocActionAsync('doHover')<cr>
-    call CocActionAsync('doHover')
-  endif
-endfunction
-
-" remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-" Show all diagnostics
-nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-" Resume latest coc list
-nnoremap <silent> <space>p :<C-u>CocListResume<CR>
-
-" formating
-" Format for auto file formatting
-command! -nargs=0 Format :call CocAction('format')
-" use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-nnoremap <silent> <F1> :Format<CR>
-inoremap <silent> <F1> <C-o>:Format<CR>
-
-" WRITING
-" zen-mode
+ """"""""""""""""""""""""""""""""""""""""""""""""""" 
+"  _        _  ___    ___  _____  ___  _   _  _____ "
+" | |     / // __ \ /  _//_  __//  _// | / // ____/ "
+" | | /| / // /_/ / / /   / /   / / /  |/ // /___   "
+" | |/ |/ // _, _/_/ /   / /  _/ / / /|  // /_  /   "
+" |__/|__//_/ |_|/___/  /_/  /___//_/ |_/ \____/    "
+"                                                   "
+ """"""""""""""""""""""""""""""""""""""""""""""""""" 
+" MARKDOWN
+" image paste
+autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+" markdown preview
+let g:mkdp_markdown_css="/home/joao/Documents/WorkRes/markdown.css"
+let g:mkdp_port = '8542'
+" TABLEMODE
+" make it more equivalent to the markdown one
+let g:table_mode_header_fillchar = '-'
+" EASY-ALIGN
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+" ZEN-MODE + TWILIGHT
 lua << EOF
   require("twilight").setup {
     dimming = {
@@ -213,61 +200,29 @@ lua << EOF
   }
 EOF
 nnoremap <leader>n :ZenMode<CR>
-
-" misc
+" thesaurus
 set thesaurus+=~/Documents/WorkRes/thesaurus.txt
 " spell-check
 map <leader>o :setlocal spell! spelllang=en_us<CR>
 map <leader>O :setlocal spell! spelllang=pt<CR>
 
-" MARKDOWN
-" image paste
-autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
-" theme
-let g:mkdp_markdown_css="/home/joao/Documents/WorkRes/markdown.css"
-let g:mkdp_port = '8542'
-
-" AIRLINE
-let g:airline_theme = 'everforest'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_detect_modified = 0
-let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
-let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
-let airline#extensions#coc#error_symbol = '!'
-let airline#extensions#coc#warning_symbol = '.'
-
-" EASY-ALIGN
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-" TABLEMODE
-" make it more equivalent to the markdown one
-let g:table_mode_header_fillchar = '-'
-
-" AUTO-PAIRS
-lua << EOF
-require('nvim-autopairs').setup{
-  map_c_w = true
-}
-EOF
-
-" NERD COMMENTER
-let g:NERDSpaceDelims = 1
-let g:NERDTrimTrailingWhitespace = 1
-
+ """"""""""""""""""""""""""""""""""""
+"    _____  ___    ___    _     ____ "
+"  /_  __//  _ \ /  _ \ / /   / ___/ "
+"   / /  / / / // / / // /    \__ \  "
+"  / /  / /_/ // /_/ // /___  __/ /  "
+" /_/   \____/ \____//_____//____/   "
+"                                    "
+ """"""""""""""""""""""""""""""""""""
 " LF
 let g:lf_replace_netrw = 1 " open lf when vim open a directory
 let g:lf_map_keys = 0
 nnoremap - :LfWorkingDirectory<cr>
-
-" Rip-grep
-nnoremap _ :Rg<cr>
-
 " CTRLSPACE
 let g:CtrlSpaceDefaultMappingKey = "<C-space> "
 nnoremap <silent> <C-p> :CtrlSpace O<CR>
+map <silent> <C-h> :CtrlSpaceGoUp<CR>
+map <silent> <C-l> :CtrlSpaceGoDown<CR>
 let g:CtrlSpaceCacheDir = expand("$HOME/.local/share/vim/")
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
@@ -275,19 +230,92 @@ let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceUseUnicode = 0
 let g:CtrlSpaceUseTabline = 0
 let g:CtrlSpaceUseArrowsInTerm = 1
+" RIP-GREP
+nnoremap _ :Rg<cr>
 
-map <silent> <C-h> :CtrlSpaceGoUp<CR>
-map <silent> <C-l> :CtrlSpaceGoDown<CR>
+ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"      ___    ___    ___    _____  ___    __      _   __  _  ___  ___ _    _  _____ "
+"    / __ \ / __ \ / __ \ / ____// __ \ /   |   /  |/  //  |/  //  _// | / // ____/ "
+"   / /_/ // /_/ // / / // / __ / /_/ // /| |  / /|_/ // /|_/ / / / /  |/ // / __   "
+"  / ____// _, _// /_/ // /_/ // _, _// ___ | / /  / // /  / /_/ / / /|  // /_/ /   "
+" /_/    /_/ |_| \____/ \____//_/ |_|/_/  |_|/_/  /_//_/  /_//___//_/ |_/ \____/    "
+"                                                                                   "
+ """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+" AUTO-PAIRS
+lua << EOF
+require('nvim-autopairs').setup{
+  map_c_w = true
+}
+EOF
+" NERD COMMENTER
+let g:NERDSpaceDelims = 1
+let g:NERDTrimTrailingWhitespace = 1
+" disables automatic commenting on newline
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" INDENT LINES
+lua << EOF
+require("indent_blankline").setup {
+  -- can use "│" and "▏"
+  char = "▏",
+  space_char_blankline = " ",
+  buftype_exclude = {"terminal"}
+}
+EOF
+noremap <silent> <F3> :IndentBlanklineToggle<CR>
+" COC
+" make <tab> used for trigger completion, completion confirm, snippet expand and jump
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ "<TAB>"
+let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_prev = '<S-tab>'
+" close the preview window when completion is done
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" use k to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    " nn <silent> K :call CocActionAsync('doHover')<cr>
+    call CocActionAsync('doHover')
+  endif
+endfunction
+" remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Show all diagnostics
+nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+" Resume latest coc list
+nnoremap <silent> <space>p :<C-u>CocListResume<CR>
+" FORMATING
+" Format for auto file formatting
+command! -nargs=0 Format :call CocAction('format')
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+nnoremap <silent> <F1> :Format<CR>
+inoremap <silent> <F1> <C-o>:Format<CR>
 
-nnoremap <Leader>q :Bdelete<CR>
-
-" MISC
+ """"""""""""""""""""""""""""""""
+"     __  ___ ____ _____  ______ "
+"    /  |/  //  _// ___/ / ____/ "
+"   / /|_/ / / /  \__ \ / /      "
+"  / /  / /_/ /  ___/ // /___    "
+" /_/  /_//___/ /____/ \____/    "
+"                                "
+ """"""""""""""""""""""""""""""""
 " substitute all non-ascii chars by a space
 function! RM_non_ascii()
   %s/[^[:alnum:][:punct:][:space:]]/ /g
 endfunction
-
-" save state/pos of cursor -> execute cmd -> restore cursor
+" SAVE STATE/POS OF CURSOR -> execute cmd -> restore cursor
 " source: http://vimcasts.org/episodes/tidying-whitespace
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
@@ -300,18 +328,15 @@ function! Preserve(command)
   let @/=_s
   call cursor(l, c)
 endfunction
-
-" formating
+" FORMATING
 " strip white spaces
 command StripTrailWhiteChars call Preserve("%s/\\s\\+$//e")
-
 " simple format (variatic because of ALE)
 function! SimpFormat(...)
   call Preserve("retab")
   call Preserve("%s/\\s\\+$//e")
   call Preserve("normal gg=G")
 endfunction
-
 " vim -b : edit binary using xxd-format!
 " see :h hex-editing
 augroup Binary
