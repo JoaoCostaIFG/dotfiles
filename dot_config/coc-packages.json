@@ -4,10 +4,10 @@
     "coc-diagnostic": ">=0.23.3",
     "coc-java": ">=1.5.5",
     "coc-json": ">=1.4.2",
-    "coc-lists": ">=1.4.2",
+    "coc-lists": ">=1.4.3",
     "coc-markdownlint": ">=1.12.4",
     "coc-phpls": ">=2.2.2",
-    "coc-pyright": ">=1.1.243",
+    "coc-pyright": ">=1.1.252",
     "coc-snippets": ">=3.0.10",
     "coc-texlab": ">=2.3.0",
     "coc-tsserver": ">=1.10.4"
