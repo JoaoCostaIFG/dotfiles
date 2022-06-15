@@ -48,7 +48,6 @@ Plug 'windwp/nvim-autopairs' " pairs
 Plug 'scrooloose/nerdcommenter' " comments
 Plug 'tpope/vim-surround' " work with delimiters
 Plug 'lukas-reineke/indent-blankline.nvim' " indent guides
-Plug 'dag/vim-fish' " fish shell
 Plug 'ziglang/zig.vim' " zig lang
 Plug 'tpope/vim-fugitive' " git plugin
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " python syntax highlighting
@@ -291,7 +290,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " symbol renaming
 nmap <leader>rn <Plug>(coc-rename)
 " (Alt+Enter) apply AutoFix to problem on the current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>f  <Plug>(coc-fix-current)
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)

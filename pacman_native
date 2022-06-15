@@ -25,7 +25,6 @@ breeze
 breeze-gtk
 brightnessctl
 calcurse
-ccls
 chafa
 checkbashisms
 checksec
@@ -92,6 +91,7 @@ jre11-openjdk-headless
 jshon
 kdenlive
 kvantum
+languagetool
 lib32-fakeroot
 lib32-gamemode
 lib32-giflib
@@ -252,7 +252,6 @@ wine-gecko
 wine-mono
 wine-staging
 winetricks
-wireshark-qt
 wmname
 xcape
 xclip

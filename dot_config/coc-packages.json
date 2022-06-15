@@ -1,15 +1,17 @@
 {
   "dependencies": {
     "@yaegassy/coc-ansible": ">=0.7.6",
-    "coc-diagnostic": ">=0.23.3",
+    "coc-clangd": ">=0.22.0",
+    "coc-diagnostic": ">=0.23.4",
     "coc-java": ">=1.5.5",
     "coc-json": ">=1.4.2",
     "coc-lists": ">=1.4.3",
     "coc-markdownlint": ">=1.12.4",
+    "coc-marketplace": ">=1.9.0",
     "coc-phpls": ">=2.2.2",
-    "coc-pyright": ">=1.1.252",
-    "coc-snippets": ">=3.0.10",
+    "coc-pyright": ">=1.1.253",
+    "coc-snippets": ">=3.0.14",
     "coc-texlab": ">=2.3.0",
-    "coc-tsserver": ">=1.10.4"
+    "coc-tsserver": ">=1.10.5"
   }
 }
