@@ -80,6 +80,15 @@ function internetdolucassimulator {
   done
 }
 
+function httpstatus {
+  code="$1"
+  if [[ -z $code ]]; then
+    echo "Usage: httpstatus <status code>"
+    exit 0
+  fi
+  curl --silent "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/${code}" | htmlq --text ".main-page-content > .section-content" | sed -e 's/  //g'
+}
+
 # clipboard
 function copy {
     cat | xclip -selection clipboard

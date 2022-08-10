@@ -42,6 +42,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " programming
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " treesitter
 Plug 'kristijanhusak/vim-carbon-now-sh' " export code snippets
 Plug 'honza/vim-snippets' " snippets
 Plug 'windwp/nvim-autopairs' " pairs
@@ -52,6 +53,8 @@ Plug 'ziglang/zig.vim' " zig lang
 Plug 'tpope/vim-fugitive' " git plugin
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " python syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " the conqueror
+
+Plug 'vigoux/LanguageTool.nvim'
 call plug#end()
 
  """"""""""""""""""""""""""""""""""""""""""""" 
@@ -263,10 +266,17 @@ EOF
 noremap <silent> <F3> :IndentBlanklineToggle<CR>
 " COC
 " make <tab> used for trigger completion, completion confirm, snippet expand and jump
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ "<TAB>"
+" use <C-n>, <C-p>, <up> and <down> to navigate completion list
+inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
+inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<C-p>"
+inoremap <silent><expr> <down> coc#pum#visible() ? coc#pum#next(0) : "\<down>"
+inoremap <silent><expr> <up> coc#pum#visible() ? coc#pum#prev(0) : "\<up>"
+" use <PageDown> and <PageUp> to scroll
+inoremap <silent><expr> <PageDown> coc#pum#visible() ? coc#pum#scroll(1) : "\<PageDown>"
+inoremap <silent><expr> <PageUp> coc#pum#visible() ? coc#pum#scroll(0) : "\<PageUp>"
+" use <right> and <tab> to cancel and confirm completion
+inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
+inoremap <silent><expr> <right> coc#pum#visible() ? coc#pum#cancel() : "\<C-y>"
 let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<S-tab>'
 " remap keys for gotos
@@ -327,6 +337,37 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" TREESITTER
+" https://github.com/nvim-treesitter/nvim-treesitter
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  -- a list of parser names, or "all"
+  --ensure_installed = { "c", "lua", "rust" },
+
+  -- install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- automatically install missing parsers when entering buffer
+  auto_install = true,
+
+  -- list of parsers to ignore installing (for "all")
+  ignore_install = { },
+
+  highlight = {
+    enable = true,
+
+    -- list of language that will be disabled
+    -- NOTE: these are the names of the parsers and not the filetype
+    disable = { },
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
 
  """"""""""""""""""""""""""""""""
 "     __  ___ ____ _____  ______ "
