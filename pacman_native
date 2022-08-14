@@ -14,6 +14,7 @@ autoconf
 automake
 avr-gdb
 avrdude
+barrier
 base
 bash-completion
 bison
@@ -31,6 +32,8 @@ checksec
 cmake
 cpupower
 croc
+cura
+cura-binary-data
 dash
 detox
 dhcpcd
@@ -76,11 +79,13 @@ hacksaw
 hdparm
 hexyl
 highlight
+htmlq
 http-parser
 hunspell-en_us
 hyperfine
 imagemagick
 inetutils
+inkscape
 innoextract
 intel-ucode
 jdk-openjdk
@@ -91,7 +96,6 @@ jre11-openjdk-headless
 jshon
 kdenlive
 kvantum
-languagetool
 lib32-fakeroot
 lib32-gamemode
 lib32-giflib
@@ -129,7 +133,6 @@ linux-headers
 linux-zen
 linux-zen-headers
 logrotate
-lutris
 lvm2
 lxappearance-gtk3
 m4
@@ -230,6 +233,7 @@ thunderbird
 time
 tk
 tree
+ttf-carlito
 ttf-dejavu
 ttf-inconsolata
 ttf-liberation
