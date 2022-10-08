@@ -27,8 +27,6 @@
           dot_config/newsboat,
           dot_config/nvim,
           dot_config/pulse,
-          dot_config/rtorrent,
-          dot_config/qutebrowser,
           dot_config/dot_Xmodmap,
           dot_config/dot_Xresources,
           dot_config/coc-packages.json
@@ -51,13 +49,6 @@
         create: true
         glob: true
         path: dot_config/pulse/*
-    ~/.config/rtorrent/rtorrent.rc:
-        create: true
-        path: dot_config/rtorrent/rtorrent.rc
-    ~/.config/qutebrowser/:
-        create: true
-        glob: true
-        path: dot_config/qutebrowser/*
     ~/.config/.Xmodmap: dot_config/dot_Xmodmap
     ~/.config/.Xresources: dot_config/dot_Xresources
     ~/.config/coc/extensions/package.json: dot_config/coc-packages.json
