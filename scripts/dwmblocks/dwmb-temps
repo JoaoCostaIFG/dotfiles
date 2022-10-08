@@ -7,5 +7,5 @@ case "$DWMBLOCKS_BUTTON" in
 esac
 
 sensors |
-  awk -v ORS="" '/^Core 0:/{print "CPU: "$3};/^junction:/{print " GPU: "$2}' |
+  awk -v ORS="" '/^Core 0:/{print " CPU: "$3};/^junction:/{print " GPU: "$2}' |
   tr -d '+'
