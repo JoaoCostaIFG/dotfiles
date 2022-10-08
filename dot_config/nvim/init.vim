@@ -43,18 +43,15 @@ Plug 'junegunn/fzf.vim'
 
 " programming
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " treesitter
+Plug 'sheerun/vim-polyglot' " all langs syntax highlight
 Plug 'kristijanhusak/vim-carbon-now-sh' " export code snippets
 Plug 'honza/vim-snippets' " snippets
 Plug 'windwp/nvim-autopairs' " pairs
 Plug 'scrooloose/nerdcommenter' " comments
 Plug 'tpope/vim-surround' " work with delimiters
 Plug 'lukas-reineke/indent-blankline.nvim' " indent guides
-Plug 'ziglang/zig.vim' " zig lang
 Plug 'tpope/vim-fugitive' " git plugin
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " python syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " the conqueror
-
-Plug 'vigoux/LanguageTool.nvim'
 call plug#end()
 
  """"""""""""""""""""""""""""""""""""""""""""" 
@@ -368,6 +365,8 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+" Workaround: https://valentjn.github.io/ltex/vscode-ltex/installation-usage-coc-ltex.html
+let g:tex_flavor='latex'
 
  """"""""""""""""""""""""""""""""
 "     __  ___ ____ _____  ______ "

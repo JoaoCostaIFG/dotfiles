@@ -1,19 +1,21 @@
 {
   "dependencies": {
-    "@yaegassy/coc-ansible": ">=0.12.0",
     "coc-blade": ">=0.13.4",
     "coc-clangd": ">=0.24.0",
     "coc-diagnostic": ">=0.23.4",
+    "coc-html": ">=1.6.1",
     "coc-java": ">=1.5.5",
     "coc-json": ">=1.6.1",
     "coc-lists": ">=1.4.4",
     "coc-ltex": ">=13.1.0",
-    "coc-markdownlint": ">=1.12.7",
-    "coc-marketplace": ">=1.9.0",
-    "coc-phpls": ">=2.2.2",
-    "coc-pyright": ">=1.1.267",
+    "coc-markdownlint": ">=1.26.0",
+    "coc-pyright": ">=1.1.269",
     "coc-snippets": ">=3.1.1",
     "coc-texlab": ">=2.3.0",
-    "coc-tsserver": ">=1.11.3"
-  }
+    "coc-tsserver": ">=1.11.6",
+    "coc-marketplace": ">=1.9.0"
+  },
+  "disabled": [],
+  "locked": [],
+  "lastUpdate": 1665188524949
 }

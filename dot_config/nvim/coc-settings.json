@@ -15,6 +15,7 @@
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Args": ["--ignore=E501"],
   "python.formatting.provider": "black",
+  "ltex.languageToolHttpServerUri": "https://languagetool.tail.joaocosta.dev",
   "diagnostic-languageserver.linters": {
     "shellcheck": {
       "command": "shellcheck",
@@ -69,7 +70,6 @@
     "javascript": ["prettier"],
     "json": ["prettier"],
     "markdown": ["prettier"],
-
     "bash": ["shfmt"],
     "sh": ["shfmt"]
   }
