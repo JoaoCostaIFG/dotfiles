@@ -17,8 +17,9 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'moll/vim-bbye'
 Plug 'stevearc/dressing.nvim' " cute prompt windows
-Plug 'rcarriga/nvim-notify' " cure notifications
-Plug 'easymotion/vim-easymotion' " move fast
+Plug 'rcarriga/nvim-notify' " cute notifications
+Plug 'tpope/vim-repeat' " repeats whole maps instead of last cmd in map (dependency of leap)
+Plug 'ggandor/leap.nvim' " general-purpose motion plugin
 
 " theming
 Plug 'sainnhe/everforest'
@@ -124,6 +125,9 @@ command Wq wq
 command W w
 command Q q
 
+" set Leap keymaps
+lua require('leap').set_default_keymaps()
+
  """""""""""""""""""""""""""""""""""""""""""""""""""
 "    _____  _   _  _____  _   __  ___ _   __  _____ "
 "  /_  __// / / // ____//  |/  //  _// | / // ____/ "
@@ -166,7 +170,7 @@ let airline#extensions#coc#warning_symbol = '.'
 " image paste
 autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 " markdown preview
-let g:mkdp_markdown_css="/home/joao/Documents/WorkRes/markdown.css"
+let g:mkdp_markdown_css="/home/joao/.config/nvim/markdown.css"
 let g:mkdp_port = '8542'
 " TABLEMODE
 " make it more equivalent to the markdown one
@@ -199,8 +203,6 @@ lua << EOF
   }
 EOF
 nnoremap <leader>n :ZenMode<CR>
-" thesaurus
-set thesaurus+=~/Documents/WorkRes/thesaurus.txt
 " spell-check
 map <leader>o :setlocal spell! spelllang=en_us<CR>
 map <leader>O :setlocal spell! spelllang=pt<CR>
