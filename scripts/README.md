@@ -129,13 +129,6 @@ Depends on: pandoc (markdown to PDF), pdfsmallifier script (compress PDF)
 Usage: md2pdf [--bw] <mdfile1>
 https://leancrew.com/all-this/2022/01/reducing-the-size-of-large-pdfs
 
-## mepapemaker
-
-Script to add a transparent and blured Arch Linux logo to
-the center of an image.
-Adds arch symbol to image with a blue effect base taken
-from autor: https://gitlab.com/SillyPill/arch-pape-maker
-
 ## mmaxima
 
 Script that calls maxima on a terminal. It uses **rlwrap** for

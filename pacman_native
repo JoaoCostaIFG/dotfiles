@@ -4,6 +4,7 @@ adobe-source-han-sans-otc-fonts
 adobe-source-han-serif-otc-fonts
 adobe-source-sans-fonts
 adobe-source-serif-fonts
+alacritty
 alsa-utils
 ansible
 arandr
@@ -52,8 +53,8 @@ figlet
 firefox
 fish
 flake8
+flameshot
 flex
-fontforge
 foot
 fprintd
 fzf
