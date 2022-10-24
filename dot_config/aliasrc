@@ -9,8 +9,8 @@ alias   ...="cd ../.."
 alias   cd...="cd ../.."
 # intentionally escaped
 alias   lhome='ls -lAh --group-directories-first --color=auto $HOME'
-alias   ls="exa --group-directories-first"
-alias   ll="ls -lagh --git"
+alias   ls="ls --group-directories-first --color=auto"
+alias   ll="exa --group-directories-first -lgh --git"
 alias   lll="ll -a"
 alias   llll="lll"
 
