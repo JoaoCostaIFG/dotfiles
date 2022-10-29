@@ -67,8 +67,6 @@ alias   calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse
 alias   maxima="mmaxima"
 alias   ssync="rsnapshot full"
 alias   git="g" # usa my wrapper script, g, for git
-# use neovim for vim and nano if present.
-command -v nvim >/dev/null &&
-  alias vim="nvim" &&
-  alias vimdiff="nvim -d" &&
-  alias nano="nvim"
+# use neovim for vim
+alias   vim="nvim"
+alias   vimdiff="nvim -d"
