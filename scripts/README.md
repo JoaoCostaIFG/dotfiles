@@ -13,13 +13,6 @@ Author: pfh
 Source: http://crunchbang.org/forums/viewtopic.php?pid=144481#p144481 
 Initializing procedure by lolilolicon
 
-## decompress
-
-A general, all-purpose extraction script.
-
-Default behavior: Extract archive into new directory
-Behavior with `-c` option: Extract contents into current directory
-
 ## dimmer
 
 Dims all screens by lowering their brightness. Restores the brightness on exit/kill.

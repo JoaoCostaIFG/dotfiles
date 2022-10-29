@@ -41,8 +41,7 @@ alias   chgrp="chgrp --preserve-root"
 
 # new commands #
 alias   bat="acpi -b"
-alias   dperm="chmod 750"
-alias   fperm="chmod 640"
+alias   decompress="aunpack"
 alias   dsize="du -sh"
 alias   hist="history | fzf"
 alias   ka="killall"  # requires an argument
