@@ -22,12 +22,6 @@ The ddcci kernel module (aur: ddcci-driver-linux-dkms) allows this script to wor
 with external monitors.  
 Depends on brightnessctl.
 
-## dmenu/dlinkhandler
-
-Feed this script a link and it will give dmenu some choice programs to use
-to open it.
-Based on Luke Smith's dmenuhandler script
-
 ## dmenu/dmount
 
 Helpful to help mount external devices/android devices.
@@ -77,43 +71,12 @@ Toggles dunst's notifications.
 JoaoCostaIFG's git wrapper because he was lazy and tired of creating aliases.
 DWTFYW LICENSE
 
-## imagemagick_prtsc
-
-Old script I used to use to take fullscreen screenshots and as a snipping tool.
-Too slow for my liking so I switched to [maim](https://github.com/naelstrof/maim)
-via the **maim_handler** script.
-Pass any/amount of argument(s) to make a snipping tool instead.
-Requires imagemagick.
-
 ## lfcd_sh
 
 Wrapper for [lf](https://github.com/gokcehan/lf) to **cd** to
 the last visited directory on exit. Usefull for keybinds. Slight adaptation
 from the suggestion given on [lf's](https://github.com/gokcehan/lf) wiki.
 Open lf on current directory and cd to the last shown dir on exit
-
-## linkhandler
-
-Feed script a url or file location.
-If image or gif, view in sxiv,
-if video, watch in mpv
-if music file or pdf, download,
-otherwise it opens link in browser.
-Based on https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/linkhandler
-
-## maim_handler
-
-Script that can: take full-screen screen-shots (saves them
-in a previously specified folder), screen-shot a selection of the screen
-(places the image in the clipboard), output color information of a selection
-(saves RGB color code in clipboard and show a notification for it too).
-Args:
-- "snip" - take a snip and pass it to the clipboard
-- "picker" - color picker (needs work)
-- "current" - snip current active window
-- "screenshot" - take a fullscreen screenshot and save it in a file
-- no args - dmenu arg selection
-Requires [maim](https://github.com/naelstrof/maim) and xclip.
 
 ## md2pdf
 
@@ -128,10 +91,6 @@ Script that calls maxima on a terminal. It uses **rlwrap** for
 history and built-ins file (also for getline). It is based on **rmaxima**
 but it has a few improvements.
 Depends on [maxima](http://maxima.sourceforge.net/).
-
-## next_sink
-
-switch to the next sink on pulseaudio
 
 ## noita_backup
 
@@ -182,18 +141,6 @@ Instructions
 - `Esc/Q` for quit.
 - Eat the @ signs (apples)
 - Don't eat the # (walls) or yourself.
-
-## st-float
-
-Spawns an instance of the st terminal with a fixed geometry and name:
-
-- Class: $TERM
-- Instance: st-float
-- Position: 180x40
-- X-offset: 300
-- Y-offset: 16
-
-Depends on: xdotool, and xwininfo.
 
 ## sxiv_folder
 
