@@ -83,7 +83,7 @@ exis_str() {
     mv "$tempfile" "$notes_path/$notes_file"
     ;;
   "---URL---")
-    dlinkhandler "$op"
+    "$BROWSER" "$op"
     ;;
   "---Delete---")
     # "Delete" line from file
@@ -106,7 +106,7 @@ url_mode() {
     grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' |
     $DMENU -p 'Open which URL:' | tr -d '\\n')"
 
-  [ -n "$chosen_url" ] && dlinkhandler "$chosen_url"
+  [ -n "$chosen_url" ] && "$BROWSER" "$chosen_url"
 }
 
 set_working_file "$@"

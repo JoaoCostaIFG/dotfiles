@@ -4,7 +4,7 @@ auto-reload yes
 feed-sort-order lastupdated
 
 max-items 40
-external-url-viewer "urlscan -dc -r 'linkhandler {}'"
+external-url-viewer "urlscan -dc"
 save-path ~/Downloads/
 
 bind-key j down
@@ -31,11 +31,3 @@ color listnormal_unread cyan default
 color listfocus_unread green default bold
 color info white red
 color article white default
-
-browser linkhandler
-macro , open-in-browser
-macro t set browser "youtube-dl --add-metadata -ic"; open-in-browser ; set browser linkhandler
-macro a set browser "youtube-dl --add-metadata -xic -f bestaudio/best"; open-in-browser ; set browser linkhandler
-macro v set browser "setsid mpv"; open-in-browser ; set browser linkhandler
-macro p set browser "dlinkhandler"; open-in-browser ; set browser linkhandler
-macro c set browser "xsel -b <<<" ; open-in-browser ; set browser linkhandler
