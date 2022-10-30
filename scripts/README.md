@@ -118,11 +118,12 @@ Script that can:
 Args:
 - "snip" - take a snip and pass it to the clipboard (just clicking get the full clicked window);
 - "picker" - color picker (needs work);
-- "current" - snip current active window;
-- "screenshot" - take a fullscreen screenshot and save it in a file;
+- "current" - screenshot current screen;
+- "current save" - screenshot current screen and auto save it to $SCREENSHOT_SAVEDIR directory;
+- "full" - screenshot fullscreen screenshot;
 - no args - dmenu arg selection.
-Depends on [shotgun](https://github.com/neXromancers/shotgun), hacksaw,
-[colorpicker](https://github.com/Jack12816/colorpicker), xdotool, xclip, and dmenu.
+Depends on [flameshot](https://github.com/flameshot-org/flameshot),
+[colorpicker](https://github.com/Jack12816/colorpicker), xclip, and dmenu.
 
 ## shortcuts
 
