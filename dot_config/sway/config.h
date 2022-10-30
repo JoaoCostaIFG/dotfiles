@@ -135,35 +135,6 @@ static Key keys[] = {
   { MODKEY,   XK_F9,    spawn,    SHCMD("amixer set Master 5%-; dwmblocks -s2")     },  // volume down
   { MODKEY,   XK_F10,   spawn,    SHCMD("amixer set Master 5%+; dwmblocks -s2")     },  // volume up
 
-  /* control clients */
-  { MODKEY,           XK_space,  zoom,            {0} },
-  { MODKEY,           XK_Tab,    view,            {0} },
-  { MODKEY|ShiftMask, XK_space,  togglefloating,  {0} },
-
-  /* spawn clients */
-  { MODKEY|ControlMask,           XK_a,   spawn,    SHCMD("st -e calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse") },
-  { MODKEY|ControlMask,           XK_c,   spawn,    STCMD("python")       },
-  { MODKEY|ShiftMask|ControlMask, XK_c,   spawn,    STCMD("mmaxima")      },
-  { MODKEY,                       XK_e,   spawn,    XACMD("emoji-picker") },
-  { MODKEY|ControlMask,           XK_e,   spawn,    STCMD("birdtray", "-t")}, // toggle thunderbird
-  { MODKEY|ControlMask,           XK_f,   spawn,    STCMD("lfcd_sh")      },  // execute lf in st and cd to last dir on exit
-  { MODKEY|ControlMask,           XK_h,   spawn,    XACMD("dpizhid")      },  // private password manager
-  { MODKEY|ControlMask,           XK_i,   spawn,    STCMD("newsboat")     },
-  { MODKEY|ControlMask,           XK_m,   spawn,    XACMD("dmount")       },  // helper to mounting devices
-  { MODKEY,                       XK_m,   spawn,    XACMD("screen_measure") },  // measure distance between 2 points
-  { MODKEY|ControlMask,           XK_n,   spawn,    XACMD("dtodo")        },  // checklist style notetaker
-  { MODKEY|ControlMask,           XK_p,   spawn,    XACMD("gimp")         },
-  { MODKEY|ControlMask,           XK_r,   spawn,    XACMD("librewolf")    },
-  { MODKEY|ShiftMask,             XK_r,   spawn,    XACMD("firefox")      },
-  { MODKEY|ControlMask,           XK_s,   spawn,    STCMD("ncmpcpp")      },
-  { MODKEY|ShiftMask,             XK_t,   spawn,    XACMD("st-float")     },
-  { MODKEY|ControlMask,           XK_v,   spawn,    XACMD("drecord")      },
-  { MODKEY|ControlMask,           XK_w,   spawn,    STCMD("nvim")         },
-  { MODKEY,                       XK_Print,   spawn,  XACMD("screenshots", "screenshot") },  // Full screenshot
-  { MODKEY|ShiftMask,             XK_Print,   spawn,  XACMD("screenshots", "snip")       },  // Snipping tool
-  { MODKEY|ShiftMask,             XK_s,       spawn,  XACMD("screenshots", "snip")       },  // Snipping tool
-  { MODKEY|ControlMask,           XK_Print,   spawn,  XACMD("screenshots")               },  // Diverse options
-
   /* masters settings*/
   { MODKEY|ShiftMask,   XK_h,   incnmaster,   {.i = -1 }    },
   { MODKEY|ShiftMask,   XK_l,   incnmaster,   {.i = +1 }    },

@@ -16,7 +16,9 @@ set $down j
 set $up k
 set $right l
 # preferred terminal
-set $term st
+set $term alacritty
+# preferred browser
+set $browser librewolf
 # preferred app launcher (pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on)
 set $menu mdmenu_run -h 8 -i | xargs swaymsg exec --
@@ -75,7 +77,27 @@ bindsym $mod+Control+t exec foot
 # app launcher
 bindsym $mod+p exec $menu
 bindsym $mod+Return exec $menu
-#
+# other
+bindsym $mod+Control+c exec $term -e python
+bindsym $mod+Control+Shift+c exec $term -e mmaxima
+bindsym $mod+Control+e exec birdtray -t
+bindsym $mod+Control+f exec $term -e lfcd_sh
+bindsym $mod+Control+h exec dpizhid
+bindsym $mod+Control+i exec newsboat
+bindsym $mod+Control+m exec dmount
+bindsym $mod+m exec screen_measure
+bindsym $mod+Control+n exec dtodo
+bindsym $mod+Control+p exec gimp
+bindsym $mod+Control+r exec $browser
+bindsym $mod+Shift+r exec firefox
+bindsym $mod+Control+s exec $term -e ncmpcpp
+bindsym $mod+Control+v exec drecord
+bindsym $mod+Control+w exec $term -e nvim
+# screenshot
+bindsym $mod+Print exec screenshots "current save"
+bindsym $mod+Shift+Print exec screenshots "snip"
+bindsym $mod+Shift+s exec screenshots "snip"
+bindsym $mod+Control exec screenshots
 ## Movement:
 # drag floating windows by holding down $mod and left mouse button. Resize them with right mouse button + $mod.
 floating_modifier $mod normal
