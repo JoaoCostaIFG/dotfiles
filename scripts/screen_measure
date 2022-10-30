@@ -2,7 +2,7 @@
 ### Measure screen area. Basically a wrapper for hacksaw with notifications.  
 ### Depends on hacksaw (but could use something like slop as well).
 
-geometry="$(hacksaw -f '%w %h %x %y')"
+geometry="$(hacksaw -f '%w %h %x %y')" || exit 1
 IFS=" " read -r w h x y <<< "$geometry"
 
 len="$(awk "BEGIN {print sqrt($w^2 + $h^2)}")"
