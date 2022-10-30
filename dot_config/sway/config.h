@@ -151,8 +151,6 @@ static Key keys[] = {
   { MODKEY,             XK_Right,   cyclelayout,  {.i = +1 }  },
   { MODKEY,             XK_0,       view,         {.ui = ~0 } },
   { MODKEY|ShiftMask,   XK_0,       tag,          {.ui = ~0 } },
-  { MODKEY,             XK_minus,   setgaps,      {.i = -5 }  },
-  { MODKEY,             XK_plus,    setgaps,      {.i = +5 }  },
   // { MODKEY|ShiftMask,    XK_equal,   setgaps,      {.i = gappx } },
 };
 

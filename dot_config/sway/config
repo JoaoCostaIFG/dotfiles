@@ -153,6 +153,9 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 # move focus to the parent container
 bindsym $mod+a focus parent
+# gaps
+bindsym $mod+plus gaps all plus 1
+bindsym $mod+minus gaps all minus 1
 #
 ## Scratchpad:
 # Move the currently focused window to the scratchpad
