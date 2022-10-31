@@ -28,7 +28,6 @@
           dot_config/nvim,
           dot_config/pulse,
           dot_config/dot_Xmodmap,
-          dot_config/dot_Xresources,
           dot_config/coc-packages.json
         ]
     ~/.config/mpd/mpd.conf:
@@ -49,8 +48,7 @@
         create: true
         glob: true
         path: dot_config/pulse/*
-    ~/.config/.Xmodmap: dot_config/dot_Xmodmap
-    ~/.config/.Xresources: dot_config/dot_Xresources
+    ~/.Xdefaults: homedir/dot_Xdefaults
     ~/.config/coc/extensions/package.json: dot_config/coc-packages.json
     
 - shell:
