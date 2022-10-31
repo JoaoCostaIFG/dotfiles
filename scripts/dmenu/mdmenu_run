@@ -16,7 +16,7 @@ max_dep=5
 
 # cache file related constants
 max_size=16
-cachedir=${XDG_DATA_HOME:-"$HOME/.local/share"}
+cachedir=${XDG_CACHE_DIR:-"$HOME/.cache"}
 hist_file="$cachedir/mdmenu_run" # history file
 [ -f "$hist_file" ] || touch "$hist_file"
 
@@ -55,7 +55,7 @@ while true; do
     printf "%s\n" "$hist_l"
     dmenu_path | grep -vxF "$hist_l"
     printf "%b" "---directories---\n---files---\n---remove histo entry---"
-  ) | bemenu "$@")"
+  ) | bemenu)"
 
   [ -z "$sel" ] && exit 0
 

@@ -13,27 +13,13 @@ Author: pfh
 Source: http://crunchbang.org/forums/viewtopic.php?pid=144481#p144481 
 Initializing procedure by lolilolicon
 
-## dimmer
-
-Dims all screens by lowering their brightness. Restores the brightness on exit/kill.
-Based on [xss-lock's dim-screen.sh](https://github.com/xdbob/xss-lock/blob/master/doc/dim-screen.sh).
-
-The ddcci kernel module (aur: ddcci-driver-linux-dkms) allows this script to work
-with external monitors.  
-Depends on brightnessctl.
-
 ## dmenu/dmount
 
 Helpful to help mount external devices/android devices.
-Requires dmenu, simple-mtpfs, and optionally udisks2.
+Requires bemenu, simple-mtpfs, and optionally udisks2.
 Prefers using udisks2 but falls back to mount/umount.
 Might not work for all kinds of Android phones (check:
 [Arch wiki android](https://wiki.archlinux.org/index.php/Android#Transferring_files)).
-
-## dmenu/dpass
-
-Read input from the user without showing it.
-Simple script to get the sudo password from a user using **dmenu** (hides the typed characters).
 
 ## dmenu/dpizhid
 
@@ -41,26 +27,26 @@ My password helper script
 
 ## dmenu/drecord
 
-Use dmenu to record stuff (screen, audio, camera, etc..)
+Use bemenu to record stuff (screen, audio, camera, etc..)
 If there is already a running instance, user will be prompted to end it.
 
 ## dmenu/dtodo
 
-dmenu TODO list and file editor
+bemenu TODO list and file editor
 Tool I use to take quick notes and keep track of information. It
 can handle multiple files, organize lines alphabetically, and get
 rid of blank/empty lines. Depends on suckless's.
 
 ## dmenu/mdmenu_run
 
-This dmenu wrapper is a replacement for the default **dmenu_run**:
+This bemenu wrapper is a replacement for the default **dmenu_run**:
 - Uses a cache file and sorts it by number of usages (has max entries
 for cache file);
 - Runs command in a new terminal window if `;` is appended to the command;
 - Has option to list and browse files (cd's to them using file manager);
 - Also lists directories up to a certain depth and cd's to them
 if selected.
-Depends on suckless's [dmenu](https://tools.suckless.org/dmenu/).
+Depends on [bemenu](https://github.com/Cloudef/bemenu).
 
 ## dunst_toggle
 
@@ -103,11 +89,6 @@ Depends on: ghostscript (compress PDF).
 For input file "input.pdf", the output is "input.sml.pdf"
 Usage: pdfsmallifier [--bw] <input.pdf>
 
-## screen_measure
-
-Measure screen area. Basically a wrapper for hacksaw with notifications.  
-Depends on hacksaw (but could use something like slop as well).
-
 ## screenshots
 
 Script that can:
@@ -149,15 +130,6 @@ Wrapper for [sxiv](https://github.com/muennich/sxiv) that opens all
 imagefiles inside a directory. If a file is provide, all the other
 files inside it's folder are also opened with sxiv
 Requires find, xargs and sxiv.
-
-## systray
-
-This spawns stalonetray (-s option) as a system-tray and hides it. When the script
-when the script is called again the system-tray is shown under the mouse, and hidden
-when the mouse leaves.  
-Yes, this is weird, but I like it.
-
-Depends on: stalonetray, and xdotool.
 
 ## truecolortest
 
