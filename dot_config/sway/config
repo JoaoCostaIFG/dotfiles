@@ -24,17 +24,17 @@ set $browser librewolf
 set $menu mdmenu_run | xargs swaymsg exec --
 
 ### Output configuration
-#
 # wallpaper
-output "*" bg /home/joao/.local/share/wallpaper/ds.png fill
+output "*" bg /home/joao/.local/share/wallpaper/ds_1.png fill
+output DP-1 {
+    mode 1920x1080@143.855Hz
+    bg /home/joao/.local/share/wallpaper/ds_1.png fill
+}
+output HDMI-A-1 {
+    bg /home/joao/.local/share/wallpaper/ds_2.png fill
+}
 # primary monitor for wine
 exec_always xrandr --output $(xrandr | grep -m 1 XWAYLAND | awk '{print $1;}') --primary
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
