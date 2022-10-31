@@ -16,12 +16,12 @@ printf "# vim: filetype=sh\\nalias " > "$shell_shortcuts"
 
 if [ -r "$dirs_file" ]; then
   # Format the `directories` file in the correct syntax
-  # cmd="cd dir && ls -Ah dir"
+  # cmd="cd dir && ll dir"
   dirs=$(sed "s/\s*#.*$//;/^\s*$/d" "$dirs_file")
   printf "%s" "$dirs" |
-    awk '{print $1"=\"cd "$2" && ls -Ah\" \\"}' >> "$shell_shortcuts"
+    awk '{print $1"=\"cd "$2" && ll\" \\"}' >> "$shell_shortcuts"
   printf "%s" "$dirs" |
-    awk '{print "alias "$1"=\"cd "$2" && ls -Ah\""}' >> "$fish_shortcuts"
+    awk '{print "alias "$1"=\"cd "$2" && ll\""}' >> "$fish_shortcuts"
 fi
 if [ -r "$files_file" ]; then
   # Format the `files` file in the correct syntax
