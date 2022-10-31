@@ -1,7 +1,0 @@
-#!/bin/sh
-
-case "$DWMBLOCKS_BUTTON" in
-2) "$TERMINAL" -e "$EDITOR" "$0" ;;
-esac
-
-date '+%a %d-%m-%y %H:%M'
