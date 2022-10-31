@@ -1,5 +1,8 @@
 # If not running interactively, don't do anything #
-status is-interactive || exit
+if status is-login
+  ssh-agent | babelfish | source >/dev/null
+  exit
+end
 
 # Vi
 fish_vi_key_bindings
