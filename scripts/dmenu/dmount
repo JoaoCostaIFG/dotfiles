@@ -1,6 +1,6 @@
 #!/bin/sh
 ### Helpful to help mount external devices/android devices.
-### Requires dmenu, simple-mtpfs, and optionally udisks2.
+### Requires bemenu, simple-mtpfs, and optionally udisks2.
 ### Prefers using udisks2 but falls back to mount/umount.
 ### Might not work for all kinds of Android phones (check:
 ### [Arch wiki android](https://wiki.archlinux.org/index.php/Android#Transferring_files)).
@@ -10,7 +10,7 @@ mount_drive() {
     awk '$6!="disk" && $7=="" {print $1 " (" $4 ")"}')"
   # ask user to select drive
   selected_drive=$(printf "%s" "$drives" |
-    dmenu -i -p "Drive to mount:" |
+    bemenu -i -p "Drive to mount:" |
     sed -e 's/\s.*$//')
   # check if the selectiong is valid
   existance=$(printf "%s" "$drives" |
@@ -25,7 +25,7 @@ umount_drive() {
     awk '$6!="disk" && $7!="" {print $1 " (" $4 ")"}')"
   # ask user to select drive
   selected_drive=$(printf "%s" "$drives" |
-    dmenu -i -p "Drive to umount:" |
+    bemenu -i -p "Drive to umount:" |
     sed -e 's/\s.*$//')
   # check if the selectiong is valid
   existance=$(printf "%s" "$drives" |
@@ -39,7 +39,7 @@ umount_drive() {
 fallback="$(command -v udisksctl)"
 [ -z "$fallback" ] && echo "udisksctl not found, falling back to mount/umount..."
 op=$(printf "Mount drive\nUmount drive\nMount android\nUmount android" |
-  dmenu -i -p "What to do:") || exit
+  bemenu -i -p "What to do:") || exit
 [ -z "$op" ] && exit
 
 case "$op" in
@@ -92,7 +92,7 @@ case "$op" in
   ;;
 "Mount android")
   selected_drive=$(simple-mtpfs -l |
-    dmenu -i -p "Drive to mount:" |
+    bemenu -i -p "Drive to mount:" |
     sed s/:.*$//)
 
   existance=$(simple-mtpfs -l |
@@ -106,7 +106,7 @@ case "$op" in
   ;;
 "Umount android")
   selected_drive=$(simple-mtpfs -l |
-    dmenu -i -p "Drive to umount:" |
+    bemenu -i -p "Drive to umount:" |
     sed s/:.*$//)
 
   existance=$(simple-mtpfs -l |

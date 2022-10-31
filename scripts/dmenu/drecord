@@ -1,5 +1,5 @@
 #!/bin/sh
-### Use dmenu to record stuff (screen, audio, camera, etc..)
+### Use bemenu to record stuff (screen, audio, camera, etc..)
 ### If there is already a running instance, user will be prompted to end it.
 
 OUTPUT_DIR="${DRECORD_SAVEDIR:-"$HOME/Videos"}"
@@ -24,7 +24,7 @@ killrecording() {
 
 askToEnd() {
   if [ -f "$RECORDPID_FILE" ]; then
-    response=$(printf "No\nYes" | dmenu -i -p "Recording in progress. End it?" || return)
+    response=$(printf "No\nYes" | bemenu -i -p "Recording in progress. End it?" || return)
     [ "$response" = "Yes" ] && killrecording
 
     exit # exit either way
@@ -62,8 +62,8 @@ inputLoop() {
   prompt="$1"
   options="$2"
 
-  # op="$(printf "%b" "$options" | dmenu -i -p "$prompt")"
-  printf "%b" "$options" | dmenu -i -p "$prompt"
+  # op="$(printf "%b" "$options" | bemenu -i -p "$prompt")"
+  printf "%b" "$options" | bemenu -i -p "$prompt"
 }
 
 getAudio() {
@@ -72,7 +72,7 @@ getAudio() {
       "$(ffmpeg -sources pulse 2>/dev/null | tail -n +2 | tr -d \* | awk '{print $1;}')"
   )" || return
 
-  # only run if dmenu succedes
+  # only run if bemenu succedes
   printf "%s %s " "-f pulse -i" "$audio"
 }
 

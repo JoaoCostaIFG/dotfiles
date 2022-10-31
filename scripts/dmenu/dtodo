@@ -1,12 +1,12 @@
 #!/bin/sh
-### dmenu TODO list and file editor
+### bemenu TODO list and file editor
 ### Tool I use to take quick notes and keep track of information. It
 ### can handle multiple files, organize lines alphabetically, and get
 ### rid of blank/empty lines. Depends on suckless's.
 
 # Constants
 DFLT_FILE="${DTODO_DFLT_FILE:-"$HOME/Documents/Notes/TODO.txt"}"
-DMENU="dmenu -i -l 5"
+bemenu="bemenu -i -l 5"
 
 update_working_file() {
   [ "$notes_path" != "$(dirname "$1")" ] && return 1
@@ -35,7 +35,7 @@ switch_file() {
   fail=1
   while [ $fail -eq 1 ]; do
     notes_file_temp=$(find "$notes_path" -type f -printf "%f\\n" |
-      $DMENU -p "File to read:") || return
+      $bemenu -p "File to read:") || return
 
     update_working_file "$notes_path/$notes_file_temp"
     fail=$?
@@ -51,7 +51,7 @@ clean_file() {
 
 del_file() {
   # Ask to delete current file and wait. Go to the 'switch file' menu after deletion.
-  if [ "$(printf "No\\nYes" | dmenu -i -p "Really delete $notes_file?")" = "Yes" ]; then
+  if [ "$(printf "No\\nYes" | bemenu -i -p "Really delete $notes_file?")" = "Yes" ]; then
     # TODO constants needed
     rm -f "$notes_path/$notes_file"
     notes_file="$DFLT_NOTE_FILE"
@@ -61,7 +61,7 @@ del_file() {
 
 exis_str() {
   ed_str=$(printf "%s\\n---Copy---\\n---Cut---\\n---Append---\\n---URL---\\n---Delete---\\n" "$op" |
-    $DMENU -p "Edit line:") || return
+    $bemenu -p "Edit line:") || return
 
   case "$ed_str" in
   "---Copy---")
@@ -104,7 +104,7 @@ exis_str() {
 url_mode() {
   chosen_url="$(sed 's/.*│//g' "$notes_path/$notes_file" |
     grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' |
-    $DMENU -p 'Open which URL:' | tr -d '\\n')"
+    $bemenu -p 'Open which URL:' | tr -d '\\n')"
 
   [ -n "$chosen_url" ] && "$BROWSER" "$chosen_url"
 }
@@ -112,12 +112,12 @@ url_mode() {
 set_working_file "$@"
 
 while true; do
-  dmenu_text=$(grep -ve '^[[:space:]]*$' "$notes_path/$notes_file")
+  bemenu_text=$(grep -ve '^[[:space:]]*$' "$notes_path/$notes_file")
 
   op=""
   while [ -z "$op" ]; do
-    op=$(printf "%s\\n---Paste---\\n---URL Mode---\\n---Switch File---\\n---Clean File---\\n---Delete File---\\n" "$dmenu_text" |
-      $DMENU -p "$notes_file:") || exit
+    op=$(printf "%s\\n---Paste---\\n---URL Mode---\\n---Switch File---\\n---Clean File---\\n---Delete File---\\n" "$bemenu_text" |
+      $bemenu -p "$notes_file:") || exit
   done
 
   case "$op" in

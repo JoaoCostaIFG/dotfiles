@@ -1,12 +1,12 @@
 #!/bin/sh
-### This dmenu wrapper is a replacement for the default **dmenu_run**:
+### This bemenu wrapper is a replacement for the default **dmenu_run**:
 ### - Uses a cache file and sorts it by number of usages (has max entries
 ### for cache file);
 ### - Runs command in a new terminal window if `;` is appended to the command;
 ### - Has option to list and browse files (cd's to them using file manager);
 ### - Also lists directories up to a certain depth and cd's to them
 ### if selected.
-### Depends on suckless's [dmenu](https://tools.suckless.org/dmenu/).
+### Depends on [bemenu](https://github.com/Cloudef/bemenu).
 
 # CONSTS #
 # find related constants
@@ -55,25 +55,25 @@ while true; do
     printf "%s\n" "$hist_l"
     dmenu_path | grep -vxF "$hist_l"
     printf "%b" "---directories---\n---files---\n---remove histo entry---"
-  ) | dmenu "$@")"
+  ) | bemenu "$@")"
 
   [ -z "$sel" ] && exit 0
 
   case "$sel" in
   "---directories---")
     # trigger directories searching
-    sel="$(find "$search_dir" -mindepth $min_dep -maxdepth $max_dep -type d | sed 's|^/home/joao||' | dmenu "$@")"
+    sel="$(find "$search_dir" -mindepth $min_dep -maxdepth $max_dep -type d | sed 's|^/home/joao||' | bemenu "$@")"
     [ "$sel" ] && "$TERMINAL" -e "$FILE" "$search_dir/$sel"
     ;;
   "---files---")
     # trigger file searching
-    sel="$(find "$search_dir" -mindepth $min_dep -maxdepth $max_dep -type f | sed 's|^/home/joao||' | dmenu "$@")"
+    sel="$(find "$search_dir" -mindepth $min_dep -maxdepth $max_dep -type f | sed 's|^/home/joao||' | bemenu "$@")"
     [ "$sel" ] && "$TERMINAL" -e "$FILE" "$search_dir/$sel"
     ;;
   "---remove histo entry---")
     # remove one or more entries from the history file
     while true; do
-      entry_to_rm="$(printf "%s\n" "$hist_l" | dmenu "$@")"
+      entry_to_rm="$(printf "%s\n" "$hist_l" | bemenu "$@")"
       [ -z "$entry_to_rm" ] && break
       removeFromHist "$entry_to_rm"
     done
