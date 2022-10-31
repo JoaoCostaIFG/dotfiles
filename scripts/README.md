@@ -89,6 +89,11 @@ Depends on: ghostscript (compress PDF).
 For input file "input.pdf", the output is "input.sml.pdf"
 Usage: pdfsmallifier [--bw] <input.pdf>
 
+## screen_measure
+
+Measure screen area. Basically a wrapper for slurp with notifications.  
+Depends on slurp (but could use something like hacksaw if I was on X11).
+
 ## screenshots
 
 Script that can:

@@ -7,7 +7,6 @@ adobe-source-serif-fonts
 alacritty
 alsa-utils
 ansible
-arandr
 arc-gtk-theme
 arduino
 arduino-avr-core
@@ -168,7 +167,6 @@ nodejs
 npm
 nss-mdns
 ntfs-3g
-nvidia-utils
 obs-studio
 ocl-icd
 odt2txt
@@ -217,6 +215,7 @@ scons
 scrapy
 screen
 shfmt
+slurp
 sshfs
 steam
 sudo
@@ -280,20 +279,13 @@ xdg-desktop-portal-wlr
 xdotool
 xf86-video-amdgpu
 xfsprogs
-xorg-server
 xorg-twm
-xorg-xdpyinfo
 xorg-xev
-xorg-xinit
-xorg-xinput
-xorg-xkill
 xorg-xprop
 xorg-xrandr
-xorg-xsetroot
 xorg-xwayland
 xorg-xwininfo
 xsecurelock
-xterm
 yapf
 yt-dlp
 zathura
