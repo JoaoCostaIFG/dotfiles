@@ -94,7 +94,7 @@ bindsym $mod+Return exec $menu
 # other
 bindsym $mod+Control+c exec $term -e python
 bindsym $mod+Control+Shift+c exec $term -e mmaxima
-bindsym $mod+Control+e exec QT_QPA_PLATFORM="xcb" birdtray -t
+bindsym $mod+Control+e exec MOZ_ENABLE_WAYLAND=0 QT_QPA_PLATFORM="xcb" birdtray -t
 bindsym $mod+Control+f exec $term -e lfcd_sh
 bindsym $mod+Control+h exec dpizhid
 bindsym $mod+Control+i exec $term -e newsboat
@@ -214,7 +214,7 @@ bindsym $mod+r mode "resize"
 
 ### Autoruns
 exec "/usr/lib/polkit-kde-authentication-agent-1"
-exec QT_QPA_PLATFORM="xcb" birdtray
+exec MOZ_ENABLE_WAYLAND=0 QT_QPA_PLATFORM="xcb" birdtray
 exec tailscale-systray
 exec mpd
 
