@@ -107,18 +107,26 @@ bindsym $mod+Shift+r exec firefox
 bindsym $mod+Control+s exec $term -e ncmpcpp
 bindsym $mod+Control+v exec drecord
 bindsym $mod+Control+w exec $term -e nvim
+# display
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86Display exec brightnessctl -r
+# audio
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 # media
-bindsym $mod+f5 exec mpc toggle
-bindsym $mod+Shift+f5 exec mpc seek 0
-bindsym $mod+f6 exec mpc prev
-bindsym $mod+Shift+f6 exec mpc volume -5
-bindsym $mod+f7 exec mpc next
-bindsym $mod+Shift+f7 exec mpc volume +5
-bindsym $mod+Control+f5 exec notify-send -u low 'Current song' "$(mpc current)"
-bindsym $mod+f8 exec amixer set Master toggle
-bindsym $mod+Shift+f8 exec amixer set Capture toggle
-bindsym $mod+f9 exec amixer set Master 5%-
-bindsym $mod+f10 exec amixer set Master 5%+
+bindsym XF86AudioPlay exec mpc toggle # playerctl play-pause
+bindsym XF86AudioPlay+Shift exec mpc seek 0
+bindsym XF86AudioPlay+Control exec notify-send -u low 'Current song' "$(mpc current)"
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPrev+Shift exec mpc volume -5
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioNext+Shift exec mpc volume +5
+#
+bindsym XF86Search exec $menu
+
 # notifications
 bindsym $mod+f11 exec dunst_toggle
 bindsym $mod+Control+backslash exec dunstctl close
@@ -157,16 +165,34 @@ bindsym $mod+6 workspace number 6
 bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
+#bindsym $mod+f1 workspace number 11:f1
+#bindsym $mod+f2 workspace number 12:f2
+#bindsym $mod+f3 workspace number 13:f3
+#bindsym $mod+f4 workspace number 14:f4
+#bindsym $mod+f5 workspace number 15:f5
+#bindsym $mod+f6 workspace number 16:f6
+#bindsym $mod+f7 workspace number 17:f7
+#bindsym $mod+f8 workspace number 18:f8
+#bindsym $mod+f9 workspace number 19:f9
 # move to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+#bindsym $mod+Shift+f1 move container to workspace f1
+#bindsym $mod+Shift+f2 move container to workspace f2
+#bindsym $mod+Shift+f3 move container to workspace f3
+#bindsym $mod+Shift+f4 move container to workspace f4
+#bindsym $mod+Shift+f5 move container to workspace f5
+#bindsym $mod+Shift+f6 move container to workspace f6
+#bindsym $mod+Shift+f7 move container to workspace f7
+#bindsym $mod+Shift+f8 move container to workspace f8
+#bindsym $mod+Shift+f9 move container to workspace f9
 #
 bindsym $mod+Tab workspace back_and_forth
 ## Layout stuff:
@@ -176,7 +202,8 @@ bindsym $mod+v splitv
 # switch the current container between different layout styles
 bindsym $mod+Left layout stacking
 bindsym $mod+Right layout tabbed
-bindsym $mod+Down layout toggle split
+bindsym $mod+Down layout splith
+bindsym $mod+Up layout splitv
 # make the current focus fullscreen
 bindsym $mod+f fullscreen
 # toggle the current focus between tiling and floating mode
