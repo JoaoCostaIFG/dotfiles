@@ -55,7 +55,7 @@ while true; do
     printf "%s\n" "$hist_l"
     dmenu_path | grep -vxF "$hist_l"
     printf "%b" "---directories---\n---files---\n---remove histo entry---"
-  ) | bemenu)"
+  ) | bemenu "$@")"
 
   [ -z "$sel" ] && exit 0
 
