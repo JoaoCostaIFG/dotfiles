@@ -29,6 +29,7 @@ alias   dmesg="dmesg -HL"
 alias   grep="grep --color=auto"
 alias   egrep="egrep --color=auto"
 alias   fgrep="fgrep --color=auto"
+alias   dmenu="bemenu"
 
 # safety measures #
 alias   cp="cp -i"
@@ -41,15 +42,14 @@ alias   chgrp="chgrp --preserve-root"
 
 # new commands #
 alias   bat="acpi -b"
-alias   dperm="chmod 750"
-alias   fperm="chmod 640"
+alias   decompress="aunpack"
 alias   dsize="du -sh"
 alias   hist="history | fzf"
 alias   ka="killall"  # requires an argument
 alias   openports="ss --all --numeric --processes --ipv4 --ipv6"
 alias   pp="ps -Af | grep"  # requires an argument
 alias   yt="yt-dlp --add-metadata -ic"
-alias   yta="yt -x -f bestaudio/best"
+alias   yta="yt-dlp -x -f bestaudio/best"
 alias   clndep='pacman -Qdtq | sudo pacman -R -' # intentionally escaped
 alias   clnrep="printf 'Cleaning uninstalled packages\n'; sudo paccache -ruk0; printf 'Leaving last version of installed packages\n'; sudo paccache -rk1"
 
@@ -68,8 +68,6 @@ alias   calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse
 alias   maxima="mmaxima"
 alias   ssync="rsnapshot full"
 alias   git="g" # usa my wrapper script, g, for git
-# use neovim for vim and nano if present.
-command -v nvim >/dev/null &&
-  alias vim="nvim" &&
-  alias vimdiff="nvim -d" &&
-  alias nano="nvim"
+# use neovim for vim
+alias   vim="nvim"
+alias   vimdiff="nvim -d"

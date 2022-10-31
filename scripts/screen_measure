@@ -1,8 +1,8 @@
 #!/bin/bash
-### Measure screen area. Basically a wrapper for hacksaw with notifications.  
-### Depends on hacksaw (but could use something like slop as well).
+### Measure screen area. Basically a wrapper for slurp with notifications.  
+### Depends on slurp (but could use something like hacksaw if I was on X11).
 
-geometry="$(hacksaw -f '%w %h %x %y')"
+geometry="$(slurp -f '%w %h %x %y')" || exit 1
 IFS=" " read -r w h x y <<< "$geometry"
 
 len="$(awk "BEGIN {print sqrt($w^2 + $h^2)}")"

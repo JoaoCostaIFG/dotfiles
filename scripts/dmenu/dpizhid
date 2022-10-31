@@ -2,14 +2,14 @@
 ### My password helper script
 
 CURL="curl --connect-timeout 5"
-DMENU="dmenu -i -l 5"
+bemenu="bemenu -i -l 5"
 remote="http://10.77.77.77"
 
 login_cmd="$CURL $remote/api/login.php"
 
 ## Login Funtion ##
 if [ "$($login_cmd)" = "failure" ]; then
-  if [ "$($login_cmd -X POST -F "password=$(dmenu -nf '#000000' -nb '#000000' -p 'PIZ_HID Login:' <&-)")" = "authenticated" ]; then
+  if [ "$($login_cmd -X POST -F "password=$(bemenu -x -p 'PIZ_HID Login:' <&-)")" = "authenticated" ]; then
     notify-send "DPIZHID" "Piz_Hid authenticated" &
   else
     notify-send "DPIZHID" "Piz_Hid authentication failed" &
@@ -21,7 +21,7 @@ fi
 ## PIZ_HID Communication ##
 entry_list="$($CURL $remote/api/list.php)"
 entry_sel="$(printf "%s\n---Lock---\n---Shutdown---\n---Multiline---\n---ClipPass---" "$entry_list" |
-  $DMENU -p "Entry:")" || exit
+  $bemenu -p "Entry:")" || exit
 
 ## PIZ_HID Data Processing ##
 case "$entry_sel" in
@@ -33,15 +33,15 @@ case "$entry_sel" in
   ;;
 "---Multiline---")
   ## list non-passwd info in entry and clip it ##
-  entry_sel="$(printf "%s" "$entry_list" | $DMENU -p "Multiline:")" || exit
+  entry_sel="$(printf "%s" "$entry_list" | $bemenu -p "Multiline:")" || exit
   entry_contents="$($CURL "$remote/api/multiline.php?entry=$entry_sel" |
-    $DMENU -p "Multiline:")" || exit
+    $bemenu -p "Multiline:")" || exit
 
   [ "$entry_contents" ] && printf "%s" "$entry_contents" | xclip -selection clipboard
   ;;
 "---ClipPass---")
   ## insert pass into clipboard ##
-  entry_sel="$(printf "%s" "$entry_list" | $DMENU -p "ClipPass:")" || exit
+  entry_sel="$(printf "%s" "$entry_list" | $bemenu -p "ClipPass:")" || exit
   $CURL "$remote/api/password.php?entry=${entry_sel}&clip"  | xclip -selection clipboard &&
     notify-send "DPIZHID" "ClipPass" &
   ;;

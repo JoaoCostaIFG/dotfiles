@@ -16,23 +16,25 @@ set $down j
 set $up k
 set $right l
 # preferred terminal
-set $term st
+set $term alacritty
+# preferred browser
+set $browser librewolf
 # preferred app launcher (pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on)
-set $menu mdmenu_run -h 8 -i | xargs swaymsg exec --
+set $menu mdmenu_run | xargs swaymsg exec --
 
 ### Output configuration
-#
 # wallpaper
-output * bg /home/joao/.local/share/wallpaper/ds.png fill
+output "*" bg /home/joao/.local/share/wallpaper/ds_1.png fill
+output DP-1 {
+    mode 1920x1080@143.855Hz
+    bg /home/joao/.local/share/wallpaper/ds_1.png fill
+}
+output HDMI-A-1 {
+    bg /home/joao/.local/share/wallpaper/ds_2.png fill
+}
 # primary monitor for wine
 exec_always xrandr --output $(xrandr | grep -m 1 XWAYLAND | awk '{print $1;}') --primary
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
@@ -57,6 +59,18 @@ exec swayidle -w \
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+input type:keyboard {
+    xkb_layout "pt"
+    xkb_options "caps:escape"
+    repeat_delay 300
+    repeat_rate 50
+}
+
+default_border pixel 2
+gaps inner 3
+gaps outer 3
+smart_borders on
+smart_gaps on
 
 ### Key bindings
 #
@@ -67,6 +81,8 @@ bindsym $mod+Shift+Control+q exec swaynag -t warning -m 'You pressed the exit sh
 bindsym $mod+Shift+Control+r reload
 # kill focused window
 bindsym $alt+f4 kill
+# lock screen
+bindsym $mod+f12 exec swaylock -f -c 000000
 #
 ## Apps:
 # terminal
@@ -75,7 +91,44 @@ bindsym $mod+Control+t exec foot
 # app launcher
 bindsym $mod+p exec $menu
 bindsym $mod+Return exec $menu
-#
+# other
+bindsym $mod+Control+c exec $term -e python
+bindsym $mod+Control+Shift+c exec $term -e mmaxima
+bindsym $mod+Control+e exec QT_QPA_PLATFORM="xcb" birdtray -t
+bindsym $mod+Control+f exec $term -e lfcd_sh
+bindsym $mod+Control+h exec dpizhid
+bindsym $mod+Control+i exec $term -e newsboat
+bindsym $mod+Control+m exec dmount
+# bindsym $mod+m exec screen_measure
+bindsym $mod+Control+n exec dtodo
+bindsym $mod+Control+p exec gimp
+bindsym $mod+Control+r exec $browser
+bindsym $mod+Shift+r exec firefox
+bindsym $mod+Control+s exec $term -e ncmpcpp
+bindsym $mod+Control+v exec drecord
+bindsym $mod+Control+w exec $term -e nvim
+# media
+bindsym $mod+f5 exec mpc toggle
+bindsym $mod+Shift+f5 exec mpc seek 0
+bindsym $mod+f6 exec mpc prev
+bindsym $mod+Shift+f6 exec mpc volume -5
+bindsym $mod+f7 exec mpc next
+bindsym $mod+Shift+f7 exec mpc volume +5
+bindsym $mod+Control+f5 exec notify-send -u low 'Current song' "$(mpc current)"
+bindsym $mod+f8 exec amixer set Master toggle
+bindsym $mod+Shift+f8 exec amixer set Capture toggle
+bindsym $mod+f9 exec amixer set Master 5%-
+bindsym $mod+f10 exec amixer set Master 5%+
+# notifications
+bindsym $mod+f11 exec dunst_toggle
+bindsym $mod+Control+backslash exec dunstctl close
+bindsym $mod+Control+Shift+backslash exec dunstctl close-all
+bindsym $mod+Control+space exec dunstctl history-pop
+# screenshot
+bindsym $mod+Print exec screenshots "current save"
+bindsym $mod+Shift+Print exec screenshots "snip"
+bindsym $mod+Shift+s exec screenshots "snip"
+bindsym $mod+Control+Print exec screenshots
 ## Movement:
 # drag floating windows by holding down $mod and left mouse button. Resize them with right mouse button + $mod.
 floating_modifier $mod normal
@@ -116,7 +169,7 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 #
 ## Layout stuff:
-# "split" the current object of focus with $mod+b or $mod+v, for horizontal and vertical splits
+# "split" the current object of focus with $mod+s or $mod+v, for horizontal and vertical splits
 bindsym $mod+s splith
 bindsym $mod+v splitv
 # switch the current container between different layout styles
@@ -131,6 +184,9 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 # move focus to the parent container
 bindsym $mod+a focus parent
+# gaps
+#bindsym $mod+plus gaps all plus 1
+#bindsym $mod+minus gaps all minus 1
 #
 ## Scratchpad:
 # Move the currently focused window to the scratchpad
@@ -156,22 +212,32 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+### Autoruns
+exec "/usr/lib/polkit-kde-authentication-agent-1"
+exec QT_QPA_PLATFORM="xcb" birdtray
+exec tailscale-systray
+exec mpd
+
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
+#bar {
+#    position top
+#
+#    # When the status_command prints a new line to stdout, swaybar updates.
+#    # The default just shows the current date and time.
+#    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
+bindsym $mod+b exec killall -SIGUSR1 waybar
+bar swaybar_command waybar
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 include /etc/sway/config.d/*

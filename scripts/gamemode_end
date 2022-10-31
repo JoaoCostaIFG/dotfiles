@@ -1,4 +1,3 @@
 #!/bin/sh
 
 notify-send "GameMode ended" &
-picom --experimental-backends -b

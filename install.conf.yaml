@@ -6,12 +6,10 @@
 
 - link:
     ~/.gnupg/gpg-agent.conf: homedir/dot_gnupg/gpg-agent.conf
-    ~/.bash_completion: homedir/dot_bash_completion
     ~/.bash_profile: homedir/dot_bash_profile
     ~/.bashrc: homedir/dot_bashrc
     ~/.profile: homedir/dot_profile
-    ~/.xinitrc: homedir/dot_xinitrc
-    ~/.xserverrc: homedir/dot_xserverrc
+    ~/.Xdefaults: homedir/dot_Xdefaults
     ~/.local/bin: scripts
     ~/.local/share/wallpaper: wallpaper
     ~/.local/share/applications/:
@@ -28,7 +26,6 @@
           dot_config/nvim,
           dot_config/pulse,
           dot_config/dot_Xmodmap,
-          dot_config/dot_Xresources,
           dot_config/coc-packages.json
         ]
     ~/.config/mpd/mpd.conf:
@@ -49,8 +46,6 @@
         create: true
         glob: true
         path: dot_config/pulse/*
-    ~/.config/.Xmodmap: dot_config/dot_Xmodmap
-    ~/.config/.Xresources: dot_config/dot_Xresources
     ~/.config/coc/extensions/package.json: dot_config/coc-packages.json
     
 - shell:

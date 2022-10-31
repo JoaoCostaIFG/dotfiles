@@ -7,19 +7,19 @@
 ### Args:
 ### - "snip" - take a snip and pass it to the clipboard (just clicking get the full clicked window);
 ### - "picker" - color picker (needs work);
-### - "current" - snip current active window;
-### - "screenshot" - take a fullscreen screenshot and save it in a file;
+### - "current" - screenshot current screen;
+### - "current save" - screenshot current screen and auto save it to $SCREENSHOT_SAVEDIR directory;
+### - "full" - screenshot fullscreen screenshot;
 ### - no args - dmenu arg selection.
-### Depends on [shotgun](https://github.com/neXromancers/shotgun), hacksaw,
-### [colorpicker](https://github.com/Jack12816/colorpicker), xdotool, xclip, and dmenu.
+### Depends on [flameshot](https://github.com/flameshot-org/flameshot),
+### [colorpicker](https://github.com/Jack12816/colorpicker), xclip, and dmenu.
 
 parse_arg() {
   case "$1" in
   "snip")
     # Sniping tool
     # intentionally unquoted
-    shotgun $(hacksaw -f "-i %i -g %g") - | xclip -t 'image/png' -selection clipboard
-    notify-send -u low "Snipping Tool" "Snip saved to clipboard" &
+    flameshot gui
     ;;
   "picker")
     # Color picker
@@ -28,17 +28,15 @@ parse_arg() {
     notify-send "Color Picker" "Color is $color" &
     ;;
   "current")
-    shotgun -i "$(xdotool getwindowfocus)" - | xclip -t 'image/png' -selection clipboard
-    notify-send "Current Window capture" "Current window saved to clipboard" &
+    flameshot screen
     ;;
-  "screenshot")
+  "current save")
+    save_location="${SCREENSHOT_SAVEDIR:-$HOME/Pictures/screenshots}/"
+    flameshot screen -p "$save_location"
+    ;;
+  "full")
     # Fullscreen screenshot
-    save_location="${SCREENSHOT_SAVEDIR:-$HOME/Pictures/screenshots/}"
-    [ -d "$save_location" ] || mkdir -p "$save_location"
-
-    file_name="$(date +%s).png"
-    shotgun "$save_location/$file_name"
-    notify-send -u low -i "$save_location/$file_name" "Print Screen" "Print saved to $save_location" &
+    flameshot full
     ;;
   *)
     exit 1
@@ -49,5 +47,5 @@ parse_arg() {
 if [ "$1" ]; then
   parse_arg "$1"
 else 
-  parse_arg "$(printf "snip\\npicker\\ncurrent\\nscreenshot" | dmenu -i -p "What to do?")"
+  parse_arg "$(printf "snip\\npicker\\ncurrent\\ncurrent save\\nfull" | dmenu -i -p "What to do?")"
 fi
