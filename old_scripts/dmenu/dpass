@@ -1,0 +1,5 @@
+#!/bin/sh
+### Read input from the user without showing it.
+### Simple script to get the sudo password from a user using **dmenu** (hides the typed characters).
+
+dmenu -nf "#000000" -nb "#000000" -p "$1" <&- && echo

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+case "$DWMBLOCKS_BUTTON" in
+1) setsid -f "$TERMINAL" -e pulsemixer ;;
+2) "$TERMINAL" -e "$EDITOR" "$0" >/dev/null 2>&1 ;;
+3) amixer set Master toggle >/dev/null 2>&1 ;;
+6) amixer set Capture toggle >/dev/null 2>&1 ;;
+esac
+
+volstat="$(amixer get Master)"
+echo "$volstat" | grep -m 1 -q "\[on\]" && printf "♬-"
+# Append the piped command: "| tr -d '\n'" to the line below if your
+# build of dwmblocks doesn't take care of '\n' chars
+echo "$volstat" | grep -m 1 -o "\[[0-9]\+%\]" | sed "s/[^0-9]*//g;1q" #| tr -d '\n'
+
+amixer get Capture | grep -m 1 -q "\[on\]" && printf "🎤"
