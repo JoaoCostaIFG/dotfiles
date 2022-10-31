@@ -1,0 +1,30 @@
+#!/bin/bash
+
+case "$DWMBLOCKS_BUTTON" in
+1)
+  # TODO notication de bat lvl
+  ;;
+2) "$TERMINAL" -e "$EDITOR" "$0" >/dev/null 2>&1 ;;
+esac
+
+isfirst=1
+
+acpi -b | awk -F ':|,' '{print $1 ":" $2 ":" $3}' |
+while read -r bat; do
+  IFS=":" read -r batnum state perc <<< "$(printf '%s' "$bat")"
+
+  batnum="$(printf '%s' "$batnum" | cut -d' ' -f2)"
+  if [ "$state" = " Charging" ]; then
+    # charging
+    state="🔌"
+  else
+    # not charing
+    state="🔋"
+  fi
+
+  [ $isfirst -eq 0 ] && printf ' '
+  #printf '%s%s%s' "$batnum" "$state" "$perc"
+  printf '%s%s' "$state" "$perc"
+
+  isfirst=0
+done

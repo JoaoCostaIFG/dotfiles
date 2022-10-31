@@ -1,0 +1,36 @@
+#!/bin/sh
+### A general, all-purpose extraction script.
+###
+### Default behavior: Extract archive into new directory
+### Behavior with `-c` option: Extract contents into current directory
+
+while getopts "hc" o; do case "${o}" in
+  c) extracthere="True" ;;
+  *) printf "Options:\\n\\t-c: Extract archive into current directory rather than a new one.\\n" && exit ;;
+  esac; done
+
+if [ -z "$extracthere" ]; then
+  archive="$(readlink -f "$*")" &&
+    directory="$(echo "$archive" | sed 's/\.[^\/.]*$//')" &&
+    mkdir -p "$directory" &&
+    cd "$directory" || exit
+else
+  archive="$(readlink -f "$(echo "$*" | cut -d' ' -f2)")"
+fi
+
+[ "$archive" = "" ] && printf "Give archive to extract as argument.\\n" && exit
+
+if [ -f "$archive" ]; then
+  case "$archive" in
+  *.tar) tar -xvf "$archive" ;;
+  *.tar.bz | *.tar.bz2 | *.tbz | *.tbz2) tar xjvf "$archive" ;;
+  *.tar.gz | *.tgz) tar xzvf "$archive" ;;
+  *.tar.xz | *.txz) tar xJvf "$archive" ;;
+  *.zip | *.ZIP) unzip "$archive" ;;
+  *.rar) unrar x "$archive" ;;
+  *.7z) 7z x "$archive" ;;
+  *) printf "extract: '%s' - unknown archive method\\n" "$archive" ;;
+  esac
+else
+  printf "File \"%s\" not found.\\n" "$archive"
+fi
