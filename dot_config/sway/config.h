@@ -114,7 +114,6 @@ static Key keys[] = {
   /* modifier   key   function    argument */
 
   /* DWM control */
-  { MODKEY,                       XK_b,   togglebar,  {0}                                   },
   { MODKEY,                       XK_F11, spawn,      SHCMD("dunst_toggle")                 },  // Toggle dunst notifications
   { MODKEY|ControlMask,           XK_backslash, spawn, SHCMD("dunstctl close")              },
   { MODKEY|ControlMask|ShiftMask, XK_backslash, spawn, SHCMD("dunstctl close-all")          },
@@ -151,7 +150,6 @@ static Key keys[] = {
   { MODKEY,             XK_Right,   cyclelayout,  {.i = +1 }  },
   { MODKEY,             XK_0,       view,         {.ui = ~0 } },
   { MODKEY|ShiftMask,   XK_0,       tag,          {.ui = ~0 } },
-  // { MODKEY|ShiftMask,    XK_equal,   setgaps,      {.i = gappx } },
 };
 
 /* button definitions */

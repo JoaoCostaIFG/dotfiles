@@ -1,0 +1,64 @@
+{
+    "layer": "bottom",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["mpd", "pulseaudio", "battery", "cpu", "clock", "tray"],
+    "sway/window": {
+        "max-length": 30
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}",
+        "on-click-right": "alacritty -e nmtui"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10,
+        "on-click": "alacritty -e top"
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "interval": 10,
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "scroll-step": 1,
+        "on-click": "amixer set Capture toggle",
+        "on-click-right": "amixer set Master toggle",
+        "on-click-middle": "alacritty -e pulsemixer"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 4
+    }
+}

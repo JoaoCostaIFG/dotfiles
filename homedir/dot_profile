@@ -15,7 +15,7 @@ export FILE="lfcd_sh"
 export OPENER="xdg-open"
 export PAGER="less"
 export READER="zathura"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export VISUAL="nvim"
 export NACHOS="cute"
 
@@ -47,11 +47,25 @@ export LC_COLLATE="C"
 export LESS="-iFMRSX"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dpass"
 export GPG_TTY="$(tty)"
-export _JAVA_AWT_WM_NONREPARENTING=1
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
-#export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_STYLE_OVERRIDE="kvantum"
 export COLORTERM="truecolor" # advertise truecolor
+export BEMENU_OPTS="-i -w -H 24 -p '' \
+  --tb '#3b4252' --tf '#d8dee9 \
+  --nb '#0b0a18' --nf '#d8dee9' \
+  --hb '#3b4252' --hf '#d8dee9'"
+
+# wayland
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+#export QT_QPA_PLATFORMTHEME="qt5ct"
+# export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORM="wayland"
+export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+export MOZ_ENABLE_WAYLAND=1
+export MOZ_DBUS_REMOTE=1
 
 # my scripts
 export BIB="$HOME/Documents/WorkRes/bibliography.bib"
