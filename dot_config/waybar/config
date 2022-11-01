@@ -40,9 +40,11 @@
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}",
+        "format": "{format_source} {volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
         "format-muted": "",
+        "format-source": "",
+        "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
