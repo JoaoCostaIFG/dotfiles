@@ -47,9 +47,10 @@
     },
     "cpu": {
         "interval": 10,
-        "format": "<span face=\"Font Awesome 6 Free\"></span> {}%",
+        "format": "<span face=\"Font Awesome 6 Free\"></span> {usage}%",
         "max-length": 10,
-        "on-click": "alacritty -e top"
+        "on-click": "notify-send 'Thermals' \"$(acpi -t)\"",
+        "on-click-middle": "alacritty -e top"
     },
     "clock": {
         "format": "<span face=\"Font Awesome 6 Free\"></span> {:%H:%M}",
