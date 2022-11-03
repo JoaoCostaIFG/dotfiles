@@ -103,13 +103,18 @@ Script that can:
 
 Args:
 - "snip" - take a snip and pass it to the clipboard (just clicking get the full clicked window);
+- "snip-edit" - take a snip and edit it
 - "picker" - color picker (needs work);
 - "current" - screenshot current screen;
-- "current save" - screenshot current screen and auto save it to $SCREENSHOT_SAVEDIR directory;
-- "full" - screenshot fullscreen screenshot;
+- "current-save" - screenshot current screen and auto save it to $SCREENSHOT_SAVEDIR directory;
 - no args - dmenu arg selection.
-Depends on [flameshot](https://github.com/flameshot-org/flameshot),
-[colorpicker](https://github.com/Jack12816/colorpicker), xclip, and dmenu.
+Depends on:
+- [grim](https://sr.ht/~emersion/grim/)
+- [slurp](https://github.com/emersion/slurp)
+- [swappy](https://github.com/jtheoof/swappy)
+- [wl-color-picker](https://github.com/jgmdev/wl-color-picker)
+- wl-clipboard
+- bemenu
 
 ## shortcuts
 
