@@ -94,7 +94,7 @@ bindsym $mod+Return exec $menu
 # other
 bindsym $mod+Control+c exec $term -e python
 bindsym $mod+Control+Shift+c exec $term -e mmaxima
-bindsym $mod+Control+e exec MOZ_ENABLE_WAYLAND=0 QT_QPA_PLATFORM="xcb" birdtray -t
+bindsym $mod+Control+e exec XDG_SESSION_TYPE=x11 MOZ_ENABLE_WAYLAND=0 QT_QPA_PLATFORM="xcb" birdtray -t
 bindsym $mod+Control+f exec $term -e lfcd_sh
 bindsym $mod+Control+h exec dpizhid
 bindsym $mod+Control+i exec $term -e newsboat
@@ -107,6 +107,7 @@ bindsym $mod+Shift+r exec firefox
 bindsym $mod+Control+s exec $term -e ncmpcpp
 bindsym $mod+Control+v exec drecord
 bindsym $mod+Control+w exec $term -e nvim
+## Special keys:
 # display
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
@@ -126,19 +127,19 @@ bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioNext+Shift exec mpc volume +5
 #
 bindsym XF86Search exec $menu
-
-# notifications
+## Notifications:
 bindsym $mod+f11 exec dunst_toggle
 bindsym $mod+Control+backslash exec dunstctl close
 bindsym $mod+Control+Shift+backslash exec dunstctl close-all
 bindsym $mod+Control+space exec dunstctl history-pop
-# screenshot
+## screenshot
 bindsym $mod+Print exec screenshots "snip-edit"
 bindsym $mod+Shift+Print exec screenshots "current-save"
 bindsym $mod+Shift+s exec screenshots "snip"
 bindsym $mod+Control+Print exec screenshots
 ## Movement:
-# drag floating windows by holding down $mod and left mouse button. Resize them with right mouse button + $mod.
+# drag floating windows by holding down $mod and left mouse button
+# resize them with right mouse button + $mod
 floating_modifier $mod normal
 # move focus
 bindsym $mod+$left focus left
@@ -165,15 +166,6 @@ bindsym $mod+6 workspace number 6
 bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
-#bindsym $mod+f1 workspace number 11:f1
-#bindsym $mod+f2 workspace number 12:f2
-#bindsym $mod+f3 workspace number 13:f3
-#bindsym $mod+f4 workspace number 14:f4
-#bindsym $mod+f5 workspace number 15:f5
-#bindsym $mod+f6 workspace number 16:f6
-#bindsym $mod+f7 workspace number 17:f7
-#bindsym $mod+f8 workspace number 18:f8
-#bindsym $mod+f9 workspace number 19:f9
 # move to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -184,15 +176,6 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-#bindsym $mod+Shift+f1 move container to workspace f1
-#bindsym $mod+Shift+f2 move container to workspace f2
-#bindsym $mod+Shift+f3 move container to workspace f3
-#bindsym $mod+Shift+f4 move container to workspace f4
-#bindsym $mod+Shift+f5 move container to workspace f5
-#bindsym $mod+Shift+f6 move container to workspace f6
-#bindsym $mod+Shift+f7 move container to workspace f7
-#bindsym $mod+Shift+f8 move container to workspace f8
-#bindsym $mod+Shift+f9 move container to workspace f9
 #
 bindsym $mod+Tab workspace back_and_forth
 ## Layout stuff:
@@ -212,17 +195,12 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 # move focus to the parent container
 bindsym $mod+a focus parent
-# gaps
-#bindsym $mod+plus gaps all plus 1
-#bindsym $mod+minus gaps all minus 1
-#
 ## Scratchpad:
 # Move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
-#
 ## Resizing containers:
 mode "resize" {
     # left will shrink the containers width
@@ -242,8 +220,8 @@ bindsym $mod+r mode "resize"
 
 ### Autoruns
 exec "/usr/lib/polkit-kde-authentication-agent-1"
-exec MOZ_ENABLE_WAYLAND=0 QT_QPA_PLATFORM="xcb" birdtray
 exec tailscale-systray
+# exec XDG_SESSION_TYPE=x11 MOZ_ENABLE_WAYLAND=0 QT_QPA_PLATFORM="xcb" birdtray
 exec mpd
 
 #
@@ -264,7 +242,9 @@ exec mpd
 #    }
 #}
 bindsym $mod+b exec killall -SIGUSR1 waybar
-bar swaybar_command waybar
+bar {
+    swaybar_command waybar
+}
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
