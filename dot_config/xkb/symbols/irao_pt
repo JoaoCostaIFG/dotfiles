@@ -3,4 +3,5 @@ xkb_symbols "basic" {
         include "pt"
         name[Group1] = "Irao PT";
         key <AE12> { [ less, greater ] };
+        key <CAPS> { [ Escape ] };
 };
