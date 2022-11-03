@@ -9,7 +9,7 @@ login_cmd="$CURL $remote/api/login.php"
 
 ## Login Funtion ##
 if [ "$($login_cmd)" = "failure" ]; then
-  if [ "$($login_cmd -X POST -F "password=$(bemenu -x -p 'PIZ_HID Login:' <&-)")" = "authenticated" ]; then
+  if [ "$($login_cmd -X POST -F "password=$(printf "" | bemenu -x -p 'PIZ_HID Login:')")" = "authenticated" ]; then
     notify-send "DPIZHID" "Piz_Hid authenticated" &
   else
     notify-send "DPIZHID" "Piz_Hid authentication failed" &
