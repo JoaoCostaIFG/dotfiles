@@ -121,18 +121,31 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym XF86Display exec brightnessctl -r
 # audio
+bindsym $mod+f8 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+Shift+f8 exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym $mod+f9 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+f10 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+#
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 # media
-bindsym XF86AudioPlay exec mpc toggle # playerctl play-pause
-bindsym XF86AudioPlay+Shift exec mpc seek 0
+bindsym $mod+f5 exec playerctl play-pause
+bindsym $mod+Shift+f5 exec playerctl position 0
+bindsym $mod+Control+f5 exec notify-send -u low 'Current song' "$(mpc current)"
+bindsym $mod+f6 exec playerctl previous
+bindsym $mod+Shift+f6 exec playerctl volume 0.05-
+bindsym $mod+f7 exec playerctl next
+bindsym $mod+Shift+f7 exec playerctl volume 0.05+
+#
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPlay+Shift exec playerctl position 0
 bindsym XF86AudioPlay+Control exec notify-send -u low 'Current song' "$(mpc current)"
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioPrev+Shift exec mpc volume -5
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioNext+Shift exec mpc volume +5
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPrev+Shift exec playerctl volume 0.05-
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioNext+Shift exec playerctl volume 0.05+
 #
 bindsym XF86Search exec $menu
 ## Notifications:
