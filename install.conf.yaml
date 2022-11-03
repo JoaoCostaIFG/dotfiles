@@ -25,7 +25,7 @@
           dot_config/newsboat,
           dot_config/nvim,
           dot_config/pulse,
-          dot_config/dot_Xmodmap,
+          dot_config/systemd,
           dot_config/coc-packages.json
         ]
     ~/.config/mpd/mpd.conf:
@@ -46,6 +46,10 @@
         create: true
         glob: true
         path: dot_config/pulse/*
+    ~/.config/systemd/user:
+        create: true
+        glob: true
+        path: dot_config/systemd/*
     ~/.config/coc/extensions/package.json: dot_config/coc-packages.json
     
 - shell:
