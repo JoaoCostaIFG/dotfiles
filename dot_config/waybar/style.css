@@ -1,124 +1,174 @@
+@import "mocha.css";
+
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, sans-serif;
-    font-size: 14px;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: sans-serif;
+  font-size: 14px;
 }
 
 window#waybar {
-    background-color: rgba(11, 10, 24, 0.8);
-    border-bottom: 0px;
-    color: #E5E9F0;
+  background-color: @base;
+  border-bottom: 0;
+  color: @text;
 }
 
 tooltip {
-  background: rgba(43, 48, 59, 0.5);
+  background-color: rgba(43, 48, 59, 0.5);
   border: 1px solid rgba(100, 114, 125, 0.5);
 }
 tooltip label {
-  color: white;
+  color: @text;
 }
 
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
-    border: none;
-    border-radius: 0;
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #E5E9F0;
+  background: inherit;
+  box-shadow: inset 0 -3px @subtext0;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: #E5E9F0;
-}
-
-#workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+  padding: 0 5px;
+  background-color: transparent;
+  color: @text;
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #E5E9F0;
+  background-color: @overlay0;
+  box-shadow: inset 0 -3px @subtext0;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+  background-color: @red;
 }
 
 #mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #E5E9F0;
+  background-color: @overlay0;
+  color: @text;
+  box-shadow: inset 0 -3px @subtext0;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#mpd {
-    padding: 0 6px;
+.modules-right {
+  background-color: @surface0;
+  border-radius: 1em;
+  margin: 0.25em 0.5em 0.25em 0;
 }
 
-#window,
-#workspaces {
-    margin: 0 4px;
+.modules-right .text-button {
+  color: inherit;
+  padding: 0;
+  margin: 0.2em 1em;
+
+  /* disable gtk button hover effect */
+  -gtk-icon-effect: none;
+  -gtk-icon-shadow: none;
+  text-shadow: none;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+.modules-right > :nth-child(1) button {
+  color: @maroon;
+}
+.modules-right > :nth-child(1) button:hover {
+  box-shadow: inset 0 -3px @maroon;
 }
 
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+.modules-right > :nth-child(2) button {
+  color: @peach;
+}
+.modules-right > :nth-child(2) button:hover {
+  box-shadow: inset 0 -3px @peach;
+}
+
+.modules-right > :nth-child(3) button {
+  color: @yellow;
+}
+.modules-right > :nth-child(3) button:hover {
+  box-shadow: inset 0 -3px @yellow;
+}
+
+.modules-right > :nth-child(4) button {
+  color: @green;
+}
+.modules-right > :nth-child(4) button:hover {
+  box-shadow: inset 0 -3px @green;
+}
+
+.modules-right > :nth-child(5) button {
+  color: @teal;
+}
+.modules-right > :nth-child(5) button:hover {
+  box-shadow: inset 0 -3px @teal;
+}
+
+.modules-right > :nth-child(6) button {
+  color: @sky;
+}
+.modules-right > :nth-child(6) button:hover {
+  box-shadow: inset 0 -3px @sky;
+}
+
+.modules-right > :nth-child(7) button {
+  color: @sapphire;
+}
+.modules-right > :nth-child(7) button:hover {
+  box-shadow: inset 0 -3px @sapphire;
+}
+
+.modules-right > :nth-child(8) button {
+  color: @lavender;
+}
+.modules-right > :nth-child(8) button:hover {
+  box-shadow: inset 0 -3px @lavender;
+}
+
+.modules-right > :nth-child(9) button {
+  color: @blue;
+}
+.modules-right > :nth-child(8) button:hover {
+  box-shadow: inset 0 -3px @blue;
 }
 
 @keyframes blink {
-    to {
-        background-color: #E5E9F0;
-        color: #000000;
-    }
+  to {
+    background-color: #e5e9f0;
+    color: #000000;
+  }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #BF616A;
-    color: #E5E9F0;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#tray {
+  margin-right: 1em;
+  color: @text;
 }
 
 #tray > .passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #BF616A;
+  -gtk-icon-effect: highlight;
+  background-color: @red;
 }
 
 #scratchpad {
-    background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+  background-color: transparent;
 }
