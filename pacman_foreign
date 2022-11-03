@@ -1,12 +1,12 @@
 babelfish-fish
 birdtray
-colorpicker
 dashbinsh
 ddcci-driver-linux-dkms
 eclipse-platform
 hunspell-pt_pt
 lf-bin
 librewolf-bin
+mpdris2
 multimc-bin
 pandoc-bin
 picom-git
@@ -19,5 +19,6 @@ ttf-symbola
 ttf-twemoji
 typora
 ungoogled-chromium-bin
+wl-color-picker
 yay
 zotero-bin

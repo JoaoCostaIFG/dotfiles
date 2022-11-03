@@ -8,6 +8,7 @@ alacritty
 alsa-utils
 ansible
 arc-gtk-theme
+atool
 autoconf
 automake
 base
@@ -21,6 +22,7 @@ boost
 breeze
 breeze-gtk
 brightnessctl
+calcurse
 chafa
 checkbashisms
 checksec
@@ -96,6 +98,8 @@ lib32-giflib
 lib32-gnutls
 lib32-gst-plugins-base-libs
 lib32-gtk3
+lib32-libappindicator-gtk2
+lib32-libappindicator-gtk3
 lib32-libldap
 lib32-libltdl
 lib32-libpulse
@@ -117,6 +121,7 @@ lib32-v4l-utils
 lib32-vulkan-icd-loader
 lib32-vulkan-intel
 lib32-vulkan-radeon
+libappindicator-gtk2
 libnotify
 libreoffice-fresh
 libtool
@@ -174,6 +179,7 @@ pipewire-alsa
 pipewire-pulse
 pkgconf
 plantuml
+playerctl
 polkit-kde-agent
 poppler
 prettier
@@ -206,6 +212,7 @@ slurp
 steam
 sudo
 supertux
+swappy
 sway
 swaybg
 swayidle
