@@ -61,9 +61,17 @@ exec swayidle -w \
 # Read `man 5 sway-input` for more information about this section.
 input type:keyboard {
     xkb_layout "irao_pt"
-    xkb_options caps:escape
     repeat_delay 300
     repeat_rate 50
+}
+
+input type:touchpad {
+    tap enabled
+}
+
+input type:pointer {
+    # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
+    accel_profile "flat"
 }
 
 default_border pixel 2
