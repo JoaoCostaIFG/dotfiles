@@ -48,32 +48,25 @@ exec swayidle -w \
 
 ### Input configuration
 #
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 input type:keyboard {
     xkb_layout "irao_pt"
     repeat_delay 300
     repeat_rate 50
 }
-
+#
 input type:touchpad {
     tap enabled
 }
-
+#
 input type:pointer {
     # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
     accel_profile "flat"
 }
 
+### Themeing
+# Import GTK 3 to gsettings
+exec_always import-gsettings
+#
 default_border pixel 2
 gaps inner 3
 gaps outer 3
