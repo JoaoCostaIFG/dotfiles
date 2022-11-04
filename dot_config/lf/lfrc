@@ -39,8 +39,8 @@ cmd open ${{
   case $(file --mime-type "$(readlink -f $f)" -b) in
   text/troff) man ./ $f ;;
   text/*) $EDITOR $fx ;;
-  image/x-xcf|image/svg+xml) setsid gimp $f >/dev/null 2>&1 & ;;
-  image/*) setsid sxiv_folder $f & ;;
+  image/x-xcf) setsid gimp $f >/dev/null 2>&1 & ;;
+  image/*) setsid vimiv $f & ;;
   audio/*) mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f ;;
   video/*) setsid mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f -quiet >/dev/null 2>&1 & ;;
   application/pdf) setsid zathura $fx >/dev/null 2>&1 & ;;
