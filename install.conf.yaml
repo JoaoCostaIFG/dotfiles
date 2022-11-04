@@ -46,7 +46,7 @@
         create: true
         glob: true
         path: dot_config/pulse/*
-    ~/.config/systemd/user:
+    ~/.config/systemd/user/:
         create: true
         glob: true
         path: dot_config/systemd/*
