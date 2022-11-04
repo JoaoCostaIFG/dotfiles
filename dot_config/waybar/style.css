@@ -27,7 +27,6 @@ button {
   border: none;
   border-radius: 0;
 }
-
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
   background: inherit;
@@ -39,12 +38,10 @@ button:hover {
   background-color: transparent;
   color: @text;
 }
-
 #workspaces button.focused {
   background-color: @surface1;
   box-shadow: inset 0 -3px @subtext0;
 }
-
 #workspaces button.urgent {
   background-color: @red;
 }
@@ -56,15 +53,15 @@ button:hover {
 }
 
 .modules-right {
+  margin: 0.25em 0.5em 0.25em 0;
+  padding: 0 0.5em 0 1em;
   background-color: @surface0;
   border-radius: 1em;
-  margin: 0.25em 0.5em 0.25em 0;
 }
 
 .modules-right .text-button {
   color: inherit;
-  padding: 0;
-  margin: 0.2em 1em;
+  padding: 0.2em 0.5em;
 
   /* disable gtk button hover effect */
   -gtk-icon-effect: none;
@@ -131,17 +128,15 @@ button:hover {
 .modules-right > :nth-child(9) button {
   color: @blue;
 }
-.modules-right > :nth-child(8) button:hover {
+.modules-right > :nth-child(9) button:hover {
   box-shadow: inset 0 -3px @blue;
 }
 
 @keyframes blink {
   to {
-    background-color: #e5e9f0;
-    color: #000000;
+    color: @text;
   }
 }
-
 #battery.critical:not(.charging) {
   color: @red;
   animation-name: blink;
@@ -152,14 +147,15 @@ button:hover {
 }
 
 #tray {
-  margin-right: 1em;
   color: @text;
+  background-color: @surface0;
+  border-left: solid 3px @base;
+  margin-left: 0.5em;
+  padding: 0.2em 0.5em;
 }
-
 #tray > .passive {
   -gtk-icon-effect: dim;
 }
-
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
   background-color: @red;
@@ -168,7 +164,6 @@ button:hover {
 #scratchpad {
   background: rgba(0, 0, 0, 0.2);
 }
-
 #scratchpad.empty {
   background-color: transparent;
 }
