@@ -57,6 +57,12 @@ Toggles dunst's notifications.
 JoaoCostaIFG's git wrapper because he was lazy and tired of creating aliases.
 DWTFYW LICENSE
 
+## import-gsettings
+
+Imports settings from gtk-3.0/settings.ini to gsettings
+Used for wayland
+See [sway wiki page about GTK 3](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland)
+
 ## lfcd_sh
 
 Wrapper for [lf](https://github.com/gokcehan/lf) to **cd** to
