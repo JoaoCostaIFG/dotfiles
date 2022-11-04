@@ -140,13 +140,6 @@ Instructions
 - Eat the @ signs (apples)
 - Don't eat the # (walls) or yourself.
 
-## sxiv_folder
-
-Wrapper for [sxiv](https://github.com/muennich/sxiv) that opens all
-imagefiles inside a directory. If a file is provide, all the other
-files inside it's folder are also opened with sxiv
-Requires find, xargs and sxiv.
-
 ## truecolortest
 
 If you see a continuous color spectrum, you have truecolor support
