@@ -7,7 +7,7 @@ adobe-source-serif-fonts
 alacritty
 alsa-utils
 ansible
-arc-gtk-theme
+arc-solid-gtk-theme
 atool
 autoconf
 automake
@@ -135,7 +135,6 @@ linux-zen-headers
 logrotate
 lutris
 lvm2
-lxappearance-gtk3
 m4
 make
 man-db
