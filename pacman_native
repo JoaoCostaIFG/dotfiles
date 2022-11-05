@@ -70,6 +70,7 @@ groff
 grub
 gst-plugin-pipewire
 gst-plugins-bad
+gst-plugins-good
 gstreamer-vaapi
 gtkmm3
 hdparm
@@ -143,6 +144,7 @@ maven
 maxima
 mdadm
 mediainfo
+mesa
 mesa-utils
 mesa-vdpau
 mosh
@@ -190,7 +192,6 @@ python-matplotlib
 python-mutagen
 python-pandas
 python-pillow
-python-pip
 python-pycryptodomex
 python-pynvim
 python-scipy
@@ -218,6 +219,7 @@ swaybg
 swayidle
 syncthing
 sysfsutils
+tailscale
 texinfo
 texlive-bibtexextra
 texlive-core

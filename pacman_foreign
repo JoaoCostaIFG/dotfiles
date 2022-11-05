@@ -8,13 +8,16 @@ lf-bin
 librewolf-bin
 mpdris2
 multimc-bin
+obs-gstreamer
 pandoc-bin
 picom-git
 shellcheck-bin
 simple-mtpfs
 steamtinkerlaunch
+sumo
 swaylock-effects
 tailscale-systray-git
+texlive-latexindent-meta
 tor-browser
 ttf-symbola
 ttf-twemoji
@@ -23,4 +26,6 @@ ungoogled-chromium-bin
 vimiv-qt
 wl-color-picker
 yay
+zig-git
+zls-git
 zotero-bin
