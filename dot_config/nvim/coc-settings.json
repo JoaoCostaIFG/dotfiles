@@ -5,7 +5,7 @@
   "diagnostic.infoSign": "?",
   "diagnostic.hintSign": "💡",
   "suggest.labelMaxLength": 60,
-  "suggest.maxCompleteItemCount": 25,
+  "suggest.maxCompleteItemCount": 50,
   "suggest.minTriggerInputLength": 2,
   "suggest.snippetIndicator": " ►",
   "session.directory": "~/.local/share/nvim/sessions/",

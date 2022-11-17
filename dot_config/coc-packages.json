@@ -13,7 +13,8 @@
     "coc-snippets": ">=3.1.1",
     "coc-texlab": ">=2.3.0",
     "coc-tsserver": ">=1.11.6",
-    "coc-marketplace": ">=1.9.0"
+    "coc-marketplace": ">=1.9.0",
+    "coc-rust-analyzer": ">=0.69.4"
   },
   "disabled": [],
   "locked": [],
