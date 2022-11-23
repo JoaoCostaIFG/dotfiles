@@ -23,7 +23,7 @@
     },
     "pulseaudio": {
         "format": "<span face=\"Font Awesome 6 Free\">{icon} {format_source}</span> {volume}%",
-        "format-muted": "",
+        "format-muted": "<span face=\"Font Awesome 6 Free\"> {format_source}</span>",
         "format-source": "",
         "format-source-muted": "",
         "format-icons": {
