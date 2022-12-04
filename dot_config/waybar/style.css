@@ -12,6 +12,7 @@ window#waybar {
   color: @text;
 }
 
+/* || Hover tooltips */
 tooltip {
   background-color: rgba(43, 48, 59, 0.5);
   border: 1px solid rgba(100, 114, 125, 0.5);
@@ -33,6 +34,7 @@ button:hover {
   box-shadow: inset 0 -3px @subtext0;
 }
 
+/* || Workspace buttons */
 #workspaces button {
   padding: 0 5px;
   background-color: transparent;
@@ -45,12 +47,13 @@ button:hover {
 #workspaces button.urgent {
   background-color: @red;
 }
-
 #mode {
+  /* the indicator of the mode (resize, etc...) */
   background-color: @overlay0;
   color: @text;
   box-shadow: inset 0 -3px @subtext0;
 }
+/* && Workspace buttons */
 
 .modules-right {
   margin: 0.25em 0.5em 0.25em 0;

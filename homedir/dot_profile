@@ -28,9 +28,12 @@ export INPUTRC="$HOME/.config/inputrc"
 export MAXIMA_USERDIR="$HOME/.config/maxima"
 export SQLITE_HISTORY="$HOME/.local/share/sqlite_history"
 export PYTHONSTARTUP="$HOME/.config/pythonrc"
+export CARGO_HOME="$HOME/.local/share/cargo"
 export GOPATH="$HOME/.local/share/go"
 # add go bin to PATH
 export PATH="$GOPATH/bin:$PATH"
+# add rust to PATH
+export PATH="$CARGO_HOME/bin:$PATH"
 
 # bash
 export HISTCONTROL="ignoreboth:erasedups" # ignore spaces and erase duplicates from bash history
