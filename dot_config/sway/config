@@ -42,7 +42,7 @@ exec_always xrandr --output $(xrandr | grep -m 1 XWAYLAND | awk '{print $1;}') -
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
          timeout 600 $lockscreen \
-         timeout 660 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep $lockscreen
 
 ### Input configuration
@@ -62,7 +62,7 @@ input type:pointer {
     accel_profile "flat"
 }
 
-exec swayless init
+exec_always "pgrep swayless || swayless init"
 
 ### Themeing
 # Import GTK 3 to gsettings
@@ -279,5 +279,9 @@ bar {
 }
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+### Floating windows
+for_window [window_role="task_dialog|app|bubble|pop-up|page-info|Preferences"] floating enable
+for_window [title="Steam - Update*"] floating enable
 
 include /etc/sway/config.d/*
