@@ -212,8 +212,8 @@ bindsym $mod+Shift+Period exec "swayless next-output"
 bindsym $mod+Tab exec "swayless alt-tab"
 ## Layout stuff:
 # "split" the current object of focus with $mod+s or $mod+v, for horizontal and vertical splits
-bindsym $mod+s splith
-bindsym $mod+v splitv
+bindsym $mod+s splitv
+bindsym $mod+v splith
 # switch the current container between different layout styles
 bindsym $mod+Left layout stacking
 bindsym $mod+Right layout tabbed

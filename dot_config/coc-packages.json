@@ -9,7 +9,7 @@
     "coc-lists": ">=1.4.4",
     "coc-ltex": ">=13.1.0",
     "coc-markdownlint": ">=1.26.0",
-    "coc-pyright": ">=1.1.269",
+    "coc-pyright": ">=1.1.282",
     "coc-snippets": ">=3.1.1",
     "coc-texlab": ">=2.3.0",
     "coc-tsserver": ">=1.11.6",
