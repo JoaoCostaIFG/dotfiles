@@ -21,10 +21,6 @@ Prefers using udisks2 but falls back to mount/umount.
 Might not work for all kinds of Android phones (check:
 [Arch wiki android](https://wiki.archlinux.org/index.php/Android#Transferring_files)).
 
-## dmenu/dpizhid
-
-My password helper script
-
 ## dmenu/drecord
 
 Use bemenu to record stuff (screen, audio, camera, etc..)
