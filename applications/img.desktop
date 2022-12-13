@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
-Name=vimiv
-Exec=vimiv %f
+Name=imv
+Exec=imv -d %f

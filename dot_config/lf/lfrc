@@ -40,7 +40,7 @@ cmd open ${{
   text/troff) man ./ $f ;;
   text/*) $EDITOR $fx ;;
   image/x-xcf) setsid gimp $f >/dev/null 2>&1 & ;;
-  image/*) setsid vimiv $f & ;;
+  image/*) setsid imv $f "$(dirname "$f")" & ;;
   audio/*) mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f ;;
   video/*) setsid mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f -quiet >/dev/null 2>&1 & ;;
   application/pdf) setsid zathura $fx >/dev/null 2>&1 & ;;
