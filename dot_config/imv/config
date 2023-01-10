@@ -44,6 +44,7 @@ f = fullscreen
 d = overlay
 p = exec echo $imv_current_file
 c = center
+<Shift+C> = exec wl-copy <"$imv_current_file"
 s = scaling next
 <Shift+S> = upscaling next
 a = zoom actual
