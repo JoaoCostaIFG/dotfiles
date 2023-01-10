@@ -23,7 +23,7 @@
   colorMoved = default
 [merge]
   tool = vimdiff
-  conflictstyle = diff3
+  #conflictstyle = diff3
 [credential]
   username = JoaoCostaIFG
 [pager]
