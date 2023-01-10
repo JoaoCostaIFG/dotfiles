@@ -71,5 +71,6 @@
     "markdown": ["prettier"],
     "bash": ["shfmt"],
     "sh": ["shfmt"]
-  }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }

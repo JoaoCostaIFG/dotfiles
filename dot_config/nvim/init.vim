@@ -53,6 +53,7 @@ Plug 'tpope/vim-surround' " work with delimiters
 Plug 'lukas-reineke/indent-blankline.nvim' " indent guides
 Plug 'tpope/vim-fugitive' " git plugin
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " the conqueror
+Plug 'github/copilot.vim'
 call plug#end()
 
  """"""""""""""""""""""""""""""""""""""""""""" 
@@ -369,6 +370,9 @@ require'nvim-treesitter.configs'.setup {
 EOF
 " Workaround: https://valentjn.github.io/ltex/vscode-ltex/installation-usage-coc-ltex.html
 let g:tex_flavor='latex'
+" Copilot
+imap <silent><script><expr> <S-Tab> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 
  """"""""""""""""""""""""""""""""
 "     __  ___ ____ _____  ______ "
