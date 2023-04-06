@@ -91,6 +91,11 @@ set showtabline=0
 set nohlsearch ignorecase smartcase
 set clipboard+=unnamedplus
 
+" ctrl+s to save
+noremap <silent> <C-S> :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
+
 " backup stuff
 set backupcopy=yes
 if exists('$SUDO_USER')
