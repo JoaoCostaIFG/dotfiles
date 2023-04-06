@@ -84,7 +84,7 @@ bindsym $mod+Shift+Control+r reload
 # kill focused window
 bindsym $alt+f4 kill
 # lock screen
-bindsym $mod+f12 exec swaylock -f -c 000000
+bindsym $mod+f12 exec $lockscreen --fade-in 0 --grace 0
 #
 ## Apps:
 # terminal
