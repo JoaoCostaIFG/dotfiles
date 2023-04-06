@@ -8,10 +8,12 @@ alacritty
 alsa-utils
 ansible
 arc-solid-gtk-theme
+asciinema
 atool
 autoconf
 automake
 base
+base-devel
 bash-completion
 bemenu
 bison
@@ -59,6 +61,7 @@ gdb
 gimp
 git
 git-delta
+git-filter-repo
 glfw-wayland
 gnu-free-fonts
 gnu-netcat
@@ -81,6 +84,7 @@ http-parser
 hunspell-en_us
 hyperfine
 imagemagick
+imv
 inetutils
 intel-ucode
 intellij-idea-community-edition
@@ -133,7 +137,6 @@ linux-headers
 linux-zen
 linux-zen-headers
 logrotate
-lutris
 lvm2
 lxappearance-gtk3
 m4
@@ -191,6 +194,7 @@ python-black
 python-matplotlib
 python-mutagen
 python-pandas
+python-piexif
 python-pillow
 python-pycryptodomex
 python-pynvim
@@ -199,12 +203,15 @@ python-seaborn
 python-virtualenv
 python-websockets
 qbittorrent
+qt5-imageformats
 qt6-wayland
 reflector
 reiserfsprogs
 ripgrep-all
 rlwrap
 rsnapshot
+rust
+rust-analyzer
 samba
 scons
 screen
@@ -255,14 +262,13 @@ virtualbox
 virtualbox-guest-iso
 vulkan-intel
 vulkan-radeon
-vulkan-tools
-waybar
 wget
 which
 wine-gecko
 wine-mono
 wine-staging
 winetricks
+wireguard-tools
 wl-clipboard
 xclip
 xdg-desktop-portal
