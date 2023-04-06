@@ -114,7 +114,7 @@ Depends on:
 - [grim](https://sr.ht/~emersion/grim/)
 - [slurp](https://github.com/emersion/slurp)
 - [swappy](https://github.com/jtheoof/swappy)
-- [wl-color-picker](https://github.com/jgmdev/wl-color-picker)
+- [hyprpicker](https://github.com/hyprwm/hyprpicker)
 - wl-clipboard
 - bemenu
 
