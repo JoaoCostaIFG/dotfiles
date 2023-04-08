@@ -18,6 +18,7 @@ shellcheck-bin
 simple-mtpfs
 steamtinkerlaunch
 swaylock-effects-git
+swaync
 tailscale-systray-git
 texlive-latexindent-meta
 todoist-appimage
@@ -27,5 +28,6 @@ ttf-twemoji
 ungoogled-chromium-bin
 waybar-git
 webcord-bin
+wine-lol-bin
 yay
 zotero-bin

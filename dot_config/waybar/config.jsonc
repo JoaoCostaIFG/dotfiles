@@ -1,25 +1,41 @@
 {
     "layer": "bottom",
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["mpd", "pulseaudio", "battery", "cpu", "clock", "tray"],
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [
+        "mpd",
+        "pulseaudio",
+        "battery",
+        "cpu",
+        "clock",
+        "custom/notification",
+        "tray"
+    ],
     "sway/workspaces": {
         "disable-scroll": true,
+        "format": "{value}{icon}",
         "format-icons": {
-            "1": "🯱",
-            "2": "🯲",
-            "3": "🯳",
-            "4": "🯴",
-            "5": "🯵",
-            "6": "🯶",
-            "7": "🯷",
-            "8": "🯸",
-            "9": "🯹",
-            "0": "🯰",
+            "urgent": "",
+            "focused": "",
+            "default": ""
         }
     },
     "sway/window": {
-        "max-length": 160
+        "max-length": 160,
+        "all-outputs": false,
+        "icon": false,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "<span face=\"Font Awesome 6 Free\"></span> $1",
+            "(.*) — LibreWolf": "<span face=\"Font Awesome 6 Free\"></span> $1",
+            "Fish (.*)": "<span face=\"Font Awesome 6 Free\"></span> [$1]",
+            "Steam": "<span face=\"Font Awesome 6 Free\"></span>",
+            "(.*) - Discord": "<span face=\"Font Awesome 6 Free\"></span> $1",
+        }
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
@@ -50,7 +66,10 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", ""]
+            "default": [
+                "",
+                ""
+            ]
         },
         "scroll-step": 1,
         "on-click": "amixer set Capture toggle",
@@ -59,7 +78,13 @@
     },
     "battery": {
         "format": "<span face=\"Font Awesome 6 Free\">{icon}</span> {capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "on-click": "notify-send 'Battery level' \"$(acpi -b)\""
     },
     "cpu": {
@@ -68,6 +93,26 @@
         "max-length": 10,
         "on-click": "notify-send 'Thermals' \"$(acpi -t)\"",
         "on-click-middle": "alacritty -e top"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}<span face=\"Font Awesome 6 Free\"><sup>{}</sup></span>",
+        "format-icons": {
+            "notification": "",
+            "none": "",
+            "dnd-notification": "",
+            "dnd-none": "",
+            "inhibited-notification": "",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     },
     "clock": {
         "format": "<span face=\"Font Awesome 6 Free\"></span> {:%H:%M}",
