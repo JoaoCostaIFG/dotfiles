@@ -91,9 +91,17 @@ function httpstatus {
 
 # clipboard
 function copy {
-    cat | xclip -selection clipboard
+  cat | wl-copy
 }
 
 function paste {
+  wl-paste
+}
+
+function xcopy {
+    cat | xclip -selection clipboard
+}
+
+function xpaste {
     xclip -selection clipboard -o
 }

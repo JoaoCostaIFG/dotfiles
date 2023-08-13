@@ -3,12 +3,15 @@
 # Options
 set shell sh # needs to be posix compliant
 set shellopts '-eu' # makes shell commands safer
-set previewer ~/.config/lf/previewer
+set preview
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
 set filesep "\n"
 set ifs "\n"
 set scrolloff 10
 # set color256
-# set ratios '1:1:3'
 # dynamic ratios on startup
 %{{
   w=$(tput cols)
@@ -21,6 +24,9 @@ set scrolloff 10
 set drawbox
 set wrapscroll # make scrolling wrap
 
+# warning about nested instances
+&[ $LF_LEVEL -eq 1 ] || lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
+
 # show current directory in window title (not standard so might not work on someplaces)
 cmd on-cd &{{
   # '&' commands run silently in background (which is what we want here),
@@ -30,6 +36,13 @@ cmd on-cd &{{
 }}
 # also run at startup
 on-cd
+
+# edit config and reload lf
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+map C edit-config
 
 # Commands
 cmd q :quit
@@ -41,7 +54,7 @@ cmd open ${{
   text/*) $EDITOR $fx ;;
   image/x-xcf) setsid gimp $f >/dev/null 2>&1 & ;;
   image/*) setsid imv $f "$(dirname "$f")" & ;;
-  audio/*) mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f ;;
+  audio/*) setsid mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f ;;
   video/*) setsid mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f -quiet >/dev/null 2>&1 & ;;
   application/pdf) setsid zathura $fx >/dev/null 2>&1 & ;;
   *)
@@ -52,50 +65,35 @@ cmd open ${{
   esac
 }}
 
+cmd share $curl -F"file=@$fx" https://0x0.st | wl-copy
+
 cmd detox ${{ # detox name (clean file name)
   set -f
   detox -r $fx
 }}
 
-cmd rename %{{
-  [ -z "$1" ] && printf "needs file name" && exit
-
-  file="$1"
-  skip=1
-  for arg in $@; do
-    [ $skip -eq 0 ] && file="${file} $arg"
-    skip=0
-  done
-
-  [ -e "$file" ] && printf "file exists" && exit
-  mv $f "$file"
-}}
-
-cmd rename_full ${{
-  lf -remote "send $id push :rename<space>$f"
-}}
-
-cmd rename_ext ${{ # edit filename before the extension
-  lf -remote "send $id push :rename<space>$f<a-b><c-b>"
-}}
-
-cmd rename_bulk ${{ # blunk-rename (in file manager)
-  old=$(mktemp)
-  new=$(mktemp)
-  [ -n $fs ] && fs=$(ls)
-  printf "$fs\n" > $old
-  printf "$fs\n" > $new
-  $EDITOR $new
-  [ $(cat $new | wc -l) -ne $(cat $old | wc -l) ] && exit
-  paste $old $new | while read names; do
-    src=$(printf $names | cut -f1)
-    dst=$(printf $names | cut -f2)
-    [ $src = $dst ] && continue
-    [ -e $dst ] && continue
-    mv $src $dst
-  done
-  rm $old $new
-  lf -remote "send $id unselect"
+cmd rename_bulk ${{
+    old="$(mktemp)"
+    new="$(mktemp)"
+    if [ -n "$fs" ]; then
+        fs="$(basename -a $fs)"
+    else
+        fs="$(ls)"
+    fi
+    printf '%s\n' "$fs" >"$old"
+    printf '%s\n' "$fs" >"$new"
+    $EDITOR "$new"
+    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+    paste "$old" "$new" | while IFS= read -r names; do
+        src="$(printf '%s' "$names" | cut -f1)"
+        dst="$(printf '%s' "$names" | cut -f2)"
+        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+            continue
+        fi
+        mv -- "$src" "$dst"
+    done
+    rm -- "$old" "$new"
+    lf -remote "send $id unselect"
 }}
 
 cmd delete ${{
@@ -120,14 +118,6 @@ cmd copyto ${{
   dest="$(find $HOME -type d | fzf)" &&
     eval cp -ivr $fx $dest &&
     notify-send "File(s) copied." "File(s) copies to $dest."
-}}
-
-cmd newdir ${{
-  set -f
-  echo "New directory name?"
-  read newd
-  mkdir -- "$newd"
-  mv -- $fx "$newd"
 }}
 
 cmd decompress ${{ # inflate archive
@@ -169,6 +159,41 @@ cmd fzf_jump ${{
   lf -remote "send $id $cmd \"$res\""
 }}
 
+cmd select-files &{{
+    get_files() {
+        if [ "$lf_hidden" = 'false' ]; then
+            find "$PWD" -mindepth 1 -maxdepth 1 -type f -not -name '.*' -print0
+        else
+            find "$PWD" -mindepth 1 -maxdepth 1 -type f -print0
+        fi |
+        xargs -0 printf ' %q'
+    }
+
+    lf -remote "send $id :unselect; toggle $(get_files)"
+}}
+
+cmd select-dirs &{{
+    get_dirs() {
+        if [ "$lf_hidden" = 'false' ]; then
+            find "$PWD" -mindepth 1 -maxdepth 1 -type d -not -name '.*' -print0
+        else
+            find "$PWD" -mindepth 1 -maxdepth 1 -type d -print0
+        fi |
+        xargs -0 printf ' %q'
+    }
+
+    lf -remote "send $id :unselect; toggle $(get_dirs)"
+}}
+
+cmd mkdir %IFS=" "; mkdir -- "$*"
+cmd touch %IFS=" "; touch -- "$*"
+
+cmd mkdir_sel %{{
+    IFS=" "
+    mkdir -p -- "$*"
+    lf -remote "send $id select \"$*\""
+}}
+
 # Mappings
 map <c-z> $ kill -STOP $PPID # put lf into de background
 
@@ -184,18 +209,17 @@ map o open $f
 map O open $f
 map x $$f # execute current file
 map X !$f
-map i $ ~/.config/lf/previewer $f 60 | less -R
 
-map a push %mkdir<space>
-map t push %touch<space>
-map r push :rename<space> # shows full current name
-map Rr rename_full
+map a push :mkdir<space>
+map A push :mkdir_sel<space>
+map <c-a> select-files
+map t push :touch<space>
+map r rename
+map Rf :rename; cmd-end; cmd-delete-home
 map Rd detox
-map Re rename_ext
+map Re :rename; cmd-delete-home
 map Rb rename_bulk
-map P delete # <delete> now maps to P
 map <delete> delete
-map <c-a> newdir
 
 # Shortcuts and navigation
 map , shortcuts

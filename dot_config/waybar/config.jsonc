@@ -32,6 +32,7 @@
         "rewrite": {
             "(.*) — Mozilla Firefox": "<span face=\"Font Awesome 6 Free\"></span> $1",
             "(.*) — LibreWolf": "<span face=\"Font Awesome 6 Free\"></span> $1",
+            "(.*) - Mozilla Thunderbird": "<span face=\"Font Awesome 6 Free\"></span> $1",
             "Fish (.*)": "<span face=\"Font Awesome 6 Free\"></span> [$1]",
             "Steam": "<span face=\"Font Awesome 6 Free\"></span>",
             "(.*) - Discord": "<span face=\"Font Awesome 6 Free\"></span> $1",

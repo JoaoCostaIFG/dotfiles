@@ -100,7 +100,7 @@ bindsym $mod+Return exec $menu
 bindsym $mod+Control+a exec $term -e calcurse
 bindsym $mod+Control+c exec $term -e python
 bindsym $mod+Control+Shift+c exec $term -e mmaxima
-bindsym $mod+Control+e exec XDG_SESSION_TYPE=x11 MOZ_ENABLE_WAYLAND=0 QT_QPA_PLATFORM="xcb" birdtray -t
+bindsym $mod+Control+e exec XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 MOZ_ENABLE_WAYLAND=0 QT_QPA_PLATFORM="xcb" birdtray -t
 bindsym $mod+Control+f exec $term -e lfcd_sh
 bindsym $mod+Control+h exec dpizhid
 bindsym $mod+Control+i exec $term -e newsboat
@@ -253,12 +253,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-### Autoruns
-exec "/usr/lib/polkit-kde-authentication-agent-1"
-exec tailscale-systray
-# exec XDG_SESSION_TYPE=x11 MOZ_ENABLE_WAYLAND=0 QT_QPA_PLATFORM="xcb" birdtray
-exec mpd
-
 #
 # Status Bar:
 #
@@ -288,3 +282,9 @@ for_window [window_role="task_dialog|app|bubble|pop-up|page-info|Preferences"] f
 for_window [title="Steam - Update*"] floating enable
 
 include /etc/sway/config.d/*
+
+### Autoruns
+exec "/usr/lib/polkit-kde-authentication-agent-1"
+# exec trayscale --hide-window --gapplication-service
+# exec XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 MOZ_ENABLE_WAYLAND=0 QT_QPA_PLATFORM="xcb" birdtray
+exec mpd

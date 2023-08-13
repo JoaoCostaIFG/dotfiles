@@ -45,6 +45,7 @@ Plug 'junegunn/fzf.vim'
 " programming
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " treesitter
 Plug 'sheerun/vim-polyglot' " all langs syntax highlight
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' } " better python syntax highlight
 Plug 'kristijanhusak/vim-carbon-now-sh' " export code snippets
 Plug 'honza/vim-snippets' " snippets
 Plug 'windwp/nvim-autopairs' " pairs
