@@ -30,7 +30,7 @@ require("lazy").setup({
   {
     'rcarriga/nvim-notify',
     config = function()
-      vim.notify = require("notify")     
+      vim.notify = require("notify")
       if vim.fn.has("termguicolors") then
         vim.notify.setup({ background_colour = "#000000" })
       else
@@ -339,7 +339,7 @@ require("lazy").setup({
       -- Set configuration for specific filetype.
       cmp.setup.filetype('gitcommit', {
         sources = cmp.config.sources({
-          { name = 'git' }, 
+          { name = 'git' },
         }, {
           { name = 'buffer' },
           { name = 'path' },
@@ -414,6 +414,7 @@ require("lazy").setup({
           css         = { require("formatter.filetypes.css").prettier },
           html        = { require("formatter.filetypes.html").prettier },
           javascript  = { require("formatter.filetypes.javascript").prettier },
+          typescript  = { require("formatter.filetypes.typescript").prettier },
           json        = { require("formatter.filetypes.json").prettier },
           markdown    = { require("formatter.filetypes.markdown").prettier },
           sh          = { require("formatter.filetypes.sh").shfmt },
@@ -533,7 +534,23 @@ require("lazy").setup({
       }
     end,
   }, -- rainbow parentheses
-  {'metakirby5/codi.vim'}, -- hacker scratchpad
+  {
+    'metakirby5/codi.vim',
+    lazy = true,
+    init = function()
+      -- vim.keymap.set("", "<F4>", ":Codi!!<CR>", {desc = "Open Codi", silent = true})
+      vim.cmd([[
+        let g:codi#interpreters = {
+          \ 'python': {
+            \ 'bin': 'python',
+            \ 'prompt': '^\(>>>\|\.\.\.\) ',
+            \ 'quitcmd': "import readline; readline.clear_history(); exit()",
+          \ },
+        \ }
+      ]])
+    end,
+    cmd = { "Codi", "CodiNew", "CodiExpand", "CodiSelect", "CodiUpdate" },
+  }, -- hacker scratchpad
   {
     "RRethy/vim-illuminate",
     opts = {
@@ -586,7 +603,7 @@ require("lazy").setup({
   {'folke/todo-comments.nvim'},
 })
 
- --------------------------------------------- 
+ ---------------------------------------------
 --      ___    ___    ____   ___  _____  ____ --
 --    / __ ) /   |  / ___/ /  _// ____// ___/ --
 --   / __  |/ /| |  \__ \  / / / /     \__ \  --
@@ -620,8 +637,9 @@ vim.opt.updatetime = 300
 vim.opt.shortmess = "a"
 vim.opt.signcolumn = "yes" -- always show sign column (no shift when diagnostics run)
 vim.opt.encoding = "utf-8"
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.cmd([[ set splitbelow splitright  ]])
+-- vim.opt.splitright = true
+-- vim.opt.splitbelow = true
 vim.opt.showtabline = 0
 vim.opt.hlsearch = false
 vim.opt.ignorecase  = true
@@ -670,14 +688,14 @@ vim.api.nvim_create_user_command("Wq", "wq", {desc="Save and quit (same as wq)"}
 vim.api.nvim_create_user_command("W", "w", {desc="Save (same as w)"})
 vim.api.nvim_create_user_command("Q", "q", {desc="Quit (same as q)"})
 
-  --------------------------------------------------- 
+  ---------------------------------------------------
 --  _        _  ___    ___  _____  ___  _   _  _____ --
 -- | |     / // __ \ /  _//_  __//  _// | / // ____/ --
 -- | | /| / // /_/ / / /   / /   / / /  |/ // /___   --
 -- | |/ |/ // _, _/_/ /   / /  _/ / / /|  // /_  /   --
 -- |__/|__//_/ |_|/___/  /_/  /___//_/ |_/ \____/    --
 --                                                   --
-  --------------------------------------------------- 
+  ---------------------------------------------------
 -- spell-check
 vim.keymap.set('', '<Leader>o', ":setlocal spell! spelllang=en_us<CR>")
 vim.keymap.set('', '<Leader>O', ":setlocal spell! spelllang=pt<CR>")
