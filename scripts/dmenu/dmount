@@ -52,18 +52,18 @@ case "$op" in
     if udisksctl mount -b "/dev/${selected_drive}"; then
       # technically this could be "optimized" but the code would look uglier imo
       mount_point="$(udisksctl info -b "/dev/$selected_drive" | grep -iF MountPoints | awk '{print $2}')"
-      notify-send "DMOUNT SUCCESS" "$selected_drive partition mounted to $mount_point" &
+      notify-send -e "DMOUNT SUCCESS" "$selected_drive partition mounted to $mount_point" &
     else
-      notify-send "DMOUNT FAILURE" "Can't mount $selected_drive partition" &
+      notify-send -e "DMOUNT FAILURE" "Can't mount $selected_drive partition" &
     fi
   else
     # fallback
     sudo -A mkdir "/mnt/${selected_drive}"
     if sudo -A mount "/dev/${selected_drive}" "/mnt/${selected_drive}"; then
       mount_point="/mnt/${selected_drive}"
-      notify-send "DMOUNT SUCCESS" "$selected_drive partition mounted to $mount_point" &
+      notify-send -e "DMOUNT SUCCESS" "$selected_drive partition mounted to $mount_point" &
     else
-      notify-send "DMOUNT FAILURE" "Can't mount $selected_drive partition" &
+      notify-send -e "DMOUNT FAILURE" "Can't mount $selected_drive partition" &
     fi
   fi
   ;;
@@ -75,18 +75,18 @@ case "$op" in
     # use udisks2
     mount_point="$(udisksctl info -b "/dev/$selected_drive" | grep -iF MountPoints | awk '{print $2}')"
     if udisksctl unmount -b "/dev/${selected_drive}"; then
-      notify-send "DMOUNT SUCCESS" "$selected_drive partition umounted from $mount_point" &
+      notify-send -e "DMOUNT SUCCESS" "$selected_drive partition umounted from $mount_point" &
     else
-      notify-send "DMOUNT FAILURE" "Can't umount $selected_drive partition from $mount_point" &
+      notify-send -e "DMOUNT FAILURE" "Can't umount $selected_drive partition from $mount_point" &
     fi
   else
     # fallback
     mount_point="/mnt/${selected_drive}"
     if sudo -A umount "/dev/${selected_drive}"; then
       sudo -A rmdir /mnt/"$selected_drive"
-      notify-send "DMOUNT SUCCESS" "$selected_drive partition umounted from $mount_point" &
+      notify-send -e "DMOUNT SUCCESS" "$selected_drive partition umounted from $mount_point" &
     else
-      notify-send "DMOUNT FAILURE" "Can't umount $selected_drive partition from $mount_point" &
+      notify-send -e "DMOUNT FAILURE" "Can't umount $selected_drive partition from $mount_point" &
     fi
   fi
   ;;
@@ -102,7 +102,7 @@ case "$op" in
 
   mkdir "$HOME"/Android"$selected_drive"
   simple-mtpfs --device "$selected_drive" "$HOME"/Android"$selected_drive"
-  notify-send "DMOUNT SUCCESS" "Android partition $selected_drive mounted to ~/Android$selected_drive" &
+  notify-send -e "DMOUNT SUCCESS" "Android partition $selected_drive mounted to ~/Android$selected_drive" &
   ;;
 "Umount android")
   selected_drive=$(simple-mtpfs -l |
@@ -117,9 +117,9 @@ case "$op" in
   fusermount -u "$HOME"/Android"$selected_drive"
   rmdir "$HOME"/Android"$selected_drive"
   if [ -d "$HOME"/Android"$selected_drive" ]; then
-    notify-send "DMOUNT FAILURE" "Can't umount $selected_drive android partition from from ~/Android$selected_drive" &
+    notify-send -e "DMOUNT FAILURE" "Can't umount $selected_drive android partition from from ~/Android$selected_drive" &
   else
-    notify-send "DMOUNT SUCCESS" "Android partition $selected_drive umounted from ~/Android$selected_drive" &
+    notify-send -e "DMOUNT SUCCESS" "Android partition $selected_drive umounted from ~/Android$selected_drive" &
   fi
   ;;
 esac

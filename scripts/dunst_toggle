@@ -7,6 +7,6 @@ if [ "$was_paused" = "false" ]; then
   dunstctl set-paused true
 else
   dunstctl set-paused false
-  notify-send "Dunst ON"
+  notify-send -e "Dunst ON"
 fi
 
