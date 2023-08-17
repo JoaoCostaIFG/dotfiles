@@ -23,10 +23,8 @@
           dot_config/mpd,
           dot_config/maxima,
           dot_config/newsboat,
-          dot_config/nvim,
           dot_config/pulse,
           dot_config/systemd,
-          dot_config/coc-packages.json
         ]
     ~/.config/mpd/mpd.conf:
         create: true
@@ -38,10 +36,6 @@
     ~/.config/newsboat/config:
         create: true
         path: dot_config/newsboat/config
-    ~/.config/nvim/:
-        create: true
-        glob: true
-        path: dot_config/nvim/*
     ~/.config/pulse/:
         create: true
         glob: true
@@ -50,7 +44,6 @@
         create: true
         glob: true
         path: dot_config/systemd/*
-    ~/.config/coc/extensions/package.json: dot_config/coc-packages.json
     
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
