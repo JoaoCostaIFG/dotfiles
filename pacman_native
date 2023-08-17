@@ -28,6 +28,7 @@ chafa
 checkbashisms
 checksec
 cmake
+composer
 cpupower
 croc
 dash
@@ -51,6 +52,7 @@ figlet
 firefox
 fish
 flex
+fontforge
 foot
 fprintd
 freecad
@@ -96,6 +98,7 @@ jre-openjdk
 jre11-openjdk
 jre11-openjdk-headless
 jshon
+kooha
 kvantum
 lib32-fakeroot
 lib32-gamemode
@@ -240,11 +243,12 @@ thunderbird
 time
 tk
 tree
-ttf-carlito
 ttf-dejavu
 ttf-inconsolata
 ttf-liberation
 ttf-linux-libertine
+ttf-sourcecodepro-nerd
+ttf-victor-mono-nerd
 udisks2
 ufw
 unrar
