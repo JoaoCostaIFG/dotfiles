@@ -52,7 +52,7 @@ require("lazy").setup({
 		event = "VeryLazy",
 		init = function()
 			vim.opt.timeout = true
-			vim.opt.timeoutlen = 300
+			vim.opt.timeoutlen = 500
 		end,
 		opts = {},
 	},
@@ -85,21 +85,54 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"vim-airline/vim-airline",
-		init = function()
-			-- AIRLINE
-			vim.g.airline_theme = "everforest"
-			vim.g["airline#extensions#tabline#enabled"] = 1
-			vim.g["airline#extensions#bufferline#enabled"] = 1
-			vim.g["airline#extensions#tabline#formatter"] = "unique_tail"
-			vim.g["airline_detect_modified"] = 0
-			vim.g["airline#parts#ffenc#skip_expected_string"] = "utf-8[unix]"
-			vim.g["airline#extensions#default#layout"] = { { "a", "b", "c" }, { "x", "y", "z", "error", "warning" } }
-			vim.g["airline#extensions#coc#error_symbol"] = "!"
-			vim.g["airline#extensions#coc#warning_symbol"] = "."
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			icons_enabled = true,
+			theme = "everforest",
+			component_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
+			tabline = {},
+		},
+	},
+	{
+		'akinsho/bufferline.nvim', version = "*",
+		dependencies = 'nvim-tree/nvim-web-devicons',
+		config = function()
+			local bufferline = require('bufferline')
+			bufferline.setup({
+				options = {
+					mode = "buffers",
+					middle_mouse_command = "bdelete! %d",
+					separator_style = {""},
+					indicator = {
+						icon = '',
+						style = 'underline',
+					},
+					diagnostics = "nvim_lsp",
+					diagnostics_indicator = function(count, level, diagnostics_dict, context)
+						local icon = level:match("error") and " " or " "
+						return " " .. icon .. count
+					end,
+					offsets = {
+						{
+							filetype = "neo-tree",
+							text = "NeoTree",
+							text_align = "left",
+							separator = true,
+						}
+					},
+					-- separator_style = "slant",
+					always_show_bufferline = true,
+					hover = {
+							enabled = true,
+							delay = 200,
+							reveal = {'close'}
+					},
+				},
+			})
 		end,
 	},
-	{ "vim-airline/vim-airline-themes" },
 	{
 		"norcalli/nvim-colorizer.lua",
 		ft = { "css", "javascript", "typescript", "html" },
@@ -120,15 +153,6 @@ require("lazy").setup({
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,
 	},
-	{
-		"petertriho/nvim-scrollbar",
-		opts = {
-			handle = {
-				color = "#777777",
-				hide_if_all_visible = true,
-			},
-		},
-	}, -- scrollbar
 
 	------------------------------------------------------------------------------------------------
 	--                                          WRITING                                           --
@@ -211,7 +235,7 @@ require("lazy").setup({
 	{
 		"voldikss/vim-floaterm",
 		init = function()
-			vim.g.floaterm_opener = "vsplit"
+			vim.g.floaterm_opener = "edit"
 		end,
 	},
 	{
@@ -252,13 +276,13 @@ require("lazy").setup({
 	}, -- session management
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-    lazy = true,
+		lazy = true,
 		branch = "v3.x",
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" },
-    init = function()
-      vim.keymap.set("n", "<Leader>f", ":Neotree<CR>")
-    end,
-    cmd = { "Neotree" },
+		init = function()
+			vim.keymap.set("n", "<Leader>f", ":Neotree<CR>")
+		end,
+		cmd = { "Neotree" },
 	},
 
 	------------------------------------------------------------------------------------------------
@@ -649,6 +673,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.mouse = "a"
+vim.opt.mousemoveevent = true
 vim.opt.scrolloff = 5
 vim.opt.cmdheight = 2
 vim.opt.updatetime = 300
@@ -657,7 +682,6 @@ vim.opt.signcolumn = "yes" -- always show sign column (no shift when diagnostics
 vim.opt.encoding = "utf-8"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-vim.opt.showtabline = 0
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

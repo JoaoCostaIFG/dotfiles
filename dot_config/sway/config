@@ -28,12 +28,14 @@ output "*" bg /home/joao/.local/share/wallpaper/ds_1.png fill
 output DP-1 {
     mode 1920x1080@143.855Hz
     bg /home/joao/.local/share/wallpaper/ds_1.png fill
+    position 1920,0
 }
 output HDMI-A-1 {
     bg /home/joao/.local/share/wallpaper/ds_2.png fill
+    position 0,0
 }
 # primary monitor for wine
-exec_always xrandr --output $(xrandr | grep -m 1 XWAYLAND | awk '{print $1;}') --primary
+exec_always xrandr --output DP-1 --primary
 
 ### Idle configuration
 #

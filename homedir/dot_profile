@@ -17,6 +17,7 @@ export PAGER="less"
 export READER="zathura"
 export TERMINAL="alacritty"
 export VISUAL="nvim"
+export LS="eza"
 export NACHOS="cute"
 
 # clean-up
