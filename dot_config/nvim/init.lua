@@ -692,6 +692,10 @@ vim.keymap.set("", "<C-S>", ":update<CR>", { silent = true })
 vim.keymap.set("x", "<C-S>", "<C-C>:update<CR>", { silent = true })
 vim.keymap.set("i", "<C-S>", "<C-O>:update<CR>", { silent = true })
 
+-- change buffer
+vim.keymap.set("n", "<C-l>", ":bnext<CR>")
+vim.keymap.set("n", "<C-h>", ":bprevious<CR>")
+
 -- backup stuff
 vim.cmd([[
 set backupcopy=yes
