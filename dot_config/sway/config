@@ -37,6 +37,9 @@ output HDMI-A-1 {
 # primary monitor for wine
 exec_always xrandr --output DP-1 --primary
 
+# monitor for tablet
+input type:tablet_tool map_to_output HDMI-A-1
+
 ### Idle configuration
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off

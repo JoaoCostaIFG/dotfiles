@@ -296,6 +296,7 @@ require("lazy").setup({
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local lspconfig = require("lspconfig")
+			lspconfig.clangd.setup({ capabilities = capabilities })
 			lspconfig.pyright.setup({ capabilities = capabilities })
 			lspconfig.tsserver.setup({ capabilities = capabilities })
 		end,
@@ -452,6 +453,9 @@ require("lazy").setup({
 				log_level = vim.log.levels.WARN,
 				filetype = {
 					-- TODO "--prose-wrap", "always",
+					c = { require("formatter.filetypes.c").clangformat },
+					cpp = { require("formatter.filetypes.cpp").clangformat },
+					cs = { require("formatter.filetypes.cs").clangformat },
 					css = { require("formatter.filetypes.css").prettier },
 					html = { require("formatter.filetypes.html").prettier },
 					javascript = { require("formatter.filetypes.javascript").prettier },
