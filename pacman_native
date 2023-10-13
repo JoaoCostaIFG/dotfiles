@@ -6,9 +6,10 @@ adobe-source-sans-fonts
 adobe-source-serif-fonts
 alacritty
 alsa-utils
+android-tools
+android-udev
 ansible
 arc-solid-gtk-theme
-asciinema
 atool
 autoconf
 automake
@@ -28,7 +29,6 @@ chafa
 checkbashisms
 checksec
 cmake
-composer
 cpupower
 croc
 dash
@@ -36,14 +36,15 @@ detox
 dhcpcd
 discord
 docker
+docker-buildx
 docker-compose
 docx2txt
 dos2unix
 dosfstools
 easyeffects
 efibootmgr
-exa
 exfat-utils
+eza
 f2fs-tools
 fakeroot
 ffmpeg
@@ -71,6 +72,7 @@ gnu-free-fonts
 gnu-netcat
 gnuplot
 go
+godot
 graphviz
 grim
 groff
@@ -99,6 +101,8 @@ jre11-openjdk
 jre11-openjdk-headless
 jshon
 kooha
+krita
+kubectl
 kvantum
 lib32-fakeroot
 lib32-gamemode
@@ -125,6 +129,7 @@ lib32-openal
 lib32-opencl-clover-mesa
 lib32-pipewire
 lib32-pipewire-jack
+lib32-pipewire-v4l2
 lib32-v4l-utils
 lib32-vulkan-icd-loader
 lib32-vulkan-intel
@@ -147,13 +152,13 @@ m4
 make
 man-db
 man-pages
-maven
 maxima
 mdadm
 mediainfo
 mesa
 mesa-utils
 mesa-vdpau
+minikube
 mosh
 mpc
 mpd
@@ -189,6 +194,7 @@ pavucontrol
 perf
 pipewire-alsa
 pipewire-pulse
+pipewire-v4l2
 pkgconf
 plantuml
 playerctl
@@ -225,6 +231,7 @@ scons
 screen
 shfmt
 slurp
+smartmontools
 steam
 sudo
 supertux
@@ -237,7 +244,10 @@ sysfsutils
 tailscale
 texinfo
 texlive-basic
+texlive-binextra
+texlive-fontsextra
 texlive-fontsrecommended
+texlive-latexextra
 texlive-latexrecommended
 thunderbird
 time
@@ -260,6 +270,7 @@ veracrypt
 vi
 vulkan-intel
 vulkan-radeon
+waybar
 wget
 which
 wine-gecko
@@ -279,6 +290,7 @@ xorg-xev
 xorg-xkill
 xorg-xprop
 xorg-xrandr
+xorg-xrdb
 xorg-xwayland
 xorg-xwininfo
 yapf
