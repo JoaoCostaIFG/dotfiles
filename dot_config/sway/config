@@ -290,6 +290,7 @@ include /etc/sway/config.d/*
 
 ### Autoruns
 exec "/usr/lib/polkit-kde-authentication-agent-1"
+exec xrdb -load "$HOME/.Xdefaults"
 # exec trayscale --hide-window --gapplication-service
 # exec XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 MOZ_ENABLE_WAYLAND=0 QT_QPA_PLATFORM="xcb" birdtray
 exec mpd
