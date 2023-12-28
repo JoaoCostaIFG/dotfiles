@@ -26,19 +26,21 @@ set $lockscreen swaylock -f --screenshots --clock --indicator-idle-visible --fad
 # wallpaper
 output "*" bg /home/joao/.local/share/wallpaper/ds_1.png fill
 output DP-1 {
-    mode 1920x1080@143.855Hz
+    mode 2560x1440
     bg /home/joao/.local/share/wallpaper/ds_1.png fill
-    position 1920,0
+    position 1080,480
 }
 output HDMI-A-1 {
+    mode 1920x1080
     bg /home/joao/.local/share/wallpaper/ds_2.png fill
     position 0,0
+    transform 270
 }
 # primary monitor for wine
 exec_always xrandr --output DP-1 --primary
 
 # monitor for tablet
-input type:tablet_tool map_to_output HDMI-A-1
+input type:tablet_tool map_to_output DP-1
 
 ### Idle configuration
 #

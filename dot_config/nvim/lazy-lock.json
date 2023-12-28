@@ -10,6 +10,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "codi.vim": { "branch": "master", "commit": "83b9859aaf8066d95892e01eb9c01571a4b325dd" },
   "copilot.lua": { "branch": "master", "commit": "2c942f33ba5c621c906e625e00a1bb504b65e2f0" },
+  "deadcolumn.nvim": { "branch": "master", "commit": "b9b5e237371ae5379e280e4df9ecf62e4bc8d7a5" },
   "dial.nvim": { "branch": "master", "commit": "611cf5e84f655c96318b803785f89e3146d8e48f" },
   "diffview.nvim": { "branch": "main", "commit": "7e5a85c186027cab1e825d018f07c350177077fc" },
   "dressing.nvim": { "branch": "master", "commit": "c1e1d5fa44fe08811b6ef4aadac2b50e602f9504" },
