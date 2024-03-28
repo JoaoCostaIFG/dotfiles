@@ -299,6 +299,7 @@ require("lazy").setup({
 			lspconfig.clangd.setup({ capabilities = capabilities })
 			lspconfig.pyright.setup({ capabilities = capabilities })
 			lspconfig.tsserver.setup({ capabilities = capabilities })
+			lspconfig.marksman.setup({ capabilities = capabilities })
 		end,
 		cmd = { "LspInfo", "LspStart", "LspStop", "LspRestart" },
 	},
@@ -529,12 +530,11 @@ require("lazy").setup({
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
-			require("indent_blankline").setup({
-				-- can use "│" and "▏"
-				char = "▏",
-				space_char_blankline = " ",
-				buftype_exclude = { "terminal" },
-			})
+			require("ibl").setup({})
+			-- can use "│" and "▏"
+			--char = "▏",
+			--space_char_blankline = " ",
+			--buftype_exclude = { "terminal" },
 
 			vim.keymap.set("", "<F3>", ":IndentBlanklineToggle<CR>", { desc = "Toggle indent guides", silent = true })
 		end,
