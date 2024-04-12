@@ -1,3 +1,6 @@
 #!/bin/sh
 
 notify-send -e "GameMode started" &
+
+# disable animations and stuff when gaming
+~/.config/hypr/gamemode.sh

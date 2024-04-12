@@ -19,17 +19,27 @@
 ### - wl-clipboard
 ### - bemenu
 
+set -eu
+
 parse_arg() {
   case "$1" in
   "snip")
     # Sniping tool
     # intentionally unquoted
-    grim -g "$(slurp)" - | wl-copy
+    geometry="$(slurp)"
+    if [ -z "$geometry" ]; then
+      exit 1
+    fi
+    grim -g "$geometry" - | wl-copy
     notify-send -e "Snipping tool" "Snip saved to clipboard" &
     ;;
   "snip-edit")
     # snip and then edit
-    grim -g "$(slurp)" - | swappy -f -
+    geometry="$(slurp)"
+    if [ -z "$geometry" ]; then
+      exit 1
+    fi
+    grim -g "$geometry" - | swappy -f -
     ;;
   "picker")
     # Color picker

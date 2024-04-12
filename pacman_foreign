@@ -1,15 +1,11 @@
+autofs
 babelfish-fish-git
-birdtray
 ctpv-git
 cura-modern-appimage
 dashbinsh
-discord-screenaudio
-gtk4-git
-heimdall-grimler-git
 heroic-games-launcher-bin
 hunspell-pt_pt
 hyprpicker-git
-leagueoflegends-git
 lf-bin
 librewolf-bin
 mpdris2
@@ -21,6 +17,7 @@ protonup-qt-bin
 r2modman-bin
 shellcheck-bin
 simple-mtpfs
+superproductivity-bin
 swaylock-effects-git
 swaync
 tor-browser
@@ -28,9 +25,8 @@ ttf-ms-fonts
 ttf-symbola
 ttf-twemoji
 ungoogled-chromium-bin
+vesktop-bin
 visual-studio-code-bin
 wdisplays
-wine-lol-bin
-write_stylus
 xp-pen-tablet
 yay

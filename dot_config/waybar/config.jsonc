@@ -1,7 +1,7 @@
 {
-    "layer": "bottom",
+    "layer": "top",
     "modules-left": [
-        "sway/workspaces",
+        "hyprland/workspaces",
         "sway/mode"
     ],
     "modules-center": [
