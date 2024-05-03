@@ -115,8 +115,6 @@ bar {
     swaybar_command waybar
 }
 
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-
 ### Floating windows
 for_window [window_role="task_dialog|app|bubble|pop-up|page-info|Preferences"] floating enable
 for_window [title="Steam - Update*"] floating enable

@@ -2,10 +2,9 @@
     "layer": "top",
     "modules-left": [
         "hyprland/workspaces",
-        "sway/mode"
     ],
     "modules-center": [
-        "sway/window"
+        "hyprland/window"
     ],
     "modules-right": [
         "mpd",
@@ -16,16 +15,15 @@
         "custom/notification",
         "tray"
     ],
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "format": "{value}{icon}",
+    "hyprland/workspaces": {
+        "format": "{name}{icon}",
         "format-icons": {
             "urgent": "",
             "focused": "",
             "default": ""
         }
     },
-    "sway/window": {
+    "hyprland/window": {
         "max-length": 160,
         "all-outputs": false,
         "icon": false,
