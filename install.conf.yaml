@@ -26,6 +26,14 @@
           dot_config/pulse,
           dot_config/systemd,
         ]
+    ~/.config/user-dirs.dirs:
+        create: true
+        force: true
+        path: dot_config/user-dirs.dirs
+    ~/.config/mimeapps.list:
+        create: true
+        force: true
+        path: dot_config/mimeapps.list
     ~/.config/mpd/mpd.conf:
         create: true
         path: dot_config/mpd/mpd.conf
@@ -40,10 +48,9 @@
         create: true
         glob: true
         path: dot_config/pulse/*
-    ~/.config/systemd/user/:
+    ~/.config/systemd/user/default.target.wants/playerctld.service:
         create: true
-        glob: true
-        path: dot_config/systemd/*
+        path: dot_config/systemd/playerctld.service
     
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

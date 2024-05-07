@@ -45,6 +45,7 @@ dos2unix
 dosfstools
 easyeffects
 efibootmgr
+electron
 espeak-ng
 exfat-utils
 eza
@@ -139,7 +140,6 @@ lib32-pipewire-jack
 lib32-pipewire-v4l2
 lib32-v4l-utils
 lib32-vulkan-icd-loader
-lib32-vulkan-intel
 lib32-vulkan-radeon
 libappindicator-gtk2
 libliftoff
@@ -147,6 +147,8 @@ libnotify
 libreoffice-fresh
 libtool
 libva-mesa-driver
+libva-utils
+libvdpau-va-gl
 libxft
 linux
 linux-firmware
@@ -182,7 +184,6 @@ networkmanager-pptp
 newsboat
 nfs-utils
 nm-connection-editor
-nodejs
 npm
 nss-mdns
 ntfs-3g
@@ -200,6 +201,7 @@ otf-font-awesome
 p7zip
 pacman-contrib
 patch
+patchelf
 pavucontrol
 perf
 pipewire-alsa
@@ -208,6 +210,7 @@ pipewire-v4l2
 pkgconf
 plantuml
 playerctl
+pnpm
 polkit-kde-agent
 poppler
 prettier
@@ -250,6 +253,7 @@ swappy
 sway
 swaybg
 swayidle
+swaync
 syncthing
 sysfsutils
 tailscale
@@ -278,10 +282,11 @@ unzip
 urlscan
 usbutils
 valgrind
+vdpauinfo
 vi
 visidata
-vulkan-intel
 vulkan-radeon
+vulkan-tools
 vulkan-validation-layers
 waybar
 wayvnc
@@ -297,7 +302,6 @@ xclip
 xdg-desktop-portal
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
-xdg-desktop-portal-wlr
 xdotool
 xf86-video-amdgpu
 xfsprogs

@@ -15,11 +15,12 @@ parsec-bin
 prismlauncher-qt5-bin
 protonup-qt-bin
 r2modman-bin
+scala
+scala3
 shellcheck-bin
 simple-mtpfs
 superproductivity-bin
 swaylock-effects-git
-swaync
 tor-browser
 ttf-ms-fonts
 ttf-symbola
@@ -28,5 +29,6 @@ ungoogled-chromium-bin
 vesktop-bin
 visual-studio-code-bin
 wdisplays
+wine-ge-custom-bin
 xp-pen-tablet
 yay
