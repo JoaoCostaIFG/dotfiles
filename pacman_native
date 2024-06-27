@@ -33,6 +33,8 @@ checksec
 cmake
 cpupower
 croc
+cups
+cups-pdf
 dash
 detox
 dhcpcd
@@ -97,20 +99,18 @@ http-parser
 hunspell-en_us
 hyperfine
 hyprcursor
+hyprland
 hyprpaper
-iftop
+hyprwayland-scanner
 imagemagick
 imv
 inetutils
 intel-ucode
-intellij-idea-community-edition
 jdk-openjdk
 jfsutils
 jq
 jre11-openjdk-headless
 jshon
-kooha
-krita
 kvantum
 lib32-fakeroot
 lib32-gamemode
@@ -169,6 +169,7 @@ mesa
 mesa-utils
 mesa-vdpau
 meson
+monolith
 mosh
 mpc
 mpd
@@ -178,7 +179,6 @@ ncmpcpp
 neofetch
 neovim
 net-tools
-netctl
 networkmanager
 networkmanager-pptp
 newsboat
@@ -195,6 +195,7 @@ openblas
 opencl-clover-mesa
 opencl-rusticl-mesa
 opencv
+opensc
 openssh
 os-prober
 otf-font-awesome
@@ -210,7 +211,6 @@ pipewire-v4l2
 pkgconf
 plantuml
 playerctl
-pnpm
 polkit-kde-agent
 poppler
 prettier
@@ -301,7 +301,6 @@ wl-clipboard
 xclip
 xdg-desktop-portal
 xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland
 xdotool
 xf86-video-amdgpu
 xfsprogs

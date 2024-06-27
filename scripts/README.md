@@ -48,11 +48,6 @@ Depends on [bemenu](https://github.com/Cloudef/bemenu).
 
 Toggles dunst's notifications.
 
-## g
-
-JoaoCostaIFG's git wrapper because he was lazy and tired of creating aliases.
-DWTFYW LICENSE
-
 ## import-gsettings
 
 Imports settings from gtk-3.0/settings.ini to gsettings

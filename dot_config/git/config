@@ -31,6 +31,49 @@
   status = true
 [pull]
   ; ff = only
-  rebase = false
+  rebase = true
 [push]
   default = simple
+[alias]
+  ad = add
+  br = branch
+  ck = checkout
+  ckb = checkout -b
+  cm = commit -m
+  cma = commit -a -m
+  cmA = "!git add -A; git commit -m"
+  cmaa = cmA
+  cmam = commit --amend -m
+  d = diff
+  df = diff
+  l = log
+  pl = pull
+  plu = "!f() {\
+    git fetch ; \
+    git branch --set-upstream-to=\"$1/$2\" ; \
+    git pull ; \
+  }; f"
+  p = push
+  pu = "!f() {\
+    if [ \"$#\" -eq 0 ]; then \
+      branch_name=\"$(git rev-parse --abbrev-ref HEAD)\" ; \
+      git push -u origin \"$branch_name\" ; \
+    elif [ \"$#\" -eq 1 ]; then \
+      git push -u origin \"$@\" ; \
+    else \
+      git push -u \"$@\" ; \
+    fi \
+  }; f"
+  rs = reset
+  rst = reset
+  rv = revert
+  rem = remote -v
+  st = status
+  t = tag
+  tags = tag
+  unstage = reset HEAD --
+  new = "!git init; git commit --allow-empty -m 'empty initial commit'"
+  last = log -1 HEAD
+  hist = log --graph --abbrev-commit --decorate --date=short \
+		--format=format:'%C(bold cyan)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%an%C(reset) %C(bold yellow)%d%C(reset)' \
+		--branches --remotes --tags
