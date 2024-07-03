@@ -67,7 +67,7 @@ alias   passarinhorelampjante="thunderbird &"
 alias   calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse' # intentionally escaped
 alias   maxima="mmaxima"
 alias   ssync="rsnapshot full"
-alias   g="git"
+# alias   g="git"
 # use neovim for vim
 alias   vim="nvim"
 alias   vimdiff="nvim -d"

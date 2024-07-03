@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ "$*" ]; then
+  git "$@"
+else
+  git status
+fi

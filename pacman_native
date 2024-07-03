@@ -205,6 +205,7 @@ patch
 patchelf
 pavucontrol
 perf
+perl-locale-gettext
 pipewire-alsa
 pipewire-pulse
 pipewire-v4l2

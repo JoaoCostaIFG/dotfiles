@@ -541,20 +541,20 @@ require("lazy").setup({
 		end,
 	}, -- indent guides
 	{ "tpope/vim-fugitive" }, -- git plugin
-	{
-		"zbirenbaum/copilot.lua",
-		opts = {
-			suggestion = {
-				auto_trigger = true,
-				keymap = {
-					accept = "<S-Tab>",
-				},
-			},
-			filetypes = {
-				markdown = true,
-			},
-		},
-	},
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	opts = {
+	-- 		suggestion = {
+	-- 			auto_trigger = true,
+	-- 			keymap = {
+	-- 				accept = "<S-Tab>",
+	-- 			},
+	-- 		},
+	-- 		filetypes = {
+	-- 			markdown = true,
+	-- 		},
+	-- 	},
+	-- },
 	{ "sindrets/diffview.nvim" }, -- better diff view
 	{
 		"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
