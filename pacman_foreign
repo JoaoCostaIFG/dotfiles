@@ -3,15 +3,18 @@ autenticacao-gov-pt-bin
 autofs
 babelfish-fish-git
 ctpv-git
-cura-modern-appimage
 dashbinsh
 heroic-games-launcher-bin
 hunspell-pt_pt
+hyprcursor-git
+hyprland-git
 hyprpicker-git
+hyprwayland-scanner-git
 lazydocker-bin
 lf-bin
 librewolf-bin
 mpdris2
+nordzy-cursors-hyprcursor
 obs-gstreamer
 pandoc-bin
 parsec-bin
@@ -21,7 +24,6 @@ protonup-qt-bin
 r2modman-bin
 shellcheck-bin
 simple-mtpfs
-swaylock-effects-git
 tor-browser
 ttf-ms-fonts
 ttf-symbola
@@ -30,6 +32,7 @@ ungoogled-chromium-bin
 visual-studio-code-bin
 wdisplays
 wine-ge-custom-bin
+wlroots-git
 xdg-desktop-portal-hyprland-git
 xp-pen-tablet
 yay

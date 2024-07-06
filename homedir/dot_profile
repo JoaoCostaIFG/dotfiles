@@ -53,8 +53,7 @@ export LESS="-iFMRSX"
 # export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dpass"
 export GPG_TTY="$(tty)"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
-export QT_STYLE_OVERRIDE="kvantum"
-export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORMTHEME="qt6ct"
 export COLORTERM="truecolor" # advertise truecolor
 export BEMENU_OPTS="-i -w -H 34 -p '' --hp 8 --tb '#3b4252' --tf '#d8dee9 --nb '#0b0a18' --nf '#d8dee9' --hb '#3b4252' --hf '#d8dee9'"
 
@@ -62,8 +61,8 @@ export BEMENU_OPTS="-i -w -H 34 -p '' --hp 8 --tb '#3b4252' --tf '#d8dee9 --nb '
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
-# export QT_QPA_PLATFORM="wayland;xcb"
 export QT_QPA_PLATFORM="wayland"
+# export QT_QPA_PLATFORM="wayland"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 # export SDL_VIDEODRIVER=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1

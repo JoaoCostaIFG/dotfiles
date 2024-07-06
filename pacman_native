@@ -24,7 +24,6 @@ boost
 borg
 borgmatic
 breeze-gtk
-brightnessctl
 cadaver
 calcurse
 chafa
@@ -36,6 +35,7 @@ croc
 cups
 cups-pdf
 dash
+ddcutil
 detox
 dhcpcd
 discord
@@ -98,10 +98,9 @@ htmlq
 http-parser
 hunspell-en_us
 hyperfine
-hyprcursor
-hyprland
+hypridle
+hyprlock
 hyprpaper
-hyprwayland-scanner
 imagemagick
 imv
 inetutils
@@ -215,6 +214,7 @@ playerctl
 polkit-kde-agent
 poppler
 prettier
+prusa-slicer
 pulsemixer
 python
 python-black
@@ -234,6 +234,7 @@ python-websockets
 qbittorrent
 qt5-imageformats
 qt6-wayland
+qt6ct
 rapidjson
 reflector
 reiserfsprogs
@@ -253,7 +254,6 @@ supertux
 swappy
 sway
 swaybg
-swayidle
 swaync
 syncthing
 sysfsutils
