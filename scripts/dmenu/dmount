@@ -100,9 +100,10 @@ case "$op" in
     awk -v cmp_var="$selected_drive" '$0 == cmp_var')
   [ -z "$existance" ] && exit
 
-  mkdir "$HOME"/Android"$selected_drive"
-  simple-mtpfs --device "$selected_drive" "$HOME"/Android"$selected_drive"
-  notify-send -e "DMOUNT SUCCESS" "Android partition $selected_drive mounted to ~/Android$selected_drive" &
+  android_mount_path="/run/media/Android${selected_drive}"
+  mkdir "$android_mount_path"
+  simple-mtpfs --device "$selected_drive" "$android_mount_path"
+  notify-send -e "DMOUNT SUCCESS" "Android partition $selected_drive mounted to $android_mount_path" &
   ;;
 "Umount android")
   selected_drive=$(simple-mtpfs -l |
@@ -114,12 +115,13 @@ case "$op" in
     awk -v cmp_var="$selected_drive" '$0 == cmp_var')
   [ -z "$existance" ] && exit
 
-  fusermount -u "$HOME"/Android"$selected_drive"
-  rmdir "$HOME"/Android"$selected_drive"
-  if [ -d "$HOME"/Android"$selected_drive" ]; then
-    notify-send -e "DMOUNT FAILURE" "Can't umount $selected_drive android partition from from ~/Android$selected_drive" &
+  android_mount_path="/run/media/Android${selected_drive}"
+  fusermount -u "$android_mount_path"
+  rmdir "$android_mount_path"
+  if [ -d "$android_mount_path" ]; then
+    notify-send -e "DMOUNT FAILURE" "Can't umount $selected_drive android partition from from $android_mount_path" &
   else
-    notify-send -e "DMOUNT SUCCESS" "Android partition $selected_drive umounted from ~/Android$selected_drive" &
+    notify-send -e "DMOUNT SUCCESS" "Android partition $selected_drive umounted from $android_mount_path" &
   fi
   ;;
 esac
