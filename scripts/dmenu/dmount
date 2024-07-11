@@ -100,7 +100,7 @@ case "$op" in
     awk -v cmp_var="$selected_drive" '$0 == cmp_var')
   [ -z "$existance" ] && exit
 
-  android_mount_path="/run/media/Android${selected_drive}"
+  android_mount_path="/run/media/${USER}/Android${selected_drive}"
   mkdir "$android_mount_path"
   simple-mtpfs --device "$selected_drive" "$android_mount_path"
   notify-send -e "DMOUNT SUCCESS" "Android partition $selected_drive mounted to $android_mount_path" &
@@ -115,7 +115,7 @@ case "$op" in
     awk -v cmp_var="$selected_drive" '$0 == cmp_var')
   [ -z "$existance" ] && exit
 
-  android_mount_path="/run/media/Android${selected_drive}"
+  android_mount_path="/run/media/${USER}/Android${selected_drive}"
   fusermount -u "$android_mount_path"
   rmdir "$android_mount_path"
   if [ -d "$android_mount_path" ]; then
