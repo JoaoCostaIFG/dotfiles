@@ -67,6 +67,7 @@ message/rfc822=userapp-Thunderbird-O875A1.desktop
 x-scheme-handler/mid=userapp-Thunderbird-O875A1.desktop
 application/json=text.desktop
 inode/directory=file.desktop
+x-scheme-handler/ror2mm=r2modman.desktop
 
 [Added Associations]
 doesn/matter=text.desktop;

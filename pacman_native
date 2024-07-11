@@ -24,6 +24,7 @@ boost
 borg
 borgmatic
 breeze-gtk
+brightnessctl
 cadaver
 calcurse
 chafa
@@ -59,7 +60,6 @@ figlet
 firefox
 fish
 flex
-fontforge
 foot
 fprintd
 freecad

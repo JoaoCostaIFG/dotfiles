@@ -1,8 +1,14 @@
 #!/bin/sh
 
 # cache file
+LOCK_FILE="/tmp/screen_brightness.lock"
 CACHE_FILE="$HOME/.cache/ddcutil_brightness_restore"
 LOW_BRIGHTNESS="10"
+
+# wait pending jobs (acquire lock)
+while ! mkdir -- "$LOCK_FILE" >/dev/null 2>&1; do
+  sleep 1
+done
 
 case "$1" in
 "lower")
@@ -29,3 +35,6 @@ case "$1" in
   echo "Unknown command: $1"
   ;;
 esac
+
+# release lock
+rmdir "$LOCK_FILE"

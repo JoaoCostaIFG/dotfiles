@@ -14,7 +14,6 @@ lazydocker-bin
 lf-bin
 librewolf-bin
 mpdris2
-nordzy-cursors-hyprcursor
 obs-gstreamer
 pandoc-bin
 parsec-bin
@@ -31,7 +30,6 @@ ttf-twemoji
 ungoogled-chromium-bin
 visual-studio-code-bin
 wdisplays
-wine-ge-custom-bin
 wlroots-git
 xdg-desktop-portal-hyprland-git
 xp-pen-tablet
