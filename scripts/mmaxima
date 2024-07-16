@@ -15,7 +15,7 @@ fi
 # get the maxima builtins list file
 MAXIMA_BUILTINS="$MAXIMA_USERDIR"/maxima-builtins-list.txt
 if [ ! -f "$MAXIMA_BUILTINS" ]; then
-  MAXIMA_SHAREDIR="/usr/share/maxima/5.43.0/share"
+  MAXIMA_SHAREDIR="$(find '/usr/share/maxima/' -maxdepth 2 -type d | grep 'share$')"
   MAXIMA_BUILTINS="$MAXIMA_SHAREDIR"/maxima-builtins-list.txt
 fi
 
