@@ -1,15 +1,11 @@
 arduino
 autenticacao-gov-pt-bin
-autofs
 babelfish-fish-git
 ctpv-git
 dashbinsh
 heroic-games-launcher-bin
 hunspell-pt_pt
-hyprcursor-git
-hyprland-git
 hyprpicker-git
-hyprwayland-scanner-git
 lazydocker-bin
 lf-bin
 librewolf-bin
@@ -28,9 +24,8 @@ ttf-ms-fonts
 ttf-symbola
 ttf-twemoji
 ungoogled-chromium-bin
+vesktop-bin
 visual-studio-code-bin
 wdisplays
-wlroots-git
-xdg-desktop-portal-hyprland-git
 xp-pen-tablet
 yay

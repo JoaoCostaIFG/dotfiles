@@ -62,7 +62,6 @@ fish
 flex
 foot
 fprintd
-freecad
 fzf
 gamemode
 gcc
@@ -98,9 +97,12 @@ htmlq
 http-parser
 hunspell-en_us
 hyperfine
+hyprcursor
 hypridle
+hyprland
 hyprlock
 hyprpaper
+hyprwayland-scanner
 imagemagick
 imv
 inetutils
@@ -276,6 +278,7 @@ ttf-liberation
 ttf-linux-libertine
 ttf-sourcecodepro-nerd
 ttf-victor-mono-nerd
+udiskie
 udisks2
 ufw
 unrar
@@ -297,11 +300,11 @@ wine-gecko
 wine-mono
 wine-staging
 winetricks
-wireguard-tools
 wl-clipboard
 xclip
 xdg-desktop-portal
 xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
 xdotool
 xf86-video-amdgpu
 xfsprogs

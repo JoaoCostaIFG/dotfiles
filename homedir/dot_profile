@@ -28,7 +28,7 @@ export INPUTRC="$HOME/.config/inputrc"
 #export XAUTHORITY="$HOME/.config/.Xauthority" # sometimes causes problems
 export MAXIMA_USERDIR="$HOME/.config/maxima"
 export SQLITE_HISTORY="$HOME/.local/share/sqlite_history"
-export PYTHONSTARTUP="$HOME/.config/pythonrc"
+export DOCKER_CONFIG="$HOME/.config/docker"
 export CARGO_HOME="$HOME/.local/share/cargo"
 export GOPATH="$HOME/.local/share/go"
 # add go bin to PATH
