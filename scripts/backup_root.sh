@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eou
+set -eu
 
 backup_drive_part="/dev/sde1"
 
