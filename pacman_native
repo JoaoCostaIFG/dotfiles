@@ -8,6 +8,7 @@ alacritty
 alsa-utils
 android-udev
 ansible
+arc-icon-theme
 arc-solid-gtk-theme
 atool
 autoconf
@@ -54,6 +55,7 @@ exfat-utils
 eza
 f2fs-tools
 fakeroot
+farstream
 ffmpeg
 ffmpegthumbnailer
 figlet
@@ -107,6 +109,7 @@ imagemagick
 imv
 inetutils
 intel-ucode
+iperf
 jdk-openjdk
 jfsutils
 jq
@@ -158,12 +161,13 @@ linux-zen
 linux-zen-headers
 logrotate
 lvm2
-lxappearance-gtk3
+lxappearance
 m4
 make
 man-db
 man-pages
 maxima
+maxima-sbcl
 mdadm
 mediainfo
 mesa

@@ -3,13 +3,15 @@ autenticacao-gov-pt-bin
 babelfish-fish-git
 ctpv-git
 dashbinsh
+dino-git
 heroic-games-launcher-bin
 hunspell-pt_pt
-hyprpicker-git
+hyprpicker
 lazydocker-bin
 lf-bin
 librewolf-bin
 mpdris2
+numbat
 obs-gstreamer
 pandoc-bin
 parsec-bin
@@ -19,7 +21,6 @@ protonup-qt-bin
 r2modman-bin
 shellcheck-bin
 simple-mtpfs
-tor-browser
 ttf-ms-fonts
 ttf-symbola
 ttf-twemoji

@@ -75,6 +75,11 @@ history and built-ins file (also for getline). It is based on **rmaxima**
 but it has a few improvements.
 Depends on [maxima](http://maxima.sourceforge.net/).
 
+## next_sink.sh
+
+switch the default sink (audio output) to next one available
+Selects by ID and wrap-around
+
 ## noita_backup
 
 manage my noita backups
