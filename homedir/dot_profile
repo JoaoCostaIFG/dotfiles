@@ -21,6 +21,7 @@ export LS="eza"
 export NACHOS="cute"
 
 # clean-up
+export GTK_THEME="Arc-Dark-solid"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
 export WGETRC="$HOME/.config/wget/wgetrc"
