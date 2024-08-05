@@ -1,13 +1,14 @@
 arduino
 autenticacao-gov-pt-bin
 babelfish-fish-git
+clipse
 ctpv-git
 dashbinsh
-dino-git
 heroic-games-launcher-bin
 hunspell-pt_pt
+hyprland-git
 hyprpicker
-lazydocker-bin
+hyprwayland-scanner-git
 lf-bin
 librewolf-bin
 mpdris2
@@ -18,7 +19,6 @@ parsec-bin
 plugin-autenticacao-gov-pt
 prismlauncher-qt5-bin
 protonup-qt-bin
-r2modman-bin
 shellcheck-bin
 simple-mtpfs
 ttf-ms-fonts
@@ -28,5 +28,7 @@ ungoogled-chromium-bin
 vesktop-bin
 visual-studio-code-bin
 wdisplays
+wlroots-git
+xdg-desktop-portal-wlr-git
 xp-pen-tablet
 yay
