@@ -59,8 +59,8 @@ export BEMENU_OPTS="-i -w -H 34 -p '' --hp 8 --tb '#3b4252' --tf '#d8dee9 --nb '
 
 # wayland
 export XDG_SESSION_TYPE=wayland
-export XDG_CURRENT_DESKTOP=sway
-export XDG_SESSION_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_DESKTOP=Hyprland
 export QT_QPA_PLATFORM="wayland"
 # export QT_QPA_PLATFORM="wayland"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"

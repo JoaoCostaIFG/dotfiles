@@ -4,6 +4,7 @@ babelfish-fish-git
 clipse
 ctpv-git
 dashbinsh
+element-desktop-nightly-bin
 heroic-games-launcher-bin
 hunspell-pt_pt
 hyprland-git
@@ -29,6 +30,5 @@ vesktop-bin
 visual-studio-code-bin
 wdisplays
 wlroots-git
-xdg-desktop-portal-wlr-git
 xp-pen-tablet
 yay

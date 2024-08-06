@@ -24,6 +24,7 @@ bluez-utils
 boost
 borg
 borgmatic
+boxxy
 breeze-gtk
 brightnessctl
 cadaver
@@ -39,7 +40,6 @@ cups
 cups-pdf
 dash
 ddcutil
-deno
 detox
 dhcpcd
 discord
@@ -52,7 +52,6 @@ dosfstools
 easyeffects
 efibootmgr
 electron
-element-desktop
 espeak-ng
 exfat-utils
 eza
@@ -315,6 +314,7 @@ wl-clipboard
 xclip
 xdg-desktop-portal
 xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
 xdotool
 xf86-video-amdgpu
 xfsprogs
@@ -330,6 +330,7 @@ xorg-xwininfo
 xwaylandvideobridge
 yapf
 ydotool
+yq
 yt-dlp
 zathura
 zathura-cb
