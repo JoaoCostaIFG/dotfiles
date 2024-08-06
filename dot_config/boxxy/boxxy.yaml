@@ -1,0 +1,5 @@
+rules:
+- name: Ansible
+  target: ~/.ansible
+  rewrite: ~/.config/ansible
+  mode: directory

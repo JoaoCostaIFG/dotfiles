@@ -74,3 +74,11 @@ alias   vimdiff="nvim -d"
 alias   cop="gh copilot suggest -t shell"
 alias   cope="gh copilot explain"
 alias   authgovt="QT_QPA_PLATFORMTHEME=gtk3 eidguiV2"
+
+# printer #
+alias   find_scanners="scanimage -L"
+alias   scan_pdf="scanimage --format=pdf --output-file out-$(date +%s).pdf --progress --resolution 300 -d 'pixma:MG3600_439892000000'"
+alias   scan_pdf_highest_quality="scanimage --format=pdf --output-file out-$(date +%s).pdf --progress --resolution 1200 -d 'pixma:MG3600_439892000000'"
+
+# boxxy #
+alias   ansible="boxxy ansible"
