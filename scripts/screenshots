@@ -43,7 +43,7 @@ parse_arg() {
     ;;
   "picker")
     # Color picker
-    hyprpicker | wl-copy
+    hyprpicker --autocopy
     ;;
   "current")
     grim - | wl-copy
@@ -60,7 +60,7 @@ parse_arg() {
   esac
 }
 
-if [ "$1" ]; then
+if [ "${1+x}" ]; then
   parse_arg "$1"
 else 
   parse_arg "$(printf "snip\\nsnip-edit\\npicker\\ncurrent\\ncurrent-save" | bemenu -i -p "What to do?")"

@@ -58,9 +58,9 @@ export COLORTERM="truecolor" # advertise truecolor
 export BEMENU_OPTS="-i -w -H 34 -p '' --hp 8 --tb '#3b4252' --tf '#d8dee9 --nb '#0b0a18' --nf '#d8dee9' --hb '#3b4252' --hf '#d8dee9'"
 
 # wayland
-export XDG_SESSION_TYPE=wayland
-export XDG_CURRENT_DESKTOP=Hyprland
-export XDG_SESSION_DESKTOP=Hyprland
+# export XDG_SESSION_TYPE=wayland
+# export XDG_CURRENT_DESKTOP=Hyprland
+# export XDG_SESSION_DESKTOP=Hyprland
 export QT_QPA_PLATFORM="wayland"
 # export QT_QPA_PLATFORM="wayland"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
@@ -68,6 +68,7 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_DBUS_REMOTE=1
+export ELECTRON_OZONE_PLATFORM_HINT="auto"
 
 # my scripts
 export BIB="$HOME/Documents/WorkRes/bibliography.bib"
