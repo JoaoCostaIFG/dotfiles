@@ -8,6 +8,7 @@ element-desktop-nightly-bin
 heroic-games-launcher-bin
 hunspell-pt_pt
 hyprland-git
+hyprpaper-git
 hyprpicker
 hyprwayland-scanner-git
 lf-bin
@@ -30,5 +31,6 @@ vesktop-bin
 visual-studio-code-bin
 wdisplays
 wlroots-git
+xorg-xwayland-git
 xp-pen-tablet
 yay

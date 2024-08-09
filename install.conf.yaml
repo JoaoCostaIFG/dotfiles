@@ -24,7 +24,6 @@
           dot_config/maxima,
           dot_config/newsboat,
           dot_config/pulse,
-          dot_config/systemd,
         ]
     ~/.config/user-dirs.dirs:
         create: true
@@ -48,9 +47,6 @@
         create: true
         glob: true
         path: dot_config/pulse/*
-    ~/.config/systemd/user/default.target.wants/playerctld.service:
-        create: true
-        path: dot_config/systemd/playerctld.service
     
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

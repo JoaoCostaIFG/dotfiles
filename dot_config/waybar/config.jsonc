@@ -36,6 +36,23 @@
             "(.*) - Discord": "<span face=\"Font Awesome 6 Free\"></span> $1",
         }
     },
+    "dwl/tags": {
+        "num-tags": 9
+    },
+    "dwl/window": {
+        "max-length": 140,
+        "all-outputs": false,
+        "icon": false,
+        "tooltip": false,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "<span face=\"Font Awesome 6 Free\"></span> $1",
+            "(.*) — LibreWolf": "<span face=\"Font Awesome 6 Free\"></span> $1",
+            "(.*) - Mozilla Thunderbird": "<span face=\"Font Awesome 6 Free\"></span> $1",
+            "Fish (.*)": "<span face=\"Font Awesome 6 Free\"></span> [$1]",
+            "Steam": "<span face=\"Font Awesome 6 Free\"></span>",
+            "(.*) - Discord": "<span face=\"Font Awesome 6 Free\"></span> $1",
+        }
+    },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
         "format-disconnected": "<span face=\"Font Awesome 6 Free\"> </span> Disconnected",

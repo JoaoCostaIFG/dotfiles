@@ -1,0 +1,9 @@
+[Unit]
+Description=Clipboard manager
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/clipse -listen
+
+[Install]
+WantedBy=default.target

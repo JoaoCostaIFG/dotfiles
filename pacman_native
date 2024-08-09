@@ -42,7 +42,6 @@ dash
 ddcutil
 detox
 dhcpcd
-discord
 docker
 docker-buildx
 docker-compose
@@ -105,7 +104,6 @@ hunspell-en_us
 hyperfine
 hypridle
 hyprlock
-hyprpaper
 imagemagick
 imv
 inetutils
@@ -254,6 +252,7 @@ rlwrap
 rust
 rust-analyzer
 samba
+sane-airscan
 scons
 screen
 shfmt
@@ -311,6 +310,7 @@ wine-mono
 wine-staging
 winetricks
 wl-clipboard
+wlroots
 xclip
 xdg-desktop-portal
 xdg-desktop-portal-gtk
@@ -325,7 +325,6 @@ xorg-xkill
 xorg-xprop
 xorg-xrandr
 xorg-xrdb
-xorg-xwayland
 xorg-xwininfo
 xwaylandvideobridge
 yapf

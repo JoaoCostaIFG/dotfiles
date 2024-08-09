@@ -1,4 +1,17 @@
 #!/bin/sh
 
+#
+# Sway
+#
 #exec sway
-exec Hyprland
+
+#
+# Hyprland
+#
+Hyprland
+systemctl --user stop hyprland-session.target
+
+#
+# DWL
+#
+# dbus-run-session dwl
