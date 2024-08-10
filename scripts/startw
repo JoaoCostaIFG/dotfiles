@@ -14,4 +14,8 @@ systemctl --user stop hyprland-session.target
 #
 # DWL
 #
-# dbus-run-session dwl
+# This should run inside (pass a script to DWL):
+# dbus-update-activation-environment --systemd --all; systemctl --user start dwl-session.target
+#
+#dbus-run-session dwl
+#systemctl --user stop dwl-session.target

@@ -2,4 +2,4 @@
 
 notify-send -e "GameMode ended" &
 
-hyperctl reload
+hyprctl reload
