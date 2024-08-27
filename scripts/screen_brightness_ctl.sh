@@ -5,13 +5,7 @@ LOCK_FILE="/tmp/screen_brightness.lock"
 CACHE_FILE="$HOME/.cache/ddcutil_brightness_restore"
 LOW_BRIGHTNESS="10"
 
-# wait pending jobs (acquire lock)
-while ! mkdir -- "$LOCK_FILE" >/dev/null 2>&1; do
-  sleep 1
-done
-
-case "$1" in
-"lower")
+set_brightness() {
   # clear cache
   printf "" >"$CACHE_FILE"
 
@@ -20,8 +14,18 @@ case "$1" in
     # save brightness
     echo "$monitorId-$currentBrightness" >>"$CACHE_FILE"
     # lower brightness
-    ddcutil setvcp 10 "$LOW_BRIGHTNESS" -d "$monitorId"
+    ddcutil setvcp 10 "$1" -d "$monitorId"
   done
+}
+
+# wait pending jobs (acquire lock)
+while ! mkdir -- "$LOCK_FILE" >/dev/null 2>&1; do
+  sleep 1
+done
+
+case "$1" in
+"lower")
+  set_brightness "$LOW_BRIGHTNESS"
   ;;
 "restore")
   while read -r line; do
@@ -30,6 +34,9 @@ case "$1" in
     # restore brightness
     ddcutil setvcp 10 "$brightness" -d "$monitorId"
   done <"$CACHE_FILE"
+  ;;
+[0-9]|[0-9][0-9]|[0-9][0-9][0-9])
+  set_brightness "$1"
   ;;
 *)
   echo "Unknown command: $1"
