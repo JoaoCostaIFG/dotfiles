@@ -82,3 +82,4 @@ alias   scan_pdf_highest_quality="scanimage --format=pdf --output-file out-$(dat
 
 # boxxy #
 alias   ansible="boxxy ansible"
+alias   npm="boxxy npm"

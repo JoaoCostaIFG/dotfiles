@@ -10,11 +10,13 @@
     ~/.bashrc: homedir/dot_bashrc
     ~/.profile: homedir/dot_profile
     ~/.Xdefaults: homedir/dot_Xdefaults
+    ~/.icons: homedir/dot_icons
     ~/.local/bin: scripts
-    ~/.local/share/wallpaper: wallpaper
+    ~/.local/share/nwg-look: dot_local/share/nwg-look
+    ~/.local/share/wallpaper: dot_local/share/wallpaper
     ~/.local/share/applications/:
         glob: true
-        path: applications/*
+        path: dot_local/share/applications/*
     ~/.local/share/applications/mimeapps.list: dot_config/mimeapps.list
     ~/.config/:
         glob: true

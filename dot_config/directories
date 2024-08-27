@@ -1,4 +1,4 @@
-,a	~/dir
+,a	~/Desktop
 ,b	~/Documents/Builds
 ,h	~/
 ,d	~/Documents
@@ -6,14 +6,15 @@
 ,g	~/Games
 ,m	~/Music
 ,n	~/Documents/Notes
-,p	~/Documents/Projs
-,pp	~/Pictures
-,ps	~/Documents/Projs/site
+,c	~/Code
+,p	~/Pictures
+,s	~/Code/site
 ,r	~/Documents/Random
 ,u	~/Documents/UniStuff/tese
 ,v	~/Videos
 ,cf	~/.config
 ,dt	~/.dotfiles
 ,sc	~/.local/bin
-,mn	/run/media/joao/
+,md	/run/media/joao/
+,mn	/mnt
 ,noita	~/Games/SteamLibrary/steamapps/compatdata/881100/pfx/drive_c/users/steamuser/AppData/LocalLow/Nolla_Games_Noita/

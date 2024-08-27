@@ -3,3 +3,7 @@ rules:
   target: ~/.ansible
   rewrite: ~/.config/ansible
   mode: directory
+- name: NPM
+  target: ~/.npm
+  rewrite: ~/.cache/npm
+  mode: directory
