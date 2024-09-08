@@ -1,5 +1,4 @@
-arduino
-autenticacao-gov-pt-bin
+autenticacao-gov-pt
 babelfish-fish-git
 clipse
 ctpv-git
@@ -7,12 +6,10 @@ dashbinsh
 element-desktop-nightly-bin
 heroic-games-launcher-bin
 hunspell-pt_pt
-hyprland-git
-hyprpaper-git
 hyprpicker
-hyprwayland-scanner-git
 lf-bin
 librewolf-bin
+moonlight-qt
 mpdris2
 numbat
 obs-gstreamer
@@ -23,6 +20,8 @@ prismlauncher-qt5-bin
 protonup-qt-bin
 shellcheck-bin
 simple-mtpfs
+steamtinkerlaunch
+sunshine
 ttf-ms-fonts
 ttf-symbola
 ttf-twemoji

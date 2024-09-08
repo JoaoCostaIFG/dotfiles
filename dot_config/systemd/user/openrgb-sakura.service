@@ -1,0 +1,9 @@
+[Unit]
+Description=Set OpenRGB Sakura theme
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/openrgb -p Sakura
+
+[Install]
+WantedBy=default.target

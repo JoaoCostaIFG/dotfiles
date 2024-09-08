@@ -1,6 +1,7 @@
 # If not running interactively, don't do anything #
 if status is-login
   ssh-agent | babelfish | source >/dev/null
+  startw
   exit
 end
 
