@@ -1,5 +1,9 @@
 {
     "layer": "top",
+    "output": [
+        "DP-1",
+        "DP-2"
+    ],
     "modules-left": [
         "hyprland/workspaces",
     ],
@@ -90,7 +94,7 @@
         "scroll-step": 1,
         "on-click": "amixer set Capture toggle",
         "on-click-right": "amixer set Master toggle",
-        "on-click-middle": "alacritty -e pulsemixer"
+        "on-click-middle": "pavucontrol"
     },
     "battery": {
         "format": "<span face=\"Font Awesome 6 Free\">{icon}</span> {capacity}%",
