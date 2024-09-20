@@ -91,6 +91,14 @@ Depends on: ghostscript (compress PDF).
 For input file "input.pdf", the output is "input.sml.pdf"
 Usage: pdfsmallifier [--bw] <input.pdf>
 
+## screen_brightness_ctl.sh
+
+Sets the brightness of external monitors.
+Just pass the number and it sets the same value on all detected monitors.
+The previous brightness value for each monitor is stored on a cache file and
+can be restored by the `restore` command. The `lower` command sets all monitors
+to a pre-defined low value (default 10).
+
 ## screen_measure
 
 Measure screen area. Basically a wrapper for slurp with notifications.  

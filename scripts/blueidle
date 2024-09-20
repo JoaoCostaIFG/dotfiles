@@ -1,0 +1,84 @@
+#!/bin/bash
+
+lock_cmd='loginctl lock-session'
+unlock_cmd='ydotool mousemove -- 1 0; pkill -USR1 hyprlock'
+idle_inhibit_cmd='systemd-inhibit --what=idle --mode=block sleep infinity'
+devices='"40:11:C3:01:50:AF"
+"94:65:2D:C4:50:6A"'
+query_interval_secs=5
+lock_at_startup=1
+
+lock() {
+  echo lock
+  eval "$lock_cmd"
+}
+
+unlock() {
+  echo unlock
+  eval "$unlock_cmd"
+}
+
+idle_inhibit() {
+  echo inhibit idle
+  # eval "$idle_inhibit_cmd" &
+  systemd-inhibit --what=idle --mode=block sleep infinity &
+}
+
+idle_allow() {
+  echo idle allow
+  # kill the background idle inhibit sleep
+  kill "$(jobs -p)"
+}
+
+# returns the number of detected devices
+# detected devices are devices on the `devices list` that are connected
+# return 0 when there are devices connected
+detect_devices() {
+  detected=0
+  for device in $(bluetoothctl devices Connected | cut -d' ' -f2); do
+    echo "$devices" | grep -q -m1 "$device" && detected="$((detected + 1))"
+  done
+  # TODO
+  echo "$detected"
+  [ "$detected" -ne 0 ] && return 0 || return 1
+}
+
+wait_devs() {
+  # sleep until there is at least 1 device connected
+  while ! detect_devices; do
+    sleep "$query_interval_secs"
+  done
+}
+
+wait_no_devs() {
+  # sleep until there are no devices connected
+  while detect_devices; do
+    sleep "$query_interval_secs"
+  done
+}
+
+
+if ! detect_devices; then
+  # start by locking: useful when device boots with autologin
+  if [ "$lock_at_startup" -eq 1 ]; then
+    lock
+  fi
+fi
+
+auth_state=0
+while true; do
+  if [ "$auth_state" -eq 0 ]; then
+    if detect_devices; then
+      auth_state=1
+      unlock
+      idle_inhibit
+    fi
+  else
+    if ! detect_devices; then
+      auth_state=0
+      idle_allow
+    fi
+  fi
+
+  sleep "$query_interval_secs"
+done

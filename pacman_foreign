@@ -6,6 +6,9 @@ dashbinsh
 element-desktop-nightly-bin
 heroic-games-launcher-bin
 hunspell-pt_pt
+hypridle-git
+hyprland-protocols-git
+hyprlock-git
 hyprpicker
 lf-bin
 librewolf-bin
@@ -33,3 +36,4 @@ wlroots-git
 xorg-xwayland-git
 xp-pen-tablet
 yay
+yay-debug

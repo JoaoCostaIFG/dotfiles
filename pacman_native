@@ -65,6 +65,7 @@ ffmpeg
 ffmpegthumbnailer
 figlet
 firefox
+firewalld
 fish
 foot
 fprintd
@@ -104,12 +105,8 @@ http-parser
 hunspell-en_us
 hyperfine
 hyprcursor
-hypridle
 hyprland
-hyprlang
-hyprlock
 hyprpaper
-hyprutils
 hyprwayland-scanner
 imagemagick
 imv
@@ -214,6 +211,7 @@ os-prober
 otf-font-awesome
 p7zip
 pacman-contrib
+parallel
 patchelf
 pavucontrol
 perf
@@ -223,13 +221,13 @@ php-sqlite
 pipewire-alsa
 pipewire-pulse
 pipewire-v4l2
+pkgstats
 plantuml
 playerctl
 polkit-kde-agent
 poppler
 prettier
 prusa-slicer
-pulsemixer
 python-black
 python-llfuse
 python-matplotlib
@@ -292,7 +290,6 @@ ttf-sourcecodepro-nerd
 ttf-victor-mono-nerd
 udiskie
 udisks2
-ufw
 unrar
 unzip
 urlscan

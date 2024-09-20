@@ -26,7 +26,12 @@
           dot_config/maxima,
           dot_config/newsboat,
           dot_config/pulse,
+          dot_config/sunshine,
         ]
+    ~/.config/sunshine/apps.json:
+        create: true
+        force: true
+        path: dot_config/sunshine/apps.json
     ~/.config/user-dirs.dirs:
         create: true
         force: true

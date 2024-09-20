@@ -114,9 +114,15 @@
         "on-click": "notify-send 'Thermals' \"$(acpi -t)\"",
         "on-click-middle": "alacritty -e top"
     },
+    "clock": {
+        "format": "<span face=\"Font Awesome 6 Free\"></span> {:%H:%M}",
+        "format-alt": "<span face=\"Font Awesome 6 Free\"></span> {:%a, %d. %b  %H:%M}",
+        "on-click-right": "alacritty -e nmtui",
+        "tooltip-format": "{:%a, %Y-%m-%d}"
+    },
     "custom/notification": {
         "tooltip": false,
-        "format": "{icon}<span face=\"Font Awesome 6 Free\"><sup>{}</sup></span>",
+        "format": "<span face=\"Font Awesome 6 Free\"><sup>{}</sup></span>{icon}",
         "format-icons": {
             "notification": "",
             "none": "",
@@ -132,12 +138,7 @@
         "exec": "swaync-client -swb",
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
-        "escape": true
-    },
-    "clock": {
-        "format": "<span face=\"Font Awesome 6 Free\"></span> {:%H:%M}",
-        "format-alt": "<span face=\"Font Awesome 6 Free\"></span> {:%a, %d. %b  %H:%M}",
-        "on-click-right": "alacritty -e nmtui"
+        "escape": false
     },
     "tray": {
         "icon-size": 16,

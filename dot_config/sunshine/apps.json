@@ -1,0 +1,57 @@
+{
+    "env": {
+        "PATH": "$(PATH):$(HOME)\/.local\/bin"
+    },
+    "apps": [
+        {
+            "name": "Desktop Native",
+            "image-path": "desktop.png",
+            "exclude-global-prep-cmd": "false",
+            "auto-detach": "true",
+            "wait-all": "true",
+            "exit-timeout": "5"
+        },
+        {
+            "name": "Desktop 1080p60",
+            "image-path": "desktop-alt.png",
+            "prep-cmd": [
+                {
+                    "do": "hyprctl keyword monitor DP-1,1920x1080@60,auto,aut",
+                    "undo": "hyprctl keyword monitor DP-1,2560x1440@164.96,auto,auto"
+                }
+            ],
+            "exclude-global-prep-cmd": "false",
+            "auto-detach": "true",
+            "wait-all": "true",
+            "exit-timeout": "5"
+        },
+        {
+            "name": "Steam Big Picture",
+            "detached": [
+                "setsid steam steam:\/\/open\/bigpicture"
+            ],
+            "image-path": "steam.png",
+            "exclude-global-prep-cmd": "false",
+            "auto-detach": "true",
+            "wait-all": "true",
+            "exit-timeout": "5"
+        },
+        {
+            "name": "Desktop 720p60",
+            "output": "",
+            "cmd": "",
+            "exclude-global-prep-cmd": "false",
+            "elevated": "false",
+            "auto-detach": "true",
+            "wait-all": "true",
+            "exit-timeout": "5",
+            "prep-cmd": [
+                {
+                    "do": "hyprctl keyword monitor DP-1,1280x720@60,auto,auto",
+                    "undo": "hyprctl keyword monitor DP-1,2560x1440@164.96,auto,auto"
+                }
+            ],
+            "image-path": "desktop-alt.png"
+        }
+    ]
+}
