@@ -1,3 +1,36 @@
 #!/bin/sh
 
+version_greater_equal() {
+  printf '%s\n%s\n' "$2" "$1" | sort --check=quiet --version-sort
+}
 
+zfs_compatible_kernels="$(curl -s -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/openzfs/zfs/releases/latest |
+  jq -r '.body' |
+  grep 'Linux.*compatible with')"
+
+echo "Latest Open ZFS version is compatible with the following Linux kernel versions: $zfs_compatible_kernels"
+
+zfs_kernel_versions="$(echo "$zfs_compatible_kernels" | grep -oEi '[0-9.]+')"
+zfs_min_kernel="$(echo "$zfs_kernel_versions" | head -1)"
+zfs_max_kernel="$(echo "$zfs_kernel_versions" | tail -1)"
+
+echo "Min version: $zfs_min_kernel"
+echo "Max version: $zfs_max_kernel"
+
+current_kernel_version="$(uname -r | cut -f1 -d'-')"
+printf "Current kernel: %s (version %s)\n" "$(uname -r)" "$current_kernel_version"
+latest_kernel_version="$(curl -s 'https://archlinux.org/packages/extra/x86_64/linux-zen/' | htmlq --text 'h2' | cut -f2 -d' ' | cut -f-3 -d'.')"
+printf "Latest kernel on Arch official repos: %s\n" "$latest_kernel_version"
+latest_kernel_Mm="$(echo "$latest_kernel_version" | cut -f-2 -d'.')"
+
+if [ "$current_kernel_version" = "$latest_kernel_version" ]; then
+  echo "Kernel is the latest. No need to update."
+elif version_greater_equal "$zfs_max_kernel" "$latest_kernel_Mm" && version_greater_equal "$latest_kernel_Mm" "$zfs_min_kernel"; then
+  echo "Kernel can be updated. Don't forget to update zfs-dkms first."
+else
+  echo "Don't update. Newest kernel is not compatible with the latest ZFS."
+  exit 1
+fi
