@@ -1,5 +1,7 @@
 #!/bin/sh
 
+update_zfs_dkms="yay -Syu zfs-dkms"
+
 version_greater_equal() {
   printf '%s\n%s\n' "$2" "$1" | sort --check=quiet --version-sort
 }
@@ -22,14 +24,25 @@ echo "Max version: $zfs_max_kernel"
 
 current_kernel_version="$(uname -r | cut -f1 -d'-')"
 printf "Current kernel: %s (version %s)\n" "$(uname -r)" "$current_kernel_version"
-latest_kernel_version="$(curl -s 'https://archlinux.org/packages/extra/x86_64/linux-zen/' | htmlq --text 'h2' | cut -f2 -d' ' | cut -f-3 -d'.')"
-printf "Latest kernel on Arch official repos: %s\n" "$latest_kernel_version"
-latest_kernel_Mm="$(echo "$latest_kernel_version" | cut -f-2 -d'.')"
+
+if echo "$(uname -r)" | grep -i 'zen'; then
+  echo "Using Zen kernel"
+  latest_kernel_version="$(curl -s 'https://archlinux.org/packages/extra/x86_64/linux-zen/' | htmlq --text 'h2' | cut -f2 -d' ' | cut -f-3 -d'.')"
+  printf "Latest kernel on Arch official repos: %s\n" "$latest_kernel_version"
+  latest_kernel_Mm="$(echo "$latest_kernel_version" | cut -f-2 -d'.')"
+else
+  echo "Haven't added this kernel yet"
+  exit 1
+fi
 
 if [ "$current_kernel_version" = "$latest_kernel_version" ]; then
   echo "Kernel is the latest. No need to update."
 elif version_greater_equal "$zfs_max_kernel" "$latest_kernel_Mm" && version_greater_equal "$latest_kernel_Mm" "$zfs_min_kernel"; then
   echo "Kernel can be updated. Don't forget to update zfs-dkms first."
+  "$update_zfs_dkms"
+  sudo sed 's/^IgnorePkg/#IgnorePkg/' /etc/pacman.conf
+  sudo pacman -Syu
+  sudo sed 's/^#IgnorePkg/IgnorePkg/' /etc/pacman.conf
 else
   echo "Don't update. Newest kernel is not compatible with the latest ZFS."
   exit 1
