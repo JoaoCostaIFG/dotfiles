@@ -32,7 +32,7 @@ The scripts are licensed under an [MIT License](./LICENSE)
 
 I include in this repo the [wallpapers](./dot_config/wallpaper) I use. Sources:
 
-- [Anorlondo](./dot_config/wallpaper/anorlondo) - don't know;
+- [Anorlondo](./dot_config/wallpaper/anorlondo) - [BestAlero](https://www.reddit.com/r/gaming/comments/4jdw0t/pixel_dark_souls_3_irithyll_of_the_boreal_valley/);
 - [Firelink](./dot_config/wallpaper/firelink) -
   [Zedotagger](https://www.deviantart.com/zedotagger);
 - [Forest](./dot_config/wallpaper/tree.png) - don't know.
