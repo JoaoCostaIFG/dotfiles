@@ -7,12 +7,15 @@ adobe-source-serif-fonts
 alacritty
 alsa-utils
 amd-ucode
+android-tools
 android-udev
 ansible
 arc-icon-theme
 arc-solid-gtk-theme
 arch-install-scripts
+arduino-avr-core
 arduino-cli
+arduino-language-server
 atool
 avahi
 base
@@ -20,11 +23,10 @@ base-devel
 bash-completion
 bemenu
 blas-openblas
+blueman
 bluez
 bluez-utils
 boost
-borg
-borgmatic
 boxxy
 breeze-gtk
 brightnessctl
@@ -54,6 +56,7 @@ dosfstools
 easyeffects
 efibootmgr
 electron
+element-desktop
 espeak-ng
 ethtool
 exfat-utils
@@ -88,7 +91,6 @@ go
 godot
 graphviz
 grim
-grub
 gsound
 gst-plugin-pipewire
 gst-plugin-va
@@ -105,8 +107,13 @@ http-parser
 hunspell-en_us
 hyperfine
 hyprcursor
+hypridle
 hyprland
+hyprlang
+hyprlock
 hyprpaper
+hyprpicker
+hyprutils
 hyprwayland-scanner
 imagemagick
 imv
@@ -164,11 +171,13 @@ linux-zen-headers
 logrotate
 lshw
 lvm2
+lzop
 man-db
 man-pages
 mangohud
 maxima
 maxima-sbcl
+mbuffer
 mdadm
 mediainfo
 mesa
@@ -217,7 +226,9 @@ pavucontrol
 perf
 perl-locale-gettext
 php-gd
+php-sodium
 php-sqlite
+php-tidy
 pipewire-alsa
 pipewire-pulse
 pipewire-v4l2
@@ -228,6 +239,7 @@ polkit-kde-agent
 poppler
 prettier
 prusa-slicer
+pv
 python-black
 python-llfuse
 python-matplotlib
@@ -235,8 +247,10 @@ python-mutagen
 python-pandas
 python-piexif
 python-pillow
+python-pipx
 python-pycryptodomex
 python-pynvim
+python-pyserial
 python-scipy
 python-seaborn
 python-tqdm
@@ -266,7 +280,6 @@ steam
 supertux
 swappy
 swaync
-syncthing
 sysfsutils
 tailscale
 tesseract-data-por
@@ -294,6 +307,7 @@ unrar
 unzip
 urlscan
 usbutils
+uv
 vala
 valgrind
 vdpauinfo
@@ -304,7 +318,6 @@ vulkan-radeon
 vulkan-tools
 vulkan-validation-layers
 waybar
-wayvnc
 wget
 wine-gecko
 wine-mono
@@ -340,7 +353,4 @@ zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
 zbar
-zfs-linux
-zfs-linux-zen
-zfs-utils
 zip

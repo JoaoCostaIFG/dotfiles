@@ -1,4 +1,7 @@
 #!/bin/sh
+### Simple script that checks if it's safe to update the Kernel to current
+### version on Arch's repos given the officially supported Kernel versions
+### reported by OpenZFS.
 
 update_zfs_dkms="yay -Syu zfs-dkms"
 
@@ -36,14 +39,14 @@ else
 fi
 
 if [ "$current_kernel_version" = "$latest_kernel_version" ]; then
-  echo "Kernel is the latest. No need to update."
+  printf "\033[0;32m%s\033[0m\n" "Kernel is the latest. No need to update."
 elif version_greater_equal "$zfs_max_kernel" "$latest_kernel_Mm" && version_greater_equal "$latest_kernel_Mm" "$zfs_min_kernel"; then
-  echo "Kernel can be updated. Don't forget to update zfs-dkms first."
+  printf "\033[0;32m%s\033[0m\n" "Kernel can be updated. Don't forget to update zfs-dkms first."
   "$update_zfs_dkms"
   sudo sed 's/^IgnorePkg/#IgnorePkg/' /etc/pacman.conf
   sudo pacman -Syu
   sudo sed 's/^#IgnorePkg/IgnorePkg/' /etc/pacman.conf
 else
-  echo "Don't update. Newest kernel is not compatible with the latest ZFS."
+  printf "\033[0;31m%s\033[0m\n" "Don't update. Newest kernel is not compatible with the latest ZFS."
   exit 1
 fi

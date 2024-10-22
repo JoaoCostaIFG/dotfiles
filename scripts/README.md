@@ -148,3 +148,9 @@ Instructions
 
 If you see a continuous color spectrum, you have truecolor support
 
+## update-zfs
+
+Simple script that checks if it's safe to update the Kernel to current
+version on Arch's repos given the officially supported Kernel versions
+reported by OpenZFS.
+
