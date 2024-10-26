@@ -1,4 +1,3 @@
-import = ["/home/joao/.config/alacritty/nord.toml"]
 
 [bell]
 animation = "EaseOutExpo"
@@ -140,3 +139,6 @@ title = "Alacritty"
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
+
+[general]
+import = ["/home/joao/.config/alacritty/nord.toml"]
