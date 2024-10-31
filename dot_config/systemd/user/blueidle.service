@@ -1,0 +1,11 @@
+[Unit]
+Description=Idle management using bluetooth
+PartOf=hyprland-session.target
+After=hyprland-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/joao/.local/bin/blueidle
+
+[Install]
+WantedBy=hyprland-session.target

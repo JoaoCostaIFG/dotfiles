@@ -299,7 +299,7 @@ require("lazy").setup({
 			local lspconfig = require("lspconfig")
 			lspconfig.clangd.setup({ capabilities = capabilities })
 			lspconfig.pyright.setup({ capabilities = capabilities })
-			lspconfig.tsserver.setup({ capabilities = capabilities })
+			lspconfig.ts_ls.setup({ capabilities = capabilities })
 			lspconfig.marksman.setup({ capabilities = capabilities })
 		end,
 		cmd = { "LspInfo", "LspStart", "LspStop", "LspRestart" },
