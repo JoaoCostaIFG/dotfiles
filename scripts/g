@@ -1,4 +1,5 @@
 #!/bin/sh
+### My git wrapper. Calls `git status` when no argument is given.
 
 if [ "$*" ]; then
   git "$@"

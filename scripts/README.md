@@ -1,9 +1,32 @@
 # Scripts
 
+## blueidle
+
+This script inhibits system idling when a bluetooth device, from a list of
+devices, is connected to the computer. Useful to unlock the computer when
+your close to it.
+
+Keep a config file in `~/.config/blueidle.toml` with contents following
+something like this:
+
+```bash
+[general]
+lock_cmd = "loginctl lock-session"
+unlock_cmd = "ydotool mousemove -- 1 0; pkill -USR1 hyprlock"
+query_interval_secs = 5
+lock_at_startup = 1
+devices = ["XX:XX:XX:XX:XX:XX", "YY:YY:YY:YY:YY:YY"]
+```
+
 ## chtermname
 
 Show current directory in window title.
 This is not standard so might not work on someplaces.
+
+## codi
+
+Simple script to open a [codi](https://github.com/metakirby5/codi.vim)
+notebook in Neovim.
 
 ## colors
 
@@ -47,6 +70,10 @@ Depends on [bemenu](https://github.com/Cloudef/bemenu).
 ## dunst_toggle
 
 Toggles dunst's notifications.
+
+## g
+
+My git wrapper. Calls `git status` when no argument is given.
 
 ## import-gsettings
 

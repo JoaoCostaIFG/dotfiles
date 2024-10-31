@@ -1,7 +1,6 @@
 alvr-launcher-bin
-arduino-ide-bin
 autenticacao-gov-pt
-babelfish-fish
+babelfish-fish-git
 clipse
 ctpv-git
 dashbinsh
@@ -22,6 +21,7 @@ shellcheck-bin
 simple-mtpfs
 steamtinkerlaunch
 sunshine
+tombl-bin
 ttf-ms-fonts
 ttf-symbola
 ttf-twemoji

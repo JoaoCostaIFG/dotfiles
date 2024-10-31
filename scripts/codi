@@ -1,4 +1,6 @@
 #!/bin/sh
+### Simple script to open a [codi](https://github.com/metakirby5/codi.vim)
+### notebook in Neovim.
 
 if [ $# -eq 0 ]; then
   syntax="python"
