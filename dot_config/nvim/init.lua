@@ -240,13 +240,6 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"junegunn/fzf",
-		build = function()
-			vim.fn["fzf#install()"]()
-		end,
-	},
-	{ "junegunn/fzf.vim" },
-	{
 		"monaqa/dial.nvim",
 		keys = { "<C-a>", "<C-x>" },
 		init = function()
@@ -759,7 +752,7 @@ vim.keymap.set("", "<Leader>O", ":setlocal spell! spelllang=pt<CR>")
 --                                    --
 ------------------------------------
 -- RIP-GREP
-vim.keymap.set("n", "_", ":Rg<CR>")
+vim.keymap.set("n", "_", ":Telescope live_grep<CR>")
 
 --------------------------------
 --     __  ___ ____ _____  ______ --
