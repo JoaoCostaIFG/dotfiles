@@ -14,3 +14,7 @@ set fish_cursor_insert line             # set the insert mode cursor to a line
 set fish_cursor_replace underscore      # Set the replace mode cursor to an underscore
 set fish_cursor_replace_one underscore 
 set fish_cursor_visual block blink       # Set the visual mode cursor to a blinking block
+
+# go back any number of dirs: .., ..., ...., etc...
+abbr --add dotdot --regex '^\.\.+$' --function multicd
+
