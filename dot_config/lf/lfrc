@@ -43,7 +43,7 @@ cmd on-cd &{{
   # '&' commands run silently in background (which is what we want here),
   # but are not connected to stdout.
   # To make sure our escape sequence still reaches stdout we pipe it to /dev/tty
-  basename "$(pwd | sed "s|$HOME|~|")" | chtermname
+  printf "📁 [%s]" "$(basename "$(pwd | sed "s|$HOME|~|")")" | chtermname
 }}
 # also run at startup
 on-cd
