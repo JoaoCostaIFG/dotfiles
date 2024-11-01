@@ -18,12 +18,14 @@ avahi
 base
 base-devel
 bash-completion
+bat
 bemenu
 blas-openblas
 blueman
 bluez
 bluez-utils
 boost
+bottom
 boxxy
 breeze-gtk
 brightnessctl
@@ -73,6 +75,7 @@ fzf
 gamemode
 gamescope
 gcc-fortran
+gcovr
 gdb
 gimp
 git
