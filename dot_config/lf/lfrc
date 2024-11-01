@@ -4,11 +4,14 @@
 set shell bash # needs to be posix compliant
 set shellopts '-eu' # makes shell commands safer
 set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline for the cursor in the preview pane
+
+# preview with ctpv
 set preview
 set previewer ctpv
 set cleaner ctpvclear
 &ctpv -s $id
 &ctpvquit $id
+
 set filesep "\n"
 set ifs "\n"
 set scrolloff 10
@@ -53,9 +56,6 @@ cmd edit-config ${{
 map C edit-config
 
 # Commands
-cmd q :quit
-cmd Q :quit
-
 cmd open ${{
   case $(file --mime-type "$(readlink -f $f)" -b) in
   text/troff) man ./ $f ;;
@@ -132,7 +132,8 @@ cmd copyto ${{
 
 cmd decompress ${{ # inflate archive
   set -f
-  aunpack $f
+  ouch decompress $fx
+  lf -remote "reload"
 }}
 
 cmd tar ${{ # compress using tar gz
@@ -218,7 +219,10 @@ cmd mkdir_sel %{{
 }}
 
 # Mappings
-map <c-z> $ kill -STOP $PPID # put lf into de background
+cmd q :quit
+cmd Q :quit
+
+map <c-z> $ kill -STOP $PPID # put lf into the background
 
 map <enter> shell # use <enter> for shell commands
 map <esc> reload

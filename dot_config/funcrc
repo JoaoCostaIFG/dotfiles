@@ -72,6 +72,12 @@ function httpstatus {
   curl --silent "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/${code}" | htmlq --text ".main-page-content > .section-content" | sed -e 's/  //g'
 }
 
+function compress_video {
+  for f in "$@"; do
+    ffmpeg -i "$f" -vcodec libx265 -crf 30 "${f}.mp4"
+  done
+}
+
 # clipboard
 function copy {
   cat | wl-copy

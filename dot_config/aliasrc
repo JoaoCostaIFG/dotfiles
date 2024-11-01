@@ -42,7 +42,7 @@ alias   chgrp="chgrp --preserve-root"
 
 # new commands #
 alias   battery="acpi -b"
-alias   decompress="aunpack"
+alias   decompress="ouch decompress"
 alias   dsize="du -sh"
 alias   hist="history | fzf | wl-copy"
 alias   ka="killall"  # requires an argument
