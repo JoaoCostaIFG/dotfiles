@@ -1,30 +1,13 @@
 #!/bin/bash
-# FUNCRC #
-# The functions defined in this file are using the non-standard `function foo {}`
-# instead of `foo() {}` so it is easier for me use this file both on bash and on fish
-
-function bashrc {
-  "$EDITOR" "$HOME/.bashrc"
-}
-
-function fishrc {
-  "$EDITOR" "$HOME/.config/fish/config.fish"
-}
-
-function aliasrc {
-  "$EDITOR" "$HOME/.config/aliasrc"
-}
-
-function funcrc {
-  "$EDITOR" "$HOME/.config/funcrc"
-}
+### The functions defined in this file are using the non-standard `function foo {}`
+### instead of `foo() {}` so it is easier for me use this file both on bash and on fish
 
 # opens lf and cd's to the current folder on exit
 function lfcd {
   tmp="$(mktemp)"
   lf -last-dir-path="$tmp" "$@"
   # cleanup terminal window name changes (not standard)
-  printf "\033]0;st\007" > /dev/tty
+  printf "\033]0;st\007" >/dev/tty
 
   if [ -f "$tmp" ]; then
     dir="$(cat "$tmp")"
@@ -41,13 +24,13 @@ function h {
 
 function cf {
   inputStr="$*"
-  find "$SCRIPTS"/* "$HOME/.config"/* -type f -print0 |
+  find "$SCRIPTS" "$HOME/.dotfiles" "$HOME/.config" -maxdepth 3 -type f -print0 |
     fzf --read0 --print0 -q "$inputStr" |
     xargs -r -0 "$EDITOR"
 }
 
 function notes {
-  find "$NOTES"/* -type f -print0 | fzf --read0 --print0 |
+  find "$NOTES" -type f -print0 | fzf --read0 --print0 |
     xargs -r -0 "$EDITOR"
 }
 
@@ -59,13 +42,13 @@ function help {
 
 function clndepl {
   while true; do
-    clndep --noconfirm || return 0;
+    clndep --noconfirm || return 0
   done
 }
 
 # find package and install it
 function fpkg {
-  pkg="$( ( pacman -Slq && yay -Slq ) | fzf)"
+  pkg="$( (pacman -Slq && yay -Slq) | fzf)"
   [ -z "$pkg" ] && return 0
   if pacman -Slq | grep -q -w "^${pkg}$"; then
     sudo pacman -Syu "$pkg"
@@ -76,7 +59,7 @@ function fpkg {
 
 function internetdolucassimulator {
   while true; do
-    amixer set Capture toggle >/dev/null 2>&1;
+    amixer set Capture toggle >/dev/null 2>&1
   done
 }
 
@@ -99,9 +82,9 @@ function paste {
 }
 
 function xcopy {
-    cat | xclip -selection clipboard
+  cat | xclip -selection clipboard
 }
 
 function xpaste {
-    xclip -selection clipboard -o
+  xclip -selection clipboard -o
 }

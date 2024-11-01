@@ -41,7 +41,7 @@ alias   chmod="chmod --preserve-root"
 alias   chgrp="chgrp --preserve-root"
 
 # new commands #
-alias   bat="acpi -b"
+alias   battery="acpi -b"
 alias   decompress="aunpack"
 alias   dsize="du -sh"
 alias   hist="history | fzf | wl-copy"

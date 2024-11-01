@@ -18,6 +18,8 @@ lock_at_startup = 1
 devices = ["XX:XX:XX:XX:XX:XX", "YY:YY:YY:YY:YY:YY"]
 ```
 
+This script depends on tombl to parse/read the config file.
+
 ## chtermname
 
 Show current directory in window title.

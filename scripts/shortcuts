@@ -3,31 +3,31 @@
 ### based on https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/shortcuts
 
 # Input files
-dirs_file="$HOME/.config/directories"
-files_file="$HOME/.config/files"
+dirs_file="${XDG_CONFIG_HOME:-$HOME/.config}/directories"
+files_file="${XDG_CONFIG_HOME:-$HOME/.config}/files"
 
 # Output locations. Unactivated progs should go to /dev/null
-shell_shortcuts="$HOME/.config/shortcutrc"
-fish_shortcuts="$HOME/.config/fish/conf.d/shortcutrc.fish"
+shell_shortcuts="${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc"
+fish_shortcuts="${XDG_CONFIG_HOME:-$HOME/.config}/fish/conf.d/shortcutrc.fish"
 
 # Prepare files
 rm -f "$shell_shortcuts" "$fish_shortcuts"
-printf "# vim: filetype=sh\\nalias " > "$shell_shortcuts"
+printf "#!/bin/sh\\n# vim: filetype=sh\\nalias " > "$shell_shortcuts"
 
 if [ -r "$dirs_file" ]; then
   # Format the `directories` file in the correct syntax
   # cmd="cd dir && ll dir"
   dirs=$(sed "s/\s*#.*$//;/^\s*$/d" "$dirs_file")
   printf "%s" "$dirs" |
-    awk '{print $1"=\"cd "$2" && ll\" \\"}' >> "$shell_shortcuts"
+    awk '{print $1"='\''cd "$2" && ll'\'' \\"}' >> "$shell_shortcuts"
   printf "%s" "$dirs" |
-    awk '{print "alias "$1"=\"cd "$2" && ll\""}' >> "$fish_shortcuts"
+    awk '{print "alias "$1"='\''cd "$2" && ll'\''"}' >> "$fish_shortcuts"
 fi
 if [ -r "$files_file" ]; then
   # Format the `files` file in the correct syntax
   files=$(sed "s/\s*#.*$//;/^\s*$/d"  "$files_file")
   printf "%s" "$files" |
-    awk '{print $1"=\"$EDITOR "$2"\" \\"}' >> "$shell_shortcuts"
+    awk '{print $1"='\''$EDITOR "$2"'\'' \\"}' >> "$shell_shortcuts"
   printf "%s" "$files" |
-    awk '{print "alias "$1"=\"$EDITOR "$2"\\"}' >> "$fish_shortcuts"
+    awk '{print "alias "$1"='\''$EDITOR "$2"'\''"}' >> "$fish_shortcuts"
 fi

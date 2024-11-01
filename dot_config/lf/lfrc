@@ -1,7 +1,7 @@
 # IFG lf stuff
 
 # Options
-set shell sh # needs to be posix compliant
+set shell bash # needs to be posix compliant
 set shellopts '-eu' # makes shell commands safer
 set preview
 set previewer ctpv
@@ -11,6 +11,7 @@ set cleaner ctpvclear
 set filesep "\n"
 set ifs "\n"
 set scrolloff 10
+set watch true
 # set color256
 # dynamic ratios on startup
 %{{
