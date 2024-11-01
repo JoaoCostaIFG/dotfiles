@@ -3,6 +3,7 @@
 # Options
 set shell bash # needs to be posix compliant
 set shellopts '-eu' # makes shell commands safer
+set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline for the cursor in the preview pane
 set preview
 set previewer ctpv
 set cleaner ctpvclear
@@ -12,6 +13,7 @@ set filesep "\n"
 set ifs "\n"
 set scrolloff 10
 set watch true
+set icons
 # set color256
 # dynamic ratios on startup
 %{{
@@ -27,6 +29,11 @@ set wrapscroll # make scrolling wrap
 
 # warning about nested instances
 &[ $LF_LEVEL -eq 1 ] || lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
+
+# use eza to provide the file information shown in the bottom left corner
+cmd on-select &{{
+    lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+}}
 
 # show current directory in window title (not standard so might not work on someplaces)
 cmd on-cd &{{
@@ -105,6 +112,8 @@ cmd delete ${{
   [ $ans = "y" ] && rm -rf $fx
 }}
 
+cmd trash %trash-put -- $fx
+
 cmd moveto ${{
   set -f
   echo "Move to where?"
@@ -123,7 +132,7 @@ cmd copyto ${{
 
 cmd decompress ${{ # inflate archive
   set -f
-  aunpack "$1"
+  aunpack $f
 }}
 
 cmd tar ${{ # compress using tar gz
@@ -186,6 +195,19 @@ cmd select-dirs &{{
     lf -remote "send $id :unselect; toggle $(get_dirs)"
 }}
 
+cmd select-all &{{
+    get_files() {
+        if [ "$lf_hidden" = 'false' ]; then
+            find "$PWD" -mindepth 1 -maxdepth 1 -not -name '.*' -print0
+        else
+            find "$PWD" -mindepth 1 -maxdepth 1 -print0
+        fi |
+        xargs -0 printf ' %q'
+    }
+
+    lf -remote "send $id :unselect; toggle $(get_files)"
+}}
+
 cmd mkdir %IFS=" "; mkdir -- "$*"
 cmd touch %IFS=" "; touch -- "$*"
 
@@ -206,14 +228,16 @@ map <c-j> push 10j
 map <c-k> push 10k
 map g top
 
+# dedicated keys for file opener actions
 map o open $f
 map O open $f
-map x $$f # execute current file
+# execute current file
+map x $$f
 map X !$f
 
 map a push :mkdir<space>
 map A push :mkdir_sel<space>
-map <c-a> select-files
+map <c-a> select-all
 map t push :touch<space>
 map r rename
 map Rf :rename; cmd-end; cmd-delete-home
