@@ -7,6 +7,8 @@ end
 
 # Vi
 fish_vi_key_bindings
+# search history with Control-R when in insert mode
+bind --mode insert \cr 'history-pager'
 set fish_escape_delay_ms 10
 # Emulates vim's cursor shape behavior
 set fish_cursor_default block           # set the normal and visual mode cursors to a block
