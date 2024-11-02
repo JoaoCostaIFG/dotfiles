@@ -13,7 +13,6 @@ ansible
 arc-icon-theme
 arc-solid-gtk-theme
 arch-install-scripts
-atool
 avahi
 base
 base-devel
@@ -218,6 +217,7 @@ opensc
 openssh
 os-prober
 otf-font-awesome
+ouch
 p7zip
 pacman-contrib
 parallel
@@ -270,6 +270,7 @@ shfmt
 slurp
 smartmontools
 socat
+starship
 steam
 supertux
 swappy
