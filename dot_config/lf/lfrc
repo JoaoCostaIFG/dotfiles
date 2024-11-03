@@ -75,6 +75,46 @@ cmd open ${{
 
 cmd share $curl -F"file=@$fx" https://0x0.st | wl-copy
 
+cmd paste &{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    case "$mode" in
+        copy)
+            if [ "$#" -eq 0 ]; then
+                lf -remote "send $id echoerr paste-cow: no file in copy/cut buffer"
+                exit
+            fi
+
+            fallback=""
+            printf 'copy\n' > ~/.local/share/lf/files
+            for file in "$@"; do
+                name="$(basename -- "$file")"
+                orig="$name"
+
+                count="0"
+                while [ -e "$name" ]; do
+                    name="$orig.~$((count += 1))~"
+                done
+
+                if ! out="$(cp -an --reflink=always -- "$file" "./$name" 2>&1)"; then
+                    fallback="true"
+                    printf '%s\n' "$file" >> ~/.local/share/lf/files
+                    # this line may spam your screen, if so comment it out
+                    [ -n "$out" ] && lf -remote "send $id echoerr \"$(printf '%s' "$out" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+                fi
+            done
+
+            if [ -n "$fallback" ]; then
+                lf -remote "send $id :sync; paste; clear"
+            else
+                lf -remote "send $id :clear; echo \"\\033[0;32mCopied successfully (reflinked)\\033[0m\""
+            fi
+            ;;
+        move) lf -remote "send $id paste";;
+    esac
+}}
+
 cmd detox ${{ # detox name (clean file name)
   set -f
   detox -r $fx
