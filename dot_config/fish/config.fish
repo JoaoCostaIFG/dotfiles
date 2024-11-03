@@ -20,3 +20,7 @@ set fish_cursor_visual block blink       # Set the visual mode cursor to a blink
 # go back any number of dirs: .., ..., ...., etc...
 abbr --add dotdot --regex '^\.\.+$' --function multicd
 
+# starship
+if command -v starship >/dev/null
+  starship init fish | source
+end

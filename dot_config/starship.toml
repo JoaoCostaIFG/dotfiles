@@ -1,0 +1,47 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$cmd_duration\
+$jobs\
+$character"""
+
+[character]
+# The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+success_symbol = '[<><](bold green)'
+error_symbol = '[<><](bold red)'
+vimcmd_symbol = '[><>](bold green)'
+
+[cmd_duration]
+min_time = 2_000
+format = '[\[$duration 󰥔\]]($style) '
+
+[directory]
+read_only = "󰌾"
+read_only_style = "yellow"
+truncation_length = 1
+format = '[\[](bold red)[$path]($style)[$read_only]($read_only_style)[\]](bold red) '
+
+[git_branch]
+symbol = " "
+format = '[\($symbol$branch(:$remote_branch)\)]($style) '
+
+[git_commit]
+tag_symbol = '  '
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[nix_shell]
+symbol = " "

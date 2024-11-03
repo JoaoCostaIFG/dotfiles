@@ -29,14 +29,20 @@ shopt -s cmdhist
 PROMPT_COMMAND='history -a; printf "%%%$((COLUMNS-1))s\\r"'
 
 # VARS #
-RT="\[$(tput sgr0)\]" # reset
-BD="\[$(tput bold)\]" # bold
-C1="\[$(tput setaf 1)\]"
-C2="\[$(tput setaf 2)\]"
-# C3="\[$(tput setaf 5)\]"
-C4="\[$(tput setaf 6)\]"
-# export PS1="${BD}${C2}[${C1}\u${C4}@\h${C3} \W${C2}]\$ ${RT}"
-export PS1="${BD}${C1}[${C4}\W${C1}]${C2}<>< ${RT}"
+# prompt
+if command -v starship >/dev/null; then
+  # use starship when available
+  eval "$(starship init bash)"
+else
+  RT="\[$(tput sgr0)\]" # reset
+  BD="\[$(tput bold)\]" # bold
+  C1="\[$(tput setaf 1)\]"
+  C2="\[$(tput setaf 2)\]"
+  C3="\[$(tput setaf 5)\]"
+  C4="\[$(tput setaf 6)\]"
+  # export PS1="${BD}${C2}[${C1}\u${C4}@\h${C3} \W${C2}]\$ ${RT}"
+  export PS1="${BD}${C1}[${C4}\W${C1}]${C2}<>< ${RT}"
+fi
 
 # ALIAS #
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"

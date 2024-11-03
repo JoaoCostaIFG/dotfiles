@@ -1,0 +1,4 @@
+,bashrc	~/.bashrc
+,fishrc	~/.config/fish/config.fish
+,aliasrc	~/.config/aliasrc
+,funcrc	~/.config/funcrc
