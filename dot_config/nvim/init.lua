@@ -230,7 +230,7 @@ require("lazy").setup({
 		init = function()
 			vim.g.lf_replace_netrw = true -- open lf when vim opens a directory
 			vim.g.lf_map_keys = false
-			vim.keymap.set("n", "-", ":LfWorkingDirectory<CR>")
+			vim.keymap.set("n", "-", ":LfCurrentFile<CR>")
 		end,
 	},
 	{
