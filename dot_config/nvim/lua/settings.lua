@@ -62,3 +62,5 @@ else
   set undodir^=~/.local/share/nvim/undo//
 endif
 ]])
+
+-- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
