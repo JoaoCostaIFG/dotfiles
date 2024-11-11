@@ -11,4 +11,6 @@ return {
             end,
         })
     end,
+    ft = "markdown",
+    lazy = true,
 }

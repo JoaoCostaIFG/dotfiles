@@ -1,6 +1,6 @@
 -- Description: Distraction-free coding for Neovim.
 -- Source: https://github.com/folke/zen-mode.nvim
--- the writting focus thing
+-- the writing focus thing
 
 return
 {
@@ -8,4 +8,6 @@ return
     init = function()
         vim.keymap.set("n", "<Leader>n", ":ZenMode<CR>")
     end,
+    cmd = { "ZenMode" },
+    lazy = true,
 }

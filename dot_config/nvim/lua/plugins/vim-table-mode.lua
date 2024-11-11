@@ -7,4 +7,6 @@ return {
         -- make it more equivalent to the markdown one
         vim.g.table_mode_header_fillchar = "-"
     end,
+    cmd = { "TableModeEnable", "TableModeDisable", "TableModeToggle", "TableModeRealign" },
+    lazy = true,
 }
