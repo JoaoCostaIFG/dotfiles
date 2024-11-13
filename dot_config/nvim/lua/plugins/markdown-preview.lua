@@ -4,7 +4,7 @@
 return {
     "iamcco/markdown-preview.nvim",
     -- ft = { "markdown" },
-    build = "cd app && npm install",
+    build = "cd app && yarn install",
     init = function()
         vim.g.mkdp_markdown_css = vim.fn.stdpath("config") .. "/markdown.css"
         vim.g.mkdp_port = "8542"
