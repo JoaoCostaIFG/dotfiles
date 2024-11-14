@@ -6,6 +6,7 @@
 
 - link:
     ~/.gnupg/gpg-agent.conf: homedir/dot_gnupg/gpg-agent.conf
+    ~/.ssh/config: homedir/dot_ssh/config
     ~/.bash_profile: homedir/dot_bash_profile
     ~/.bashrc: homedir/dot_bashrc
     ~/.profile: homedir/dot_profile

@@ -14,6 +14,7 @@ arc-icon-theme
 arc-solid-gtk-theme
 arch-install-scripts
 avahi
+aws-cli
 base
 base-devel
 bash-completion
@@ -35,7 +36,7 @@ chafa
 checkbashisms
 checksec
 cmake
-composer
+codespell
 cpio
 cpupower
 croc
@@ -68,6 +69,7 @@ figlet
 firefox
 firewalld
 fish
+fontforge
 foot
 fprintd
 fzf
@@ -105,15 +107,6 @@ htmlq
 http-parser
 hunspell-en_us
 hyperfine
-hyprcursor
-hypridle
-hyprland
-hyprlang
-hyprlock
-hyprpaper
-hyprpicker
-hyprutils
-hyprwayland-scanner
 imagemagick
 imv
 inetutils
@@ -123,6 +116,7 @@ jfsutils
 jq
 jre11-openjdk-headless
 jshon
+krita
 kvantum
 lib32-fakeroot
 lib32-gamemode
@@ -136,13 +130,11 @@ lib32-libldap
 lib32-libltdl
 lib32-libpulse
 lib32-libva
-lib32-libva-mesa-driver
 lib32-libxcomposite
 lib32-libxft
 lib32-libxinerama
 lib32-libxslt
 lib32-mesa
-lib32-mesa-vdpau
 lib32-mpg123
 lib32-ocl-icd
 lib32-openal
@@ -158,7 +150,6 @@ libayatana-appindicator
 libliftoff
 libnotify
 libreoffice-fresh
-libva-mesa-driver
 libva-utils
 libvdpau-va-gl
 libxft
@@ -181,7 +172,6 @@ mdadm
 mediainfo
 mesa
 mesa-utils
-mesa-vdpau
 meson
 monolith
 mosh
@@ -225,19 +215,15 @@ patchelf
 pavucontrol
 perf
 perl-locale-gettext
-php-gd
-php-sodium
-php-sqlite
-php-tidy
 pipewire-alsa
 pipewire-pulse
 pipewire-v4l2
 pkgstats
 plantuml
 playerctl
-polkit-kde-agent
 poppler
 prettier
+prismlauncher
 prusa-slicer
 pv
 python-matplotlib
@@ -259,6 +245,7 @@ reflector
 reiserfsprogs
 ripgrep-all
 rlwrap
+rocminfo
 rsync
 rust
 rust-analyzer
@@ -321,7 +308,6 @@ wlroots
 xclip
 xdg-desktop-portal
 xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland
 xdotool
 xf86-video-amdgpu
 xfsprogs
@@ -336,6 +322,7 @@ xorg-xwininfo
 xwaylandvideobridge
 yad
 yapf
+yarn
 ydotool
 yq
 yt-dlp
