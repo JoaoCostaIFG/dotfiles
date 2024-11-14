@@ -136,6 +136,11 @@ cmd decompress ${{ # inflate archive
   lf -remote "reload"
 }}
 
+cmd serve ${{ # open webserver in port 3000
+  set -f
+  python -m http.server 3000
+}}
+
 cmd tar ${{ # compress using tar gz
   set -f
   mkdir -p "$1"
