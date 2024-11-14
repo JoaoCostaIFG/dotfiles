@@ -18,7 +18,8 @@ if command -v starship >/dev/null
   starship init fish --print-full-init | source
 end
 
-# If login shell, start desktop
+# if login shell, start desktop
 if uwsm check may-start
+  # start desktop
 	exec systemd-cat -t uwsm_start uwsm start default
 end
