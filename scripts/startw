@@ -1,21 +1,10 @@
 #!/bin/sh
 
-#
-# Sway
-#
-#exec sway
+# if uwsm check may-start; then
+#   exec uwsm start -- hyprland.desktop
+# fi
 
-#
-# Hyprland
-#
-Hyprland
-systemctl --user stop hyprland-session.target
+if uwsm check may-start && uwsm select; then
+	exec systemd-cat -t uwsm_start uwsm start default
+fi
 
-#
-# DWL
-#
-# This should run inside (pass a script to DWL):
-# dbus-update-activation-environment --systemd --all; systemctl --user start dwl-session.target
-#
-#dbus-run-session dwl
-#systemctl --user stop dwl-session.target

@@ -2,5 +2,5 @@
 lock_cmd = "loginctl lock-session"
 unlock_cmd = "ydotool mousemove -- 1 0; pkill -USR1 hyprlock"
 query_interval_secs = 5
-lock_at_startup = 1
+lock_at_startup = 0
 devices = ["40:11:C3:01:50:AF", "94:65:2D:C4:50:6A"]

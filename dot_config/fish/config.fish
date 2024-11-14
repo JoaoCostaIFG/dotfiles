@@ -1,10 +1,3 @@
-# If not running interactively, don't do anything #
-if status is-login
-  ssh-agent | babelfish | source >/dev/null
-  startw
-  exit
-end
-
 # Vi
 fish_vi_key_bindings
 # search history with Control-R when in insert mode
@@ -24,3 +17,6 @@ abbr --add dotdot --regex '^\.\.+$' --function multicd
 if command -v starship >/dev/null
   starship init fish --print-full-init | source
 end
+
+# If login shell, start desktop
+startw
