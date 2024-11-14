@@ -19,4 +19,6 @@ if command -v starship >/dev/null
 end
 
 # If login shell, start desktop
-startw
+if uwsm check may-start
+	exec systemd-cat -t uwsm_start uwsm start default
+end
