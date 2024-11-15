@@ -50,7 +50,7 @@ export HISTIGNORE="bg:bye:byer:cf:clear:exit:fg:jobs:history:lf:lfcd:startx"
 # other program settings
 export LC_COLLATE="C"
 export LESS="-iFMRSX"
-export SSH_AUTH_SOCK='${XDG_RUNTIME_DIR}/ssh-agent.socket'
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 # export SSH_ASKPASS="$HOME/.local/bin/dmenu/dpass"
 # export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dpass"
 export GPG_TTY="$(tty)"
