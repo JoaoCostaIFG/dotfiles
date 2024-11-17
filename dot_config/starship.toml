@@ -10,6 +10,7 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
+$python\
 $cmd_duration\
 $jobs\
 $character"""
