@@ -1,6 +1,7 @@
 alvr-launcher-bin
 autenticacao-gov-pt
 babelfish-fish-git
+bpftune-git
 clipse
 ctpv-git
 dashbinsh
@@ -13,6 +14,7 @@ hyprpaper-git
 hyprpicker-git
 hyprpolkitagent-git
 lf-bin
+lf-file-handler-git
 librewolf-bin
 moonlight-qt
 mpdris2

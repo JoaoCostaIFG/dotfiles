@@ -19,6 +19,7 @@ base
 base-devel
 bash-completion
 bat
+bear
 bemenu
 blas-openblas
 blueman
@@ -237,6 +238,7 @@ python-scipy
 python-tqdm
 python-websockets
 qbittorrent
+qpwgraph
 qt5-imageformats
 qt6-wayland
 qt6ct
