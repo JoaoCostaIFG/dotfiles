@@ -23,7 +23,7 @@ return {
                 json = { require("formatter.filetypes.json").prettier },
                 markdown = { require("formatter.filetypes.markdown").prettier },
                 sh = { require("formatter.filetypes.sh").shfmt },
-                python = { require("formatter.filetypes.python").black },
+                python = { require("formatter.filetypes.python").ruff },
                 lua = { require("formatter.filetypes.lua").stylua },
 
                 -- Use "*" filetype for formatter configurations on any filetype
