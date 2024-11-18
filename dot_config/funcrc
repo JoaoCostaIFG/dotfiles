@@ -94,3 +94,7 @@ function xcopy {
 function xpaste {
   xclip -selection clipboard -o
 }
+
+function get_gitignore {
+  wget "https://raw.githubusercontent.com/github/gitignore/refs/heads/main/$@.gitignore" -O ".gitignore"
+}
