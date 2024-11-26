@@ -28,5 +28,6 @@ map("", "<Leader>O", ":setlocal spell! spelllang=pt<CR>")
 -- RIP-GREP
 map("n", "_", ":Telescope live_grep<CR>")
 
--- O
+-- Code navigation
 map('n', 'gD', '<c-w>v<cmd>lua vim.lsp.buf.definition()<CR>')
+map('n', 'gF', '<c-w>vgF')
