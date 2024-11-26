@@ -3,29 +3,32 @@
 ### - Take full-screen screen-shots (saves them in a previously specified folder);
 ### - Screen-shot a selection of the screen (places the image in the clipboard);
 ### - Output color information of a selection (saves RGB color code in clipboard and show a notification for it too).
-### 
+###
 ### Args:
 ### - "snip" - take a snip and pass it to the clipboard (just clicking get the full clicked window);
 ### - "snip-edit" - take a snip and edit it
 ### - "picker" - color picker (needs work);
 ### - "current" - screenshot current screen;
 ### - "current-save" - screenshot current screen and auto save it to $SCREENSHOT_SAVEDIR directory;
+### - "ocr" - select area and copy text;
 ### - no args - dmenu arg selection.
 ### Depends on:
 ### - [grim](https://sr.ht/~emersion/grim/)
 ### - [slurp](https://github.com/emersion/slurp)
 ### - [swappy](https://github.com/jtheoof/swappy)
 ### - [hyprpicker](https://github.com/hyprwm/hyprpicker)
+### - [tesseract-ocr](https://github.com/tesseract-ocr/tesseract)
 ### - wl-clipboard
 ### - bemenu
 
 set -eu
 
+OCR_LANGS="por+eng"
+
 parse_arg() {
   case "$1" in
   "snip")
     # Sniping tool
-    # intentionally unquoted
     geometry="$(slurp)"
     if [ -z "$geometry" ]; then
       exit 1
@@ -54,6 +57,13 @@ parse_arg() {
     grim "$file_name"
     notify-send -e -i "$file_name" "Print screen" "Print saved to $file_name" &
     ;;
+  "ocr")
+    geometry="$(slurp)"
+    if [ -z "$geometry" ]; then
+      exit 1
+    fi
+    grim -g "$geometry" - | tesseract -l "$OCR_LANGS" --oem 2 - - | wl-copy
+    ;;
   *)
     exit 1
     ;;
@@ -62,6 +72,6 @@ parse_arg() {
 
 if [ "${1+x}" ]; then
   parse_arg "$1"
-else 
-  parse_arg "$(printf "snip\\nsnip-edit\\npicker\\ncurrent\\ncurrent-save" | bemenu -i -p "What to do?")"
+else
+  parse_arg "$(printf "snip\\nsnip-edit\\npicker\\ncurrent\\ncurrent-save\\nocr" | bemenu -i -p "What to do?")"
 fi
