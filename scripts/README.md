@@ -146,12 +146,14 @@ Args:
 - "picker" - color picker (needs work);
 - "current" - screenshot current screen;
 - "current-save" - screenshot current screen and auto save it to $SCREENSHOT_SAVEDIR directory;
+- "ocr" - select area and copy text;
 - no args - dmenu arg selection.
 Depends on:
 - [grim](https://sr.ht/~emersion/grim/)
 - [slurp](https://github.com/emersion/slurp)
 - [swappy](https://github.com/jtheoof/swappy)
 - [hyprpicker](https://github.com/hyprwm/hyprpicker)
+- [tesseract-ocr](https://github.com/tesseract-ocr/tesseract)
 - wl-clipboard
 - bemenu
 
