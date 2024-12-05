@@ -35,6 +35,8 @@
 [push]
   default = simple
   autoSetupRemote = true
+[fetch]
+  prune = true
 [alias]
   ad = add
   br = branch
