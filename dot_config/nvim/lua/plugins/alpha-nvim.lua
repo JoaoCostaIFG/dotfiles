@@ -1,6 +1,5 @@
 -- Description: A lua powered greeter like vim-startify / dashboard-nvim.
 -- Source: https://github.com/goolord/alpha-nvim
--- greeter
 
 return {
     "goolord/alpha-nvim",
