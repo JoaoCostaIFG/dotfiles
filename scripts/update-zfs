@@ -42,10 +42,10 @@ if [ "$current_kernel_version" = "$latest_kernel_version" ]; then
   printf "\033[0;32m%s\033[0m\n" "Kernel is the latest. No need to update."
 elif version_greater_equal "$zfs_max_kernel" "$latest_kernel_Mm" && version_greater_equal "$latest_kernel_Mm" "$zfs_min_kernel"; then
   printf "\033[0;32m%s\033[0m\n" "Kernel can be updated. Don't forget to update zfs-dkms first."
-  "$update_zfs_dkms"
-  sudo sed 's/^IgnorePkg/#IgnorePkg/' /etc/pacman.conf
+  $update_zfs_dkms
+  sudo sed -i 's/^IgnorePkg/#IgnorePkg/' /etc/pacman.conf
   sudo pacman -Syu
-  sudo sed 's/^#IgnorePkg/IgnorePkg/' /etc/pacman.conf
+  sudo sed -i 's/^#IgnorePkg/IgnorePkg/' /etc/pacman.conf
 else
   printf "\033[0;31m%s\033[0m\n" "Don't update. Newest kernel is not compatible with the latest ZFS."
   exit 1

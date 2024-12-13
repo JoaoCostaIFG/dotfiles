@@ -14,10 +14,6 @@ Host motioneye
   HostName motioneye.peacock-hirajoshi.ts.net
   User admin
 
-
-Host ifgsv_pihole
-  HostName pi-hole
-  User root
 # joaocosta.dev
 Host ifgsv_openwrt
   HostName 10.0.0.1
