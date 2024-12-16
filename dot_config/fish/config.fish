@@ -21,5 +21,5 @@ end
 # if login shell, start desktop
 if uwsm check may-start
   # start desktop
-	exec systemd-cat -t uwsm_start uwsm start default
+	exec uwsm start hyprland.desktop
 end
