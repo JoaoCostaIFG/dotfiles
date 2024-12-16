@@ -50,6 +50,7 @@
   d = diff
   df = diff
   l = log
+  lop = log -p
   pl = pull
   plu = "!f() {\
     git fetch ; \
