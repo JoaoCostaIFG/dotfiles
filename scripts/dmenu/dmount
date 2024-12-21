@@ -5,6 +5,8 @@
 ### Might not work for all kinds of Android phones (check:
 ### [Arch wiki android](https://wiki.archlinux.org/index.php/Android#Transferring_files)).
 
+set -eu
+
 mount_drive() {
   drives="$(lsblk -nr |
     awk '$6!="disk" && $7=="" {print $1 " (" $4 ")"}')"
@@ -13,11 +15,11 @@ mount_drive() {
     bemenu -i -p "Drive to mount:" |
     sed -e 's/\s.*$//')
   # check if the selectiong is valid
-  existance=$(printf "%s" "$drives" |
+  existence=$(printf "%s" "$drives" |
     sed -e 's/\s.*$//' |
     awk -v cmp_var="$selected_drive" '$0 == cmp_var')
 
-  [ "$existance" ] && printf "%s" "$selected_drive"
+  [ "$existence" ] && printf "%s" "$selected_drive"
 }
 
 umount_drive() {
@@ -28,11 +30,11 @@ umount_drive() {
     bemenu -i -p "Drive to umount:" |
     sed -e 's/\s.*$//')
   # check if the selectiong is valid
-  existance=$(printf "%s" "$drives" |
+  existence=$(printf "%s" "$drives" |
     sed -e 's/\s.*$//' |
     awk -v cmp_var="$selected_drive" '$0 == cmp_var')
 
-  [ "$existance" ] && printf "%s" "$selected_drive"
+  [ "$existence" ] && printf "%s" "$selected_drive"
 }
 
 # check for udisksctl
@@ -95,14 +97,14 @@ case "$op" in
     bemenu -i -p "Drive to mount:" |
     sed s/:.*$//)
 
-  existance=$(simple-mtpfs -l |
+  existence=$(simple-mtpfs -l |
     sed s/:.*$// |
     awk -v cmp_var="$selected_drive" '$0 == cmp_var')
-  [ -z "$existance" ] && exit
+  [ -z "$existence" ] && exit
 
   android_mount_path="/run/media/${USER}/Android${selected_drive}"
   mkdir "$android_mount_path"
-  simple-mtpfs --device "$selected_drive" "$android_mount_path"
+  simple-mtpfs --device "$selected_drive" "$android_mount_path" -o auto_unmount
   notify-send -e "DMOUNT SUCCESS" "Android partition $selected_drive mounted to $android_mount_path" &
   ;;
 "Umount android")
@@ -110,10 +112,10 @@ case "$op" in
     bemenu -i -p "Drive to umount:" |
     sed s/:.*$//)
 
-  existance=$(simple-mtpfs -l |
+  existence=$(simple-mtpfs -l |
     sed s/:.*$// |
     awk -v cmp_var="$selected_drive" '$0 == cmp_var')
-  [ -z "$existance" ] && exit
+  [ -z "$existence" ] && exit
 
   android_mount_path="/run/media/${USER}/Android${selected_drive}"
   fusermount -u "$android_mount_path"
