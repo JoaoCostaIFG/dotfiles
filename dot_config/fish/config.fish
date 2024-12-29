@@ -19,7 +19,7 @@ if command -v starship >/dev/null
 end
 
 # if login shell, start desktop
-if uwsm check may-start
+if status is-login && uwsm check may-start
   # start desktop
-	exec uwsm start hyprland.desktop
+  exec uwsm start hyprland.desktop
 end
