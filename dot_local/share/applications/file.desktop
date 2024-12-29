@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=lf
-Exec=/usr/local/bin/st -e lfcd_sh %u
+Exec=/bin/ghostty -e lfcd_sh %u
