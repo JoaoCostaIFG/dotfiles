@@ -7,8 +7,10 @@ set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline 
 
 # preview with ctpv
 set preview
-set previewer ctpv
-set cleaner ctpvclear
+set previewer ~/.config/lf/previewer
+set cleaner ~/.config/lf/cleaner
+# set previewer ctpv
+# set cleaner ctpvclear
 &ctpv -s $id
 &ctpvquit $id
 
