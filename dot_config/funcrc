@@ -73,7 +73,7 @@ function httpstatus {
 }
 
 function compress_video {
-  for f in "$@"; do
+  for f in $@; do
     ffmpeg -i "$f" -vcodec libx265 -crf 30 "${f}.mp4"
   done
 }
