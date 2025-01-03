@@ -30,6 +30,7 @@ alias   grep="grep --color=auto"
 alias   egrep="egrep --color=auto"
 alias   fgrep="fgrep --color=auto"
 alias   dmenu="bemenu"
+alias   neofetch="fastfetch"
 
 # safety measures #
 alias   cp="cp -i"
