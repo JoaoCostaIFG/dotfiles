@@ -14,7 +14,6 @@ arc-icon-theme
 arc-solid-gtk-theme
 arch-install-scripts
 avahi
-aws-cli
 base
 base-devel
 bash-completion
@@ -57,6 +56,7 @@ docker-compose
 docx2txt
 dos2unix
 dosfstools
+dvdbackup
 easyeffects
 efibootmgr
 electron
@@ -121,6 +121,7 @@ jfsutils
 jq
 jre11-openjdk-headless
 jshon
+kitty
 krita
 kvantum
 lan-mouse
@@ -209,6 +210,7 @@ opencv
 openrgb
 opensc
 openssh
+opusfile
 os-prober
 otf-font-awesome
 ouch
@@ -219,6 +221,7 @@ pavucontrol
 perf
 perl-locale-gettext
 php
+picard
 pipewire-alsa
 pipewire-pulse
 pipewire-v4l2
@@ -228,7 +231,6 @@ playerctl
 poppler
 prettier
 prismlauncher
-prusa-slicer
 pv
 python-matplotlib
 python-mutagen
@@ -262,6 +264,7 @@ shfmt
 slurp
 smartmontools
 socat
+solaar
 sshpass
 starship
 steam
@@ -305,6 +308,7 @@ vulkan-tools
 vulkan-validation-layers
 waybar
 wget
+whipper
 wine-gecko
 wine-mono
 wine-staging

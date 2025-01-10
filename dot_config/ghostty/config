@@ -6,7 +6,7 @@ font-family-italic = "italic"
 font-family-bold-italic = "italic"
 
 # Theme (see available themes with `ghostty +list-themes`)
-theme = catppuccin-mocha
+theme = "Kanagawa Dragon"
 background = 0b0a18
 background-opacity = 0.95
 

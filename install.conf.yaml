@@ -23,7 +23,6 @@
         glob: true
         path: dot_config/*
         exclude: [
-          dot_config/mpd,
           dot_config/maxima,
           dot_config/newsboat,
           dot_config/pulse,
@@ -41,9 +40,6 @@
         create: true
         force: true
         path: dot_config/mimeapps.list
-    ~/.config/mpd/mpd.conf:
-        create: true
-        path: dot_config/mpd/mpd.conf
     ~/.config/maxima/:
         create: true
         glob: true
