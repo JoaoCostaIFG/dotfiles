@@ -12,6 +12,7 @@
         "battery",
         "cpu",
         "clock",
+        "idle_inhibitor",
         "custom/notification",
         "tray"
     ],
@@ -54,7 +55,7 @@
         }
     },
     "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+        "format": "{stateIcon}  {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
         "format-disconnected": "<span face=\"Font Awesome 6 Free\"> </span> Disconnected",
         "format-stopped": "<span face=\"Font Awesome 6 Free\"></span> Stopped",
         "interval": 10,
@@ -66,7 +67,7 @@
         "tooltip-format-disconnected": "MPD (disconnected)",
         "on-click": "mpc toggle",
         "on-click-right": "mpc seek 0",
-        "on-click-middle": "alacritty -e ncmpcpp",
+        "on-click-middle": "$TERMINAL_EXEC ncmpcpp",
         "on-scroll-up": "mpc volume +5",
         "on-scroll-down": "mpc volume -5"
     },
@@ -108,13 +109,21 @@
         "format": "<span face=\"Font Awesome 6 Free\"></span> {usage}%",
         "max-length": 10,
         "on-click": "notify-send 'Thermals' \"$(acpi -t)\"",
-        "on-click-middle": "alacritty -e top"
+        "on-click-right": "$TERMINAL_EXEC btm",
+        "on-click-middle": "$TERMINAL_EXEC top"
     },
     "clock": {
         "format": "<span face=\"Font Awesome 6 Free\"></span> {:%H:%M}",
         "format-alt": "<span face=\"Font Awesome 6 Free\"></span> {:%a, %d. %b  %H:%M}",
-        "on-click-right": "alacritty -e nmtui",
+        "on-click-right": "$TERMINAL_EXEC nmtui",
         "tooltip-format": "{:%a, %Y-%m-%d}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
     "custom/notification": {
         "tooltip": false,
