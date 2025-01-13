@@ -210,6 +210,7 @@ placeholder = "Websearch"
 [[builtins.websearch.entries]]
 name = "Google"
 url = "https://www.google.com/search?q=%TERM%"
+switcher_only = true
 
 [[builtins.websearch.entries]]
 name = "DuckDuckGo"
@@ -217,14 +218,8 @@ url = "https://duckduckgo.com/?q=%TERM%"
 switcher_only = true
 
 [[builtins.websearch.entries]]
-name = "Ecosia"
-url = "https://www.ecosia.org/search?q=%TERM%"
-switcher_only = true
-
-[[builtins.websearch.entries]]
-name = "Yandex"
-url = "https://yandex.com/search/?text=%TERM%"
-switcher_only = true
+name = "Kagi"
+url = "https://kagi.com/search?q=%TERM%"
 
 [builtins.dmenu]
 hidden = true
