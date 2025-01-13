@@ -116,6 +116,7 @@
         "format": "<span face=\"Font Awesome 6 Free\"></span> {:%H:%M}",
         "format-alt": "<span face=\"Font Awesome 6 Free\"></span> {:%a, %d. %b  %H:%M}",
         "on-click-right": "$TERMINAL_EXEC nmtui",
+        "on-click-middle": "walker",
         "tooltip-format": "{:%a, %Y-%m-%d}"
     },
     "idle_inhibitor": {
