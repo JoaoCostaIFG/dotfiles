@@ -1,6 +1,9 @@
+#!/bin/fish
+
 function gen_commit_msg --argument context
-    set script_name (status function)
-    set model "mistral"
+    set -l model "mistral"
+    set -l use_emoji "no"
+    set -l attempts 3
 
     function print_help -a msg -V script_name
         if test -n "$msg"
@@ -9,8 +12,8 @@ function gen_commit_msg --argument context
         end
         set_color yellow
         echo "Usage:"
-        echo "  git add the files to the staging area"
-        echo "  then run $script_name"
+        echo "  `git add` the files to the staging area"
+        echo "  then run the script, optionally passing in a context string."
     end
 
     set gitDiff (git diff --cached | string collect)
@@ -26,7 +29,9 @@ function gen_commit_msg --argument context
     set codeblocked_git_diff "```
 $gitDiff```"
     set identity "You are to act as an author of a commit message in git."
-    set gitmoji_help "Use GitMoji convention to preface the commit. Here are some help to choose the right emoji (emoji, description):
+
+    if test "$use_emoji" = "yes"
+        set commit_preface "Use GitMoji convention to preface the commit. Here are some help to choose the right emoji (emoji, description):
 🐛, Fix a bug;
 ✨, Introduce new features;
 📝, Add or update documentation;
@@ -37,16 +42,24 @@ $gitDiff```"
 🔧, Add or update configuration files;
 🌐, Internationalization and localization;
 💡, Add or update comments in source code;"
-    set conventional_commit_keywords "Do not preface the commit with anything, except for the conventional commit keywords: fix, feat, build, chore, ci, docs, style, refactor, perf, test."
+    else
+        set commit_preface "Do not preface the commit with anything, except for the conventional commit keywords (in lower case): fix, feat, build, chore, ci, docs, style, refactor, perf, test."
+    end
 
     set prompt "$identity Your mission is to create clean and comprehensive commit messages as per the Conventional Commit Convention and explain WHAT were the changes and mainly WHY the changes were done.
 I'll send you an output of 'git diff --staged' command, and you are to convert it into a commit message.
-$gitmoji_help
+$commit_preface
 Add a short description of WHY the changes are done after the commit message. Don\'t start it with 'This commit', just describe the changes.
 Use the present tense. Lines must not be longer than 74 characters. Use english for the commit message.
 $context
 
 $gitDiff"
 
-    ask "$model" "$prompt"
+
+    set answer (for i in (seq $attempts)
+        ask "$model" "$prompt"
+    end | string collect)
+    git commit -e -m "$answer"
 end
+
+gen_commit_msg "$argv"
