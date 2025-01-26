@@ -7,8 +7,7 @@ alias   :x=" exit"
 alias   cd..="cd .."
 alias   ...="cd ../.."
 alias   cd...="cd ../.."
-# intentionally escaped
-alias   lhome='ls -lAh --group-directories-first --color=auto $HOME'
+alias   lhome="ls -lAh --group-directories-first --color=auto ~"
 alias   ls="ls --group-directories-first --color=auto"
 alias   ll="$LS --group-directories-first -lgh --git"
 alias   lll="ll -a"
@@ -53,6 +52,8 @@ alias   yt="yt-dlp --add-metadata -ic -o '%(title)s.%(ext)s'"
 alias   yta="yt-dlp -x -f bestaudio/best --audio-format mp3 -o '%(title)s.%(ext)s'"
 alias   clndep='pacman -Qdtq | sudo pacman -R -' # intentionally escaped
 alias   clnrep="printf 'Cleaning uninstalled packages\n'; sudo paccache -ruk0; printf 'Leaving last version of installed packages\n'; sudo paccache -rk1"
+alias   s="sudo systemctl"
+alias   su="systemctl --user"
 
 # abbreviations (intentionally escaped) #
 alias   f='$FILE'

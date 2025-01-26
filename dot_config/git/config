@@ -58,6 +58,7 @@
     git pull ; \
   }; f"
   p = push
+  pf = push --force-with-lease --force-if-includes
   pu = "!f() {\
     if [ \"$#\" -eq 0 ]; then \
       branch_name=\"$(git rev-parse --abbrev-ref HEAD)\" ; \
