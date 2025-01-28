@@ -1,12 +1,3 @@
 #!/bin/sh
 
-file="$1"
-
-case "$(file -Lb --mime-type "$file")" in 
-  image/*)
-    exec kitten icat --clear --stdin no --transfer-mode file </dev/null >/dev/tty
-    exit 1
-    ;;
-esac
-
-ctpvclear "$file"
+TERM="xterm-kitty" ctpvclear "$@"

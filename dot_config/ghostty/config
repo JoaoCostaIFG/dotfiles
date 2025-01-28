@@ -5,6 +5,8 @@ font-family-bold = "monospace"
 font-family-italic = "italic"
 font-family-bold-italic = "italic"
 
+#term = "xterm-kitty"
+
 # Theme (see available themes with `ghostty +list-themes`)
 theme = "Everforest Dark - Hard"
 background = 0b0a18
