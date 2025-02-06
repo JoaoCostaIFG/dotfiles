@@ -1,7 +1,7 @@
 #!/bin/fish
 
 function gen_commit_msg --argument context
-    set -l model "mistral"
+    set -l model "deepseek-coder-v2:16b"
     set -l use_emoji "no"
     set -l attempts 3
 
