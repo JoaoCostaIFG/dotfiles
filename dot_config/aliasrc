@@ -53,7 +53,7 @@ alias   yta="yt-dlp -x -f bestaudio/best --audio-format mp3 -o '%(title)s.%(ext)
 alias   clndep='pacman -Qdtq | sudo pacman -R -' # intentionally escaped
 alias   clnrep="printf 'Cleaning uninstalled packages\n'; sudo paccache -ruk0; printf 'Leaving last version of installed packages\n'; sudo paccache -rk1"
 alias   s="sudo systemctl"
-alias   su="systemctl --user"
+alias   ssu="systemctl --user"
 
 # abbreviations (intentionally escaped) #
 alias   f='$FILE'
