@@ -7,12 +7,6 @@ ctpv-git
 dashbinsh
 heroic-games-launcher-bin
 hunspell-pt_pt
-hypridle-git
-hyprland-git
-hyprlock-git
-hyprpaper-git
-hyprpicker-git
-hyprpolkitagent-git
 joplin-appimage
 lf-bin
 lf-file-handler-git
@@ -24,6 +18,7 @@ obs-gstreamer
 pandoc-bin
 plugin-autenticacao-gov-pt
 protonup-qt-bin
+reiserfsprogs
 sanoid
 shellcheck-bin
 simple-mtpfs
@@ -34,14 +29,12 @@ ttf-ms-fonts
 ttf-symbola
 ttf-twemoji
 ungoogled-chromium-bin
-uwsm
 vesktop-bin
 visual-studio-code-bin
 walker-bin
 wdisplays
 wl-gammarelay-rs
 wlroots-git
-xdg-desktop-portal-hyprland-git
 xorg-xwayland-git
 xp-pen-tablet
 yay
