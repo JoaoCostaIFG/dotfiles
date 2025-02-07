@@ -1,3 +1,6 @@
+# General
+clipboard-paste-protection = false
+
 # Font
 font-size = 9
 font-family = "monospace"
