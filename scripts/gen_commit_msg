@@ -1,4 +1,7 @@
 #!/bin/fish
+### Uses local instance of ollama to generate commit messages.
+### First add/stage the changes you want to generate the commit for.
+### It generates 3 commit message and then you can choose the one you want.
 
 function gen_commit_msg --argument context
     set -l model "deepseek-coder-v2:16b"

@@ -77,6 +77,12 @@ Toggles dunst's notifications.
 
 My git wrapper. Calls `git status` when no argument is given.
 
+## gen_commit_msg
+
+Uses local instance of ollama to generate commit messages.
+First add/stage the changes you want to generate the commit for.
+It generates 3 commit message and then you can choose the one you want.
+
 ## import-gsettings
 
 Imports settings from gtk-3.0/settings.ini to gsettings
