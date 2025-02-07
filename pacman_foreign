@@ -7,6 +7,12 @@ ctpv-git
 dashbinsh
 heroic-games-launcher-bin
 hunspell-pt_pt
+hypridle-git
+hyprland-git
+hyprlock-git
+hyprpaper-git
+hyprpicker-git
+hyprpolkitagent-git
 joplin-appimage
 lf-bin
 lf-file-handler-git
@@ -35,6 +41,7 @@ walker-bin
 wdisplays
 wl-gammarelay-rs
 wlroots-git
+xdg-desktop-portal-hyprland-git
 xorg-xwayland-git
 xp-pen-tablet
 yay

@@ -24,7 +24,6 @@
         path: dot_config/*
         exclude: [
           dot_config/maxima,
-          dot_config/newsboat,
           dot_config/pulse,
           dot_config/sunshine,
         ]
@@ -44,9 +43,6 @@
         create: true
         glob: true
         path: dot_config/maxima/*
-    ~/.config/newsboat/config:
-        create: true
-        path: dot_config/newsboat/config
     ~/.config/pulse/:
         create: true
         glob: true
