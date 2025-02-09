@@ -38,7 +38,6 @@ checkbashisms
 checksec
 cmake
 codespell
-composer
 cpio
 cpupower
 croc
@@ -82,7 +81,6 @@ gamescope
 gcc-fortran
 gcovr
 gdb
-ghostty
 gimp
 git
 git-delta
@@ -219,8 +217,6 @@ patchelf
 pavucontrol
 perf
 perl-locale-gettext
-php
-picard
 pipewire-alsa
 pipewire-pulse
 pipewire-v4l2
@@ -307,14 +303,12 @@ vulkan-tools
 vulkan-validation-layers
 waybar
 wget
-whipper
 wine-gecko
 wine-mono
 wine-staging
 winetricks
 wireless-regdb
 wl-clipboard
-wlroots
 xclip
 xdg-desktop-portal
 xdg-desktop-portal-gtk
@@ -368,7 +362,6 @@ xournalpp
 xwaylandvideobridge
 yad
 yapf
-yarn
 ydotool
 yq
 yt-dlp
