@@ -19,7 +19,7 @@ function gen_commit_msg --argument context
         echo "  then run the script, optionally passing in a context string."
     end
 
-    set gitDiff (git diff --cached | string collect)
+    set gitDiff (git --no-pager diff --cached | string collect)
     if test -z "$gitDiff"
         print_help "The diff is empty."
         return 1
