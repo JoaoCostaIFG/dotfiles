@@ -31,11 +31,14 @@ export MAXIMA_USERDIR="$HOME/.config/maxima"
 export SQLITE_HISTORY="$HOME/.local/share/sqlite_history"
 export DOCKER_CONFIG="$HOME/.config/docker"
 export CARGO_HOME="$HOME/.local/share/cargo"
-export GOPATH="$HOME/.local/share/go"
-# add go bin to PATH
-export PATH="$GOPATH/bin:$PATH"
 # add rust to PATH
 export PATH="$CARGO_HOME/bin:$PATH"
+export GOPATH="$HOME/.local/share/go"
+# add go to PATH
+export PATH="$GOPATH/bin:$PATH"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+# add pnpm to PATH
+export PATH="$PNPM_HOME:$PATH"
 
 # bash
 export HISTCONTROL="ignoreboth:erasedups" # ignore spaces and erase duplicates from bash history
@@ -81,4 +84,3 @@ export DLINKHANDLER_VIDDIR="$HOME/Videos"
 export DRECORD_SAVEDIR="$HOME/Videos"
 export DTODO_DFLT_FILE="$HOME/Documents/Notes/dtodo_notes/TODO.txt"
 export SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots/"
-
