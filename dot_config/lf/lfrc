@@ -158,10 +158,9 @@ cmd zip ${{ # compress using zip
 }}
 
 cmd shortcuts ${{
-  dir="$(cut -d'	' -f1 ~/.config/directories | fzf)"
+  dir="$(shortcuts cd)"
   [ -z "$dir" ] && exit
-
-  lf -remote "send $id cd $(grep ${dir} ~/.config/directories | cut -d'	' -f2)"
+  lf -remote "send $id cd ${dir}"
 }}
 
 cmd fzf_jump ${{

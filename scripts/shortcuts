@@ -10,24 +10,62 @@ files_file="${XDG_CONFIG_HOME:-$HOME/.config}/files"
 shell_shortcuts="${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc"
 fish_shortcuts="${XDG_CONFIG_HOME:-$HOME/.config}/fish/conf.d/shortcutrc.fish"
 
-# Prepare files
-rm -f "$shell_shortcuts" "$fish_shortcuts"
-printf "#!/bin/sh\\n# vim: filetype=sh\\nalias " > "$shell_shortcuts"
+generate_shortcut_file() {
+  # Prepare files
+  rm -f "$shell_shortcuts" "$fish_shortcuts"
+  printf "#!/bin/sh\\n# vim: filetype=sh\\nalias " >"$shell_shortcuts"
 
-if [ -r "$dirs_file" ]; then
-  # Format the `directories` file in the correct syntax
-  # cmd="cd dir && ll dir"
-  dirs=$(sed "s/\s*#.*$//;/^\s*$/d" "$dirs_file")
-  printf "%s" "$dirs" |
-    awk '{print $1"='\''cd "$2" && ll'\'' \\"}' >> "$shell_shortcuts"
-  printf "%s" "$dirs" |
-    awk '{print "alias "$1"='\''cd "$2" && ll'\''"}' >> "$fish_shortcuts"
-fi
-if [ -r "$files_file" ]; then
-  # Format the `files` file in the correct syntax
-  files=$(sed "s/\s*#.*$//;/^\s*$/d"  "$files_file")
-  printf "%s" "$files" |
-    awk '{print $1"='\''$EDITOR "$2"'\'' \\"}' >> "$shell_shortcuts"
-  printf "%s" "$files" |
-    awk '{print "alias "$1"='\''$EDITOR "$2"'\''"}' >> "$fish_shortcuts"
-fi
+  if [ -r "$dirs_file" ]; then
+    # Format the `directories` file in the correct syntax: cmd="cd dir && ll dir"
+    dirs=$(sed "s/\s*#.*$//;/^\s*$/d" "$dirs_file")
+    printf "%s" "$dirs" |
+      awk '{print $1"='\''cd "$2" && ll'\'' \\"}' >>"$shell_shortcuts"
+    printf "%s" "$dirs" |
+      awk '{print "alias "$1"='\''cd "$2" && ll'\''"}' >>"$fish_shortcuts"
+  fi
+  if [ -r "$files_file" ]; then
+    # Format the `files` file in the correct syntax
+    files=$(sed "s/\s*#.*$//;/^\s*$/d" "$files_file")
+    printf "%s" "$files" |
+      awk '{print $1"='\''$EDITOR "$2"'\'' \\"}' >>"$shell_shortcuts"
+    printf "%s" "$files" |
+      awk '{print "alias "$1"='\''$EDITOR "$2"'\''"}' >>"$fish_shortcuts"
+  fi
+}
+
+pick_dir() {
+  [ ! -f "$dirs_file" ] && echo "No directories file found." && exit 1
+  picked_dir="$(fzf <"$dirs_file")"
+  [ -z "$picked_dir" ] && exit 1
+  echo "$picked_dir" | awk '{print $2}'
+}
+
+pick_file() {
+  [ ! -f "$files_file" ] && echo "No files file found." && exit 1
+  picked_file="$(fzf <"$files_file")"
+  [ -z "$picked_file" ] && exit 1
+  echo "$picked_file" | awk '{print $2}'
+}
+
+[ "$#" -eq 0 ] && generate_shortcut_file && exit 0
+
+case "$1" in
+-h | --help)
+  echo "Usage: shortcuts [generate]"
+  echo "  generate: Generate the shell and fish shortcuts files."
+  echo "  dir: Pick a directory from the directories file."
+  echo "  file: Pick a file from the files file."
+  ;;
+"generate")
+  generate_shortcut_file
+  ;;
+"cd" | "dir")
+  pick_dir
+  ;;
+"file")
+  pick_file
+  ;;
+*)
+  echo "Invalid argument. Use -h for help."
+  ;;
+esac
