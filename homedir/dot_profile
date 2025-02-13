@@ -6,7 +6,7 @@ export BASHRC="$HOME/.bashrc"
 export NOTES="$HOME/Documents/Notes"
 export SCRIPTS="$HOME/.local/bin/"
 # add scripts directory recursively to the PATH #
-export PATH="$(du "$SCRIPTS" | cut -f2 | tr '\n' ':')""$PATH"
+export PATH="$(du "$SCRIPTS" | cut -f2 | tr '\n' ':')$PATH"
 
 # default programs
 export BROWSER="librewolf"
@@ -76,6 +76,8 @@ export ELECTRON_OZONE_PLATFORM_HINT="auto"
 export WLR_DRM_NO_ATOMIC=1
 # for uwsm
 export UWSM_USE_SESSION_SLICE=true
+# for uv
+export UV_TOOL_BIN_DIR="$SCRIPTS/uv"
 
 # my scripts
 export BIB="$HOME/Documents/WorkRes/bibliography.bib"
