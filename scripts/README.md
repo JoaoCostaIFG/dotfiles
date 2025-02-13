@@ -184,6 +184,7 @@ Instructions
 ## truecolortest
 
 If you see a continuous color spectrum, you have truecolor support
+https://github.com/termstandard/colors
 
 ## update-zfs
 
