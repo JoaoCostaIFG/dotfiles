@@ -772,7 +772,7 @@ sync_to_monitor yes
 
 #: Terminal bell {{{
 
-enable_audio_bell yes
+enable_audio_bell no
 
 #: The audio bell. Useful to disable it in environments that require
 #: silence.
@@ -1223,7 +1223,7 @@ window_alert_on_bell yes
 
 #: The foreground and background colors.
 
-# background_opacity 1.0
+background_opacity 1.0
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1694,7 +1694,7 @@ window_alert_on_bell yes
 #: This option must be a comma separated list of the above values.
 #: Only the first valid match, in the order specified, is sourced.
 
-# notify_on_cmd_finish never
+notify_on_cmd_finish invisible 10.0 command notify-send "job finished with status: %s" %c
 
 #: Show a desktop notification when a long-running command finishes
 #: (needs shell_integration). The possible values are:
@@ -1952,13 +1952,14 @@ window_alert_on_bell yes
 #: The full list of actions that can be mapped to key presses is
 #: available here <https://sw.kovidgoyal.net/kitty/actions/>.
 
-# kitty_mod ctrl+shift
+kitty_mod alt
 
 #: Special modifier key alias for default shortcuts. You can change
 #: the value of this option to alter all default shortcuts that use
 #: kitty_mod.
 
 # clear_all_shortcuts no
+map kitty_mod+f no_op
 
 #: Remove all shortcut definitions up to this point. Useful, for
 #: instance, to remove the default shortcuts.
@@ -2160,8 +2161,8 @@ window_alert_on_bell yes
 
 #: New OS window
 
-# map kitty_mod+n new_os_window
-# map cmd+n       new_os_window
+map kitty_mod+t new_os_window_with_cwd
+map cmd+t       new_os_window_with_cwd
 
 #::  Works like new_window above, except that it opens a top-level OS
 #::  window. In particular you can use new_os_window_with_cwd to open
@@ -2280,8 +2281,8 @@ window_alert_on_bell yes
 
 #: New tab
 
-# map kitty_mod+t new_tab
-# map cmd+t       new_tab
+map kitty_mod+n new_tab_with_cwd
+map cmd+n       new_tab_with_cwd
 
 #: Close tab
 
@@ -2302,8 +2303,8 @@ window_alert_on_bell yes
 
 #: Set tab title
 
-# map kitty_mod+alt+t set_tab_title
-# map shift+cmd+i     set_tab_title
+map kitty_mod+shift+n set_tab_title
+map shift+cmd+i     set_tab_title
 
 
 #: You can also create shortcuts to go to specific tabs, with 1 being
@@ -2660,3 +2661,9 @@ window_alert_on_bell yes
 #: }}}
 
 #: }}}
+
+
+# BEGIN_KITTY_THEME
+# Catppuccin-Mocha
+include current-theme.conf
+# END_KITTY_THEME
