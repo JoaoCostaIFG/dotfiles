@@ -1,87 +1,87 @@
 #!/bin/sh
 # ALIAS #
 # typo friendly #
-alias   :q=" exit"
-alias   :Q=" exit"
-alias   :x=" exit"
-alias   cd..="cd .."
-alias   ...="cd ../.."
-alias   cd...="cd ../.."
-alias   lhome="ls -lAh --group-directories-first --color=auto ~"
-alias   ls="ls --group-directories-first --color=auto"
-alias   ll="$LS --group-directories-first -lgh --git"
-alias   lll="ll -a"
-alias   llll="lll"
+alias :q=" exit"
+alias :Q=" exit"
+alias :x=" exit"
+alias cd..="cd .."
+alias ...="cd ../.."
+alias cd...="cd ../.."
+alias lhome="ls -lAh --group-directories-first --color=auto ~"
+alias ls="ls --group-directories-first --color=auto"
+alias ll='$LS --group-directories-first -lgh --git'
+alias lll="ll -a"
+alias llll="lll"
 
 # changed commands #
-alias   bye=" systemctl poweroff"
-alias   sbye=" sleep 10; systemctl poweroff"
-alias   byer=" systemctl reboot"
-alias   dir="dir --color=auto"
-alias   vdir="vdir --color=auto"
-alias   diff="diff --color=auto"
-alias   du="du -ch"
-alias   df="df -h"
-alias   ffmpeg="ffmpeg -hide_banner"
-alias   mkdir="mkdir -p -v"
-alias   dmesg="dmesg -HL"
-alias   grep="grep --color=auto"
-alias   egrep="egrep --color=auto"
-alias   fgrep="fgrep --color=auto"
-alias   dmenu="bemenu"
-alias   neofetch="fastfetch"
+alias bye=" systemctl poweroff"
+alias sbye=" sleep 10; systemctl poweroff"
+alias byer=" systemctl reboot"
+alias dir="dir --color=auto"
+alias vdir="vdir --color=auto"
+alias diff="diff --color=auto"
+alias du="du -ch"
+alias df="df -h"
+alias ffmpeg="ffmpeg -hide_banner"
+alias mkdir="mkdir -p -v"
+alias dmesg="dmesg -HL"
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias dmenu="bemenu"
+alias neofetch="fastfetch"
+alias ssh="kitten ssh"
 
 # safety measures #
-alias   cp="cp -i"
-alias   ln="ln -i"
-alias   mv="mv -i"
-alias   rm="rm -I"
-alias   chown="chown --preserve-root"
-alias   chmod="chmod --preserve-root"
-alias   chgrp="chgrp --preserve-root"
+alias cp="cp -i"
+alias ln="ln -i"
+alias mv="mv -i"
+alias rm="rm -I"
+alias chown="chown --preserve-root"
+alias chmod="chmod --preserve-root"
+alias chgrp="chgrp --preserve-root"
 
 # new commands #
-alias   battery="acpi -b"
-alias   decompress="ouch decompress"
-alias   dsize="du -sh"
-alias   hist="history | fzf | wl-copy"
-alias   ka="killall"  # requires an argument
-alias   openports="ss --all --numeric --processes --ipv4 --ipv6"
-alias   pp="ps -Af | grep"  # requires an argument
-alias   yt="yt-dlp --add-metadata -ic -o '%(title)s.%(ext)s'"
-alias   yta="yt-dlp -x -f bestaudio/best --audio-format mp3 -o '%(title)s.%(ext)s'"
-alias   clndep='pacman -Qdtq | sudo pacman -R -' # intentionally escaped
-alias   clnrep="printf 'Cleaning uninstalled packages\n'; sudo paccache -ruk0; printf 'Leaving last version of installed packages\n'; sudo paccache -rk1"
-alias   s="sudo systemctl"
-alias   ssu="systemctl --user"
+alias battery="acpi -b"
+alias decompress="ouch decompress"
+alias dsize="du -sh"
+alias hist="history | fzf | wl-copy"
+alias ka="killall" # requires an argument
+alias openports="ss --all --numeric --processes --ipv4 --ipv6"
+alias pp="ps -Af | grep" # requires an argument
+alias yt="yt-dlp --add-metadata -ic -o '%(title)s.%(ext)s'"
+alias yta="yt-dlp -x -f bestaudio/best --audio-format mp3 -o '%(title)s.%(ext)s'"
+alias clndep='pacman -Qdtq | sudo pacman -R -' # intentionally escaped
+alias clnrep="printf 'Cleaning uninstalled packages\n'; sudo paccache -ruk0; printf 'Leaving last version of installed packages\n'; sudo paccache -rk1"
+alias s="sudo systemctl"
+alias ssu="systemctl --user"
 
 # abbreviations (intentionally escaped) #
-alias   f='$FILE'
-alias   e='$EDITOR'
-alias   E='sudo -E $EDITOR'
-alias   v='$EDITOR'
-alias   p="sudo pacman"
+alias f='$FILE'
+alias e='$EDITOR'
+alias E='sudo -E $EDITOR'
+alias v='$EDITOR'
+alias p="sudo pacman"
+alias ask="llm -m 'gemini-2.0-flash'"
 
 # programs #
-alias   yay="yay --aur" # prevent partial upgrades
-alias   raposoflamejante="firefox &"
-alias   passarinhorelampjante="thunderbird &"
-alias   calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse' # intentionally escaped
-alias   maxima="mmaxima"
-alias   ssync="rsnapshot full"
-# alias   g="git"
-# use neovim for vim
-alias   vim="nvim"
-alias   vimdiff="nvim -d"
-alias   cop="gh copilot suggest -t shell"
-alias   cope="gh copilot explain"
-alias   authgovt="QT_QPA_PLATFORMTHEME=gtk3 eidguiV2"
+alias yay="yay --aur" # prevent partial upgrades
+alias raposoflamejante="firefox"
+alias passarinhorelampjante="thunderbird"
+alias calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse' # intentionally escaped
+alias maxima="mmaxima"
+alias ssync="rsnapshot full"
+alias vim="nvim" # use neovim for vim
+alias vimdiff="nvim -d"
+alias cop="gh copilot suggest -t shell"
+alias cope="gh copilot explain"
+alias authgovt="QT_QPA_PLATFORMTHEME=gtk3 eidguiV2"
 
 # printer #
-alias   find_scanners="scanimage -L"
-alias   scan_pdf="scanimage --format=pdf --output-file out-$(date +%s).pdf --progress --resolution 300 -d 'pixma:MG3600_439892000000'"
-alias   scan_pdf_highest_quality="scanimage --format=pdf --output-file out-$(date +%s).pdf --progress --resolution 1200 -d 'pixma:MG3600_439892000000'"
+alias find_scanners="scanimage -L"
+alias scan_pdf='scanimage --format=pdf --output-file out-$(date +%s).pdf --progress --resolution 300 -d "pixma:MG3600_439892000000"'
+alias scan_pdf_highest_quality='scanimage --format=pdf --output-file out-$(date +%s).pdf --progress --resolution 1200 -d "pixma:MG3600_439892000000"'
 
 # boxxy #
-alias   ansible="boxxy ansible"
-alias   npm="boxxy npm"
+alias ansible="boxxy ansible"
+alias npm="boxxy npm"
