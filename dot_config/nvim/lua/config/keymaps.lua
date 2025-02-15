@@ -13,6 +13,8 @@ map("", "<F15>", ":set list!<CR>", { silent = true })
 -- Repeat last macro
 map("", ",", "@@")
 
+map("n", "<leader>bq", "<cmd><leader>bd<cr>")
+
 -- RIP-GREP
 -- map("n", "_", ":Telescope live_grep<CR>")
 

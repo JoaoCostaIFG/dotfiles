@@ -9,3 +9,7 @@ o.scrolloff = 5 -- Lines of context
 o.hlsearch = false
 o.autoindent = true -- Copy indent from current line when starting a new line
 o.listchars:append({ lead = "⋅" })
+o.ts = 2
+o.sts = 2
+o.sw = 2
+o.expandtab = true
