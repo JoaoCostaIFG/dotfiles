@@ -13,3 +13,6 @@ o.ts = 2
 o.sts = 2
 o.sw = 2
 o.expandtab = true
+
+-- disable animations: https://github.com/folke/snacks.nvim/blob/main/docs/animate.md
+g.snacks_animate = false
