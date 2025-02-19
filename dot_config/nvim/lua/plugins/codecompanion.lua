@@ -8,12 +8,23 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   opts = {
+    adapters = {
+      copilot_sonnet = function()
+        return require("codecompanion.adapters").extend("copilot", {
+          schema = {
+            model = {
+              default = "claude-3.5-sonnet",
+            },
+          },
+        })
+      end,
+    },
     strategies = {
       chat = {
-        adapter = "copilot",
+        adapter = "copilot_sonnet",
       },
       inline = {
-        adapter = "copilot",
+        adapter = "copilot_sonnet",
       },
     },
   },
