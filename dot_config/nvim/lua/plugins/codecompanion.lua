@@ -9,6 +9,9 @@ return {
   },
   opts = {
     adapters = {
+      opts = {
+        show_defaults = true,
+      },
       copilot_sonnet = function()
         return require("codecompanion.adapters").extend("copilot", {
           schema = {
