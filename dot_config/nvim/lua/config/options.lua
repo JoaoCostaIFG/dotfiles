@@ -32,4 +32,4 @@ g.snacks_animate = false
 --                    + 'n'    -- autoformat numbered list
 --                    - '2'    -- I am a programmer and not a writer
 --                    + 'j'    -- Join comments smartly
-o.formatoptions = o.formatoptions - { "r", "o" }
+vim.cmd([[autocmd FileType * set formatoptions-=ro]])
