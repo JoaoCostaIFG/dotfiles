@@ -1,2 +1,7 @@
 # set forcechafa
 # set autochafa
+
+# Add a new preview
+preview bat_md .md {{
+    bat -pp --color=always --wrap character --terminal-width "$w" "$f"
+}}

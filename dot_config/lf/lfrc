@@ -17,7 +17,6 @@ set ifs "\n"
 set scrolloff 10
 set watch true
 set icons
-# set color256
 # dynamic ratios on startup
 %{{
   w=$(tput cols)
