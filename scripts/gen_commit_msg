@@ -4,7 +4,6 @@
 ### It generates 3 commit message and then you can choose the one you want.
 
 function gen_commit_msg --argument context
-    set -l model "deepseek-coder-v2:16b"
     set -l use_emoji no
     set -l attempts 3
 
@@ -53,12 +52,13 @@ $gitDiff```"
 I'll send you an output of 'git diff --staged' command, and you are to convert it into a commit message.
 $commit_preface
 Add a short description of WHY the changes are done after the commit message. Don\'t start it with 'This commit', just describe the changes.
-Use the present tense. Lines must not be longer than 74 characters. Use english for the commit message. Generate $attempts different examples for the commit message. Only include the commit message text.
+Use the present tense. Lines must not be longer than 74 characters. Use english for the commit message. Generate $attempts different examples for the commit message.
+Place the commit message text inside markdown code blocks (```). Only include the commit message text in the output.
 $context
 
 $gitDiff"
 
-    set answer (echo "$prompt" | ask "$model" | string collect)
+    set answer (echo "$prompt" | ask | string collect)
     git commit -s -e -m "$answer"
 end
 
