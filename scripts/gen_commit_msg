@@ -59,7 +59,7 @@ $context
 $gitDiff"
 
     set answer (echo "$prompt" | ask "$model" | string collect)
-    git commit -e -m "$answer"
+    git commit -s -e -m "$answer"
 end
 
 gen_commit_msg "$argv"

@@ -42,10 +42,10 @@
   br = branch
   ck = checkout
   ckb = checkout -b
-  c = commit
-  cm = commit -m
-  cma = commit -a -m
-  cmA = "!git add -A; git commit -m"
+  c = commit -s
+  cm = commit -s -m
+  cma = commit -s -a -m
+  cmA = "!git add -A; git commit -s -m"
   cmam = commit --amend -m
   cg = "!gen_commit_msg \"$@\""
   d = diff
