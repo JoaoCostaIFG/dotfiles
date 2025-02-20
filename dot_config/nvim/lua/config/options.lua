@@ -6,7 +6,7 @@ local g = vim.g
 local o = vim.opt
 
 o.scrolloff = 5 -- Lines of context
-o.hlsearch = false
+o.hlsearch = true
 o.autoindent = true -- Copy indent from current line when starting a new line
 o.listchars:append({ lead = "⋅" })
 -- tab size=2 and use spaces instead of tab chars
