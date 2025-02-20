@@ -35,14 +35,14 @@ generate_shortcut_file() {
 
 pick_dir() {
   [ ! -f "$dirs_file" ] && echo "No directories file found." && exit 1
-  picked_dir="$(fzf <"$dirs_file")"
+  picked_dir="$(fzf -q ',' <"$dirs_file")"
   [ -z "$picked_dir" ] && exit 1
   echo "$picked_dir" | awk '{print $2}'
 }
 
 pick_file() {
   [ ! -f "$files_file" ] && echo "No files file found." && exit 1
-  picked_file="$(fzf <"$files_file")"
+  picked_file="$(fzf -q ',' <"$files_file")"
   [ -z "$picked_file" ] && exit 1
   echo "$picked_file" | awk '{print $2}'
 }

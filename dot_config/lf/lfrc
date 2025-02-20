@@ -255,5 +255,4 @@ map <delete> delete
 
 # Shortcuts and navigation
 map , shortcuts
-# map <c-f> $lf -remote "send $id select '$(fzf)'"
 map <c-f> :fzf_jump
