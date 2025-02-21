@@ -30,7 +30,6 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias dmenu="bemenu"
 alias neofetch="fastfetch"
-alias ssh="kitten ssh"
 
 # safety measures #
 alias cp="cp -i"

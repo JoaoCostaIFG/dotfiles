@@ -3,4 +3,6 @@
 
 status --is-login || exit
 
+babelfish </etc/profile.d/locale.sh | source
+
 babelfish <"$HOME/.profile" | source
