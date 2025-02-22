@@ -20,16 +20,3 @@ g.autoformat = true
 
 -- disable animations: https://github.com/folke/snacks.nvim/blob/main/docs/animate.md
 g.snacks_animate = false
-
--- Text behaviour (just don't like comment continuation)
--- o.formatoptions = o.formatoptions
---                    + 't'    -- auto-wrap text using textwidth
---                    + 'c'    -- auto-wrap comments using textwidth
---                    + 'r'    -- auto insert comment leader on pressing enter
---                    + 'o'    -- auto insert comment leader on pressing o
---                    + 'q'    -- format comments with gq
---                    + 'a'    -- autoformat the paragraphs
---                    + 'n'    -- autoformat numbered list
---                    - '2'    -- I am a programmer and not a writer
---                    + 'j'    -- Join comments smartly
-vim.cmd([[autocmd FileType * set formatoptions-=ro]])
