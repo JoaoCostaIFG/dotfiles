@@ -1,3 +1,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "modules/fenv"]
+	path = modules/fenv
+	url = https://github.com/oh-my-fish/plugin-foreign-env

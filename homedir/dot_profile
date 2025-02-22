@@ -1,87 +1,74 @@
 [ -f /etc/profile ] && . /etc/profile
 
 # important files and directories
-export ALIASF="$HOME/.config/aliasrc"
-export BASHRC="$HOME/.bashrc"
-export NOTES="$HOME/Documents/Notes"
 export SCRIPTS="$HOME/.local/bin/"
-# add scripts directory recursively to the PATH #
-export PATH="$(du "$SCRIPTS" | cut -f2 | tr '\n' ':')$PATH"
+
+# langs
+export UV_TOOL_BIN_DIR="$SCRIPTS/uv"
+export CARGO_HOME="$HOME/.local/share/cargo"
+export GOPATH="$HOME/.local/share/go"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+
+# PATH (Go, Rust, PNPM, local/bin)
+export PATH="$(du "$SCRIPTS" | cut -f2 | tr '\n' ':')$CARGO_HOME/bin:$GOPATH/bin:$PNPM_HOME:$PATH"
+
+# my scripts
+export DRECORD_SAVEDIR="$HOME/Videos"
+export DTODO_DFLT_FILE="$HOME/Documents/Notes/dtodo_notes/TODO.txt"
+export SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots/"
 
 # default programs
-export BROWSER="librewolf"
-export EDITOR="nvim"
-export FILE="lfcd_sh"
-export OPENER="xdg-open"
+export BROWSER=librewolf
+export EDITOR=nvim
+export FILE=lfcd_sh
+export OPENER=xdg-open
 export PAGER="bat -p"
-export READER="zathura"
-export TERMINAL="ghostty"
+export READER=zathura
+export TERMINAL=ghostty
 export TERMINAL_EXEC="ghostty -e"
-export VISUAL="nvim"
-export LS="eza"
-export NACHOS="cute"
+export VISUAL=nvim
+export LS=eza
+export NACHOS=cute
 
 # clean-up
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
 export WGETRC="$HOME/.config/wget/wgetrc"
 export INPUTRC="$HOME/.config/inputrc"
-#export XAUTHORITY="$HOME/.config/.Xauthority" # sometimes causes problems
 export MAXIMA_USERDIR="$HOME/.config/maxima"
 export SQLITE_HISTORY="$HOME/.local/share/sqlite_history"
 export DOCKER_CONFIG="$HOME/.config/docker"
-export CARGO_HOME="$HOME/.local/share/cargo"
-# add rust to PATH
-export PATH="$CARGO_HOME/bin:$PATH"
-export GOPATH="$HOME/.local/share/go"
-# add go to PATH
-export PATH="$GOPATH/bin:$PATH"
-export PNPM_HOME="$HOME/.local/share/pnpm"
-# add pnpm to PATH
-export PATH="$PNPM_HOME:$PATH"
 
 # bash
-export HISTCONTROL="ignoreboth:erasedups" # ignore spaces and erase duplicates from bash history
-export PROMPT_DIRTRIM=2                   # automatically trim long paths in the prompt (requires Bash 4.x)
-export HISTSIZE=-1                        # infinite hist entries
-export HISTFILESIZE=-1                    # infinite hist file size
+# ignore spaces and erase duplicates from bash history
+export HISTCONTROL="ignoreboth:erasedups"
+# automatically trim long paths in the prompt (requires Bash 4.x)
+export PROMPT_DIRTRIM=2
+export HISTSIZE=-1     # infinite hist entries
+export HISTFILESIZE=-1 # infinite hist file size
 # bash history file location
 export HISTFILE="$HOME/.local/share/bash_history"
 # don't record some commands
-export HISTIGNORE="bg:bye:byer:cf:clear:exit:fg:jobs:history:lf:lfcd:startx"
+export HISTIGNORE="bg:bye:byer:clear:exit:fg:jobs:history:lf:lfcd:startx"
 
 # other program settings
-export LESS="-iFMRSX"
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-# export SSH_ASKPASS="$HOME/.local/bin/dmenu/dpass"
-# export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dpass"
-export GPG_TTY="$(tty)"
+export LESS=-iFMRSX
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export GPG_TTY=$(tty)
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
-export QT_QPA_PLATFORMTHEME="qt6ct"
-export COLORTERM="truecolor" # advertise truecolor
+export QT_QPA_PLATFORMTHEME=qt6ct
+export COLORTERM=truecolor # advertise truecolor
 export BEMENU_OPTS="-i -w -H 34 -p '' --hp 8 --tb '#3b4252' --tf '#d8dee9 --nb '#0b0a18' --nf '#d8dee9' --hb '#3b4252' --hf '#d8dee9'"
 
 # wayland
 export QT_QPA_PLATFORM="wayland;xcb"
-export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export GDK_BACKEND='wayland,x11,*'
-# disabled SDL wayland because it breaks older games
+# disabled because it breaks older games
 # export SDL_VIDEODRIVER=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_DBUS_REMOTE=1
-export ELECTRON_OZONE_PLATFORM_HINT="auto"
+export ELECTRON_OZONE_PLATFORM_HINT=auto
 # for screen tearing
 export WLR_DRM_NO_ATOMIC=1
-# for uwsm
-export UWSM_USE_SESSION_SLICE=true
-# for uv
-export UV_TOOL_BIN_DIR="$SCRIPTS/uv"
-
-# my scripts
-export BIB="$HOME/Documents/WorkRes/bibliography.bib"
-export DLINKHANDLER_DOWNDIR="$HOME/Documents"
-export DLINKHANDLER_VIDDIR="$HOME/Videos"
-export DRECORD_SAVEDIR="$HOME/Videos"
-export DTODO_DFLT_FILE="$HOME/Documents/Notes/dtodo_notes/TODO.txt"
-export SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots/"
