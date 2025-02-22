@@ -1,3 +1,4 @@
+7zip
 acpi
 acpid
 adobe-source-han-sans-otc-fonts
@@ -28,7 +29,6 @@ bottom
 boxxy
 breeze-gtk
 brightnessctl
-calcurse
 calf
 chafa
 cmake
@@ -71,12 +71,12 @@ gamemode
 gamescope
 gcovr
 gdb
+ghostty
 gimp
 git
 git-delta
 git-filter-repo
 github-cli
-glow
 gnu-free-fonts
 gnuplot
 go
@@ -103,7 +103,7 @@ iperf
 jdk-openjdk
 jfsutils
 jq
-kitty
+khal
 kvantum
 lib32-fakeroot
 lib32-gamemode
@@ -324,6 +324,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yad
+yazi
 ydotool
 yq
 yt-dlp
