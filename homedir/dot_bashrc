@@ -47,10 +47,21 @@ fi
 # ALIAS #
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
-if [ -f "$HOME/.config/funcrc" ]; then
-  source "$HOME/.config/funcrc"
-  bind '"\ef":"lfcd\C-m"' # keybind for lf
-fi
+# opens lf and cd's to the current folder on exit
+function lfcd {
+  tmp="$(mktemp)"
+  lf -last-dir-path="$tmp" "$@"
+  # cleanup terminal window name changes (not standard)
+  printf "\033]0;st\007" >/dev/tty
+
+  if [ -f "$tmp" ]; then
+    dir="$(cat "$tmp")"
+    rm -f "$tmp"
+
+    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+  fi
+}
+bind '"\ef":"lfcd\C-m"' # keybind for lf
 
 shortcuts 2>/dev/null
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
