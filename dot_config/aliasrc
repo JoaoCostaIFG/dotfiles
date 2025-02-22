@@ -64,7 +64,7 @@ alias p="sudo pacman"
 alias ask="llm -m 'gemini-2.0-flash'"
 
 # programs #
-alias yay="yay --aur" # prevent partial upgrades
+alias yay="yay --aur --timeupdate" # prevent partial upgrades
 alias raposoflamejante="firefox"
 alias passarinhorelampjante="thunderbird"
 alias calcurse='calcurse -D $HOME/Documents/calcurse -C $HOME/.config/calcurse' # intentionally escaped
