@@ -11,7 +11,7 @@ font-family-bold-italic = "italic"
 #term = "xterm-kitty"
 
 # Theme (see available themes with `ghostty +list-themes`)
-theme = "Everforest Dark - Hard"
+theme = "nord"
 background = 0b0a18
 background-opacity = 0.95
 
