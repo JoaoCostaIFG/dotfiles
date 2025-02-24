@@ -1,7 +1,8 @@
 #!/bin/fish
-### Uses local instance of ollama to generate commit messages.
+### Uses python-llm to generate commit messages.
 ### First add/stage the changes you want to generate the commit for.
 ### It generates 3 commit message and then you can choose the one you want.
+### Depends on python-llm, git, and jq.
 
 function gen_commit_msg --argument context
     set -l use_emoji no
@@ -51,14 +52,62 @@ $gitDiff```"
     set prompt "$identity Your mission is to create clean and comprehensive commit messages as per the Conventional Commit Convention and explain WHAT were the changes and mainly WHY the changes were done.
 I'll send you an output of 'git diff --staged' command, and you are to convert it into a commit message.
 $commit_preface
-Add a short description of WHY the changes are done after the commit message. Don\'t start it with 'This commit', just describe the changes.
+Don\'t start it with 'This commit', just describe the changes.
 Use the present tense. Lines must not be longer than 74 characters. Use english for the commit message. Generate $attempts different examples for the commit message.
-Place the commit message text inside markdown code blocks (```). Only include the commit message text in the output.
+Place the commit message text inside markdown code blocks (```). The output shall follow the following JSON format:
+
+```json
+{
+  "description": "General explanation of the commit message",
+  "commits": [
+    {
+      "commit": "The commit message",
+    },
+  ]
+}
+```
+
+Only include the JSON output in your answer.
+
 $context
 
 $gitDiff"
 
-    set answer (echo "$prompt" | ask | string collect)
+    set json (echo $prompt | ask | sed '1d;$d' | string collect)
+
+    set -l description (echo $json | jq -r '.description' | string collect)
+    set -l commit1 (echo $json | jq -r '.commits.[0].commit' | string collect)
+    set -l commit2 (echo $json | jq -r '.commits.[1].commit' | string collect)
+    set -l commit3 (echo $json | jq -r '.commits.[2].commit' | string collect)
+
+    echo $description
+    echo
+    echo "--- 1 ----"
+    echo $commit1
+    echo "--- 2 ----"
+    echo $commit2
+    echo "--- 3 ----"
+    echo $commit3
+
+    read -l choices
+
+    set answer ""
+
+    if string match -e 1 $choices
+        set answer $answer\n\n$commit1
+    end
+    if string match -e 2 $choices
+        set answer $answer\n\n$commit2
+    end
+    if string match -e 3 $choices
+        set answer $answer\n\n$commit3
+    end
+
+    if test -z $answer
+        print_help "No commits chosen to take to the editor."
+        return 1
+    end
+
     git commit -s -e -m "$answer"
 end
 
