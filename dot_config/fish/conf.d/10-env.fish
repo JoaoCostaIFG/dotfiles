@@ -3,4 +3,4 @@
 
 status is-login || exit
 
-fenv source "$HOME/.profile"
+replay source "$HOME/.profile"
