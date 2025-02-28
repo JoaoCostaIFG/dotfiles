@@ -15,11 +15,16 @@ map("", ",", "@@")
 
 map("n", "<leader>bq", "<cmd><leader>bd<cr>")
 
+-- formatting
+map({ "n", "v" }, "<F1>", function()
+  LazyVim.format({ force = true })
+end, { desc = "Format" })
+
 -- RIP-GREP
 -- map("n", "_", ":Telescope live_grep<CR>")
 
 --
--- commandS
+-- commands
 --
 
 local function cmd(command, code, description)

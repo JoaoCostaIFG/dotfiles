@@ -16,7 +16,7 @@ o.sw = 2
 o.expandtab = true
 
 -- auto format on save
-g.autoformat = true
+g.autoformat = false
 
 -- disable animations: https://github.com/folke/snacks.nvim/blob/main/docs/animate.md
 g.snacks_animate = false
