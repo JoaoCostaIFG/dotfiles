@@ -79,9 +79,10 @@ My git wrapper. Calls `git status` when no argument is given.
 
 ## gen_commit_msg
 
-Uses local instance of ollama to generate commit messages.
+Uses python-llm to generate commit messages.
 First add/stage the changes you want to generate the commit for.
 It generates 3 commit message and then you can choose the one you want.
+Depends on python-llm, git, and jq.
 
 ## import-gsettings
 

@@ -1,8 +1,8 @@
 - defaults:
     link:
-        relink: true
+      relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.gnupg/gpg-agent.conf: homedir/dot_gnupg/gpg-agent.conf
@@ -12,45 +12,45 @@
     ~/.profile: homedir/dot_profile
     ~/.Xdefaults: homedir/dot_Xdefaults
     ~/.icons: homedir/dot_icons
+    ~/.librewolf/librewolf.overrides.cfg: homedir/dot_librewolf/librewolf.overrides.cfg
     ~/.local/bin: scripts
     ~/.local/share/nwg-look: dot_local/share/nwg-look
     ~/.local/share/wallpaper: dot_local/share/wallpaper
     ~/.local/share/applications/:
-        glob: true
-        path: dot_local/share/applications/*
+      glob: true
+      path: dot_local/share/applications/*
     ~/.local/share/applications/mimeapps.list: dot_config/mimeapps.list
     ~/.config/:
-        glob: true
-        path: dot_config/*
-        exclude: [
-          dot_config/maxima,
-          dot_config/pulse,
-          dot_config/sunshine,
-        ]
+      glob: true
+      path: dot_config/*
+      exclude: [dot_config/maxima, dot_config/pulse, dot_config/sunshine]
     ~/.config/sunshine/apps.json:
-        create: true
-        force: true
-        path: dot_config/sunshine/apps.json
+      create: true
+      force: true
+      path: dot_config/sunshine/apps.json
     ~/.config/user-dirs.dirs:
-        create: true
-        force: true
-        path: dot_config/user-dirs.dirs
+      create: true
+      force: true
+      path: dot_config/user-dirs.dirs
     ~/.config/mimeapps.list:
-        create: true
-        force: true
-        path: dot_config/mimeapps.list
+      create: true
+      force: true
+      path: dot_config/mimeapps.list
     ~/.config/maxima/:
-        create: true
-        glob: true
-        path: dot_config/maxima/*
+      create: true
+      glob: true
+      path: dot_config/maxima/*
     ~/.config/pulse/:
-        create: true
-        glob: true
-        path: dot_config/pulse/*
-    
+      create: true
+      glob: true
+      path: dot_config/pulse/*
+
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [update-desktop-database ~/.local/share/applications/, Updating desktop entries database]
+    - [
+        update-desktop-database ~/.local/share/applications/,
+        Updating desktop entries database,
+      ]
     - [./gen_scripts_readme.sh, Generating scripts Readme]
     - [pacman -Qenq | sort >pacman_native, Saving native package list]
     - [pacman -Qemq | sort >pacman_foreign, Saving foreign package list]
