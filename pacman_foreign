@@ -19,7 +19,7 @@ lf-file-handler-git
 librewolf-bin
 moonlight-qt
 mpdris2
-neovim-git
+neovim-nightly-bin
 numbat
 obs-gstreamer
 pandoc-bin

@@ -71,7 +71,6 @@ gamemode
 gamescope
 gcovr
 gdb
-ghostty
 gimp
 git
 git-delta
@@ -104,6 +103,7 @@ jdk-openjdk
 jfsutils
 jq
 khal
+kitty
 kvantum
 lib32-fakeroot
 lib32-gamemode
@@ -324,7 +324,6 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yad
-yazi
 ydotool
 yq
 yt-dlp
