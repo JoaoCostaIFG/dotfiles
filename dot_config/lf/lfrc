@@ -252,6 +252,7 @@ map Rd detox
 map Re :rename; cmd-delete-home
 map Rb rename_bulk
 map <delete> delete
+map <backspace2> delete
 
 # Shortcuts and navigation
 map , shortcuts
