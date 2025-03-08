@@ -1,9 +1,0 @@
-[Unit]
-Description=Automount storage devices
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/udiskie
-
-[Install]
-WantedBy=default.target
