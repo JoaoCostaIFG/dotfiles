@@ -12,7 +12,6 @@ abbr --add dotdot --regex '^\.\.+$' --function multicd
 abbr -a -- ka killall
 abbr -a -- dc prevd
 abbr -a -- cdd nextd
-abbr -a -- decompress ouch decompress
 abbr -a -- e $EDITOR
 abbr -a -- f $FILE
 abbr -a -- E sudo -E $EDITOR
@@ -45,6 +44,7 @@ abbr -a -- lll ll -a
 abbr -a -- dsize du -sh
 abbr -a -- openports ss --all --numeric --processes --ipv4 --ipv6
 abbr -a -- pp "ps -Af | fzf"
+alias decompress="ouch decompress"
 alias cop="gh copilot suggest -t shell"
 alias copg="gh copilot suggest -t git"
 alias cope="gh copilot explain"
