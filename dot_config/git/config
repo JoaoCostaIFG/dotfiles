@@ -1,75 +1,84 @@
-[init]
-  defaultBranch = master
 [user]
   email = joaocosta.work@posteo.net
   name = JoaoCostaIFG
   signingKey = EBBA3E93
-[commit]
-  gpgsign = true
+[credential]
+  username = JoaoCostaIFG
+[branch]
+  sort = -committerdate
 [color]
   ui = true
   status = auto
   branch = auto
+[column]
+  ui = auto
+[commit]
+  gpgsign = true
+  verbose = true
 [core]
   pager = delta
-[interactive]
-  diffFilter = delta --color-only
 [delta]
   navigate = true # use n and N to move between diff sections
   line-numbers = true
   #side-by-side = true
 [diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
   tool = vimdiff
-  colorMoved = default
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+[help]
+	autocorrect = prompt
+[init]
+  defaultBranch = master
+[interactive]
+  diffFilter = delta --color-only
 [merge]
   tool = vimdiff
   conflictstyle = zdiff3
-[credential]
-  username = JoaoCostaIFG
 [pager]
   show-branch = true
   status = true
 [pull]
-  ; ff = only
+  # ff = only
   rebase = true
 [push]
   default = simple
   autoSetupRemote = true
-[fetch]
-  prune = true
+  followTags = true
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
+[rerere]
+  enabled = true
+  autoupdate = true
+[tag]
+  sort = version:refname
 [alias]
+  a = add
   ad = add
   br = branch
   ck = checkout
   ckb = checkout -b
   c = commit -s
-  cm = commit -s -m
-  cma = commit -s -a -m
-  cmA = "!git add -A; git commit -s -m"
-  cmam = commit --amend -m
+  cm = commit -s
+  cma = commit -s -a
+  cmA = "!git add -A; git c"
+  cmam = commit --amend
   cg = "!gen_commit_msg \"$@\""
   d = diff
   df = diff
   l = log
   lop = log -p
+  last = log -1 HEAD
   pl = pull
-  plu = "!f() {\
-    git fetch ; \
-    git branch --set-upstream-to=\"$1/$2\" ; \
-    git pull ; \
-  }; f"
   p = push
   pf = push --force-with-lease --force-if-includes
-  pu = "!f() {\
-    if [ \"$#\" -eq 0 ]; then \
-      branch_name=\"$(git rev-parse --abbrev-ref HEAD)\" ; \
-      git push -u origin \"$branch_name\" ; \
-    elif [ \"$#\" -eq 1 ]; then \
-      git push -u origin \"$@\" ; \
-    else \
-      git push -u \"$@\" ; \
-    fi \
-  }; f"
   rs = reset
   rst = reset
   rv = revert
@@ -79,7 +88,7 @@
   tags = tag
   unstage = reset HEAD --
   new = "!git init; git commit --allow-empty -m 'empty initial commit'"
-  last = log -1 HEAD
   hist = log --graph --abbrev-commit --decorate --date=short \
 		--format=format:'%C(bold cyan)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%an%C(reset) %C(bold yellow)%d%C(reset)' \
 		--branches --remotes --tags
+  out = "log @{u}.."
