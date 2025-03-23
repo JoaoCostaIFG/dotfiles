@@ -16,6 +16,10 @@ Host motioneye
 
 # joaocosta.dev
 Host ifgsv_openwrt
+  HostName openwrt.tail1dfda.ts.net
+  User root
+
+Host ifgsv_openwrt_real
   HostName 10.0.0.1
   User root
 
@@ -40,3 +44,7 @@ Host ifgsv_real
   IdentityFile ~/.ssh/keys/ifgsv
   PreferredAuthentications publickey
   User root
+
+Host ifgsv_zulip
+  HostName zulip.tail1dfda.ts.net
+  User zulip
