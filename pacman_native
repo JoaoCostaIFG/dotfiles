@@ -21,6 +21,7 @@ bash-completion
 bat
 bear
 bemenu
+bitwarden
 blas-openblas
 blueman
 bluez
@@ -40,7 +41,6 @@ dash
 ddcutil
 detox
 dhcpcd
-dino
 direnv
 dmidecode
 docker
@@ -156,10 +156,12 @@ man-pages
 mangohud
 maxima
 maxima-sbcl
+mdbook
 mediainfo
 mesa
 mesa-utils
 meson
+moonlight-qt
 mosh
 mpc
 mpd
@@ -230,6 +232,7 @@ solaar
 sshpass
 starship
 steam
+strawberry
 supertux
 swappy
 swaync
