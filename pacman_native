@@ -163,11 +163,8 @@ mesa-utils
 meson
 moonlight-qt
 mosh
-mpc
-mpd
 mpv
 mpv-mpris
-ncmpcpp
 net-tools
 networkmanager
 networkmanager-pptp
