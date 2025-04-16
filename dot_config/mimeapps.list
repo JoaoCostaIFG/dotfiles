@@ -70,6 +70,7 @@ inode/directory=file.desktop
 x-scheme-handler/ror2mm=r2modman.desktop
 x-scheme-handler/discord-424004941485572097=discord-424004941485572097.desktop
 x-scheme-handler/discord=vesktop.desktop
+x-scheme-handler/discord-1352351827206733974=discord-1352351827206733974.desktop
 
 [Added Associations]
 doesn/matter=text.desktop;
