@@ -8,6 +8,7 @@
     ~/.gnupg/gpg-agent.conf: homedir/dot_gnupg/gpg-agent.conf
     ~/.bash_profile: homedir/dot_bash_profile
     ~/.bashrc: homedir/dot_bashrc
+    ~/.face: homedir/dot_face
     ~/.profile: homedir/dot_profile
     ~/.Xdefaults: homedir/dot_Xdefaults
     ~/.icons: homedir/dot_icons
