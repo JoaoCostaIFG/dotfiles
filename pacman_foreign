@@ -1,4 +1,6 @@
 alvr-launcher-bin
+arc-icon-theme
+arc-solid-gtk-theme
 autenticacao-gov-pt
 babelfish-fish-git
 clipse
@@ -6,13 +8,6 @@ ctpv-git
 dashbinsh
 heroic-games-launcher-bin
 hunspell-pt_pt
-hypridle-git
-hyprland-git
-hyprlock-git
-hyprpaper-git
-hyprpicker-git
-hyprpolkitagent-git
-hyprsunset-git
 joplin-appimage
 lf-bin
 lf-file-handler-git
@@ -35,10 +30,10 @@ ungoogled-chromium-bin
 vesktop-bin
 walker-bin
 wdisplays
-xdg-desktop-portal-hyprland-git
 xorg-xwayland-git
 xp-pen-tablet
 xwaylandvideobridge
 yay
+yay-debug
 zfs-dkms
 zfs-utils
