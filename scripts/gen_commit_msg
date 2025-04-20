@@ -71,7 +71,9 @@ Only include the JSON output in your answer.
 
 $context
 
-$gitDiff"
+```
+$gitDiff
+```"
 
     set json (echo $prompt | ask | sed '1d;$d' | string collect)
 
