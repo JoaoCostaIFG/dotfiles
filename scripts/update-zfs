@@ -5,7 +5,7 @@
 
 set -eu
 
-update_zfs_dkms="yay -Syu zfs-dkms"
+update_zfs_dkms="yay -Sy zfs-dkms"
 
 version_greater_equal() {
   printf '%s\n%s\n' "$2" "$1" | sort --check=quiet --version-sort
