@@ -3,6 +3,9 @@ function fish_user_key_bindings
     bind \ef 'commandline " lfcd" && commandline -f execute && commandline -f repaint'
     bind \ef -M insert 'commandline " lfcd" && commandline -f execute && commandline -f repaint'
 
+    # copilot suggest
+    bind \ei -M insert 'commandline " gh copilot suggest -t shell" && commandline -f execute && commandline -f repaint'
+
     # history bindings
     bind K history-prefix-search-backward
     bind J history-prefix-search-forward
