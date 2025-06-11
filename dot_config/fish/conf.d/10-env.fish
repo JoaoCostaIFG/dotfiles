@@ -46,8 +46,8 @@ set -gx DOCKER_CONFIG "$HOME/.config/docker"
 
 # other program settings
 set -gx LESS -iFMRSX
-# set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
-set -gx SSH_AUTH_SOCK "$HOME/.bitwarden-ssh-agent.sock"
+#set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
+#set -gx SSH_AUTH_SOCK "$HOME/.bitwarden-ssh-agent.sock"
 set -gx GPG_TTY $(tty)
 set -gx FZF_DEFAULT_OPTS "--layout=reverse --height 40%"
 set -gx QT_QPA_PLATFORMTHEME qt6ct
