@@ -12,6 +12,7 @@ android-tools
 android-udev
 ansible
 arch-install-scripts
+archlinux-xdg-menu
 avahi
 base
 base-devel
@@ -26,6 +27,7 @@ bluez
 bluez-utils
 bottom
 boxxy
+breeze
 breeze-gtk
 brightnessctl
 calf
@@ -44,6 +46,8 @@ dmidecode
 docker
 docker-buildx
 docker-compose
+dolphin
+dolphin-plugins
 dos2unix
 dosfstools
 easyeffects
@@ -113,7 +117,9 @@ jfsutils
 jq
 khal
 kitty
+kompare
 kvantum
+lf
 lib32-fakeroot
 lib32-gamemode
 lib32-giflib
@@ -134,7 +140,7 @@ lib32-mesa
 lib32-mpg123
 lib32-ocl-icd
 lib32-openal
-lib32-opencl-clover-mesa
+lib32-opencl-mesa
 lib32-pipewire
 lib32-pipewire-jack
 lib32-pipewire-v4l2
@@ -174,6 +180,7 @@ moonlight-qt
 mosh
 mpv
 mpv-mpris
+neovim
 net-tools
 networkmanager
 networkmanager-pptp
@@ -187,8 +194,7 @@ nwg-look
 obs-studio
 ocl-icd
 openblas
-opencl-clover-mesa
-opencl-rusticl-mesa
+opencl-mesa
 openrgb
 opensc
 openssh
@@ -196,6 +202,7 @@ opusfile
 otf-font-awesome
 ouch
 pacman-contrib
+pam-u2f
 parallel
 pavucontrol
 perf
@@ -223,6 +230,7 @@ qpwgraph
 qt5-imageformats
 qt6-wayland
 qt6ct
+rclone
 reflector
 ripgrep-all
 rlwrap
@@ -335,9 +343,11 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yad
-ydotool
 yq
 yt-dlp
+yubikey-manager
+yubikey-personalization
+yubikey-personalization-gui
 zathura
 zathura-cb
 zathura-djvu

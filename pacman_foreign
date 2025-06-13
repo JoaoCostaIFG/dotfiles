@@ -1,7 +1,4 @@
 alvr-launcher-bin
-arc-icon-theme
-arc-solid-gtk-theme
-autenticacao-gov-pt
 babelfish-fish-git
 clipse
 ctpv-git
@@ -9,14 +6,10 @@ dashbinsh
 heroic-games-launcher-bin
 hunspell-pt_pt
 joplin-appimage
-lf-bin
-lf-file-handler-git
 librewolf-bin
-neovim-nightly-bin
 numbat
 obs-gstreamer
 pandoc-bin
-plugin-autenticacao-gov-pt
 protonup-qt-bin
 sanoid
 simple-mtpfs
@@ -28,6 +21,7 @@ ttf-symbola
 ttf-twemoji
 ungoogled-chromium-bin
 vesktop-bin
+visual-studio-code-bin
 walker-bin
 wdisplays
 xorg-xwayland-git
