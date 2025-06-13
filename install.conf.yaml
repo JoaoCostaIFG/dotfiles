@@ -5,7 +5,9 @@
 - clean: ["~"]
 
 - link:
+    ~/.gnupg/gpg.conf: homedir/dot_gnupg/gpg.conf
     ~/.gnupg/gpg-agent.conf: homedir/dot_gnupg/gpg-agent.conf
+    ~/.gnupg/scdaemon.conf: homedir/dot_gnupg/scdaemon.conf
     ~/.bash_profile: homedir/dot_bash_profile
     ~/.bashrc: homedir/dot_bashrc
     ~/.face: homedir/dot_face
