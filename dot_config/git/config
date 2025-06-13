@@ -1,7 +1,7 @@
 [user]
   email = joaocosta.work@posteo.net
   name = JoaoCostaIFG
-  signingKey = E709F16FAE6D1C2B
+  signingKey = 0x4DCA5163F4FFE6A2DDBD087AE709F16FAE6D1C2B
 [credential]
   username = JoaoCostaIFG
 [branch]
