@@ -1,25 +1,5 @@
 # Scripts
 
-## blueidle
-
-This script inhibits system idling when a bluetooth device, from a list of
-devices, is connected to the computer. Useful to unlock the computer when
-your close to it.
-
-Keep a config file in `~/.config/blueidle.toml` with contents following
-something like this:
-
-```bash
-[general]
-lock_cmd = "loginctl lock-session"
-unlock_cmd = "ydotool mousemove -- 1 0; pkill -USR1 hyprlock"
-query_interval_secs = 5
-lock_at_startup = 1
-devices = ["XX:XX:XX:XX:XX:XX", "YY:YY:YY:YY:YY:YY"]
-```
-
-This script depends on tombl to parse/read the config file.
-
 ## chtermname
 
 Show current directory in window title.
