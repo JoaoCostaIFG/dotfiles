@@ -1,5 +1,7 @@
 # This will read the file with environment variables and
 # process the lines so they can be run on fish
+#
+set -gx GPG_TTY $(tty)
 
 status is-login || exit
 
@@ -48,7 +50,6 @@ set -gx DOCKER_CONFIG "$HOME/.config/docker"
 set -gx LESS -iFMRSX
 #set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 #set -gx SSH_AUTH_SOCK "$HOME/.bitwarden-ssh-agent.sock"
-set -gx GPG_TTY $(tty)
 set -gx FZF_DEFAULT_OPTS "--layout=reverse --height 40%"
 set -gx QT_QPA_PLATFORMTHEME qt6ct
 set -gx COLORTERM truecolor # advertise truecolor
