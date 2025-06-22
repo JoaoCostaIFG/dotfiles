@@ -84,13 +84,14 @@ go
 godot
 graphviz
 grim
+grub
 gsound
 gst-libav
 gst-plugin-pipewire
-gst-plugin-va
 gst-plugins-bad
 gst-plugins-good
 gst-plugins-ugly
+gst-plugin-va
 gstreamer-vaapi
 gtk4
 gtkmm3
@@ -156,6 +157,7 @@ libreoffice-fresh
 libva-utils
 libvdpau-va-gl
 libxft
+linux
 linux-firmware
 linux-zen
 linux-zen-headers
@@ -167,8 +169,8 @@ luarocks
 lvm2
 lzop
 man-db
-man-pages
 mangohud
+man-pages
 maxima
 maxima-sbcl
 mdbook
@@ -228,8 +230,8 @@ python-websockets
 qbittorrent
 qpwgraph
 qt5-imageformats
-qt6-wayland
 qt6ct
+qt6-wayland
 rclone
 reflector
 ripgrep-all
@@ -251,6 +253,7 @@ supertux
 swappy
 swaync
 sysfsutils
+systemd-resolvconf
 tailscale
 terraform
 tesseract-data-eng
@@ -273,6 +276,7 @@ ttf-sourcecodepro-nerd
 ttf-victor-mono-nerd
 udiskie
 udisks2
+ufw
 unrar
 unzip
 usbutils
@@ -302,9 +306,9 @@ xf86-video-vesa
 xfsprogs
 xorg-bdftopcf
 xorg-docs
-xorg-font-util
 xorg-fonts-100dpi
 xorg-fonts-75dpi
+xorg-font-util
 xorg-iceauth
 xorg-mkfontscale
 xorg-server

@@ -14,7 +14,6 @@ protonup-qt-bin
 sanoid
 simple-mtpfs
 steamtinkerlaunch
-sunshine
 tombl-bin
 ttf-ms-fonts
 ttf-symbola
@@ -23,11 +22,5 @@ ungoogled-chromium-bin
 vesktop-bin
 visual-studio-code-bin
 walker-bin
-wdisplays
-xorg-xwayland-git
 xp-pen-tablet
-xwaylandvideobridge
 yay
-yay-debug
-zfs-dkms
-zfs-utils
