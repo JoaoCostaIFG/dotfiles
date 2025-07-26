@@ -33,9 +33,11 @@
   "script-fail-notify": true,
   "widgets": [
     "inhibitors",
-    "title",
     "dnd",
     "mpris",
+    "volume",
+    "backlight",
+    "title",
     "notifications"
   ],
   "widget-config": {
@@ -44,17 +46,28 @@
       "button-text": "Clear All",
       "clear-all-button": true
     },
-    "title": {
-      "text": "Notifications",
-      "clear-all-button": true,
-      "button-text": "Clear All"
+    "mpris": {
+      "show-album-art": "always",
+      "loop-carousel": false
+    },
+    "volume": {
+      "label": " 󰕾 ",
+      "expand-button-label": " ",
+      "collapse-button-label": " ",
+      "show-per-app": true,
+      "show-per-app-icon": true,
+      "show-per-app-label": false
+    },
+    "backlight": {
+      "label": "󰃟 "
     },
     "dnd": {
       "text": "Do Not Disturb"
     },
-    "mpris": {
-      "show-album-art": "always",
-      "loop-carousel": false
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": " 󰆴 "
     }
   }
 }
