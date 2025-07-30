@@ -1,0 +1,9 @@
+[General]
+TerminalApplication=kitty
+TerminalService=kitty.desktop
+
+[Icons]
+Theme=breeze-dark
+
+[KDE]
+widgetStyle=qt6ct-style

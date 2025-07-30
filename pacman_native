@@ -28,9 +28,11 @@ bluez-utils
 bottom
 boxxy
 breeze
+breeze5
 breeze-gtk
 brightnessctl
 calf
+catfish
 chafa
 cmake
 cpio
@@ -46,8 +48,6 @@ dmidecode
 docker
 docker-buildx
 docker-compose
-dolphin
-dolphin-plugins
 dos2unix
 dosfstools
 easyeffects
@@ -95,6 +95,10 @@ gst-plugin-va
 gstreamer-vaapi
 gtk4
 gtkmm3
+gvfs
+gvfs-mtp
+gvfs-nfs
+gvfs-smb
 hexyl
 highlight
 htmlq
@@ -118,7 +122,6 @@ jfsutils
 jq
 khal
 kitty
-kompare
 kvantum
 lf
 lib32-fakeroot
@@ -148,6 +151,7 @@ lib32-pipewire-v4l2
 lib32-v4l-utils
 lib32-vulkan-icd-loader
 lib32-vulkan-radeon
+libappimage
 libappindicator-gtk2
 libayatana-appindicator
 libdvdcss
@@ -230,7 +234,6 @@ python-websockets
 qbittorrent
 qpwgraph
 qt5-imageformats
-qt6ct
 qt6-wayland
 rclone
 reflector
@@ -245,6 +248,7 @@ slurp
 smartmontools
 socat
 solaar
+sshfs
 sshpass
 starship
 steam
@@ -263,6 +267,10 @@ texlive-fontsextra
 texlive-fontsrecommended
 texlive-latex
 texlive-latexrecommended
+thunar
+thunar-archive-plugin
+thunar-media-tags-plugin
+thunar-volman
 thunderbird
 time
 tk
@@ -274,6 +282,7 @@ ttf-liberation
 ttf-linux-libertine
 ttf-sourcecodepro-nerd
 ttf-victor-mono-nerd
+tumbler
 udiskie
 udisks2
 ufw
@@ -289,6 +298,7 @@ vulkan-radeon
 vulkan-tools
 vulkan-validation-layers
 waybar
+webp-pixbuf-loader
 wget
 wine-gecko
 wine-mono

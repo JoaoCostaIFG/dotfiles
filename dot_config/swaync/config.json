@@ -64,7 +64,8 @@
       "show-per-app-label": false
     },
     "backlight": {
-      "label": "󰃟 "
+      "label": "󰃟 ",
+      "device": "ddcci8"
     },
     "dnd": {
       "text": "Do Not Disturb"

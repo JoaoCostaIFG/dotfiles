@@ -10,6 +10,6 @@ font-hinting=slight
 font-antialiasing=grayscale
 font-rgba-order=rgb
 text-scaling-factor=1.0
-color-scheme=prefer-dark
+color-scheme=default
 event-sounds=true
 input-feedback-sounds=false
