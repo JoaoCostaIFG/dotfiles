@@ -25,7 +25,7 @@ set -gx DTODO_DFLT_FILE "$HOME/Documents/Notes/dtodo_notes/TODO.txt"
 set -gx SCREENSHOT_SAVEDIR "$HOME/Pictures/screenshots/"
 
 # default programs
-set -gx BROWSER librewolf
+set -gx BROWSER firefox
 set -gx EDITOR nvim
 set -gx FILE lfcd_sh
 set -gx OPENER xdg-open
