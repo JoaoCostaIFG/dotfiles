@@ -47,6 +47,9 @@
       glob: true
       path: dot_config/pulse/*
 
+- ghe:
+    - github/gh-copilot
+
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [

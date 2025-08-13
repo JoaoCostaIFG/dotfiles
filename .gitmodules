@@ -2,3 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
   branch = v1.21.0
+[submodule "dotbot-gh-extension"]
+	path = dotbot-gh-extension
+	url = https://github.com/fundor333/dotbot-gh-extension.git
