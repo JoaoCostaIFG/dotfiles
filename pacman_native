@@ -5,7 +5,6 @@ adobe-source-han-sans-otc-fonts
 adobe-source-han-serif-otc-fonts
 adobe-source-sans-fonts
 adobe-source-serif-fonts
-alacritty
 alsa-utils
 amd-ucode
 android-tools
@@ -67,6 +66,7 @@ firefox
 firewalld
 fish
 fontforge
+foot
 fprintd
 fzf
 gamemode
@@ -123,6 +123,7 @@ jq
 khal
 kitty
 kvantum
+kvantum-qt5
 lf
 lib32-fakeroot
 lib32-gamemode
