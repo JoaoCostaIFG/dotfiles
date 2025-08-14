@@ -2,7 +2,10 @@
     link:
       relink: true
 
-- clean: ["~"]
+- clean:
+    ~/:
+    ~/.config:
+      recursive: true
 
 - link:
     ~/.gnupg/gpg.conf: homedir/dot_gnupg/gpg.conf
