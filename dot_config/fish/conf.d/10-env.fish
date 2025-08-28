@@ -66,3 +66,5 @@ set -gx _JAVA_AWT_WM_NONREPARENTING 1
 set -gx MOZ_ENABLE_WAYLAND 1
 set -gx MOZ_DBUS_REMOTE 1
 set -gx ELECTRON_OZONE_PLATFORM_HINT auto
+# use UWSM's custom slices:
+set -gx APP2UNIT_SLICES 'a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'

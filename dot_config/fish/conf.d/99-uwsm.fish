@@ -4,5 +4,6 @@ status is-login || exit
 
 if uwsm check may-start
     # start desktop
-    exec uwsm start hyprland.desktop
+    # use uwsm select to choose the default
+    exec uwsm start default
 end

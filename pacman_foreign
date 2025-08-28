@@ -1,12 +1,14 @@
 alvr-launcher-bin
+app2unit-git
 babelfish-fish-git
 clipse-bin
 ctpv-git
 dashbinsh
 ddcci-driver-linux-dkms-git
+grub-theme-boot-minegrub-git
 heroic-games-launcher-bin
 hunspell-pt_pt
-joplin-appimage
+joplin-bin
 numbat
 obs-gstreamer
 pandoc-bin
@@ -21,7 +23,5 @@ ttf-twemoji
 ungoogled-chromium-bin
 vesktop-bin
 visual-studio-code-bin
-walker-bin
-waydroid
 xp-pen-tablet
 yay

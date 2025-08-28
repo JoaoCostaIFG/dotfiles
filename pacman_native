@@ -12,6 +12,7 @@ android-udev
 ansible
 arch-install-scripts
 archlinux-xdg-menu
+audacity
 avahi
 base
 base-devel
@@ -68,6 +69,7 @@ fish
 fontforge
 foot
 fprintd
+fuzzel
 fzf
 gamemode
 gamescope
@@ -162,7 +164,6 @@ libreoffice-fresh
 libva-utils
 libvdpau-va-gl
 libxft
-linux
 linux-firmware
 linux-zen
 linux-zen-headers
