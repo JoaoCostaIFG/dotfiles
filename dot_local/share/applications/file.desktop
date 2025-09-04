@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=lf
-Exec=/bin/ghostty -e lfcd_sh %u
+Exec=/bin/thunar %u
