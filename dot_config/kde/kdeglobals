@@ -1,0 +1,16 @@
+
+[General]
+TerminalApplication=kitty
+TerminalService=kitty.desktop
+UseSystemBell=true
+XftAntialias=true
+XftHintStyle=hintfull
+XftSubPixel=rgb
+font=Lato,10,-1,5,50,0,0,0,0,0
+menuFont=Lato,10,-1,5,50,0,0,0,0,0
+shadeSortColumn=true
+smallestReadableFont=Lato,8,-1,5,50,0,0,0,0,0
+toolBarFont=Lato,10,-1,5,50,0,0,0,0,0
+
+[Icons]
+Theme=Papirus-Dark
