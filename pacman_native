@@ -5,6 +5,7 @@ adobe-source-han-sans-otc-fonts
 adobe-source-han-serif-otc-fonts
 adobe-source-sans-fonts
 adobe-source-serif-fonts
+adw-gtk-theme
 alsa-utils
 amd-ucode
 android-tools
@@ -210,6 +211,7 @@ otf-font-awesome
 ouch
 pacman-contrib
 pam-u2f
+papirus-icon-theme
 parallel
 pavucontrol
 perf
@@ -280,6 +282,7 @@ trash-cli
 tree
 ttf-dejavu
 ttf-inconsolata
+ttf-lato
 ttf-liberation
 ttf-linux-libertine
 ttf-sourcecodepro-nerd

@@ -2,20 +2,33 @@
 ### Imports settings from gtk-3.0/settings.ini to gsettings
 ### Used for wayland
 ### See [sway wiki page about GTK 3](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland)
+### I edited it
 
 config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
 if [ ! -f "$config" ]; then exit 1; fi
 
 gnome_schema="org.gnome.desktop.interface"
-gtk_theme="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
-icon_theme="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"
-cursor_theme="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
-font_name="$(grep 'gtk-font-name' "$config" | sed 's/.*\s*=\s*//')"
-gsettings set "$gnome_schema" gtk-theme "$gtk_theme"
-gsettings set "$gnome_schema" icon-theme "$icon_theme"
-gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
-gsettings set "$gnome_schema" font-name "$font_name"
 
-# I added this
-color_scheme="$(grep 'gtk-color-scheme' "$config" | sed 's/.*\s*=\s*//')"
-gsettings set "$gnome_schema" color-scheme "$color_scheme"
+get_setting() {
+  grep "$1" "$config" | sed 's/.*\s*=\s*//'
+}
+
+set_gsetting() {
+  value="$(get_setting "$1")"
+  if [ -n "$value" ]; then
+    gsettings set "$gnome_schema" "$2" "$value"
+  fi
+}
+
+set_gsetting "gtk-theme-name" "gtk-theme"
+set_gsetting "gtk-icon-theme-name" "icon-theme"
+set_gsetting "gtk-cursor-theme-name" "cursor-theme"
+set_gsetting "gtk-cursor-theme-size" "cursor-size"
+set_gsetting "gtk-font-name" "font-name"
+
+color_scheme="$(get_setting 'gtk-application-prefer-dark-theme')"
+if [ "$color_scheme" = "1" ]; then
+  gsettings set "$gnome_schema" color-scheme "prefer-dark"
+else
+  gsettings set "$gnome_schema" color-scheme "prefer-light"
+fi

@@ -69,6 +69,7 @@ Depends on python-llm, git, and jq.
 Imports settings from gtk-3.0/settings.ini to gsettings
 Used for wayland
 See [sway wiki page about GTK 3](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland)
+I edited it
 
 ## lfcd_sh
 
