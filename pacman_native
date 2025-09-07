@@ -36,7 +36,6 @@ catfish
 chafa
 cmake
 cpio
-cpupower
 cups
 cups-pdf
 dash
@@ -241,6 +240,7 @@ rclone
 reflector
 ripgrep-all
 rlwrap
+rpi-imager
 rsync
 rust
 rust-analyzer
@@ -285,6 +285,7 @@ ttf-linux-libertine
 ttf-sourcecodepro-nerd
 ttf-victor-mono-nerd
 tumbler
+tuned
 udiskie
 udisks2
 ufw
@@ -370,4 +371,5 @@ zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
 zbar
+zed
 zip

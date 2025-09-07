@@ -5,6 +5,7 @@ clipse-bin
 ctpv-git
 dashbinsh
 ddcci-driver-linux-dkms-git
+gemini-cli-bin
 grub-theme-boot-minegrub-git
 heroic-games-launcher-bin
 hunspell-pt_pt
@@ -25,3 +26,4 @@ vesktop-bin
 visual-studio-code-bin
 xp-pen-tablet
 yay
+zmk-studio-bin
