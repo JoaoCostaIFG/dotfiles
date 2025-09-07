@@ -1,0 +1,6 @@
+resize_algorithm = none
+hotspot_x = 0.09
+hotspot_y = 0.06
+
+define_size = 0, pin.svg
+
