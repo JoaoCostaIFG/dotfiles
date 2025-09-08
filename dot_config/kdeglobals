@@ -3,7 +3,7 @@ TerminalApplication=kitty
 TerminalService=kitty.desktop
 
 [Icons]
-Theme=Catppuccin-Mocha
+Theme=Papirus-Dark
 
 [KDE]
 widgetStyle=qt6ct-style
