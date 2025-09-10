@@ -14,7 +14,7 @@
 ,cf	~/.config
 ,dt	~/.dotfiles
 ,sc	~/.local/bin
-,ls ~/.local/share
-,cc ~/.cache
+,ls	~/.local/share
+,cc	~/.cache
 ,md	/run/media/joao/
 ,mn	/mnt

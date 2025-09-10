@@ -1,10 +1,6 @@
 7zip
 acpi
 acpid
-adobe-source-han-sans-otc-fonts
-adobe-source-han-serif-otc-fonts
-adobe-source-sans-fonts
-adobe-source-serif-fonts
 adw-gtk-theme
 alsa-utils
 amd-ucode
@@ -34,6 +30,7 @@ breeze-gtk
 brightnessctl
 calf
 catfish
+cava
 chafa
 cmake
 cpio
@@ -69,7 +66,6 @@ fish
 fontforge
 foot
 fprintd
-fuzzel
 fzf
 gamemode
 gamescope
@@ -118,11 +114,11 @@ hyprsunset
 imagemagick
 imv
 inetutils
+inter-font
 iperf
 jdk-openjdk
 jfsutils
 jq
-khal
 kitty
 kvantum
 kvantum-qt5
@@ -194,6 +190,10 @@ networkmanager
 networkmanager-pptp
 nfs-utils
 nm-connection-editor
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
 npm
 nss-mdns
 ntfs-3g
@@ -224,6 +224,7 @@ plantuml
 playerctl
 pnpm
 poppler
+power-profiles-daemon
 prismlauncher
 pv
 python-matplotlib
@@ -248,6 +249,7 @@ rust
 rust-analyzer
 samba
 sane-airscan
+sassc
 slurp
 smartmontools
 socat
@@ -285,10 +287,10 @@ ttf-inconsolata
 ttf-lato
 ttf-liberation
 ttf-linux-libertine
+ttf-roboto
 ttf-sourcecodepro-nerd
 ttf-victor-mono-nerd
 tumbler
-tuned
 udiskie
 udisks2
 ufw
@@ -312,6 +314,7 @@ wine-staging
 winetricks
 wireless-regdb
 wl-clipboard
+wlsunset
 xclip
 xdg-desktop-portal
 xdg-desktop-portal-gtk

@@ -44,10 +44,6 @@
       create: true
       glob: true
       path: dot_config/maxima/*
-    ~/.config/pulse/:
-      create: true
-      glob: true
-      path: dot_config/pulse/*
 
 - ghe:
     - github/gh-copilot

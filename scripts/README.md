@@ -49,10 +49,6 @@ for cache file);
 if selected.
 Depends on [bemenu](https://github.com/Cloudef/bemenu).
 
-## dunst_toggle
-
-Toggles dunst's notifications.
-
 ## g
 
 My git wrapper. Calls `git status` when no argument is given.
@@ -167,10 +163,4 @@ Instructions
 
 If you see a continuous color spectrum, you have truecolor support
 https://github.com/termstandard/colors
-
-## update-zfs
-
-Simple script that checks if it's safe to update the Kernel to current
-version on Arch's repos given the officially supported Kernel versions
-reported by OpenZFS.
 
