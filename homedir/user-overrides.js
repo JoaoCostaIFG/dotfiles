@@ -6,3 +6,11 @@ user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.generation.enabled", false);
 user_pref("signon.rememberSignons", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
+user_pref("browser.search.suggest.enabled", true);
+user_pref("browser.urlbar.suggest.searches", true);
+user_pref("browser.urlbar.recentsearches.featureGate", true);
+user_pref("browser.urlbar.suggest.history", true);
+user_pref("browser.urlbar.suggest.bookmark", true);
+user_pref("browser.search.separatePrivateDefault", false);
+user_pref("browser.search.separatePrivateDefault.ui.enabled", false);
+
