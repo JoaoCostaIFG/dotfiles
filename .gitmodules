@@ -5,3 +5,6 @@
 [submodule "dotbot-gh-extension"]
 	path = submodules/dotbot-gh-extension
 	url = https://github.com/fundor333/dotbot-gh-extension.git
+[submodule "submodules/noctalia-shell"]
+	path = submodules/noctalia-shell
+	url = https://github.com/noctalia-dev/noctalia-shell.git

@@ -44,6 +44,9 @@
       create: true
       glob: true
       path: dot_config/maxima/*
+    ~/.config/quickshell:
+      create: true
+      path: submodules/noctalia-shell
 
 - ghe:
     - github/gh-copilot

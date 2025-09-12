@@ -4,7 +4,6 @@ babelfish-fish-git
 ctpv-git
 dashbinsh
 ddcci-driver-linux-dkms-git
-fluent-gtk-theme
 gemini-cli-bin
 gpu-screen-recorder
 grimblast-git
@@ -12,13 +11,14 @@ grub-theme-boot-minegrub-git
 heroic-games-launcher-bin
 hunspell-pt_pt
 joplin-bin
+matugen-bin
 numbat
 obs-gstreamer
 pandoc-bin
 protonup-qt-bin
 qt5ct-kde
 qt6ct-kde
-quickshell
+quickshell-git
 simple-mtpfs
 steamtinkerlaunch
 sunshine-beta-bin
@@ -28,7 +28,7 @@ ttf-material-symbols-variable-git
 ttf-ms-fonts
 ungoogled-chromium-bin
 vesktop-bin
-vicinae
+vicinae-git
 visual-studio-code-bin
 xcursor-pro-cursor-theme
 xcursor-pro-hyprcursor

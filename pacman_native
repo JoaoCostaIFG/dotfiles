@@ -19,7 +19,6 @@ bear
 bemenu
 bitwarden
 blas-openblas
-blueman
 bluez
 bluez-utils
 bottom
@@ -120,8 +119,6 @@ jdk-openjdk
 jfsutils
 jq
 kitty
-kvantum
-kvantum-qt5
 lf
 lib32-fakeroot
 lib32-gamemode
@@ -198,6 +195,7 @@ npm
 nss-mdns
 ntfs-3g
 nvtop
+nwg-displays
 nwg-look
 obs-studio
 ocl-icd
@@ -210,6 +208,7 @@ opusfile
 otf-font-awesome
 ouch
 pacman-contrib
+pacutils
 pam-u2f
 papirus-icon-theme
 parallel
@@ -250,6 +249,7 @@ rust-analyzer
 samba
 sane-airscan
 sassc
+seahorse
 slurp
 smartmontools
 socat
@@ -261,7 +261,6 @@ steam
 strawberry
 supertux
 swappy
-swaync
 sysfsutils
 systemd-resolvconf
 tailscale
@@ -305,7 +304,6 @@ vim
 vulkan-radeon
 vulkan-tools
 vulkan-validation-layers
-waybar
 webp-pixbuf-loader
 wget
 wine-gecko
