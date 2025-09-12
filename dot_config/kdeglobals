@@ -13,3 +13,6 @@ toolBarFont=Lato,10,-1,5,50,0,0,0,0,0
 
 [Icons]
 Theme=Papirus-Dark
+
+[KDE]
+widgetStyle=qt6ct-style
