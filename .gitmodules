@@ -8,3 +8,6 @@
 [submodule "submodules/noctalia-shell"]
 	path = submodules/noctalia-shell
 	url = https://github.com/noctalia-dev/noctalia-shell.git
+[submodule "submodules/dotbot-if"]
+	path = submodules/dotbot-if
+	url = https://github.com/mikybars/dotbot-if.git

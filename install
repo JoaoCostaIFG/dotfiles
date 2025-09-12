@@ -13,4 +13,5 @@ git submodule update --init --recursive
 
 "${BASEDIR}/submodules/dotbot/${DOTBOT_BIN}" \
   --plugin-dir "${BASEDIR}/submodules/dotbot-gh-extension" \
+  --plugin-dir "${BASEDIR}/submodules/dotbot-if" \
   -d "${BASEDIR}" -c "${CONFIG}" "${@}"

@@ -48,6 +48,14 @@
       create: true
       path: submodules/noctalia-shell
 
+- if:
+    cond: hostname | grep -q 'ifgdt'
+    met:
+      - link:
+          ~/.config/hypr/override.d/:
+            glob: true
+            path: ifgdt/hypr/override.d/*
+
 - ghe:
     - github/gh-copilot
 
