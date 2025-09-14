@@ -1,0 +1,6 @@
+[config]
+#...
+
+[templates.kitty]
+input_path = './templates/kitty.conf'
+output_path = '~/.config/kitty/matugen.conf'
