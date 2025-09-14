@@ -4,3 +4,12 @@
 [templates.kitty]
 input_path = './templates/kitty.conf'
 output_path = '~/.config/kitty/matugen.conf'
+
+[templates.pywalfox]
+input_path = './templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
+
+[templates.zathura]
+input_path = './templates/zathura-colors'
+output_path = '~/.config/zathura/zathurarc'
