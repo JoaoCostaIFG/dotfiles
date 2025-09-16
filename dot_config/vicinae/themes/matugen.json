@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "appearance": "dark",
+  "icon": "./matugen.png",
+  "name": "Matugen",
+  "description": " A material you color generation tool",
+  "palette": {
+    "background": "#0f1416",
+    "foreground": "#dee3e6",
+    "blue": "#85d2e8",
+    "green": "#c0c4eb",
+    "magenta": "#85d2e8",
+    "orange": "#dee3e6",
+    "purple": "#899295",
+    "red": "#ffb4ab",
+    "yellow": "#b2cbd3",
+    "cyan": "#b2cbd3"
+  }
+}

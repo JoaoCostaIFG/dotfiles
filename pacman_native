@@ -19,7 +19,9 @@ bear
 bemenu
 bitwarden
 blas-openblas
+blueman
 bluez
+bluez-deprecated-tools
 bluez-utils
 bottom
 boxxy
@@ -60,7 +62,6 @@ ffmpeg
 ffmpegthumbnailer
 figlet
 firefox
-firewalld
 fish
 fontforge
 foot

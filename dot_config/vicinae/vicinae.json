@@ -1,0 +1,18 @@
+{
+    "faviconService": "twenty",
+    "font": {
+        "size": 10
+    },
+    "popToRootOnClose": false,
+    "rootSearch": {
+        "searchFiles": false
+    },
+    "theme": {
+        "name": "matugen.json"
+    },
+    "window": {
+        "csd": true,
+        "opacity": 0.95,
+        "rounding": 10
+    }
+}
