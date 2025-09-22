@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
-Name=lf
-Exec=/bin/thunar %u
+Name=Thunar
+Exec=/usr/bin/thunar %u

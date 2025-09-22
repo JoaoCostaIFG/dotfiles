@@ -19,7 +19,6 @@ bear
 bemenu
 bitwarden
 blas-openblas
-blueman
 bluez
 bluez-deprecated-tools
 bluez-utils
@@ -30,7 +29,6 @@ breeze5
 breeze-gtk
 brightnessctl
 calf
-catfish
 cava
 chafa
 cmake
@@ -66,6 +64,7 @@ fish
 fontforge
 foot
 fprintd
+freecad
 fzf
 gamemode
 gamescope
@@ -93,10 +92,6 @@ gst-plugin-va
 gstreamer-vaapi
 gtk4
 gtkmm3
-gvfs
-gvfs-mtp
-gvfs-nfs
-gvfs-smb
 hexyl
 highlight
 htmlq
@@ -148,7 +143,6 @@ lib32-pipewire-v4l2
 lib32-v4l-utils
 lib32-vulkan-icd-loader
 lib32-vulkan-radeon
-libappimage
 libappindicator-gtk2
 libayatana-appindicator
 libdvdcss
@@ -274,9 +268,6 @@ texlive-fontsrecommended
 texlive-latex
 texlive-latexrecommended
 thunar
-thunar-archive-plugin
-thunar-media-tags-plugin
-thunar-volman
 thunderbird
 time
 tk
@@ -290,7 +281,6 @@ ttf-linux-libertine
 ttf-roboto
 ttf-sourcecodepro-nerd
 ttf-victor-mono-nerd
-tumbler
 udiskie
 udisks2
 ufw
@@ -369,7 +359,6 @@ yq
 yt-dlp
 yubikey-manager
 yubikey-personalization
-yubikey-personalization-gui
 zathura
 zathura-cb
 zathura-djvu

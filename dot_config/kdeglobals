@@ -15,4 +15,9 @@ toolBarFont=Lato,10,-1,5,50,0,0,0,0,0
 Theme=Papirus-Dark
 
 [KDE]
+ShowDeleteCommand=true
 widgetStyle=qt6ct-style
+
+[PreviewSettings]
+EnableRemoteFolderThumbnail=true
+MaximumRemoteSize=0
