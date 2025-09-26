@@ -5,6 +5,7 @@
         "pinnedExecs": [
         ],
         "position": "center",
+        "sortByMostUsed": true,
         "useApp2Unit": true
     },
     "audio": {
@@ -12,24 +13,20 @@
         "mprisBlacklist": [
         ],
         "preferredPlayer": "",
-        "showMiniplayerAlbumArt": false,
-        "showMiniplayerCava": false,
         "visualizerType": "linear",
+        "volumeOverdrive": false,
         "volumeStep": 5
     },
     "bar": {
-        "alwaysShowBatteryPercentage": false,
         "backgroundOpacity": 1,
+        "density": "default",
         "floating": false,
         "marginHorizontal": 0.25,
         "marginVertical": 0.25,
         "monitors": [
         ],
         "position": "top",
-        "showActiveWindowIcon": true,
-        "showNetworkStats": false,
-        "showWorkspaceLabel": "none",
-        "useDistroLogo": false,
+        "showCapsule": true,
         "widgets": {
             "center": [
                 {
@@ -79,17 +76,14 @@
                     "id": "Bluetooth"
                 },
                 {
-                    "alwaysShowPercentage": false,
                     "displayMode": "onhover",
                     "id": "Volume"
                 },
                 {
-                    "alwaysShowPercentage": false,
                     "displayMode": "onhover",
                     "id": "Microphone"
                 },
                 {
-                    "alwaysShowPercentage": false,
                     "displayMode": "onhover",
                     "id": "Brightness"
                 },
@@ -97,12 +91,9 @@
                     "id": "NightLight"
                 },
                 {
-                    "displayFormat": "time-date-short",
                     "formatHorizontal": "HH:mm ddd, MMM dd",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
-                    "reverseDayMonth": false,
-                    "use12HourClock": false,
                     "useMonospacedFont": true,
                     "usePrimaryColor": true
                 }
@@ -123,12 +114,15 @@
         "exclusive": false,
         "floatingRatio": 1,
         "monitors": [
+        ],
+        "pinnedApps": [
         ]
     },
     "general": {
         "animationSpeed": 1,
         "avatarImage": "/home/joao/.face",
         "dimDesktop": false,
+        "forceBlackScreenCorners": false,
         "radiusRatio": 1,
         "screenRadiusRatio": 1,
         "showScreenCorners": false
@@ -140,9 +134,8 @@
     },
     "location": {
         "name": "Argoncilhe, Portugal",
-        "reverseDayMonth": false,
-        "showDateWithClock": false,
-        "use12HourClock": false,
+        "showWeekNumberInCalendar": false,
+        "use12hourFormat": false,
         "useFahrenheit": false
     },
     "matugen": {
@@ -153,6 +146,7 @@
         "gtk3": true,
         "gtk4": true,
         "kitty": false,
+        "pywalfox": false,
         "qt5": true,
         "qt6": true,
         "vesktop": true
@@ -171,10 +165,17 @@
         "nightTemp": "4000"
     },
     "notifications": {
+        "alwaysOnTop": false,
+        "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
+        "enableOSD": true,
         "lastSeenTs": 1758912688000,
+        "location": "top_right",
+        "lowUrgencyDuration": 3,
         "monitors": [
-        ]
+        ],
+        "normalUrgencyDuration": 8,
+        "respectExpireTimeout": false
     },
     "screenRecorder": {
         "audioCodec": "opus",
