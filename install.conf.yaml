@@ -16,6 +16,7 @@
     ~/.face: homedir/dot_face
     ~/.profile: homedir/dot_profile
     ~/.Xdefaults: homedir/dot_Xdefaults
+    ~/.XCompose: homedir/dot_XCompose
     ~/.icons: homedir/dot_icons
     ~/.local/bin: scripts
     ~/.local/share/nwg-look: dot_local/share/nwg-look

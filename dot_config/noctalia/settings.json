@@ -5,7 +5,6 @@
         "pinnedExecs": [
         ],
         "position": "center",
-        "sortByMostUsed": true,
         "useApp2Unit": true
     },
     "audio": {
@@ -13,32 +12,34 @@
         "mprisBlacklist": [
         ],
         "preferredPlayer": "",
+        "showMiniplayerAlbumArt": false,
+        "showMiniplayerCava": false,
         "visualizerType": "linear",
         "volumeStep": 5
     },
     "bar": {
+        "alwaysShowBatteryPercentage": false,
         "backgroundOpacity": 1,
-        "density": "default",
         "floating": false,
         "marginHorizontal": 0.25,
         "marginVertical": 0.25,
         "monitors": [
         ],
         "position": "top",
-        "showCapsule": true,
+        "showActiveWindowIcon": true,
+        "showNetworkStats": false,
+        "showWorkspaceLabel": "none",
+        "useDistroLogo": false,
         "widgets": {
             "center": [
                 {
+                    "autoHide": true,
                     "id": "ActiveWindow",
+                    "scrollingMode": "always",
                     "showIcon": true
                 }
             ],
             "left": [
-                {
-                    "icon": "noctalia",
-                    "id": "SidePanelToggle",
-                    "useDistroLogo": true
-                },
                 {
                     "hideUnoccupied": false,
                     "id": "Workspace",
@@ -54,7 +55,9 @@
                     "showNetworkStats": false
                 },
                 {
+                    "autoHide": true,
                     "id": "MediaMini",
+                    "scrollingMode": "hover",
                     "showAlbumArt": false,
                     "showVisualizer": false,
                     "visualizerType": "linear"
@@ -70,23 +73,23 @@
                     "showUnreadBadge": true
                 },
                 {
-                    "id": "ScreenRecorderIndicator"
-                },
-                {
                     "id": "WiFi"
                 },
                 {
                     "id": "Bluetooth"
                 },
                 {
+                    "alwaysShowPercentage": false,
                     "displayMode": "onhover",
                     "id": "Volume"
                 },
                 {
+                    "alwaysShowPercentage": false,
                     "displayMode": "onhover",
                     "id": "Microphone"
                 },
                 {
+                    "alwaysShowPercentage": false,
                     "displayMode": "onhover",
                     "id": "Brightness"
                 },
@@ -94,9 +97,12 @@
                     "id": "NightLight"
                 },
                 {
+                    "displayFormat": "time-date-short",
                     "formatHorizontal": "HH:mm ddd, MMM dd",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
+                    "reverseDayMonth": false,
+                    "use12HourClock": false,
                     "useMonospacedFont": true,
                     "usePrimaryColor": true
                 }
@@ -123,7 +129,6 @@
         "animationSpeed": 1,
         "avatarImage": "/home/joao/.face",
         "dimDesktop": false,
-        "forceBlackScreenCorners": false,
         "radiusRatio": 1,
         "screenRadiusRatio": 1,
         "showScreenCorners": false
@@ -135,8 +140,9 @@
     },
     "location": {
         "name": "Argoncilhe, Portugal",
-        "showWeekNumberInCalendar": false,
-        "use12hourFormat": false,
+        "reverseDayMonth": false,
+        "showDateWithClock": false,
+        "use12HourClock": false,
         "useFahrenheit": false
     },
     "matugen": {
@@ -147,7 +153,6 @@
         "gtk3": true,
         "gtk4": true,
         "kitty": false,
-        "pywalfox": false,
         "qt5": true,
         "qt6": true,
         "vesktop": true
@@ -166,13 +171,10 @@
         "nightTemp": "4000"
     },
     "notifications": {
-        "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
-        "lastSeenTs": 1758556789000,
-        "lowUrgencyDuration": 3,
+        "lastSeenTs": 1758912688000,
         "monitors": [
-        ],
-        "normalUrgencyDuration": 8
+        ]
     },
     "screenRecorder": {
         "audioCodec": "opus",
