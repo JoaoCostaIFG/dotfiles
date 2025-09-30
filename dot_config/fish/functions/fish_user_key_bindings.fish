@@ -49,4 +49,7 @@ function fish_user_key_bindings
     bind y,i backward-jump-till and repeat-jump-reverse and begin-selection repeat-jump kill-selection yank_to_clipboard yank end-selection
     bind y,a backward-jump and repeat-jump-reverse and begin-selection repeat-jump kill-selection yank_to_clipboard yank end-selection
     bind -M visual -m default y kill-selection yank_to_clipboard yank end-selection repaint-mode
+    # use system clipboard for vi mode pastes
+    bind -s p 'set -g fish_cursor_end_mode exclusive' forward-char 'set -g fish_cursor_end_mode inclusive' fish_clipboard_paste
+    bind -s P fish_clipboard_paste
 end
