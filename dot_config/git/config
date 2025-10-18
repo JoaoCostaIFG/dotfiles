@@ -66,8 +66,9 @@
   ck = checkout
   ckb = checkout -b
   c = commit -s
-  cm = commit -s
-  cma = commit -s -a
+  ca = commit -s -a
+  cm = commit -s -m
+  cma = commit -s -a -m
   cmA = "!git add -A; git c"
   cmam = commit --amend
   cg = "!gen_commit_msg \"$@\""
@@ -81,6 +82,9 @@
   pf = push --force-with-lease --force-if-includes
   rs = reset
   rst = reset
+  rsth = reset --hard
+  rsts = reset --soft
+  cpop = reset --soft HEAD^1
   rv = revert
   rem = remote -v
   st = status
