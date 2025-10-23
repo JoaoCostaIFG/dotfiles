@@ -1,0 +1,10 @@
+#/usr/bin/env sh
+### Shows a spinner in the terminal for as long as the script runs.
+### Start this script in the background and kill it when your main script ends.
+
+while true; do
+  for s in ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏; do
+    printf "\r$s"
+    sleep 0.08
+  done
+done

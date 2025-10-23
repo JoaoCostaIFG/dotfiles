@@ -60,6 +60,12 @@ First add/stage the changes you want to generate the commit for.
 It generates 3 commit message and then you can choose the one you want.
 Depends on python-llm, git, and jq.
 
+## getsubs
+
+Uses yt-dlp to download subtitles from a YouTube video.
+Each line of the output corresponds to a subtitle line.
+Usage: getsubs <youtube-url>
+
 ## import-gsettings
 
 Imports settings from gtk-3.0/settings.ini to gsettings
@@ -158,6 +164,18 @@ Instructions
 - `Esc/Q` for quit.
 - Eat the @ signs (apples)
 - Don't eat the # (walls) or yourself.
+
+## spinner
+
+Shows a spinner in the terminal for as long as the script runs.
+Start this script in the background and kill it when your main script ends.
+
+## sumvid
+
+Summarizes a YouTube video using yt-dlp and an LLM.
+Does this by extracting the video's subtitles, either original or auto-generated,
+and passing them to an LLM for summarization.
+Usage: sumvid <YouTube URL>
 
 ## truecolortest
 

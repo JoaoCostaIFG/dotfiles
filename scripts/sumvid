@@ -1,0 +1,11 @@
+#/usr/bin/env sh
+### Summarizes a YouTube video using yt-dlp and an LLM.
+### Does this by extracting the video's subtitles, either original or auto-generated,
+### and passing them to an LLM for summarization.
+### Usage: sumvid <YouTube URL>
+
+set -eu
+
+[ $# -ne 1 ] && exit 1
+
+getsubs "$@" | ask "Summarize this:"

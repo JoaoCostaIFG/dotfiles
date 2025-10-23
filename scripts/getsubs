@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+### Uses yt-dlp to download subtitles from a YouTube video.
+### Each line of the output corresponds to a subtitle line.
+### Usage: getsubs <youtube-url>
+
+set -eu
+
+format=srt
+lang=en
+transcript_file="$(mktemp)"
+trap 'rm -f "$transcript_file" "$transcript_file.$lang.$format"' EXIT
+
+[ $# -ne 1 ] && exit 1
+
+yt-dlp --skip-download --write-subs --write-auto-subs --sub-lang "$lang" --sub-format "$format" --output "$transcript_file" "$@" >/dev/null 2>&1
+grep -vE '^[0-9]+$|^[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3} --> [0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3}$' "$transcript_file.$lang.$format" |
+  sed '/^\s*$/d'
