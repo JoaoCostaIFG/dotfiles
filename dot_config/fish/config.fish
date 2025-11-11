@@ -21,3 +21,8 @@ set fish_cursor_insert line
 # Set the replace mode cursors to an underscore
 set fish_cursor_replace_one underscore
 set fish_cursor_replace underscore
+
+# placed here to ensure it loads after other config files
+if status is-interactive && command -v atuin >/dev/null
+    atuin init fish --disable-up-arrow | source
+end
