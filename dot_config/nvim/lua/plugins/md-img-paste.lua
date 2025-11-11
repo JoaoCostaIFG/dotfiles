@@ -7,7 +7,7 @@ return {
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "markdown",
       callback = function(args)
-        vim.keymap.set("n", "<Leader>p", ":call mdip#MarkdownClipboardImage()<CR>")
+        vim.keymap.set("n", "<Leader>uP", ":call mdip#MarkdownClipboardImage()<CR>")
       end,
     })
   end,

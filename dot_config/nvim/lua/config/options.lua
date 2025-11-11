@@ -15,6 +15,9 @@ o.listchars:append({ lead = "⋅" })
 -- o.sw = 2
 -- o.expandtab = true
 
+-- don't like my markdown files moving
+o.conceallevel = 0
+
 -- auto format on save
 g.autoformat = true
 
