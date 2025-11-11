@@ -1,8 +1,6 @@
 {
     "appLauncher": {
         "backgroundOpacity": 1,
-        "customLaunchPrefix": "",
-        "customLaunchPrefixEnabled": false,
         "enableClipboardHistory": false,
         "pinnedExecs": [
         ],
@@ -16,7 +14,6 @@
         "mprisBlacklist": [
         ],
         "preferredPlayer": "",
-        "visualizerQuality": "high",
         "visualizerType": "linear",
         "volumeOverdrive": false,
         "volumeStep": 5
@@ -24,13 +21,11 @@
     "bar": {
         "backgroundOpacity": 1,
         "density": "default",
-        "exclusive": true,
         "floating": false,
         "marginHorizontal": 0,
         "marginVertical": 0,
         "monitors": [
         ],
-        "outerCorners": false,
         "position": "top",
         "showCapsule": true,
         "widgets": {
@@ -39,22 +34,19 @@
                     "colorizeIcons": false,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
-                    "maxWidth": 145,
                     "scrollingMode": "always",
                     "showIcon": true,
-                    "useFixedWidth": false
+                    "width": 145
                 }
             ],
             "left": [
                 {
-                    "colorizeDistroLogo": false,
                     "customIconPath": "",
                     "icon": "",
                     "id": "ControlCenter",
                     "useDistroLogo": true
                 },
                 {
-                    "characterCount": 2,
                     "hideUnoccupied": false,
                     "id": "Workspace",
                     "labelMode": "name"
@@ -66,18 +58,14 @@
                     "showDiskUsage": false,
                     "showMemoryAsPercent": false,
                     "showMemoryUsage": true,
-                    "showNetworkStats": false,
-                    "usePrimaryColor": true
+                    "showNetworkStats": false
                 },
                 {
                     "hideMode": "hidden",
-                    "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showAlbumArt": false,
                     "showVisualizer": false,
-                    "useFixedWidth": false,
                     "visualizerType": "linear"
                 }
             ],
@@ -86,10 +74,7 @@
                     "blacklist": [
                     ],
                     "colorizeIcons": false,
-                    "drawerEnabled": true,
-                    "id": "Tray",
-                    "pinned": [
-                    ]
+                    "id": "Tray"
                 },
                 {
                     "hideWhenZero": true,
@@ -134,18 +119,13 @@
         "chargingMode": 0
     },
     "brightness": {
-        "brightnessStep": 5,
-        "enableDdcSupport": true,
-        "enforceMinimum": true
+        "brightnessStep": 5
     },
     "colorSchemes": {
         "darkMode": true,
         "generateTemplatesForPredefined": true,
-        "manualSunrise": "06:30",
-        "manualSunset": "18:30",
         "matugenSchemeType": "scheme-expressive",
         "predefinedScheme": "Rosepine",
-        "schedulingMode": "off",
         "useWallpaperColors": true
     },
     "controlCenter": {
@@ -207,7 +187,6 @@
         "backgroundOpacity": 1,
         "colorizeIcons": false,
         "displayMode": "always_visible",
-        "enabled": false,
         "floatingRatio": 1,
         "monitors": [
         ],
@@ -222,16 +201,11 @@
         "avatarImage": "/home/joao/.face",
         "compactLockScreen": false,
         "dimDesktop": false,
-        "enableShadows": false,
         "forceBlackScreenCorners": false,
-        "language": "",
         "lockOnSuspend": true,
         "radiusRatio": 1,
         "scaleRatio": 1,
         "screenRadiusRatio": 1,
-        "shadowDirection": "bottom_right",
-        "shadowOffsetX": 2,
-        "shadowOffsetY": 3,
         "showScreenCorners": false
     },
     "hooks": {
@@ -240,11 +214,7 @@
         "wallpaperChange": ""
     },
     "location": {
-        "analogClockInCalendar": false,
-        "firstDayOfWeek": -1,
         "name": "Argoncilhe, Portugal",
-        "showCalendarEvents": false,
-        "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
         "use12hourFormat": false,
         "useFahrenheit": false,
@@ -263,24 +233,24 @@
         "nightTemp": "4000"
     },
     "notifications": {
-        "backgroundOpacity": 1,
+        "alwaysOnTop": false,
         "criticalUrgencyDuration": 15,
-        "enabled": true,
+        "doNotDisturb": false,
+        "lastSeenTs": 1762892547000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
         ],
         "normalUrgencyDuration": 8,
-        "overlayLayer": true,
         "respectExpireTimeout": false
     },
     "osd": {
+        "alwaysOnTop": false,
         "autoHideMs": 2000,
         "enabled": true,
         "location": "top_right",
         "monitors": [
-        ],
-        "overlayLayer": true
+        ]
     },
     "screenRecorder": {
         "audioCodec": "opus",
@@ -293,11 +263,9 @@
         "videoCodec": "h264",
         "videoSource": "portal"
     },
-    "settingsVersion": 21,
+    "settingsVersion": 16,
     "setupCompleted": true,
     "templates": {
-        "alacritty": false,
-        "code": false,
         "discord": false,
         "discord_armcord": false,
         "discord_dorion": false,
@@ -313,19 +281,13 @@
         "kcolorscheme": false,
         "kitty": false,
         "pywalfox": false,
-        "qt": false,
-        "spicetify": false,
-        "vicinae": false,
-        "walker": false,
-        "wezterm": false
+        "qt": false
     },
     "ui": {
         "fontDefault": "Sans Serif",
         "fontDefaultScale": 1,
         "fontFixed": "Monospace",
         "fontFixedScale": 1,
-        "panelsAttachedToBar": false,
-        "settingsPanelAttachToBar": false,
         "tooltipsEnabled": true
     },
     "wallpaper": {
@@ -347,11 +309,8 @@
                 "wallpaper": "/home/joao/.local/share/wallpaper/iceworm2.jpg"
             }
         ],
-        "overviewEnabled": true,
-        "panelPosition": "folow_bar",
         "randomEnabled": false,
         "randomIntervalSec": 300,
-        "recursiveSearch": false,
         "setWallpaperOnAllMonitors": false,
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,

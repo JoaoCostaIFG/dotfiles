@@ -9,6 +9,7 @@ android-udev
 ansible
 arch-install-scripts
 archlinux-xdg-menu
+atuin
 audacity
 avahi
 base
@@ -19,14 +20,11 @@ bear
 bemenu
 bitwarden
 blas-openblas
+blueman
 bluez
-bluez-deprecated-tools
 bluez-utils
 bottom
 boxxy
-breeze
-breeze5
-breeze-gtk
 brightnessctl
 calf
 cava
@@ -49,6 +47,7 @@ dosfstools
 easyeffects
 efibootmgr
 electron
+espeakup
 ethtool
 exfat-utils
 eza
@@ -72,6 +71,7 @@ gcovr
 gdb
 gimp
 git
+git-absorb
 git-delta
 git-filter-repo
 github-cli
@@ -90,22 +90,17 @@ gst-plugins-good
 gst-plugins-ugly
 gst-plugin-va
 gstreamer-vaapi
-gtk4
 gtkmm3
 hexyl
 highlight
 htmlq
 hunspell-en_us
 hyperfine
-hyprcursor
 hypridle
 hyprland
-hyprland-protocols
-hyprlock
-hyprpaper
 hyprpicker
 hyprpolkitagent
-hyprsunset
+hyprtoolkit
 imagemagick
 imv
 inetutils
@@ -114,6 +109,7 @@ iperf
 jdk-openjdk
 jfsutils
 jq
+jujutsu
 kitty
 lf
 lib32-fakeroot
@@ -122,8 +118,7 @@ lib32-giflib
 lib32-gnutls
 lib32-gst-plugins-base-libs
 lib32-gtk3
-lib32-libappindicator-gtk2
-lib32-libappindicator-gtk3
+lib32-libappindicator
 lib32-libldap
 lib32-libltdl
 lib32-libpulse
@@ -143,7 +138,6 @@ lib32-pipewire-v4l2
 lib32-v4l-utils
 lib32-vulkan-icd-loader
 lib32-vulkan-radeon
-libappindicator-gtk2
 libayatana-appindicator
 libdvdcss
 libliftoff
@@ -176,7 +170,6 @@ moonlight-qt
 mosh
 mpv
 mpv-mpris
-neovim
 net-tools
 networkmanager
 networkmanager-pptp
@@ -249,6 +242,7 @@ slurp
 smartmontools
 socat
 solaar
+speech-dispatcher
 sshfs
 sshpass
 starship
@@ -256,6 +250,7 @@ steam
 strawberry
 supertux
 swappy
+syncthing
 sysfsutils
 systemd-resolvconf
 tailscale
@@ -271,6 +266,7 @@ thunar
 thunderbird
 time
 tk
+tmux
 trash-cli
 tree
 ttf-dejavu
@@ -365,5 +361,4 @@ zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
 zbar
-zed
 zip
