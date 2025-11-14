@@ -16,6 +16,7 @@ base
 base-devel
 bash-completion
 bat
+bc
 bear
 bemenu
 bitwarden
@@ -35,6 +36,7 @@ cups
 cups-pdf
 dash
 ddcutil
+deno
 detox
 dhcpcd
 direnv
@@ -91,6 +93,7 @@ gst-plugins-ugly
 gst-plugin-va
 gstreamer-vaapi
 gtkmm3
+gum
 hexyl
 highlight
 htmlq
@@ -353,6 +356,7 @@ xorg-xwud
 yad
 yq
 yt-dlp
+yt-dlp-ejs
 yubikey-manager
 yubikey-personalization
 zathura

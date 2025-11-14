@@ -28,7 +28,11 @@
     ~/.config/:
       glob: true
       path: dot_config/*
-      exclude: [dot_config/maxima, dot_config/pulse, dot_config/sunshine]
+      exclude: [dot_config/maxima, dot_config/gtk-2.0, dot_config/sunshine]
+    ~/.config/gtk-2.0/gtkrc-2.0:
+      create: true
+      force: true
+      path: dot_config/gtk-2.0/gtkrc-2.0
     ~/.config/sunshine/apps.json:
       create: true
       force: true
