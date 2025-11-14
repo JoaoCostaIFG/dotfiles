@@ -57,10 +57,5 @@ abbr -a -- find_scanners "scanimage -L"
 abbr -a -- scan_pdf 'scanimage --format=pdf --output-file out-$(date +%s).pdf --progress --resolution 300 -d "pixma:MG3600_439892000000"'
 abbr -a -- scan_pdf_highest_quality 'scanimage --format=pdf --output-file out-$(date +%s).pdf --progress --resolution 1200 -d "pixma:MG3600_439892000000"'
 
-# boxxy #
-abbr -a -- ansible boxxy ansible
-abbr -a -- ansible-playbook boxxy ansible
-abbr -a -- npm boxxy npm
-
 # source the common aliases between other shells (e.g. bash)
 source "$HOME/.config/aliasrc"

@@ -11,7 +11,7 @@ replay source "$HOME/.profile"
 set -gx SCRIPTS "$HOME/.local/bin/"
 
 # langs
-set -gx UV_TOOL_BIN_DIR "$SCRIPTS/uv"
+set -gx UV_TOOL_BIN_DIR "$HOME/.local/share/uv-bin"
 set -gx CARGO_HOME "$HOME/.local/share/cargo"
 set -gx GOPATH "$HOME/.local/share/go"
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
@@ -40,16 +40,27 @@ set -gx NACHOS cute
 # clean-up
 set -gx GTK2_RC_FILES "$HOME/.config/gtk-2.0/gtkrc-2.0"
 set -gx LESSHISTFILE -
-set -gx WGETRC "$HOME/.config/wget/wgetrc"
+set -gx WGETRC "$HOME/.config/wgetrc"
 set -gx INPUTRC "$HOME/.config/inputrc"
 set -gx MAXIMA_USERDIR "$HOME/.config/maxima"
 set -gx SQLITE_HISTORY "$HOME/.local/share/sqlite_history"
 set -gx DOCKER_CONFIG "$HOME/.config/docker"
+# https://docs.npmjs.com/cli/v9/using-npm/config
+set -gx NPM_CONFIG_CACHE "$HOME/.cache/npm"
+set -gx NPM_CONFIG_USERCONFIG "$HOME/.config/npmrc"
+# https://classic.yarnpkg.com/lang/en/docs/cli/cache/
+set -gx YARN_CACHE_FOLDER "$HOME/.cache/yarn"
+# https://docs.ansible.com/projects/ansible/latest/reference_appendices/config.html
+set -gx ANSIBLE_HOME "$HOME/.config/ansible"
+# https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-envvars.html
+set -gx AWS_SHARED_CREDENTIALS_FILE "$HOME/.config/aws/credentials"
+set -gx AWS_CONFIG_FILE "$HOME/.config/aws/config"
+set -gx AWS_DATA_PATH "$HOME/.config/aws/models"
 
 # other program settings
 set -gx LESS -iFMRSX
 #set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
-#set -gx SSH_AUTH_SOCK "$HOME/.bitwarden-ssh-agent.sock"
+set -gx SSH_AUTH_SOCK "$HOME/.bitwarden-ssh-agent.sock"
 set -gx FZF_DEFAULT_OPTS "--layout=reverse --height 40%"
 set -gx QT_QPA_PLATFORMTHEME qt5ct
 # set -gx QT_STYLE_OVERRIDE kvantum
