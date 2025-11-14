@@ -5,4 +5,4 @@ model='github_copilot/gemini-2.5-pro'
 (
   echo "$@"
   cat
-) | llm -m "$model"
+) | gum spin --show-output --title 'Thinking...' -- llm -m "$model"
