@@ -49,8 +49,8 @@ alias cop="gh copilot suggest -t shell"
 alias copg="gh copilot suggest -t git"
 alias cope="gh copilot explain"
 alias hist="history | fzf | wl-copy"
-alias yt="yt-dlp --add-metadata -ic -o '%(title)s.%(ext)s'"
-alias yta="yt-dlp --add-metadata -x -f bestaudio/best --audio-format mp3 -o '%(title)s.%(ext)s'"
+alias yt="yt-dlp --cookies-from-browser firefox --remote-components ejs:github --add-metadata -ic -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o '%(title)s.%(ext)s'"
+alias yta="yt -x -f bestaudio/best --audio-format mp3"
 
 # printer/scanner #
 abbr -a -- find_scanners "scanimage -L"
