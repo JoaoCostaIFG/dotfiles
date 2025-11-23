@@ -25,12 +25,12 @@ function gen_commit_msg --argument context
         return 1
     end
 
+    set gitHistory (git log -n10 --pretty=format:"Commit: %h\nSubject: %s\nBody:\n%b\n---" | string collect)
+
     if test -n "$context"
         set context "Take into account the following context: $context."
     end
 
-    set codeblocked_git_diff "```
-$gitDiff```"
     set identity "You are to act as an author of a git commit message."
 
     set prompt "$identity
@@ -42,7 +42,7 @@ $gitDiff```"
 
 [optional footer(s)]
 ```
-- Explain WHY changes were made instead on WHAT changed. You'll have access to the 'git diff' of the staged file.
+- Explain WHY changes were made instead on WHAT changed. You'll have access to the 'git diff' of the staged files and the last 10 commit.
 - Always speak in imperative form/present tense.
 - Don't use constructs like 'This commit', just describe the changes.
 - Use the present tense.
@@ -70,7 +70,12 @@ $context
 
 <git_diff>
 $gitDiff
-</git_diff>"
+</git_diff>
+
+<git_history>
+$gitHistory
+</git_history>
+"
 
     set json (echo $prompt | ask | sed '1d;$d' | string collect)
 
