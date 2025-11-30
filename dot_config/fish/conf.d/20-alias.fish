@@ -51,6 +51,7 @@ alias cope="gh copilot explain"
 alias hist="history | fzf | wl-copy"
 alias yt="yt-dlp --cookies-from-browser firefox --remote-components ejs:github --add-metadata -ic -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o '%(title)s.%(ext)s'"
 alias yta="yt -x -f bestaudio/best --audio-format mp3"
+alias listen="ffplay -nodisp -f alsa -i default"
 
 # printer/scanner #
 abbr -a -- find_scanners "scanimage -L"

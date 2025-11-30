@@ -1,7 +1,7 @@
 [submodule "dotbot"]
 	path = submodules/dotbot
 	url = https://github.com/anishathalye/dotbot
-	branch = v1.23.1
+	branch = v1.24.0
 [submodule "dotbot-gh-extension"]
 	path = submodules/dotbot-gh-extension
 	url = https://github.com/fundor333/dotbot-gh-extension.git

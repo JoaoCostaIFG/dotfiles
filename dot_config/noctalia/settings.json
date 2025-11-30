@@ -51,7 +51,9 @@
             "left": [
                 {
                     "colorizeDistroLogo": false,
+                    "colorizeSystemIcon": "none",
                     "customIconPath": "",
+                    "enableColorization": false,
                     "icon": "",
                     "id": "ControlCenter",
                     "useDistroLogo": true
@@ -142,6 +144,34 @@
         "enableDdcSupport": false,
         "enforceMinimum": true
     },
+    "calendar": {
+        "cards": [
+            {
+                "enabled": false,
+                "id": "calendar-header-card"
+            },
+            {
+                "enabled": false,
+                "id": "calendar-month-card"
+            },
+            {
+                "enabled": true,
+                "id": "calendar-header-card"
+            },
+            {
+                "enabled": true,
+                "id": "calendar-month-card"
+            },
+            {
+                "enabled": true,
+                "id": "timer-card"
+            },
+            {
+                "enabled": true,
+                "id": "weather-card"
+            }
+        ]
+    },
     "changelog": {
         "lastSeenVersion": ""
     },
@@ -151,7 +181,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "matugenSchemeType": "scheme-expressive",
-        "predefinedScheme": "Rosepine",
+        "predefinedScheme": "Rose Pine",
         "schedulingMode": "off",
         "useWallpaperColors": true
     },
@@ -290,6 +320,11 @@
         "autoHideMs": 1500,
         "backgroundOpacity": 1,
         "enabled": true,
+        "enabledTypes": [
+            0,
+            1,
+            2
+        ],
         "location": "top_right",
         "monitors": [
         ],
@@ -344,17 +379,21 @@
         ],
         "showHeader": true
     },
-    "settingsVersion": 23,
-    "setupCompleted": true,
+    "settingsVersion": 26,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
+        "cpuPollingInterval": 3000,
         "cpuWarningThreshold": 80,
         "criticalColor": "",
         "diskCriticalThreshold": 90,
+        "diskPollingInterval": 3000,
         "diskWarningThreshold": 80,
         "memCriticalThreshold": 90,
+        "memPollingInterval": 3000,
         "memWarningThreshold": 80,
+        "networkPollingInterval": 3000,
         "tempCriticalThreshold": 85,
+        "tempPollingInterval": 3000,
         "tempWarningThreshold": 70,
         "useCustomColors": false,
         "warningColor": ""
@@ -364,6 +403,7 @@
         "cava": false,
         "code": false,
         "discord": false,
+        "emacs": false,
         "enableUserTemplates": false,
         "foot": false,
         "fuzzel": false,
@@ -371,6 +411,7 @@
         "gtk": false,
         "kcolorscheme": false,
         "kitty": false,
+        "niri": false,
         "pywalfox": false,
         "qt": false,
         "spicetify": false,
@@ -390,24 +431,13 @@
         "tooltipsEnabled": true
     },
     "wallpaper": {
-        "defaultWallpaper": "/home/joao/.dotfiles/submodules/noctalia-shell/Assets/Wallpaper/noctalia.png",
-        "directory": "/home/joao/.local/share/wallpaper",
+        "directory": "/home/joao/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
-        "monitors": [
-            {
-                "directory": "/home/joao/Pictures/wallpapers",
-                "name": "DP-1",
-                "wallpaper": "/home/joao/.local/share/wallpaper/iceworm2.jpg"
-            },
-            {
-                "directory": "/home/joao/Pictures/wallpapers",
-                "name": "DP-2",
-                "wallpaper": "/home/joao/.local/share/wallpaper/iceworm2.jpg"
-            }
+        "monitorDirectories": [
         ],
         "overviewEnabled": false,
         "panelPosition": "follow_bar",
