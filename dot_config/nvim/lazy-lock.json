@@ -6,8 +6,6 @@
   "catppuccin": { "branch": "main", "commit": "234fc048de931a0e42ebcad675bf6559d75e23df" },
   "clangd_extensions.nvim": { "branch": "main", "commit": "b67cc417d9020fb4b83d46662351b4d16894905e" },
   "cmake-tools.nvim": { "branch": "master", "commit": "88e07c6bff838a5bda2f461e9c1122b79ff0829f" },
-  "codecompanion.nvim": { "branch": "main", "commit": "ca87f13b7559257f5aa91e4fcd1326a61311be13" },
-  "codi.vim": { "branch": "master", "commit": "83b9859aaf8066d95892e01eb9c01571a4b325dd" },
   "conform.nvim": { "branch": "master", "commit": "cde4da5c1083d3527776fee69536107d98dae6c9" },
   "crates.nvim": { "branch": "main", "commit": "ac9fa498a9edb96dc3056724ff69d5f40b898453" },
   "dial.nvim": { "branch": "master", "commit": "f0404ec1f83a03f2c3457e60087c6331d1cbb83f" },
@@ -80,7 +78,7 @@
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
   "vim-table-mode": { "branch": "master", "commit": "e156dbbedce0bbf61c0919db7678fa246fabd616" },
   "vimtex": { "branch": "master", "commit": "32bcb3922c20588e00de68f73c86312eda2141ad" },
+  "vscode-diff.nvim": { "branch": "main", "commit": "1cde497f876e1d959b1d008aca70f48bf9848513" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
-  "yanky.nvim": { "branch": "main", "commit": "04775cc6e10ef038c397c407bc17f00a2f52b378" },
-  "zen-mode.nvim": { "branch": "main", "commit": "8564ce6d29ec7554eb9df578efa882d33b3c23a7" }
+  "yanky.nvim": { "branch": "main", "commit": "04775cc6e10ef038c397c407bc17f00a2f52b378" }
 }

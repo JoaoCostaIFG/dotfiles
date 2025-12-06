@@ -34,21 +34,21 @@ function gen_commit_msg --argument context
     set identity "You are to act as an author of a git commit message."
 
     set prompt "$identity
-- Create clean and comprehensive commit messages as per the Conventional Commit Convention:
+- Create commit messages as per the Conventional Commit Convention:
 ```
 <type>[optional scope]: <description>
 
-[optional body]
+<body>
 
 [optional footer(s)]
 ```
 - Explain WHY changes were made instead on WHAT changed. You'll have access to the 'git diff' of the staged files and the last 10 commit.
-- Always speak in imperative form/present tense.
-- Don't use constructs like 'This commit', just describe the changes.
-- Use the present tense.
+- Use imperative form/present tense.
+- Don't use constructs like 'This commit'.
 - The commit subject must be at most 50 characters long.
 - The lines of the commit body must not be longer than 72 characters.
 - Use english for the commit message.
+- Always include a body.
 - Generate $attempts different for the commit messages.
 - Your output shall follow the following JSON format (only include this output in your response):
 
@@ -63,10 +63,7 @@ function gen_commit_msg --argument context
 }
 </output_format>
 
-Optional context (can be empty):
-<optional_context>
 $context
-</optional_context>
 
 <git_diff>
 $gitDiff

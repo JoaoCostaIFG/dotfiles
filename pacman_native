@@ -193,6 +193,7 @@ opencl-mesa
 openrgb
 opensc
 openssh
+opentofu
 opusfile
 otf-font-awesome
 ouch
@@ -255,7 +256,6 @@ syncthing
 sysfsutils
 systemd-resolvconf
 tailscale
-terraform
 tesseract-data-eng
 tesseract-data-por
 texlive-binextra
