@@ -54,6 +54,14 @@
       path: submodules/noctalia-shell
 
 - if:
+    cond: hostname | grep -q 'ifg'
+    met:
+      - link:
+          ~/.config/hypr/override.d/:
+            glob: true
+            path: ifg/hypr/override.d/*
+
+- if:
     cond: hostname | grep -q 'ifgdt'
     met:
       - link:

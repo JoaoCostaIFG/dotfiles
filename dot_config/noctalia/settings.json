@@ -431,7 +431,7 @@
         "tooltipsEnabled": true
     },
     "wallpaper": {
-        "directory": "/home/joao/Pictures/Wallpapers",
+        "directory": "/home/joao/.local/share/wallpaper",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",
