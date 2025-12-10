@@ -1,14 +1,19 @@
 {
+    "closeOnFocusLoss": false,
+    "considerPreedit": false,
     "faviconService": "twenty",
     "font": {
         "size": 10
+    },
+    "keybinding": "default",
+    "keybinds": {
     },
     "popToRootOnClose": false,
     "rootSearch": {
         "searchFiles": false
     },
     "theme": {
-        "name": "matugen.json"
+        "name": "matugen"
     },
     "window": {
         "csd": true,
