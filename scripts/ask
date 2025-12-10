@@ -1,6 +1,6 @@
 #!/bin/sh
 
-model='github_copilot/gpt-4o'
+model='github_copilot/claude-sonnet-4.5'
 
 (
   echo "$@"
