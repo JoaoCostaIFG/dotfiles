@@ -19,7 +19,7 @@
    "launcher_window": {
       "opacity": 0.95,
       "client_side_decorations": {
-         "enabled": false
+         "enabled": true
       }
    }
 }
