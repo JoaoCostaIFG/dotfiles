@@ -1,3 +1,10 @@
+# theme event handler, updates the theme for all fish shells running
+# to set the theme: `set -U my_theme <the_theme>`
+# to show all available themes: `fish_config theme show`
+function apply-my-theme --on-variable=my_theme
+    fish_config theme choose $my_theme
+end
+
 # Vi
 fish_vi_key_bindings
 # search history with Control-R when in insert mode

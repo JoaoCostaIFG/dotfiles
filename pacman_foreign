@@ -5,8 +5,6 @@ bambustudio-appimage
 ctpv-git
 dashbinsh
 ddcci-driver-linux-dkms-git
-gemini-cli-bin
-github-copilot
 gpu-screen-recorder
 grimblast-git
 grub-theme-boot-minegrub-git
@@ -19,6 +17,7 @@ lsfg-vk-git
 matugen-git
 neovim-nightly-bin
 numbat
+opencode-bin
 pandoc-bin
 protontricks
 protonup-qt-bin
@@ -36,7 +35,6 @@ ttf-bootstrap-icons
 ttf-material-symbols-variable-git
 ttf-ms-fonts
 ungoogled-chromium-bin
-ventoy-bin
 vesktop-electron-git
 vicinae-bin
 visual-studio-code-bin
