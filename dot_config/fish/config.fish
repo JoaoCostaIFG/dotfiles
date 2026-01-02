@@ -1,6 +1,7 @@
 # theme event handler, updates the theme for all fish shells running
 # to set the theme: `set -U my_theme <the_theme>`
 # to show all available themes: `fish_config theme show`
+fish_config theme choose $my_theme
 function apply-my-theme --on-variable=my_theme
     fish_config theme choose $my_theme
 end
