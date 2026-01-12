@@ -7,5 +7,5 @@ SETUVAR _fisher_jorgebucaran_2F_replay_2E_fish_files:\x7e/\x2econfig/fish/functi
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/replay\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_greeting:
-SETUVAR fish_user_paths:/home/joao/\x2elocal/bin\x1e/home/joao/\x2elocal/bin/dmenu\x1e/home/joao/\x2elocal/bin/uv\x1e/home/joao/\x2elocal/share/cargo/bin\x1e/home/joao/\x2elocal/share/go/bin\x1e/home/joao/\x2elocal/share/pnpm
+SETUVAR fish_user_paths:/home/joao/\x2elocal/share/uv\x2dbin\x1e/home/joao/\x2elocal/bin\x1e/home/joao/\x2elocal/bin/dmenu\x1e/home/joao/\x2elocal/share/cargo/bin\x1e/home/joao/\x2elocal/share/go/bin\x1e/home/joao/\x2elocal/share/pnpm
 SETUVAR my_theme:default\x2drgb
