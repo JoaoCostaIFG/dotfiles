@@ -86,10 +86,10 @@ grub
 gsound
 gst-libav
 gst-plugin-pipewire
+gst-plugin-va
 gst-plugins-bad
 gst-plugins-good
 gst-plugins-ugly
-gst-plugin-va
 gstreamer-vaapi
 gtkmm3
 gum
@@ -112,6 +112,7 @@ jdk-openjdk
 jfsutils
 jq
 jujutsu
+kanshi
 kicad
 kitty
 lf
@@ -216,6 +217,7 @@ pnpm
 poppler
 power-profiles-daemon
 prismlauncher
+protontricks
 pv
 python-matplotlib
 python-mutagen
@@ -312,9 +314,9 @@ xf86-video-vesa
 xfsprogs
 xorg-bdftopcf
 xorg-docs
+xorg-font-util
 xorg-fonts-100dpi
 xorg-fonts-75dpi
-xorg-font-util
 xorg-iceauth
 xorg-mkfontscale
 xorg-server

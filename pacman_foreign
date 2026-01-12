@@ -19,7 +19,6 @@ neovim-nightly-bin
 numbat
 opencode-bin
 pandoc-bin
-protontricks
 protonup-qt-bin
 python-llm
 python-llm-github-copilot
@@ -27,6 +26,7 @@ qt5ct-kde
 qt6ct-kde
 quickshell-git
 simple-mtpfs
+sqlite-utils
 steamtinkerlaunch
 sunshine
 syncthingtray-qt6
