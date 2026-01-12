@@ -69,14 +69,17 @@
             glob: true
             path: ifgdt/hypr/override.d/*
 
-- ghe:
-    - github/gh-copilot
-
 - shell:
     - [
         update-desktop-database ~/.local/share/applications/,
         Updating desktop entries database,
       ]
     - [./gen_scripts_readme.sh, Generating scripts Readme]
-    - [pacman -Qenq | sort >pacman_native, Saving native package list]
-    - [pacman -Qemq | sort >pacman_foreign, Saving foreign package list]
+    - [
+        pacman -Qenq | LC_COLLATE=C sort >pacman_native,
+        Saving native package list,
+      ]
+    - [
+        pacman -Qemq | LC_COLLATE=C sort >pacman_foreign,
+        Saving foreign package list,
+      ]
