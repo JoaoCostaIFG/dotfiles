@@ -123,10 +123,6 @@
                 },
                 {
                     "displayMode": "onhover",
-                    "id": "WiFi"
-                },
-                {
-                    "displayMode": "onhover",
                     "id": "Bluetooth"
                 },
                 {
@@ -226,13 +222,10 @@
         "shortcuts": {
             "left": [
                 {
-                    "id": "WiFi"
+                    "id": "Network"
                 },
                 {
                     "id": "Bluetooth"
-                },
-                {
-                    "id": "ScreenRecorder"
                 },
                 {
                     "id": "WallpaperSelector"
@@ -381,12 +374,12 @@
     },
     "screenRecorder": {
         "audioCodec": "opus",
-        "audioSource": "both",
+        "audioSource": "default_output",
         "colorRange": "limited",
         "copyToClipboard": false,
         "directory": "/home/joao/Videos",
         "frameRate": 60,
-        "quality": "ultra",
+        "quality": "very_high",
         "showCursor": true,
         "videoCodec": "h264",
         "videoSource": "portal"
