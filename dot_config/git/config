@@ -74,6 +74,7 @@
   cg = "!gen_commit_msg \"$@\""
   d = diff
   df = diff
+  dfs = diff --staged
   l = log
   lop = log -p
   last = log -1 HEAD
