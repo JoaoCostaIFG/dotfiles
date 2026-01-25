@@ -1,4 +1,5 @@
 -- Always show the buffer line
+
 return {
   "akinsho/bufferline.nvim",
   opts = {

@@ -1,8 +1,8 @@
--- Description: Neovim file explorer: edit your filesystem like a buffer 
+-- Description: Neovim file explorer: edit your filesystem like a buffer
 -- Source: https://github.com/stevearc/oil.nvim
 
 return {
-  'stevearc/oil.nvim',
+  "stevearc/oil.nvim",
   ---@module 'oil'
   ---@type oil.SetupOpts
   opts = {},

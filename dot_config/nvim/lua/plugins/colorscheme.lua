@@ -1,5 +1,6 @@
+-- Configure LazyVim to load catppuccin
+
 return {
-  -- Configure LazyVim to load catppuccin
   {
     "LazyVim/LazyVim",
     opts = {

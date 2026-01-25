@@ -1,3 +1,5 @@
+-- Show search result count on lualine bar
+
 return {
   "nvim-lualine/lualine.nvim",
   opts = function(_, opts)
