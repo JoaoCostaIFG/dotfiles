@@ -37,7 +37,7 @@ abbr -a -- rm rm -I
 abbr -a -- chown chown --preserve-root
 abbr -a -- chmod chmod --preserve-root
 abbr -a -- chgrp chgrp --preserve-root
-abbr -a -- yay yay --aur
+abbr -a -- yay paru
 
 # new commands
 abbr -a -- lll ll -a

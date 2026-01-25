@@ -13,12 +13,13 @@ hunspell-pt_pt
 joplin-bin
 lib32-libappindicator-gtk2
 libappindicator-gtk2
+llama.cpp
 lsfg-vk-git
 matugen-git
-neovim-nightly-bin
 numbat
 opencode-bin
 pandoc-bin
+paru-git
 protonup-qt-bin
 python-llm
 python-llm-github-copilot
@@ -26,7 +27,6 @@ qt5ct-kde
 qt6ct-kde
 quickshell-git
 simple-mtpfs
-sqlite-utils
 steamtinkerlaunch
 sunshine
 syncthingtray-qt6
@@ -38,8 +38,8 @@ ungoogled-chromium-bin
 vesktop-electron-git
 vicinae-bin
 visual-studio-code-bin
+wdisplays
 xcursor-pro-cursor-theme
 xcursor-pro-hyprcursor
 xp-pen-tablet
-yay
 zmk-studio-bin
