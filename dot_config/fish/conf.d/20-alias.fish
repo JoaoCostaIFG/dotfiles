@@ -28,6 +28,7 @@ abbr -a -- maxima mmaxima
 abbr -a -- authgovt eidguiV2
 abbr -a -- raposoflamejante firefox
 abbr -a -- passarinhorelampjante thunderbird
+abbr -a -- yay paru
 
 # safety measures
 abbr -a -- cp cp -i
@@ -37,7 +38,6 @@ abbr -a -- rm rm -I
 abbr -a -- chown chown --preserve-root
 abbr -a -- chmod chmod --preserve-root
 abbr -a -- chgrp chgrp --preserve-root
-abbr -a -- yay paru
 
 # new commands
 abbr -a -- lll ll -a

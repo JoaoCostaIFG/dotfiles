@@ -81,7 +81,6 @@
   pl = pull
   p = push
   pf = push --force-with-lease --force-if-includes
-  r = '!git rev-parse --show-toplevel && cd "$(git rev-parse --show-toplevel)"'
   rs = reset
   rst = reset
   rsth = reset --hard
