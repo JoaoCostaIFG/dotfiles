@@ -69,6 +69,14 @@
             glob: true
             path: ifgdt/hypr/override.d/*
 
+- if:
+    cond: hostname | grep -q 'ifglt'
+    met:
+      - link:
+          ~/.config/hypr/override.d/:
+            glob: true
+            path: ifglt/hypr/override.d/*
+
 - shell:
     - [
         update-desktop-database ~/.local/share/applications/,
