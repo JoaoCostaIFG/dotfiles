@@ -1,17 +1,22 @@
 # ALIAS
 
+# source the common aliases between other shells (e.g. bash)
+source "$HOME/.config/aliasrc"
+
 # typo friendly
 abbr -a -- :q " exit"
 abbr -a -- :Q " exit"
+
+# cd
 abbr -a -- cd.. cd ..
 abbr -a -- cd... cd ../..
+abbr -a -- dc prevd
+abbr -a -- cdd nextd
 # go back any number of dirs: .., ..., ...., etc...
 abbr --add dotdot --regex '^\.\.+$' --function multicd
 
 # shortcuts for commands
 abbr -a -- ka killall
-abbr -a -- dc prevd
-abbr -a -- cdd nextd
 abbr -a -- e $EDITOR
 abbr -a -- f $FILE
 abbr -a -- E sudo -E $EDITOR
@@ -57,6 +62,3 @@ alias listen="ffplay -nodisp -f alsa -i default"
 abbr -a -- find_scanners "scanimage -L"
 abbr -a -- scan_pdf 'scanimage --format=pdf --output-file out-$(date +%s).pdf --progress --resolution 300 -d "pixma:MG3600_439892000000"'
 abbr -a -- scan_pdf_highest_quality 'scanimage --format=pdf --output-file out-$(date +%s).pdf --progress --resolution 1200 -d "pixma:MG3600_439892000000"'
-
-# source the common aliases between other shells (e.g. bash)
-source "$HOME/.config/aliasrc"
