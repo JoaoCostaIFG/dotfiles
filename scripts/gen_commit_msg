@@ -73,8 +73,7 @@ $gitDiff
 $gitHistory
 </git_history>
 "
-
-    set json (echo $prompt | ask | sed '1d;$d' | string collect)
+    set json (echo $prompt | ask | string collect)
 
     set -l description (echo $json | jq -r '.description' | string collect)
     set -l commit1 (echo $json | jq -r '.commits.[0].commit' | string collect)
