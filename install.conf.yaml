@@ -1,5 +1,6 @@
 - defaults:
     link:
+      create: true
       relink: true
 
 - clean:
@@ -30,27 +31,18 @@
       path: dot_config/*
       exclude: [dot_config/maxima, dot_config/gtk-2.0, dot_config/sunshine]
     ~/.config/gtk-2.0/gtkrc-2.0:
-      create: true
-      force: true
       path: dot_config/gtk-2.0/gtkrc-2.0
     ~/.config/sunshine/apps.json:
-      create: true
-      force: true
       path: dot_config/sunshine/apps.json
     ~/.config/user-dirs.dirs:
-      create: true
-      force: true
       path: dot_config/user-dirs.dirs
     ~/.config/mimeapps.list:
-      create: true
       force: true
       path: dot_config/mimeapps.list
     ~/.config/maxima/:
-      create: true
       glob: true
       path: dot_config/maxima/*
     ~/.config/quickshell:
-      create: true
       path: submodules/noctalia-shell
 
 - if:
