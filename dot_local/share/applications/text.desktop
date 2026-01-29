@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=nvim
-Exec=/bin/ghostty -e nvim %u
+Exec=/bin/kitty -e nvim %u
