@@ -37,12 +37,14 @@ cmd on-select &{{
     lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
 }}
 
-# show current directory in window title (not standard so might not work on someplaces)
 cmd on-cd &{{
+  # show current directory in window title (not standard so might not work on someplaces)
   # '&' commands run silently in background (which is what we want here),
   # but are not connected to stdout.
   # To make sure our escape sequence still reaches stdout we pipe it to /dev/tty
   printf "📁 [%s]" "$(basename "$(pwd | sed "s|$HOME|~|")")" | chtermname
+
+  zoxide add $PWD
 }}
 # also run at startup
 on-cd
@@ -54,10 +56,15 @@ cmd edit-config ${{
 }}
 map C edit-config
 
+# drag and drop
+cmd drag-drop &{{
+  ripdrag -t -x -n * .*
+}}
+map D drag-drop
+
 # Commands
 cmd open ${{
   case $(file --mime-type "$(readlink -f $f)" -b) in
-  text/troff) man ./ $f ;;
   text/*) $EDITOR $fx ;;
   image/x-xcf) setsid gimp $f >/dev/null 2>&1 & ;;
   image/*) setsid imv $f "$(dirname "$f")" & ;;
@@ -72,35 +79,14 @@ cmd open ${{
   esac
 }}
 
-cmd share $curl -F"file=@$fx" https://0x0.st | wl-copy
+# share file to opendrive
+cmd share ${{
+  opendrive_upload "$fx"
+}}
 
 cmd detox ${{ # detox name (clean file name)
   set -f
   detox -r $fx
-}}
-
-cmd rename_bulk ${{
-    old="$(mktemp)"
-    new="$(mktemp)"
-    if [ -n "$fs" ]; then
-        fs="$(basename -a $fs)"
-    else
-        fs="$(ls)"
-    fi
-    printf '%s\n' "$fs" >"$old"
-    printf '%s\n' "$fs" >"$new"
-    $EDITOR "$new"
-    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
-    paste "$old" "$new" | while IFS= read -r names; do
-        src="$(printf '%s' "$names" | cut -f1)"
-        dst="$(printf '%s' "$names" | cut -f2)"
-        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
-            continue
-        fi
-        mv -- "$src" "$dst"
-    done
-    rm -- "$old" "$new"
-    lf -remote "send $id unselect"
 }}
 
 cmd delete ${{
@@ -108,25 +94,19 @@ cmd delete ${{
   printf "%s\n\t" "$fx"
   printf "Delete? [y/N] "
   read ans
-  [ $ans = "y" ] && rm -rf $fx
+  if [ $ans = "y" ] || [ $ans = "Y" ]; then
+    rm -rf -- $fx
+  fi
 }}
 
-cmd trash %trash-put -- $fx
-
-cmd moveto ${{
+cmd trash ${{
   set -f
-  echo "Move to where?"
-  dest="$(find $HOME -type d | fzf)" &&
-    eval mv -iv $fx $dest &&
-    notify-send "File(s) moved." "File(s) moved to $dest."
-}}
-
-cmd copyto ${{
-  set -f
-  echo "Copy to where?"
-  dest="$(find $HOME -type d | fzf)" &&
-    eval cp -ivr $fx $dest &&
-    notify-send "File(s) copied." "File(s) copies to $dest."
+  printf "%s\n\t" "$fx"
+  printf "Trash? [y/N] "
+  read ans
+  if [ $ans = "y" ] || [ $ans = "Y" ]; then
+    trash-put -- $fx
+  fi
 }}
 
 cmd decompress ${{ # inflate archive
@@ -173,32 +153,6 @@ cmd fzf_jump ${{
   lf -remote "send $id $cmd \"$res\""
 }}
 
-cmd select-files &{{
-    get_files() {
-        if [ "$lf_hidden" = 'false' ]; then
-            find "$PWD" -mindepth 1 -maxdepth 1 -type f -not -name '.*' -print0
-        else
-            find "$PWD" -mindepth 1 -maxdepth 1 -type f -print0
-        fi |
-        xargs -0 printf ' %q'
-    }
-
-    lf -remote "send $id :unselect; toggle $(get_files)"
-}}
-
-cmd select-dirs &{{
-    get_dirs() {
-        if [ "$lf_hidden" = 'false' ]; then
-            find "$PWD" -mindepth 1 -maxdepth 1 -type d -not -name '.*' -print0
-        else
-            find "$PWD" -mindepth 1 -maxdepth 1 -type d -print0
-        fi |
-        xargs -0 printf ' %q'
-    }
-
-    lf -remote "send $id :unselect; toggle $(get_dirs)"
-}}
-
 cmd select-all &{{
     get_files() {
         if [ "$lf_hidden" = 'false' ]; then
@@ -242,17 +196,16 @@ map O open $f
 map x $$f
 map X !$f
 
-map a push :mkdir<space>
-map A push :mkdir_sel<space>
 map <c-a> select-all
+map a push :mkdir_sel<space>
+map A push :mkdir<space>
 map t push :touch<space>
 map r rename
 map Rf :rename; cmd-end; cmd-delete-home
 map Rd detox
 map Re :rename; cmd-delete-home
-map Rb rename_bulk
 map <delete> delete
-map <backspace2> delete
+map <backspace2> trash
 
 # Shortcuts and navigation
 map , shortcuts

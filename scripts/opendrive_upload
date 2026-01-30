@@ -1,0 +1,79 @@
+#!/bin/bash
+### Upload files/dirs tp OpenDrive for sharing. Uses WebDav
+### for upload the API to get the file URL.
+### OpenDrvive WebDAV Public folder is usually "Public Folder"
+###
+### Usage: ./opendrive_upload file1 [file2 ...]
+###
+### Environment variables: OPENDRIVE_USER, OPENDRIVE_PASS, OPENDRIVE_FOLDER_ID
+### Adjust FOLDER_PATH as needed (relative to your OpenDrive root)
+
+WEBDAV_ROOT="https://webdav.opendrive.com"
+FOLDER_PATH="Public"
+
+# Credentials: use env or prompt
+USER="${OPENDRIVE_USER:-}"
+PASS="${OPENDRIVE_PASS:-}"
+FOLDER_ID="${OPENDRIVE_FOLDER_ID:-}"
+
+if [ -z "$USER" ]; then
+  read -r -p "OpenDrive Username: " USER
+fi
+if [ -z "$PASS" ]; then
+  read -r -s -p "OpenDrive Password: " PASS
+  echo
+fi
+if [ -z "$FOLDER_ID" ]; then
+  read -r -p "OpenDrive Folder ID (for Public Folder): " FOLDER_ID
+fi
+
+if [ "$#" -lt 1 ]; then
+  echo "Usage: $0 file1 [file2 ...]"
+  exit 1
+fi
+
+# Use mktemp for zipped directories, cleanup trap
+tmp_zipfiles=""
+cleanup() {
+  # shellcheck disable=SC2086
+  [ -n "$tmp_zipfiles" ] && rm -f $tmp_zipfiles
+}
+trap cleanup EXIT
+
+for INPUT in "$@"; do
+  if [ -d "$INPUT" ]; then
+    # It's a directory: zip it
+    BASENAME=$(basename "$INPUT")
+    DATESTR=$(date +%Y%m%d_%H%M%S)
+    ZIPFILE="/tmp/${BASENAME}_${DATESTR}.zip"
+    echo "Zipping directory $INPUT to $ZIPFILE..."
+    if ! zip -r -q "$ZIPFILE" "$INPUT"; then
+      echo "FAILED to zip $INPUT"
+      continue
+    fi
+    FILE="$ZIPFILE"
+    tmp_zipfiles="$tmp_zipfiles $ZIPFILE"
+  elif [ -f "$INPUT" ]; then
+    FILE="$INPUT"
+  else
+    echo "File or directory not found: $INPUT"
+    continue
+  fi
+
+  REMOTE_URL="$WEBDAV_ROOT/$FOLDER_PATH/$(basename "$FILE")"
+  echo "Uploading $FILE to $REMOTE_URL..."
+  if curl -s -S -u "$USER:$PASS" -T "$FILE" "$REMOTE_URL"; then
+    echo "Uploaded: $INPUT"
+    # Retrieve and print public access URL
+    NAME_TO_SEARCH=$(basename "$FILE")
+    FILE_ID=$(curl -s "https://dev.opendrive.com/api/v1/folder/shared.json/$FOLDER_ID" | jq -r ".Files[] | select(.Name == \"$NAME_TO_SEARCH\") | .FileId")
+    if [ "$FILE_ID" ]; then
+      echo "Access URL: https://od.lk/f/$FILE_ID"
+    else
+      echo "Could not determine public URL for $INPUT ($NAME_TO_SEARCH)"
+    fi
+  else
+    echo "FAILED: $INPUT"
+  fi
+
+done

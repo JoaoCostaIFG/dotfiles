@@ -103,6 +103,17 @@ Selects by ID and wrap-around
 
 manage my noita backups
 
+## opendrive_upload
+
+Upload files/dirs tp OpenDrive for sharing. Uses WebDav
+for upload the API to get the file URL.
+OpenDrvive WebDAV Public folder is usually "Public Folder"
+
+Usage: ./opendrive_upload file1 [file2 ...]
+
+Environment variables: OPENDRIVE_USER, OPENDRIVE_PASS, OPENDRIVE_FOLDER_ID
+Adjust FOLDER_PATH as needed (relative to your OpenDrive root)
+
 ## pdfsmallifier
 
 Attempts to make PDF file smaller. Doesn't work everytime.
