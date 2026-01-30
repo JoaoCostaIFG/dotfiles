@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=firefox
-Exec=/usr/lib/firefox/firefox %u

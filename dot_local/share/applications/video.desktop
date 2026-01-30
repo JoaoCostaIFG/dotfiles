@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=mpv
-Exec=/bin/mpv %f

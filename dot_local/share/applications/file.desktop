@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Thunar
-Exec=/usr/bin/thunar %u

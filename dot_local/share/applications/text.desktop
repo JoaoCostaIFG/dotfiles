@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=nvim
-Exec=/bin/kitty -e nvim %u

@@ -22,10 +22,6 @@
     ~/.local/bin: scripts
     ~/.local/share/nwg-look: dot_local/share/nwg-look
     ~/.local/share/wallpaper: dot_local/share/wallpaper
-    ~/.local/share/applications/:
-      glob: true
-      path: dot_local/share/applications/*
-    ~/.local/share/applications/mimeapps.list: dot_config/mimeapps.list
     ~/.config/:
       glob: true
       path: dot_config/*
