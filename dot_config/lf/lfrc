@@ -44,7 +44,7 @@ cmd on-cd &{{
   # To make sure our escape sequence still reaches stdout we pipe it to /dev/tty
   printf "📁 [%s]" "$(basename "$(pwd | sed "s|$HOME|~|")")" | chtermname
 
-  zoxide add $PWD
+  zoxide add "$(pwd)"
 }}
 # also run at startup
 on-cd
