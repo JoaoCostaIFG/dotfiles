@@ -42,8 +42,6 @@
     ~/.config/maxima/:
       glob: true
       path: dot_config/maxima/*
-    ~/.config/quickshell:
-      path: submodules/noctalia-shell
 
 - if:
     cond: hostname | grep -q 'ifg'

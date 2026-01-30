@@ -1,6 +1,8 @@
 {
     "appLauncher": {
         "autoPasteClipboard": false,
+        "clipboardWatchImageCommand": "wl-paste --type image --watch cliphist store",
+        "clipboardWatchTextCommand": "wl-paste --type text --watch cliphist store",
         "clipboardWrapText": true,
         "customLaunchPrefix": "",
         "customLaunchPrefixEnabled": false,
@@ -26,16 +28,19 @@
         ],
         "preferredPlayer": "mpv",
         "visualizerType": "linear",
-        "volumeFeedback": false,
+        "volumeFeedback": true,
         "volumeOverdrive": false,
         "volumeStep": 5
     },
     "bar": {
         "backgroundOpacity": 0.93,
+        "barType": "simple",
         "capsuleOpacity": 1,
         "density": "default",
         "exclusive": true,
         "floating": false,
+        "frameRadius": 12,
+        "frameThickness": 8,
         "hideOnOverview": false,
         "marginHorizontal": 0,
         "marginVertical": 0,
@@ -73,14 +78,19 @@
                 {
                     "characterCount": 2,
                     "colorizeIcons": false,
+                    "emptyColor": "secondary",
                     "enableScrollWheel": false,
+                    "focusedColor": "primary",
                     "followFocusedScreen": false,
                     "groupedBorderOpacity": 1,
                     "hideUnoccupied": false,
                     "iconScale": 0.8,
                     "id": "Workspace",
                     "labelMode": "name",
+                    "occupiedColor": "secondary",
+                    "reverseScroll": false,
                     "showApplications": false,
+                    "showBadge": true,
                     "showLabelsOnlyWhenOccupied": false,
                     "unfocusedIconsOpacity": 1
                 },
@@ -134,7 +144,8 @@
                     "hideWhenZero": false,
                     "hideWhenZeroUnread": false,
                     "id": "NotificationHistory",
-                    "showUnreadBadge": true
+                    "showUnreadBadge": true,
+                    "unreadBadgeColor": "primary"
                 },
                 {
                     "displayMode": "onhover",
@@ -158,9 +169,9 @@
                     "id": "NightLight"
                 },
                 {
-                    "deviceNativePath": "",
+                    "deviceNativePath": "__default__",
                     "displayMode": "onhover",
-                    "hideIfIdle": false,
+                    "hideIfIdle": true,
                     "hideIfNotDetected": true,
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
@@ -181,7 +192,7 @@
     },
     "brightness": {
         "brightnessStep": 5,
-        "enableDdcSupport": false,
+        "enableDdcSupport": true,
         "enforceMinimum": true
     },
     "calendar": {
@@ -201,10 +212,6 @@
             {
                 "enabled": true,
                 "id": "calendar-month-card"
-            },
-            {
-                "enabled": true,
-                "id": "timer-card"
             },
             {
                 "enabled": true,
@@ -243,6 +250,10 @@
             {
                 "enabled": true,
                 "id": "weather-card"
+            },
+            {
+                "enabled": true,
+                "id": "brightness-card"
             }
         ],
         "diskPath": "/",
@@ -311,8 +322,10 @@
     },
     "general": {
         "allowPanelsOnScreenWithoutBar": true,
+        "allowPasswordWithFprintd": false,
         "animationDisabled": false,
         "animationSpeed": 1,
+        "autoStartAuth": true,
         "avatarImage": "/home/joao/.face",
         "boxRadiusRatio": 1,
         "compactLockScreen": false,
@@ -331,7 +344,7 @@
         "shadowOffsetX": 2,
         "shadowOffsetY": 3,
         "showChangelogOnStartup": true,
-        "showHibernateOnLockScreen": false,
+        "showHibernateOnLockScreen": true,
         "showScreenCorners": false,
         "showSessionButtonsOnLockScreen": true,
         "telemetryEnabled": false
@@ -359,7 +372,7 @@
         "use12hourFormat": false,
         "useFahrenheit": false,
         "weatherEnabled": true,
-        "weatherShowEffects": true
+        "weatherShowEffects": false
     },
     "network": {
         "bluetoothDetailsViewMode": "grid",
@@ -367,7 +380,7 @@
         "bluetoothRssiPollIntervalMs": 10000,
         "bluetoothRssiPollingEnabled": false,
         "wifiDetailsViewMode": "grid",
-        "wifiEnabled": true
+        "wifiEnabled": false
     },
     "nightLight": {
         "autoSchedule": true,
@@ -381,7 +394,7 @@
     "notifications": {
         "backgroundOpacity": 1,
         "criticalUrgencyDuration": 15,
-        "enableKeyboardLayoutToast": true,
+        "enableKeyboardLayoutToast": false,
         "enableMediaToast": false,
         "enabled": true,
         "location": "top_right",
@@ -393,7 +406,7 @@
         "respectExpireTimeout": false,
         "saveToHistory": {
             "critical": true,
-            "low": true,
+            "low": false,
             "normal": true
         },
         "sounds": {
@@ -413,7 +426,8 @@
         "enabledTypes": [
             0,
             1,
-            2
+            2,
+            3
         ],
         "location": "top_right",
         "monitors": [
@@ -429,31 +443,37 @@
         "powerOptions": [
             {
                 "action": "lock",
+                "command": "",
                 "countdownEnabled": true,
                 "enabled": true
             },
             {
                 "action": "suspend",
+                "command": "",
                 "countdownEnabled": true,
                 "enabled": true
             },
             {
                 "action": "hibernate",
+                "command": "",
                 "countdownEnabled": true,
-                "enabled": false
+                "enabled": true
             },
             {
                 "action": "reboot",
+                "command": "",
                 "countdownEnabled": true,
                 "enabled": true
             },
             {
                 "action": "logout",
+                "command": "",
                 "countdownEnabled": true,
                 "enabled": false
             },
             {
                 "action": "shutdown",
+                "command": "",
                 "countdownEnabled": true,
                 "enabled": true
             }
@@ -461,7 +481,7 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 44,
+    "settingsVersion": 46,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 3000,

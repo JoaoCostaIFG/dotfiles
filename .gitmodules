@@ -2,10 +2,6 @@
 	path = submodules/dotbot
 	url = https://github.com/anishathalye/dotbot
 	branch = v1.24.0
-[submodule "submodules/noctalia-shell"]
-	path = submodules/noctalia-shell
-	url = https://github.com/noctalia-dev/noctalia-shell.git
-	branch = main
 [submodule "submodules/dotbot-if"]
 	path = submodules/dotbot-if
 	url = https://github.com/mikybars/dotbot-if.git
