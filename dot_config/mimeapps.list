@@ -13,6 +13,7 @@ image/x-portable-pixmap=imv.desktop;
 image/x-gimp-gbr=gimp.desktop;
 image/x-gimp-gih=gimp.desktop;
 image/x-gimp-pat=gimp.desktop;
+image/x-xcf=gimp.desktop;
 image/vnd.djvu=org.pwmt.zathura-cb.desktop
 image/vnd.djvu+multipage=org.pwmt.zathura-cb.desktop;
 audio/AMR=mpv.desktop;

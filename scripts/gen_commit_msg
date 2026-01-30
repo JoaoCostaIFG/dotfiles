@@ -50,18 +50,18 @@ function gen_commit_msg --argument context
 - Use english for the commit message.
 - Always include a body.
 - Generate $attempts different for the commit messages.
-- Your output shall follow the following JSON format (only include this output in your response):
+- Output valid JSON with the following schema. Only include this output in your response:
 
-<output_format>
+<output_schema>
 {
-  "description": "General explanation of the git diff",
   "commits": [
     {
       "commit": "The commit message",
+      "body": "The commit body",
     },
   ]
 }
-</output_format>
+</output_schema>
 
 $context
 
@@ -75,32 +75,37 @@ $gitHistory
 "
     set json (echo $prompt | ask | string collect)
 
-    set -l description (echo $json | jq -r '.description' | string collect)
     set -l commit1 (echo $json | jq -r '.commits.[0].commit' | string collect)
+    set -l body1 (echo $json | jq -r '.commits.[0].body' | string collect)
     set -l commit2 (echo $json | jq -r '.commits.[1].commit' | string collect)
+    set -l body2 (echo $json | jq -r '.commits.[1].body' | string collect)
     set -l commit3 (echo $json | jq -r '.commits.[2].commit' | string collect)
+    set -l body3 (echo $json | jq -r '.commits.[2].body' | string collect)
 
-    echo $description
-    echo
     echo "--- 1 ----"
     echo $commit1
+    echo
+    echo $body1
     echo "--- 2 ----"
     echo $commit2
+    echo
+    echo $body2
     echo "--- 3 ----"
     echo $commit3
-
+    echo
+    echo $body3
     read -l choices
 
     set answer ""
 
     if string match -e 1 $choices
-        set answer $answer\n\n$commit1
+        set answer $answer\n\n$commit1\n\n$body1
     end
     if string match -e 2 $choices
-        set answer $answer\n\n$commit2
+        set answer $answer\n\n$commit2\n\n$body2
     end
     if string match -e 3 $choices
-        set answer $answer\n\n$commit3
+        set answer $answer\n\n$commit3\n\n$body3
     end
 
     if test -z $answer
