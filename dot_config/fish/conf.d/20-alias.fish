@@ -20,6 +20,7 @@ abbr -a -- ka killall
 abbr -a -- e $EDITOR
 abbr -a -- f $FILE
 abbr -a -- E sudo -E $EDITOR
+abbr -a -- Nvim sudo -E nvim
 abbr -a -- v $EDITOR
 abbr -a -- p sudo pacman
 abbr -a -- s sudo systemctl
