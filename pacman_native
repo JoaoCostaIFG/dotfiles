@@ -27,6 +27,7 @@ bluez-utils
 bottom
 brightnessctl
 calf
+calibre
 cava
 chafa
 cmake
@@ -34,6 +35,7 @@ cpio
 cups
 cups-pdf
 dash
+dbeaver
 ddcutil
 deno
 detox
@@ -57,11 +59,9 @@ farstream
 fastfetch
 fd
 ffmpeg
-ffmpegthumbnailer
 figlet
 firefox
 fish
-fontforge
 foot
 fprintd
 freecad
@@ -70,16 +70,19 @@ gamemode
 gamescope
 gcovr
 gdb
+ghostty
 gimp
 git
 git-absorb
 git-delta
 git-filter-repo
 github-cli
+glow
 gnu-free-fonts
 gnuplot
 go
 godot
+gpu-screen-recorder
 graphviz
 grim
 grub
@@ -90,11 +93,9 @@ gst-plugin-va
 gst-plugins-bad
 gst-plugins-good
 gst-plugins-ugly
-gstreamer-vaapi
 gtkmm3
 gum
 hexyl
-highlight
 htmlq
 hunspell-en_us
 hyperfine
@@ -103,7 +104,6 @@ hyprland
 hyprpicker
 hyprpolkitagent
 hyprtoolkit
-imagemagick
 imv
 inetutils
 inter-font
@@ -162,9 +162,7 @@ lzop
 man-db
 man-pages
 maxima
-maxima-sbcl
 mdbook
-mediainfo
 mesa
 mesa-utils
 meson
@@ -213,7 +211,6 @@ pkgstats
 plantuml
 playerctl
 pnpm
-poppler
 power-profiles-daemon
 prismlauncher
 protontricks
@@ -354,6 +351,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yad
+ydotool
 yq
 yt-dlp
 yt-dlp-ejs
