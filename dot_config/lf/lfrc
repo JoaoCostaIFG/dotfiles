@@ -6,10 +6,11 @@ set shellopts '-eu' # makes shell commands safer
 set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline for the cursor in the preview pane
 
 # preview with ctpv
+set preload true
 set preview
 set previewer ctpv
 set cleaner ctpvclear
-cmd on-select ${{
+cmd on-quit ${{
   ctpvquit
 }}
 
@@ -18,15 +19,6 @@ set ifs "\n"
 set scrolloff 10
 set watch true
 set icons
-# dynamic ratios on startup
-%{{
-  w=$(tput cols)
-  if [ $w -le 80 ]; then
-    lf -remote "send $id set ratios 1:2"
-  else
-    lf -remote "send $id set ratios 1:2:3"
-  fi
-}}
 set drawbox
 set wrapscroll # make scrolling wrap
 
