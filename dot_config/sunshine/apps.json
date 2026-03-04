@@ -1,57 +1,62 @@
 {
-    "env": {
-        "PATH": "$(PATH):$(HOME)\/.local\/bin"
-    },
     "apps": [
         {
-            "name": "Desktop Native",
+            "auto-detach": true,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
             "image-path": "desktop.png",
-            "exclude-global-prep-cmd": "false",
-            "auto-detach": "true",
-            "wait-all": "true",
-            "exit-timeout": "5"
+            "name": "Desktop Native",
+            "uuid": "6A4B4365-64C1-A101-E190-7B6E08727DB4",
+            "wait-all": true
         },
         {
-            "name": "Desktop 1080p60",
+            "auto-detach": true,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
             "image-path": "desktop-alt.png",
+            "name": "Desktop 1080p60",
             "prep-cmd": [
                 {
                     "do": "hyprctl keyword monitor DP-1,1920x1080@60,auto,aut",
                     "undo": "hyprctl keyword monitor DP-1,2560x1440@164.96,auto,auto"
                 }
             ],
-            "exclude-global-prep-cmd": "false",
-            "auto-detach": "true",
-            "wait-all": "true",
-            "exit-timeout": "5"
+            "uuid": "CFB57DFF-28C4-BC0A-738E-28945AC63AC0",
+            "wait-all": true
         },
         {
-            "name": "Steam Big Picture",
+            "auto-detach": true,
             "detached": [
-                "setsid steam steam:\/\/open\/bigpicture"
+                "setsid steam steam://open/bigpicture"
             ],
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
             "image-path": "steam.png",
-            "exclude-global-prep-cmd": "false",
-            "auto-detach": "true",
-            "wait-all": "true",
-            "exit-timeout": "5"
+            "name": "Steam Big Picture",
+            "uuid": "C2F2ACDB-5E91-F025-3E85-4801660AC8B0",
+            "wait-all": true
         },
         {
+            "auto-detach": true,
+            "cmd": "",
+            "elevated": false,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "desktop-alt.png",
             "name": "Desktop 720p60",
             "output": "",
-            "cmd": "",
-            "exclude-global-prep-cmd": "false",
-            "elevated": "false",
-            "auto-detach": "true",
-            "wait-all": "true",
-            "exit-timeout": "5",
             "prep-cmd": [
                 {
                     "do": "hyprctl keyword monitor DP-1,1280x720@60,auto,auto",
                     "undo": "hyprctl keyword monitor DP-1,2560x1440@164.96,auto,auto"
                 }
             ],
-            "image-path": "desktop-alt.png"
+            "uuid": "3760338F-75D6-7220-671E-31430779FDF0",
+            "wait-all": true
         }
-    ]
+    ],
+    "env": {
+        "PATH": "$(PATH):$(HOME)/.local/bin"
+    },
+    "version": 2
 }

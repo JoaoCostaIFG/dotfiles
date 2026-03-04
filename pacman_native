@@ -19,6 +19,7 @@ bat
 bc
 bear
 bemenu
+biome
 bitwarden
 blas-openblas
 blueman
@@ -26,10 +27,13 @@ bluez
 bluez-utils
 bottom
 brightnessctl
+bun
 calf
 calibre
+cargo-tauri
 cava
 chafa
+chromium
 cmake
 cpio
 cups
@@ -65,12 +69,12 @@ fish
 foot
 fprintd
 freecad
+fvm
 fzf
 gamemode
 gamescope
 gcovr
 gdb
-ghostty
 gimp
 git
 git-absorb
@@ -100,10 +104,9 @@ htmlq
 hunspell-en_us
 hyperfine
 hypridle
-hyprland
 hyprpicker
 hyprpolkitagent
-hyprtoolkit
+hyprpwcenter
 imv
 inetutils
 inter-font
@@ -112,6 +115,7 @@ jdk-openjdk
 jfsutils
 jq
 jujutsu
+just
 kicad
 kitty
 lf
@@ -189,6 +193,7 @@ obs-studio
 ocl-icd
 openblas
 opencl-mesa
+opencode
 openrgb
 opensc
 openssh
@@ -224,7 +229,6 @@ python-scipy
 python-tqdm
 python-websockets
 qbittorrent
-qpwgraph
 qt5-imageformats
 qt6-wayland
 rclone
