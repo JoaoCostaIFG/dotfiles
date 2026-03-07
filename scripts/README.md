@@ -152,7 +152,7 @@ Args:
 Depends on:
 - [grim](https://sr.ht/~emersion/grim/)
 - [slurp](https://github.com/emersion/slurp)
-- [swappy](https://github.com/jtheoof/swappy)
+- [satty](https://github.com/Satty-org/Satty)
 - [hyprpicker](https://github.com/hyprwm/hyprpicker)
 - [tesseract-ocr](https://github.com/tesseract-ocr/tesseract)
 - wl-clipboard
