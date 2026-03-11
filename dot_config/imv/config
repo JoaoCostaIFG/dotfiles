@@ -60,3 +60,7 @@ r = reset
 # Slideshow control
 t = slideshow +1
 <Shift+T> = slideshow -1
+
+# background color
+i = background checks
+<Shift+I> = background 000000
