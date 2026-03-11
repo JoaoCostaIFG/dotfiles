@@ -52,6 +52,7 @@ dosfstools
 easyeffects
 efibootmgr
 electron
+element-desktop
 espeakup
 ethtool
 exfat-utils
@@ -116,6 +117,7 @@ jdk-openjdk
 jfsutils
 jq
 jujutsu
+just
 kicad
 kitty
 lf
