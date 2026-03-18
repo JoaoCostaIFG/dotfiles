@@ -9,6 +9,7 @@
 // Learn more about configuration at https://docs.vicinae.com/config
 
 {
+   "$schema": "https://vicinae.com/schemas/config.json",
    "pop_to_root_on_close": true,
    "favicon_service": "twenty",
    "theme": {
@@ -20,6 +21,13 @@
       "opacity": 0.95,
       "client_side_decorations": {
          "enabled": true
+      }
+   },
+   "providers": {
+      "@nikbpetrov/store.vicinae.it-tools": {
+         "preferences": {
+            "base-url": "https://sharevb-it-tools.vercel.app"
+         }
       }
    }
 }

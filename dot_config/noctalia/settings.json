@@ -24,7 +24,7 @@
         "sortByMostUsed": true,
         "terminalCommand": "alacritty -e",
         "useApp2Unit": false,
-        "viewMode": "list"
+        "viewMode": "grid"
     },
     "audio": {
         "mprisBlacklist": [
@@ -116,7 +116,7 @@
                     "showApplications": false,
                     "showApplicationsHover": false,
                     "showBadge": true,
-                    "showLabelsOnlyWhenOccupied": false,
+                    "showLabelsOnlyWhenOccupied": true,
                     "unfocusedIconsOpacity": 1
                 },
                 {
@@ -196,6 +196,12 @@
                     "id": "NotificationHistory",
                     "showUnreadBadge": true,
                     "unreadBadgeColor": "primary"
+                },
+                {
+                    "displayMode": "onhover",
+                    "iconColor": "none",
+                    "id": "Network",
+                    "textColor": "none"
                 },
                 {
                     "displayMode": "onhover",
@@ -381,10 +387,10 @@
         "clockStyle": "custom",
         "compactLockScreen": false,
         "dimmerOpacity": 0.2,
-        "enableBlurBehind": true,
+        "enableBlurBehind": false,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": false,
-        "enableShadows": true,
+        "enableShadows": false,
         "forceBlackScreenCorners": false,
         "iRadiusRatio": 1,
         "keybinds": {
@@ -521,8 +527,8 @@
         },
         "sounds": {
             "criticalSoundFile": "",
-            "enabled": true,
-            "excludedApps": "discord,firefox,chrome,chromium,edge",
+            "enabled": false,
+            "excludedApps": "discord,firefox,chrome,chromium,edge,blueman,vesktop,element-desktop,element",
             "lowSoundFile": "",
             "normalSoundFile": "",
             "separateSounds": false,
@@ -544,7 +550,7 @@
         "overlayLayer": true
     },
     "plugins": {
-        "autoUpdate": false
+        "autoUpdate": true
     },
     "sessionMenu": {
         "countdownDuration": 10000,

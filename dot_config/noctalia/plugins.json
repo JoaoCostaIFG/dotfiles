@@ -8,7 +8,7 @@
     ],
     "states": {
         "polkit-agent": {
-            "enabled": false,
+            "enabled": true,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         },
         "screen-recorder": {
