@@ -172,6 +172,7 @@ noto-fonts-extra
 npm
 nss-mdns
 ntfs-3g
+numbat
 nvtop
 nwg-displays
 nwg-look
@@ -230,6 +231,7 @@ smartmontools
 socat
 solaar
 speech-dispatcher
+sqlcipher
 sshfs
 sshpass
 starship
@@ -326,6 +328,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yad
+yarn
 yq
 yt-dlp
 yt-dlp-ejs

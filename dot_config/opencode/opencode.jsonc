@@ -1,0 +1,44 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "opencode-sandbox",
+    "@mohak34/opencode-notifier@latest"
+  ],
+  "agent": {
+    "build": {
+      "mode": "primary",
+      "model": "opencode/claude-opus-4-6",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "plan": {
+      "mode": "primary",
+      "model": "opencode/claude-sonnet-4-6",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    },
+    "code-reviewer": {
+      "description": "Reviews code for best practices and potential issues",
+      "mode": "subagent",
+      "model": "opencode/minimax-m2.5-free",
+      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
+      "tools": {
+        "write": false,
+        "edit": false
+      }
+    }
+  },
+  "mcp": {
+    "n8n": {
+      "type": "remote",
+      "url": "https://n8n.i.joaocosta.dev/mcp-server/http",
+      "enabled": false
+    },
+  },
+}
