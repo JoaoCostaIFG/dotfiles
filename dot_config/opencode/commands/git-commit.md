@@ -1,6 +1,7 @@
 ---
 description: Analyse staged changes and suggest commit message
 agent: plan
+model: opencode-go/minimax-m2.5
 ---
 
 You are to act as an author of a git commit message.
