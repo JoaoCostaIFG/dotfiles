@@ -1,8 +1,8 @@
 #!/bin/sh
 
-model='github_copilot/gpt-4.1'
+model='opencode-go/minimax-m2.7'
 
 (
   echo "$@"
   [ ! -t 0 ] && cat
-) | gum spin --show-output --title 'Thinking...' -- llm -m "$model"
+) | gum spin --show-output --title 'Thinking...' -- sh -c "opencode run -m $model 2>&1 | tail -n +4"
