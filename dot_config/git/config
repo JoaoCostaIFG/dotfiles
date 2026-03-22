@@ -72,7 +72,7 @@
   cma = commit -s -a -m
   cmA = "!git add -A; git c"
   cmam = commit --amend
-  cg = "!gen_commit_msg \"$@\""
+  cg = "!do_commit \"$@\""
   retry-commit = commit -eF .git/COMMIT_EDITMSG
   d = diff
   df = diff

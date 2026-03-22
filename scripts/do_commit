@@ -1,0 +1,15 @@
+#!/bin/sh
+
+output="$(opencode run --command git-commit "$@")" || {
+  echo "Error: opencode command failed" >&2
+  exit 1
+}
+
+msg="$(printf '%s\n' "$output" | awk '/^```/{f=!f;next}f')"
+
+[ -z "$msg" ] && {
+  echo "Error: no code fence found in output" >&2
+  exit 1
+}
+
+git commit -s -e -m "$msg"
