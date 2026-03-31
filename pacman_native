@@ -63,6 +63,7 @@ fish
 foot
 fprintd
 freecad
+fvm
 fzf
 gamemode
 gamescope
@@ -220,8 +221,7 @@ reflector
 ripgrep-all
 rlwrap
 rsync
-rust
-rust-analyzer
+rustup
 samba
 sane-airscan
 satty
