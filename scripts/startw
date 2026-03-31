@@ -1,4 +1,6 @@
 #!/bin/sh
+### Starts the Wayland compositor using uwsm.
+### Checks may-start, presents selection menu, then starts default session.
 
 # if uwsm check may-start; then
 #   exec uwsm start -- hyprland.desktop

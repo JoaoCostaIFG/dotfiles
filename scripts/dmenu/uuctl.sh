@@ -1,4 +1,6 @@
 #!/bin/sh
+### Control user systemd units via dmenu-like menus.
+### Part of UWSM but works standalone. Supports fuzzel, wofi, rofi, tofi, bemenu, wmenu, dmenu.
 
 # Control user units via dmenu-like menus
 #

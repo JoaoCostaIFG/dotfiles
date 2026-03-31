@@ -1,4 +1,6 @@
 #!/bin/sh
+### Generates git commit messages using opencode LLM.
+### Extracts the message from opencode's code fence output, signs and opens editor.
 
 output="$(opencode run --command git-commit "$@")" || {
   echo "Error: opencode command failed" >&2

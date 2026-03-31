@@ -1,4 +1,6 @@
 #!/bin/sh
+### Starts GameMode for gaming with animations/effects disabled.
+### Sends a desktop notification and runs the gamemode configuration script.
 
 notify-send -e "GameMode started" &
 

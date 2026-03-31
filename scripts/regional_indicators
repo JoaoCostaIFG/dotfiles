@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+### Converts text to regional indicator emojis for Discord/chat.
+### Supports letters, accented characters, numbers, and punctuation.
+### Args: -f (file), -c (clap), -e (eyes), -p (partying face)
 
 from sys import argv
 from string import ascii_letters

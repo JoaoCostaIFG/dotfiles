@@ -1,4 +1,6 @@
 #!/bin/sh
+### Wrapper for opencode that shows a spinner while waiting for responses.
+### Uses gum spin for visual feedback during LLM processing.
 
 model='opencode-go/minimax-m2.7'
 

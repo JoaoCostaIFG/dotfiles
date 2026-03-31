@@ -1,4 +1,6 @@
 #!/bin/sh
+### Ends GameMode and reloads Hyprland configuration.
+### Sends a desktop notification when GameMode ends.
 
 notify-send -e "GameMode ended" &
 

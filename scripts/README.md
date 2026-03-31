@@ -1,5 +1,10 @@
 # Scripts
 
+## ask
+
+Wrapper for opencode that shows a spinner while waiting for responses.
+Uses gum spin for visual feedback during LLM processing.
+
 ## chtermname
 
 Show current directory in window title.
@@ -49,9 +54,29 @@ for cache file);
 if selected.
 Depends on [bemenu](https://github.com/Cloudef/bemenu).
 
+## dmenu/uuctl.sh
+
+Control user systemd units via dmenu-like menus.
+Part of UWSM but works standalone. Supports fuzzel, wofi, rofi, tofi, bemenu, wmenu, dmenu.
+
+## do_commit
+
+Generates git commit messages using opencode LLM.
+Extracts the message from opencode's code fence output, signs and opens editor.
+
 ## g
 
 My git wrapper. Calls `git status` when no argument is given.
+
+## gamemode_end
+
+Ends GameMode and reloads Hyprland configuration.
+Sends a desktop notification when GameMode ends.
+
+## gamemode_start
+
+Starts GameMode for gaming with animations/effects disabled.
+Sends a desktop notification and runs the gamemode configuration script.
 
 ## getsubs
 
@@ -114,6 +139,12 @@ Depends on: ghostscript (compress PDF).
 For input file "input.pdf", the output is "input.sml.pdf"
 Usage: pdfsmallifier [--bw] <input.pdf>
 
+## regional_indicators
+
+Converts text to regional indicator emojis for Discord/chat.
+Supports letters, accented characters, numbers, and punctuation.
+Args: -f (file), -c (clap), -e (eyes), -p (partying face)
+
 ## screen_brightness_ctl.sh
 
 Sets the brightness of external monitors.
@@ -173,6 +204,11 @@ Instructions
 
 Shows a spinner in the terminal for as long as the script runs.
 Start this script in the background and kill it when your main script ends.
+
+## startw
+
+Starts the Wayland compositor using uwsm.
+Checks may-start, presents selection menu, then starts default session.
 
 ## sumvid
 
