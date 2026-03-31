@@ -1,7 +1,7 @@
 [user]
   email = me@joaocosta.dev
   name = JoaoCostaIFG
-  signingKey = 0x4DCA5163F4FFE6A2DDBD087AE709F16FAE6D1C2B
+  signingKey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHJCwTKuPE3+HEzGR0RK0VkPbA/bFAGw4mif9QNlTJc+ me@joaocosta.dev"
 [credential]
   username = JoaoCostaIFG
 [branch]
@@ -15,6 +15,8 @@
 [commit]
   gpgsign = true
   verbose = true
+[gpg]
+  format = ssh
 [core]
   pager = delta
 [delta]
