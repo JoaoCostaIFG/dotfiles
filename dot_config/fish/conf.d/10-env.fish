@@ -7,14 +7,31 @@ status is-login || exit
 
 replay source "$HOME/.profile"
 
-# important files and directories
+# XDG dirs
+# set -gx XDG_CACHE_HOME "$HOME/.cache"
+# set -gx XDG_CONFIG_HOME "$HOME/.config"
+# set -gx XDG_DATA_HOME "$HOME/.local/share"
+# my scripts
 set -gx SCRIPTS "$HOME/.local/bin/"
 
-# langs
-set -gx UV_TOOL_BIN_DIR "$HOME/.local/share/uv-bin"
-set -gx CARGO_HOME "$HOME/.local/share/cargo"
-set -gx GOPATH "$HOME/.local/share/go"
-set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+# langs and pkg managers
+# py
+set -gx UV_TOOL_BIN_DIR "$XDG_DATA_HOME/uv-bin"
+# rs
+set -gx CARGO_HOME "$XDG_DATA_HOME/cargo"
+set -gx RUSTUP_HOME "$XDG_DATA_HOME/rustup"
+# go
+set -gx GOPATH "$XDG_DATA_HOME/go"
+# js
+set -gx YARN_CACHE_FOLDER "$XDG_CACHE_HOME/yarn"
+set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
+# ansible
+set -gx ANSIBLE_HOME "$XDG_DATA_HOME/ansible"
+set -gx ANSIBLE_CONFIG "$XDG_CONFIG_HOME/ansible/ansible.cfg"
+# dart/flutter
+set -gx PUB_CACHE "$XDG_CACHE_HOME/pub"
+set -gx DART_ANALYSIS_SERVER_LOG_DIR "$XDG_DATA_HOME/dart-server"
+set -gx FVM_CACHE_PATH "$HOME/.local/share/fvm"
 
 # PATH (Go, Rust, PNPM, local/bin)
 fish_add_path "$SCRIPTS" "$SCRIPTS/dmenu" "$UV_TOOL_BIN_DIR" "$CARGO_HOME/bin" "$GOPATH/bin" "$PNPM_HOME"

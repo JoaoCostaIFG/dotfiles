@@ -14,6 +14,7 @@
     ~/.gnupg/scdaemon.conf: homedir/dot_gnupg/scdaemon.conf
     ~/.bash_profile: homedir/dot_bash_profile
     ~/.bashrc: homedir/dot_bashrc
+    ~/.bunfig.toml: homedir/dot_bunfig.toml
     ~/.face: homedir/dot_face
     ~/.profile: homedir/dot_profile
     ~/.Xdefaults: homedir/dot_Xdefaults
