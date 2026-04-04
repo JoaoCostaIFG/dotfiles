@@ -11,6 +11,7 @@ msg="$(printf '%s\n' "$output" | awk '/^```/{f=!f;next}f')"
 
 [ -z "$msg" ] && {
   echo "Error: no code fence found in output" >&2
+  echo "$output"
   exit 1
 }
 
