@@ -3,14 +3,14 @@
 #
 set -gx GPG_TTY $(tty)
 
-status is-login || exit
+# status is-login || exit
 
 replay source "$HOME/.profile"
 
 # XDG dirs
-# set -gx XDG_CACHE_HOME "$HOME/.cache"
-# set -gx XDG_CONFIG_HOME "$HOME/.config"
-# set -gx XDG_DATA_HOME "$HOME/.local/share"
+set -gx XDG_CACHE_HOME "$HOME/.cache"
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx XDG_DATA_HOME "$HOME/.local/share"
 # my scripts
 set -gx SCRIPTS "$HOME/.local/bin/"
 
