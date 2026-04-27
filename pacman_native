@@ -114,7 +114,6 @@ lib32-fakeroot
 lib32-gamemode
 lib32-giflib
 lib32-gnutls
-lib32-gst-plugins-base-libs
 lib32-gtk3
 lib32-libappindicator
 lib32-libldap
@@ -187,6 +186,7 @@ opensc
 openssh
 opentofu
 opusfile
+otf-monaspace-nerdfonts
 ouch
 pacman-contrib
 pacutils
@@ -225,6 +225,7 @@ rustup
 samba
 sane-airscan
 satty
+sbctl
 seahorse
 slurp
 smartmontools

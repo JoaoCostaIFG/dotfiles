@@ -12,6 +12,7 @@ hunspell-pt_pt
 hyprqt6engine
 jai
 joplin-bin
+lib32-gst-plugins-base-libs
 libdeep_filter_ladspa-git
 lsfg-vk-git
 matugen-git
@@ -25,6 +26,7 @@ protonup-qt
 ripdrag
 simple-mtpfs
 steamtinkerlaunch
+syncthingtray-qt6
 ttf-ms-fonts
 vesktop
 vicinae
