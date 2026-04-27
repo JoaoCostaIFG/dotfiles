@@ -83,6 +83,7 @@ set -gx QT_QPA_PLATFORMTHEME hyprqt6engine
 # set -gx QT_STYLE_OVERRIDE kvantum
 set -gx COLORTERM truecolor # advertise truecolor
 set -gx BEMENU_OPTS "-i -w -H 34 -p '' --hp 8 --tb '#3b4252' --tf '#d8dee9 --nb '#0b0a18' --nf '#d8dee9' --hb '#3b4252' --hf '#d8dee9'"
+set -gx OPENCODE_ENABLE_EXA 1
 
 # wayland
 set -gx QT_QPA_PLATFORM "wayland;xcb"
