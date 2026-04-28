@@ -3,9 +3,9 @@
 #
 set -gx GPG_TTY $(tty)
 
-# status is-login || exit
-
-replay source "$HOME/.profile"
+if status is-login
+    replay source "$HOME/.profile"
+end
 
 # XDG dirs
 set -gx XDG_CACHE_HOME "$HOME/.cache"
@@ -31,7 +31,7 @@ set -gx ANSIBLE_CONFIG "$XDG_CONFIG_HOME/ansible/ansible.cfg"
 # dart/flutter
 set -gx PUB_CACHE "$XDG_CACHE_HOME/pub"
 set -gx DART_ANALYSIS_SERVER_LOG_DIR "$XDG_DATA_HOME/dart-server"
-set -gx FVM_CACHE_PATH "$HOME/.local/share/fvm"
+set -gx FVM_CACHE_PATH "$XDG_DATA_HOME/fvm"
 
 # PATH (Go, Rust, PNPM, local/bin)
 fish_add_path "$SCRIPTS" "$SCRIPTS/dmenu" "$UV_TOOL_BIN_DIR" "$CARGO_HOME/bin" "$GOPATH/bin" "$PNPM_HOME"
@@ -55,24 +55,26 @@ set -gx LS eza
 set -gx NACHOS cute
 
 # clean-up
-set -gx GTK2_RC_FILES "$HOME/.config/gtk-2.0/gtkrc-2.0"
+set -gx GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 set -gx LESSHISTFILE -
-set -gx WGETRC "$HOME/.config/wgetrc"
-set -gx INPUTRC "$HOME/.config/inputrc"
-set -gx MAXIMA_USERDIR "$HOME/.config/maxima"
-set -gx SQLITE_HISTORY "$HOME/.local/share/sqlite_history"
-set -gx DOCKER_CONFIG "$HOME/.config/docker"
+set -gx WGETRC "$XDG_CONFIG_HOME/wgetrc"
+set -gx INPUTRC "$XDG_CONFIG_HOME/inputrc"
+set -gx MAXIMA_USERDIR "$XDG_CONFIG_HOME/maxima"
+set -gx SQLITE_HISTORY "$XDG_DATA_HOME/sqlite_history"
+set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 # https://docs.npmjs.com/cli/v9/using-npm/config
 set -gx NPM_CONFIG_CACHE "$HOME/.cache/npm"
-set -gx NPM_CONFIG_USERCONFIG "$HOME/.config/npmrc"
+set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 # https://classic.yarnpkg.com/lang/en/docs/cli/cache/
 set -gx YARN_CACHE_FOLDER "$HOME/.cache/yarn"
 # https://docs.ansible.com/projects/ansible/latest/reference_appendices/config.html
-set -gx ANSIBLE_HOME "$HOME/.config/ansible"
+set -gx ANSIBLE_HOME "$XDG_CONFIG_HOME/ansible"
 # https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-envvars.html
-set -gx AWS_SHARED_CREDENTIALS_FILE "$HOME/.config/aws/credentials"
-set -gx AWS_CONFIG_FILE "$HOME/.config/aws/config"
-set -gx AWS_DATA_PATH "$HOME/.config/aws/models"
+set -gx AWS_SHARED_CREDENTIALS_FILE "$XDG_CONFIG_HOME/aws/credentials"
+set -gx AWS_CONFIG_FILE "$XDG_CONFIG_HOME/aws/config"
+set -gx AWS_DATA_PATH "$XDG_CONFIG_HOME/aws/models"
+# Jai - https://jai.scs.stanford.edu/configuration.html
+set -gx JAI_CONFIG_DIR "$XDG_CONFIG_HOME/jai"
 
 # other program settings
 set -gx LESS -iFMRSX
