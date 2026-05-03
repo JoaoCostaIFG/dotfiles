@@ -17,6 +17,7 @@ bash-completion
 bat
 bc
 bemenu
+biome
 bitwarden
 blas-openblas
 blueman
@@ -58,12 +59,12 @@ f2fs-tools
 fastfetch
 fd
 ffmpeg
+ffmpegthumbnailer
 firefox
 fish
 foot
 fprintd
 freecad
-fvm
 fzf
 gamemode
 gamescope
@@ -80,6 +81,7 @@ gnu-free-fonts
 gnuplot
 go
 godot
+gptfdisk
 gpu-screen-recorder
 graphviz
 grim
@@ -100,9 +102,11 @@ hyprland
 hyprpicker
 hyprpolkitagent
 hyprpwcenter
+imagemagick
 imv
 inetutils
 inkscape
+inter-font
 jdk-openjdk
 jq
 jujutsu
@@ -142,6 +146,7 @@ libnotify
 libreoffice-fresh
 libva-utils
 libvdpau-va-gl
+libxft
 linux-firmware
 linux-zen
 linux-zen-headers
@@ -155,6 +160,7 @@ lzop
 man-db
 man-pages
 maxima
+mediainfo
 mesa
 mesa-utils
 meson
@@ -191,6 +197,7 @@ ouch
 pacman-contrib
 pacutils
 pam-u2f
+papirus-icon-theme
 pavucontrol
 perf
 perl-locale-gettext
@@ -225,14 +232,12 @@ rustup
 samba
 sane-airscan
 satty
-sbctl
 seahorse
 slurp
 smartmontools
 socat
 solaar
 speech-dispatcher
-sqlcipher
 sshfs
 sshpass
 starship
@@ -295,11 +300,20 @@ xf86-video-amdgpu
 xf86-video-vesa
 xfsprogs
 xorg-bdftopcf
+xorg-docs
+xorg-font-util
+xorg-fonts-100dpi
+xorg-fonts-75dpi
 xorg-iceauth
 xorg-mkfontscale
 xorg-server
+xorg-server-devel
+xorg-server-xephyr
+xorg-server-xnest
+xorg-server-xvfb
 xorg-sessreg
 xorg-smproxy
+xorg-twm
 xorg-x11perf
 xorg-xauth
 xorg-xbacklight
@@ -312,7 +326,6 @@ xorg-xgamma
 xorg-xhost
 xorg-xinput
 xorg-xkbevd
-xorg-xkbprint
 xorg-xkbutils
 xorg-xkill
 xorg-xlsatoms
@@ -341,5 +354,6 @@ zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
 zbar
+zed
 zip
 zoxide

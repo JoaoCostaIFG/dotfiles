@@ -1,9 +1,9 @@
+agru
 alvr-launcher-bin
 app2unit-git
 babelfish-fish-git
 bambustudio-appimage
 code-marketplace
-ctpv-joaocostaifg-git
 dashbinsh
 ddcci-driver-linux-dkms-git
 grub-theme-boot-minegrub-git
@@ -13,8 +13,6 @@ hyprqt6engine
 jai
 joplin-bin
 lib32-gst-plugins-base-libs
-libdeep_filter_ladspa-git
-lsfg-vk-git
 matugen-git
 netbird
 noctalia-shell
@@ -24,13 +22,16 @@ planify
 prek
 protonup-qt
 ripdrag
+rtk
 simple-mtpfs
 steamtinkerlaunch
 syncthingtray-qt6
+tilth-git
 ttf-ms-fonts
 vesktop
-vicinae
+vicinae-bin
 xcursor-pro-cursor-theme
 xcursor-pro-hyprcursor
 xdg-terminal-exec
 xp-pen-tablet
+zen-browser-bin
