@@ -1,7 +1,7 @@
 ---
 description: Analyse staged changes and suggest commit message
-agent: plan
-model: opencode-go/minimax-m2.7
+agent: build
+model: zai-coding-plan/glm-4.5-air
 ---
 
 You are to act as an author of a git commit message.
