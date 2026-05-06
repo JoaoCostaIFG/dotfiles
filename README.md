@@ -11,10 +11,17 @@ The scripts were written by me for me. Feel free to adapt them to your needs.
   **PATH**;
 - The dotfiles in the [homedir directory](./homedir) should be kept in the
   user's home directory;
-- The dotfiles in the [dot_config directory ](./dot_config) should be kept in
+- The dotfiles in the [dot_config directory](./dot_config) should be kept in
   the user's `.config` directory.
 
 **Note:** I replaced the dot, `.`, in the file paths by `dot_`.
+
+## Packages
+
+The package list for my machines is tracked in a [separate repo](https://github.com/JoaoCostaIFG/irao-arch).
+I publish meta-packages with the dependencies I use to a private Arch Linux
+repository. In my machines, I just install half a dozen of meta-packages, and
+everything else is pulled along.
 
 ## Scripts
 
@@ -63,4 +70,3 @@ that translated files, which means they are always translated again.
   - [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
   - [Sauce Code Pro from nerd fonts](https://github.com/ryanoasis/nerd-fonts)
   - [VictorCodePro](https://github.com/JoaoCostaIFG/VictorCodePro)
-

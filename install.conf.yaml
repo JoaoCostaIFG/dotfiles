@@ -70,11 +70,3 @@
         Updating desktop entries database,
       ]
     - [./gen_scripts_readme.sh, Generating scripts Readme]
-    - [
-        pacman -Qenq | LC_COLLATE=C sort >pacman_native,
-        Saving native package list,
-      ]
-    - [
-        pacman -Qemq | LC_COLLATE=C sort >pacman_foreign,
-        Saving foreign package list,
-      ]
