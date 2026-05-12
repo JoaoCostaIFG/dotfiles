@@ -1,7 +1,7 @@
 ---
 description: Analyse staged changes and suggest commit message
 agent: build
-model: zai-coding-plan/glm-4.5-air
+model: zai-coding-plan/glm-5-turbo
 ---
 
 You are to act as an author of a git commit message.

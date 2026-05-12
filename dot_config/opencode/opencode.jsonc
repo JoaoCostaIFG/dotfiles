@@ -54,22 +54,6 @@
       ],
       "enabled": true,
     },
-    "github": {
-      "type": "local",
-      "command": [
-        "docker",
-        "run",
-        "-i",
-        "--rm",
-        "-e",
-        "GITHUB_PERSONAL_ACCESS_TOKEN",
-        "ghcr.io/github/github-mcp-server"
-      ],
-      "environment": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "{env:GITHUB_PAT}"
-      },
-      "enabled": false,
-    },
     "playwright": {
       "type": "local",
       "command": [
