@@ -63,9 +63,9 @@ application/x-extension-shtml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 x-scheme-handler/msteams=teams.desktop
-x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop
-message/rfc822=org.mozilla.Thunderbird.desktop
-x-scheme-handler/mid=userapp-Thunderbird-O875A1.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-8Y29P3.desktop
+message/rfc822=userapp-Thunderbird-8Y29P3.desktop
+x-scheme-handler/mid=userapp-Thunderbird-8Y29P3.desktop
 application/json=nvim.desktop
 inode/directory=thunar.desktop
 x-scheme-handler/ror2mm=r2modman.desktop
@@ -101,3 +101,5 @@ x-scheme-handler/villagg=villagg-desktop-handler.desktop
 
 [Added Associations]
 text/plain=nvim.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-8Y29P3.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-8Y29P3.desktop;
