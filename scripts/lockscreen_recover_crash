@@ -1,0 +1,13 @@
+#!/bin/sh
+### Recovers from a lockscreen crash in Hyprland.
+### Run from another TTY, then switch back to TTY running
+### Hyprland to unlock.
+### Currently assumes the lockscreen program is Quickshell:noctalia-shell
+
+set -eu
+
+hyprctl --instance 0 keyword misc:allow_session_lock_restore 1
+hyprctl --instance 0 dispatch exec "qs -c noctalia-shell --no-duplicate"
+sleep 5
+qs -c noctalia-shell ipc call lockScreen lock
+echo "Done. Switch back to TTY1 to unlock."
