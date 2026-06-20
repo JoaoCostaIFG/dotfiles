@@ -28,6 +28,17 @@
          "preferences": {
             "base-url": "https://sharevb-it-tools.vercel.app"
          }
+      },
+      "applications": {
+         "preferences": {
+            "defaultAction": "focus",
+            "launchPrefix": "uwsm app --",
+            "paths": [
+               "/home/joao/.local/share/applications",
+               "/usr/local/share/applications",
+               "/usr/share/applications"
+            ]
+         }
       }
    }
 }
