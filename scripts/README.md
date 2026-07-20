@@ -98,6 +98,13 @@ the last visited directory on exit. Usefull for keybinds. Slight adaptation
 from the suggestion given on [lf's](https://github.com/gokcehan/lf) wiki.
 Open lf on current directory and cd to the last shown dir on exit
 
+## lockscreen_recover_crash
+
+Recovers from a lockscreen crash in Hyprland.
+Run from another TTY, then switch back to TTY running
+Hyprland to unlock.
+Currently assumes the lockscreen program is Quickshell:noctalia-shell
+
 ## md2pdf
 
 Compile a markdown file to pdf.

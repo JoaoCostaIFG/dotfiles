@@ -44,25 +44,28 @@
     cond: hostname | grep -q 'ifg'
     met:
       - link:
-          ~/.config/hypr/override.d/:
+          ~/.config/hypr/override_d/:
             glob: true
-            path: ifg/hypr/override.d/*
+            path: ifg/hypr/override.d/*.lua
+            force: true
 
 - if:
     cond: hostname | grep -q 'ifgdt'
     met:
       - link:
-          ~/.config/hypr/override.d/:
+          ~/.config/hypr/override_d/:
             glob: true
-            path: ifgdt/hypr/override.d/*
+            path: ifgdt/hypr/override.d/*.lua
+            force: true
 
 - if:
     cond: hostname | grep -q 'ifglt'
     met:
       - link:
-          ~/.config/hypr/override.d/:
+          ~/.config/hypr/override_d/:
             glob: true
-            path: ifglt/hypr/override.d/*
+            path: ifglt/hypr/override.d/*.lua
+            force: true
 
 - shell:
     - [
