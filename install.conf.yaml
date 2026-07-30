@@ -46,7 +46,7 @@
       - link:
           ~/.config/hypr/override_d/:
             glob: true
-            path: ifg/hypr/override.d/*.lua
+            path: ifg/hypr/override_d/*.lua
             force: true
 
 - if:
@@ -55,7 +55,7 @@
       - link:
           ~/.config/hypr/override_d/:
             glob: true
-            path: ifgdt/hypr/override.d/*.lua
+            path: ifgdt/hypr/override_d/*.lua
             force: true
 
 - if:
@@ -64,7 +64,7 @@
       - link:
           ~/.config/hypr/override_d/:
             glob: true
-            path: ifglt/hypr/override.d/*.lua
+            path: ifglt/hypr/override_d/*.lua
             force: true
 
 - shell:

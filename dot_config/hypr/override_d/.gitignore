@@ -1,4 +1,4 @@
 *.conf
 *.lua
 !gitkeep.conf
-!gitkeep.lua
+!*gitkeep*

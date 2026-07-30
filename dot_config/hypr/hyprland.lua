@@ -21,17 +21,31 @@ if sig ~= "" and runtime_dir ~= "" then
 	end
 end
 
-require("conf_d.apps")
-require("conf_d.binds")
-require("conf_d.env")
-require("conf_d.monitors")
-require("conf_d.plugins")
-require("conf_d.rules")
-require("conf_d.settings")
+-- Require every *.lua file in a subdirectory, in alphabetical order.
+-- The subdirectory name doubles as the require prefix, e.g.
+-- require_dir("conf_d") -> require("conf_d.01-apps"), etc.
+-- Uses the directory of this entry file (resolved via debug.getinfo) so the
+-- listing works regardless of Hyprland's process cwd.
+local script_dir = debug.getinfo(1, "S").source:sub(2):match("^(.*)/[^/]+$") or "."
+local function require_dir(dir)
+	local p = io.popen('ls "' .. script_dir .. "/" .. dir .. '"')
+	if not p then
+		return
+	end
+	local names = {}
+	for name in p:lines() do
+		if name:sub(-4) == ".lua" then
+			names[#names + 1] = name:sub(1, -5)
+		end
+	end
+	p:close()
+	table.sort(names)
+	for _, name in ipairs(names) do
+		require(dir .. "." .. name)
+	end
+end
 
-require("override_d.apps")
-require("override_d.gitkeep")
-require("override_d.ifgdt-apps")
-require("override_d.monitors")
+require_dir("conf_d")
+require_dir("override_d")
 
 require("noctalia.noctalia-colors")

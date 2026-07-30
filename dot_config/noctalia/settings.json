@@ -675,10 +675,6 @@
             },
             {
                 "enabled": true,
-                "id": "hyprland"
-            },
-            {
-                "enabled": true,
                 "id": "gtk"
             },
             {
@@ -688,6 +684,10 @@
             {
                 "enabled": true,
                 "id": "vicinae"
+            },
+            {
+                "enabled": true,
+                "id": "hyprland"
             }
         ],
         "enableUserTheming": true
