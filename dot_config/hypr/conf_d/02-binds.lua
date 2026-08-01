@@ -134,10 +134,8 @@ hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mod .. " + J", hl.dsp.focus({ direction = "down" }))
 -- tab
 hl.bind("ALT + Tab", hl.dsp.window.cycle_next())
--- TODO: confirm cycle_prev arg form in lua (hyprlang: `cyclenext, prev`)
 hl.bind("CONTROL + Tab", hl.dsp.window.cycle_next({ direction = "prev" }))
 -- move focused window
--- TODO: confirm movewindow direction arg form in lua
 hl.bind(mod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
 hl.bind(mod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 hl.bind(mod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
@@ -172,19 +170,15 @@ hl.bind(mod .. " + Tab", function()
 end)
 
 -- focus next/prev output
--- TODO: confirm focusmonitor arg form in lua (hyprlang: `focusmonitor, -1/+1`)
 hl.bind(mod .. " + Comma", hl.dsp.focus({ monitor = "-1" }))
 hl.bind(mod .. " + Period", hl.dsp.focus({ monitor = "+1" }))
 -- move to monitor
--- TODO: confirm movewindow mon:<dir> arg form in lua
 hl.bind(mod .. " + SHIFT + Comma", hl.dsp.window.move({ monitor = "-1" }))
 hl.bind(mod .. " + SHIFT + Period", hl.dsp.window.move({ monitor = "+1" }))
 
 --
 -- Layouts:
 --
--- TODO: confirm fullscreen mode arg (hyprlang `fullscreen, 0`); example uses
--- hl.dsp.window.fullscreen() with no arg. Mode 0 = internal fullscreen.
 hl.bind(mod .. " + Space", hl.dsp.window.fullscreen())
 hl.bind(mod .. " + SHIFT + Space", hl.dsp.window.float({ action = "toggle" }))
 
