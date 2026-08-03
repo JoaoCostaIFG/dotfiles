@@ -8,11 +8,11 @@ set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline 
 # preview with ctpv
 set preload true
 set preview
-set previewer ctpv
-set cleaner ctpvclear
-cmd on-quit ${{
-  ctpvquit
-}}
+# set previewer ctpv
+# set cleaner ctpvclear
+# cmd on-quit ${{
+#   ctpvquit
+# }}
 
 set filesep "\n"
 set ifs "\n"
@@ -21,14 +21,10 @@ set watch true
 set icons
 set drawbox
 set wrapscroll # make scrolling wrap
+set rulerfile ~/.config/lf/ruler
 
 # warning about nested instances
 &[ $LF_LEVEL -eq 1 ] || lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
-
-# use eza to provide the file information shown in the bottom left corner
-cmd on-select &{{
-    lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
-}}
 
 cmd on-cd &{{
   # show current directory in window title (not standard so might not work on someplaces)
@@ -198,7 +194,7 @@ map Rf :rename; cmd-end; cmd-delete-home
 map Rd detox
 map Re :rename; cmd-delete-home
 map <delete> delete
-map <backspace2> trash
+map <backspace> trash
 
 # Shortcuts and navigation
 map , shortcuts

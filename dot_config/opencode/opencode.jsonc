@@ -38,20 +38,12 @@
   "mcp": {
     "n8n": {
       "type": "remote",
-      "url": "https://n8n.i.joaocosta.dev/mcp-server/http",
+      "url": "https://n8n.joaocosta.dev/mcp-server/http",
       "enabled": false
     },
     "gh_grep": {
       "type": "remote",
       "url": "https://mcp.grep.app",
-      "enabled": true,
-    },
-    "tilth": {
-      "type": "local",
-      "command": [
-        "tilth",
-        "--mcp"
-      ],
       "enabled": true,
     },
     "playwright": {
