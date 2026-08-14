@@ -1,7 +1,7 @@
 ---
 description: Analyse staged changes and suggest commit message
 agent: build
-model: opencode-go/deepseek-v4-pro
+model: openrouter/~deepseek/deepseek-v4-flash-latest
 ---
 
 You are to act as an author of a git commit message.
