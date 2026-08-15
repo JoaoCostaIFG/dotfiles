@@ -1,7 +1,7 @@
 ---
 description: Analyse staged changes and suggest commit message
 agent: build
-model: openrouter/~deepseek/deepseek-v4-flash-latest
+model: zai-coding-plan/glm-5.2
 ---
 
 You are to act as an author of a git commit message.

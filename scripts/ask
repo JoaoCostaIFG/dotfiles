@@ -2,7 +2,7 @@
 ### Wrapper for opencode that shows a spinner while waiting for responses.
 ### Uses gum spin for visual feedback during LLM processing.
 
-model='openrouter/~deepseek/deepseek-v4-flash-latest'
+model='zai-coding-plan/glm-4.7'
 
 (
   echo "$@"

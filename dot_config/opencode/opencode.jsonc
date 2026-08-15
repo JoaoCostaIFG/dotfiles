@@ -1,7 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
-    "@mohak34/opencode-notifier@v0.2.4",
     "@franlol/opencode-md-table-formatter@v0.0.6",
   ],
   "default_agent": "build",
@@ -65,6 +64,18 @@
         "markitdown-mcp"
       ],
       "enabled": false,
+    },
+    "oci-cloud": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "oracle.oci-cloud-mcp-server@latest"
+      ],
+      "enabled": false,
+      "environment": {
+        "OCI_CONFIG_PROFILE": "DEFAULT",
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
     },
   }
 }
