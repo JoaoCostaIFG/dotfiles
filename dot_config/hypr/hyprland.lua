@@ -5,7 +5,7 @@
 --   1. runtime hyprtags config emitted by the hyprtags plugin
 --   2. ./conf.d/*.lua        (alphabetical)
 --   3. ./override.d/*.lua    (alphabetical)
---   4. ./noctalia/noctalia-colors.lua
+--   4. ./noctalia.lua
 --
 
 -- Runtime config emitted by the hyprtags plugin (workspace rules per monitor).
@@ -48,4 +48,5 @@ end
 require_dir("conf_d")
 require_dir("override_d")
 
-require("noctalia.noctalia-colors")
+-- For Noctalia Color templates
+require("noctalia").apply_theme()

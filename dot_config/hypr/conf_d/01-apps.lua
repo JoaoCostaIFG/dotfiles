@@ -12,8 +12,8 @@ volume_decrease = run_app .. " pactl set-sink-volume @DEFAULT_SINK@ -5%"
 volume_increase = run_app .. " pactl set-sink-volume @DEFAULT_SINK@ +5%"
 mic_toggle = run_app .. " pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
-bright_decrease = run_app .. " qs -c noctalia-shell ipc call brightness decrease"
-bright_increase = run_app .. " qs -c noctalia-shell ipc call brightness increase"
+bright_decrease = run_app .. " noctalia msg brightness-down"
+bright_increase = run_app .. " noctalia msg brightness-up"
 
 player_pp = run_app .. " playerctl play-pause"
 player_set0 = run_app .. " playerctl position 0"
@@ -33,7 +33,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd(run_app .. " hypridle")
 
 	-- desktop shell
-	hl.exec_cmd(run_app .. " qs -c noctalia-shell --no-duplicate")
+	hl.exec_cmd(run_app .. " noctalia")
 	-- menu
 	hl.exec_cmd(run_app .. " vicinae server")
 	-- email client

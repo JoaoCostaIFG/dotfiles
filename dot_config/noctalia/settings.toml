@@ -1,0 +1,79 @@
+[bar.default]
+center = ["active_window"]
+concave_edge_corners = false
+end = [
+  "tray",
+  "battery",
+  "network",
+  "bluetooth",
+  "volume",
+  "notifications",
+  "clock",
+]
+margin_ends = 0
+radius = 0
+start = ["launcher", "workspaces", "media"]
+
+[brightness]
+enable_ddcutil = true
+minimum_brightness = 0.01
+sync_all_monitors = true
+
+[desktop_widgets]
+enabled = false
+
+[location]
+address = "Argoncilhe, Portugal"
+
+[lockscreen]
+allow_empty_password = true
+
+[lockscreen_widgets]
+enabled = false
+
+[security_migrations]
+calendar_credentials_v1 = true
+
+[shell]
+launch_apps_as_systemd_services = true
+
+[shell.panel]
+open_near_click_control_center = true
+
+[shell.screenshot]
+save_to_file = false
+
+[theme]
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+[theme.templates]
+builtin_ids = ["foot", "hyprland", "kcolorscheme", "qt"]
+enable_community_templates = false
+
+[wallpaper]
+directory = "/home/joao/.local/share/wallpaper"
+
+[wallpaper.default]
+path = "/home/joao/.local/share/wallpaper/iceworm2.jpg"
+
+[wallpaper.last]
+path = "/home/joao/.local/share/wallpaper/iceworm2.jpg"
+
+[wallpaper.monitors.DP-2]
+path = "/home/joao/.local/share/wallpaper/iceworm2.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/joao/.local/share/wallpaper/iceworm2.jpg"
+
+[widget.workspaces]
+label_source = "name"
+
+[plugin_settings."alexander/screen-toolkit"]
+record-audio-in = true
+record-audio-out = true
+search-engine-url = "https://kagi.com/?q="
+selected-ocr-lang = "eng+por"
+
+[plugins]
+enabled = ["alexander/screen-toolkit"]

@@ -3,11 +3,6 @@
 -- Mod list: SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 -- Key list: https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
 -- (use the segment after XKB_KEY_)
---
--- NOTE: key names are preserved verbatim from the old hyprlang config. If any
--- bind fails to register after reload (check `hyprctl binds` / Hyprland logs),
--- verify the keysym casing — the lua API is case-sensitive and expects the
--- canonical xkbcommon name.
 local mod = "SUPER"
 
 -- Globals defined in conf.d/apps.lua (loaded before this file via require()
@@ -29,7 +24,7 @@ hl.bind(mod .. " + F11", hl.dsp.exec_cmd(run_app .. " loginctl lock-session"))
 -- suspend
 hl.bind(mod .. " + F12", hl.dsp.exec_cmd(run_app .. " systemctl suspend"))
 -- toggle bar
-hl.bind(mod .. " + B", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call bar toggle"))
+hl.bind(mod .. " + B", hl.dsp.exec_cmd("noctalia msg bar-toggle"))
 
 --
 -- Apps:
@@ -54,7 +49,7 @@ hl.bind(mod .. " + R", hl.dsp.exec_cmd(run_app .. " $BROWSER"))
 hl.bind(mod .. " + SHIFT + R", hl.dsp.exec_cmd(run_app .. " chromium")) -- the fallback browser
 hl.bind(mod .. " + S", hl.dsp.exec_cmd(run_app .. " strawberry"))
 hl.bind(mod .. " + W", hl.dsp.exec_cmd(term_exec .. " nvim"))
-hl.bind(mod .. " + V", hl.dsp.exec_cmd(run_app .. " qs -c noctalia-shell ipc call plugin:screen-recorder toggle"))
+hl.bind(mod .. " + V", hl.dsp.exec_cmd(run_app .. " obs"))
 
 --
 -- Media keys:
@@ -97,30 +92,19 @@ hl.bind("XF86Search", hl.dsp.exec_cmd(menu))
 --
 -- Notifications:
 --
-hl.bind(mod .. " + F10", hl.dsp.exec_cmd(run_app .. " qs -c noctalia-shell ipc call notifications toggleDND")) -- toggle dnd
-hl.bind(mod .. " + backspace", hl.dsp.exec_cmd(run_app .. " qs -c noctalia-shell ipc call notifications dismissOldest")) -- dismiss last
-hl.bind(mod .. " + SHIFT + backspace", hl.dsp.exec_cmd(run_app .. " qs -c noctalia-shell ipc call notifications clear")) -- dismiss all
+hl.bind(mod .. " + F10", hl.dsp.exec_cmd(run_app .. " noctalia msg notification-dnd-toggle")) -- toggle dnd
+hl.bind(mod .. " + backspace", hl.dsp.exec_cmd(run_app .. " noctalia msg notification-clear-active")) -- dismiss last
+hl.bind(mod .. " + SHIFT + backspace", hl.dsp.exec_cmd(run_app .. " noctalia msg notification-clear-history")) -- dismiss all
 hl.bind(
 	mod .. " + CONTROL + backspace",
-	hl.dsp.exec_cmd(run_app .. " qs -c noctalia-shell ipc call notifications toggleHistory")
+	hl.dsp.exec_cmd(run_app .. " noctalia msg panel-toggle control-center notifications")
 ) -- show notifications
 
 --
 -- Screenshots:
 --
-hl.bind(
-	mod .. " + SHIFT + S",
-	hl.dsp.exec_cmd(run_app .. " qs -c noctalia-shell ipc call plugin:screen-shot-and-record screenshot")
-)
-hl.bind("Print", hl.dsp.exec_cmd(run_app .. " qs -c noctalia-shell ipc call plugin:screen-shot-and-record screenshot"))
-hl.bind(
-	mod .. " + Print",
-	hl.dsp.exec_cmd(run_app .. " qs -c noctalia-shell ipc call plugin:screen-shot-and-record ocr")
-)
-hl.bind(
-	mod .. " + SHIFT + Print",
-	hl.dsp.exec_cmd(run_app .. " qs -c noctalia-shell ipc call plugin:screen-shot-and-record search")
-)
+hl.bind(mod .. " + SHIFT + S", hl.dsp.exec_cmd(run_app .. " noctalia msg screenshot-region"))
+hl.bind("Print", hl.dsp.exec_cmd(run_app .. " noctalia msg plugin alexander/screen-toolkit:service all toggle"))
 
 --
 -- Movement:

@@ -26,16 +26,12 @@ hl.config({
 			output = "DP-1",
 		},
 	},
-})
 
-hl.config({
 	ecosystem = {
 		no_update_news = true,
 		no_donation_nag = true,
 	},
-})
 
-hl.config({
 	general = {
 		-- See https://wiki.hypr.land/Configuring/Basics/Variables/ for more
 
@@ -53,9 +49,7 @@ hl.config({
 		-- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/
 		allow_tearing = true,
 	},
-})
 
-hl.config({
 	decoration = {
 		-- See https://wiki.hypr.land/Configuring/Basics/Variables/ for more
 
@@ -79,11 +73,43 @@ hl.config({
 			input_methods = true,
 		},
 	},
-})
 
-hl.config({
 	animations = {
 		enabled = true,
+	},
+
+	dwindle = {
+		-- if enabled, the split (side/top) will not change regardless of what happens to the container
+		preserve_split = false,
+		-- 0 -> split follows mouse, 1 -> always split to the left (new = left or top) 2 -> always split to the right (new = right or bottom)
+		force_split = 2,
+	},
+
+	master = {
+		orientation = "center",
+		slave_count_for_center_master = 0,
+	},
+
+	gestures = {
+		-- See https://wiki.hypr.land/Configuring/Basics/Variables/ for more
+		workspace_swipe_touch = false,
+	},
+
+	misc = {
+		disable_hyprland_logo = true,
+		disable_splash_rendering = true,
+
+		-- Variable refresh rate of the monitor: 0 - off, 1 - on, 2 - fullscreen only
+		vrr = 2,
+
+		animate_manual_resizes = true,
+		animate_mouse_windowdragging = true,
+
+		enable_anr_dialog = false,
+	},
+
+	debug = {
+		disable_logs = true,
 	},
 })
 
@@ -109,47 +135,3 @@ hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "a
 hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
-
-hl.config({
-	dwindle = {
-		-- if enabled, the split (side/top) will not change regardless of what happens to the container
-		preserve_split = false,
-		-- 0 -> split follows mouse, 1 -> always split to the left (new = left or top) 2 -> always split to the right (new = right or bottom)
-		force_split = 2,
-	},
-})
-
-hl.config({
-	master = {
-		orientation = "center",
-		slave_count_for_center_master = 0,
-	},
-})
-
-hl.config({
-	gestures = {
-		-- See https://wiki.hypr.land/Configuring/Basics/Variables/ for more
-		workspace_swipe_touch = false,
-	},
-})
-
-hl.config({
-	misc = {
-		disable_hyprland_logo = true,
-		disable_splash_rendering = true,
-
-		-- Variable refresh rate of the monitor: 0 - off, 1 - on, 2 - fullscreen only
-		vrr = 2,
-
-		animate_manual_resizes = true,
-		animate_mouse_windowdragging = true,
-
-		enable_anr_dialog = false,
-	},
-})
-
-hl.config({
-	debug = {
-		disable_logs = true,
-	},
-})
