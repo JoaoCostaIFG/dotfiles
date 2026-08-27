@@ -5,7 +5,7 @@ run_app = "uwsm app --"
 term = run_app .. " $TERMINAL"
 term_exec = run_app .. " $TERMINAL_EXEC"
 file_manager = term_exec .. " lfcd_sh"
-menu = run_app .. " vicinae toggle"
+menu = run_app .. " noctalia msg panel-open launcher"
 
 volume_toggle = run_app .. " pactl set-sink-mute @DEFAULT_SINK@ toggle"
 volume_decrease = run_app .. " pactl set-sink-volume @DEFAULT_SINK@ -5%"
@@ -34,8 +34,6 @@ hl.on("hyprland.start", function()
 
 	-- desktop shell
 	hl.exec_cmd(run_app .. " noctalia")
-	-- menu
-	hl.exec_cmd(run_app .. " vicinae server")
 	-- email client
 	hl.exec_cmd(run_app .. " thunderbird")
 	-- remote desktop

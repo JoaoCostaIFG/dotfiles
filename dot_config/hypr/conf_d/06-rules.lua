@@ -75,14 +75,6 @@ hl.window_rule({
 	sync_fullscreen = false,
 })
 
--- vicinae
-hl.layer_rule({
-	name = "vicinae",
-	match = { namespace = "vicinae" },
-	blur = true,
-	ignore_alpha = 0,
-})
-
 -- satty
 hl.window_rule({
 	name = "satty-always-float",
