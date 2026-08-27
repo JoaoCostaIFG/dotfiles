@@ -77,5 +77,17 @@
         "FASTMCP_LOG_LEVEL": "ERROR"
       },
     },
+    "zai-mcp-server": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@z_ai/mcp-server"
+      ],
+      "enabled": false,
+      "environment": {
+        "Z_AI_MODE": "ZAI"
+      }
+    }
   }
 }
