@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+
+import datetime as dt
+import math
+import shutil
+import subprocess
+import sys
+import time
+import zoneinfo
+
+LAT = 40.9872
+LON = -8.5435
+TZ = zoneinfo.ZoneInfo("Europe/Lisbon")
+DAY_PROFILE = "Sakura"
+NIGHT_PROFILE = "Black"
+OFFSET_MIN = 0
+SETTLE_DELAY_S = 3
+MAX_SLEEP_S = 1800
+ZENITH = 90.833
+
+
+def log(msg: str) -> None:
+    print(f"{dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} {msg}", flush=True)
+
+
+def sun_event_utc(day: dt.date, sunrise: bool) -> dt.datetime:
+    jd = day.toordinal() + 1721424.5
+    t = (jd - 2451545.0) / 36525.0
+    l0 = (280.46646 + t * (36000.76983 + t * 0.0003032)) % 360.0
+    m = math.radians(357.52911 + t * (35999.05029 - 0.0001537 * t))
+    e = 0.016708634 - t * (0.000042037 + 0.0000001267 * t)
+    c = (
+        math.sin(m) * (1.914602 - t * (0.004817 + 0.000014 * t))
+        + math.sin(2.0 * m) * (0.019993 - 0.000101 * t)
+        + math.sin(3.0 * m) * 0.000289
+    )
+    omega = math.radians(125.04 - 1934.136 * t)
+    lon_sun = math.radians(l0 + c - 0.00569 - 0.00478 * math.sin(omega))
+    eps = math.radians(23.0 + (26.0 + (21.448 - t * (46.815 + t * (0.00059 - t * 0.001813))) / 60.0) / 60.0)
+    eps += math.radians(0.00256) * math.cos(omega)
+    decl = math.asin(math.sin(eps) * math.sin(lon_sun))
+    y = math.tan(eps / 2.0) ** 2
+    eq_time = 4.0 * math.degrees(
+        y * math.sin(math.radians(2.0 * l0))
+        - 2.0 * e * math.sin(m)
+        + 4.0 * e * y * math.sin(m) * math.cos(math.radians(2.0 * l0))
+        - 0.5 * y * y * math.sin(math.radians(4.0 * l0))
+        - 1.25 * e * e * math.sin(2.0 * m)
+    )
+    lat = math.radians(LAT)
+    cos_h = math.cos(math.radians(ZENITH)) / (math.cos(lat) * math.cos(decl)) - math.tan(lat) * math.tan(decl)
+    cos_h = max(-1.0, min(1.0, cos_h))
+    h = math.degrees(math.acos(cos_h))
+    minutes = 720.0 - 4.0 * (LON + (h if sunrise else -h)) - eq_time
+    return dt.datetime(day.year, day.month, day.day, tzinfo=dt.timezone.utc) + dt.timedelta(minutes=minutes)
+
+
+def sun_event_local(day: dt.date, sunrise: bool) -> dt.datetime:
+    return (sun_event_utc(day, sunrise) + dt.timedelta(minutes=OFFSET_MIN)).astimezone(TZ)
+
+
+def phase(now: dt.datetime) -> tuple[str, dt.datetime]:
+    sunrise = sun_event_local(now.date(), True)
+    sunset = sun_event_local(now.date(), False)
+    if now < sunrise:
+        return NIGHT_PROFILE, sunrise
+    if now < sunset:
+        return DAY_PROFILE, sunset
+    return NIGHT_PROFILE, sun_event_local(now.date() + dt.timedelta(days=1), True)
+
+
+def apply_profile(name: str, binary: str) -> None:
+    log(f"applying profile {name}")
+    try:
+        result = subprocess.run([binary, "--profile", name], capture_output=True, text=True, timeout=300)
+    except subprocess.TimeoutExpired:
+        log(f"openrgb timed out applying {name}")
+        return
+    output = (result.stdout + result.stderr).strip()
+    if result.returncode != 0:
+        log(f"openrgb exited {result.returncode} applying {name}: {output}")
+    else:
+        log(f"profile {name} applied")
+
+
+def main() -> None:
+    once = "--once" in sys.argv[1:]
+    binary = shutil.which("openrgb") or "/usr/bin/openrgb"
+    if not once:
+        time.sleep(SETTLE_DELAY_S)
+    applied = None
+    while True:
+        now = dt.datetime.now(TZ)
+        profile, boundary = phase(now)
+        if profile != applied:
+            apply_profile(profile, binary)
+            applied = profile
+        if once:
+            return
+        sleep_s = max(1.0, min((boundary - dt.datetime.now(TZ)).total_seconds() - 1.0, MAX_SLEEP_S))
+        log(f"next boundary {boundary:%Y-%m-%d %H:%M}, sleeping {int(sleep_s)}s")
+        time.sleep(sleep_s)
+
+
+if __name__ == "__main__":
+    main()
