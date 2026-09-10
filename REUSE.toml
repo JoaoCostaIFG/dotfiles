@@ -1,0 +1,31 @@
+version = 1
+
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022-2026 Joao Costa <me@joaocosta.dev>"
+SPDX-License-Identifier = "EUPL-1.2"
+
+[[annotations]]
+path = ["homedir/dot_icons/XCursor-Pro-Dark/**", "homedir/dot_icons/XCursor-Pro-Dark-Hyprcursor/**", "homedir/dot_icons/XCursor.LICENSE"]
+precedence = "override"
+SPDX-FileCopyrightText = "2021 ful1e5 (XCursor-Pro theme); hyprcursor conversion 2026 Joao Costa <me@joaocosta.dev>"
+SPDX-License-Identifier = "GPL-3.0-only"
+
+[[annotations]]
+path = "scripts/shortcuts"
+precedence = "override"
+SPDX-FileCopyrightText = "Luke Smith (voidrice) & Joao Costa <me@joaocosta.dev>"
+SPDX-License-Identifier = "GPL-3.0-only"
+
+[[annotations]]
+path = "scripts/mmaxima"
+precedence = "override"
+SPDX-FileCopyrightText = "Maxima developers (rmaxima) & Joao Costa <me@joaocosta.dev>"
+SPDX-License-Identifier = "GPL-2.0-only"
+
+[[annotations]]
+path = "dot_local/share/wallpaper/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Various artists (see README: BestAlero, Zedotagger, and others)"
+SPDX-License-Identifier = "LicenseRef-Wallpaper-Artwork"

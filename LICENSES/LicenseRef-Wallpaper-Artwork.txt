@@ -1,0 +1,6 @@
+Wallpaper images by various artists (sources listed in the README, including
+BestAlero and Zedotagger; some authors unknown).
+
+Personal-use artwork kept in this dotfiles repository for convenience, some
+with minor modifications. No license is granted or implied; all rights
+remain with the original artists.

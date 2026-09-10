@@ -34,7 +34,13 @@ the descriptions missing, because I forgot to comment them.
 
 ### License
 
-The scripts are licensed under an [MIT License](./LICENSE)
+My configuration files and scripts are licensed under the European Union
+Public Licence v. 1.2 (EUPL-1.2) — see [LICENSE](./LICENSE).
+
+Exceptions: the XCursor-Pro cursor themes (`homedir/dot_icons/`), the
+`shortcuts` and `mmaxima` scripts, and the wallpapers
+(`dot_local/share/wallpaper/`) keep their upstream licenses/rights —
+see [REUSE.toml](./REUSE.toml) for details.
 
 ## Wallpaper
 
