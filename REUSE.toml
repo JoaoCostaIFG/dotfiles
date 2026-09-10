@@ -27,5 +27,5 @@ SPDX-License-Identifier = "GPL-2.0-only"
 [[annotations]]
 path = "dot_local/share/wallpaper/**"
 precedence = "override"
-SPDX-FileCopyrightText = "Various artists (see README: BestAlero, Zedotagger, and others)"
+SPDX-FileCopyrightText = "Various artists (see README: Andre Sargeant (asarge), Zedotagger, Sine_Fine_Belli, and others; some authors unknown)"
 SPDX-License-Identifier = "LicenseRef-Wallpaper-Artwork"

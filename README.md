@@ -44,14 +44,26 @@ see [REUSE.toml](./REUSE.toml) for details.
 
 ## Wallpaper
 
-I include in this repo the [wallpapers](./dot_config/wallpaper) I use. Sources:
+I include in this repo the [wallpapers](./dot_local/share/wallpaper) I use.
+Sources (verified where I could trace them):
 
-- [Anorlondo](./dot_config/wallpaper/anorlondo) - [BestAlero](https://www.reddit.com/r/gaming/comments/4jdw0t/pixel_dark_souls_3_irithyll_of_the_boreal_valley/);
-- [Firelink](./dot_config/wallpaper/firelink) -
+- [Anorlondo](./dot_local/share/wallpaper/anorlondo) - pixel art by
+  [asarge (Andre Sargeant)](https://www.tumblr.com/asarge),
+  [posted by BestAlero](https://www.reddit.com/r/gaming/comments/4jdw0t/pixel_dark_souls_3_irithyll_of_the_boreal_valley/);
+- [Firelink](./dot_local/share/wallpaper/firelink) -
   [Zedotagger](https://www.deviantart.com/zedotagger);
-- [Forest](./dot_config/wallpaper/tree.png) - don't know.
+- [iceworm](./dot_local/share/wallpaper/iceworm.jpeg) - "IA-02: ICE WORM"
+  (Armored Core VI) by
+  [Sine_Fine_Belli](https://www.reddit.com/r/armoredcore/comments/1d3cejd/ia02_ice_worm/);
+- `ds_1.png`, `ds_2.png` - Dark Souls pixel art, don't know the artist;
+- `ds.png` - my own concatenation of `ds_1.png` + `ds_2.png` (dual monitor);
+- `ds_ii.jpg` - Dark Souls II artwork, don't know the artist;
+- `majula.jpg` - Majula (Dark Souls II) fan art, don't know the artist;
+- `iceworm2.jpg` - Armored Core VI ice worm, don't know the artist;
+- `eva01_kaworu.jpg` - Evangelion fan art, don't know the artist;
+- [Forest](./dot_local/share/wallpaper/tree.png) - don't know.
 
-**Note**: I've modified them slightly to better fit my tastes.OA
+**Note**: I've modified them slightly to better fit my tastes.
 
 ## Notes on fish
 
