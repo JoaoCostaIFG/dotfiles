@@ -59,7 +59,7 @@ hl.bind(mod .. " + F1", hl.dsp.exec_cmd(volume_toggle))
 hl.bind(mod .. " + F2", hl.dsp.exec_cmd(volume_decrease))
 hl.bind(mod .. " + F3", hl.dsp.exec_cmd(volume_increase))
 hl.bind(mod .. " + SHIFT + F1", hl.dsp.exec_cmd(mic_toggle))
-hl.bind(mod .. " + SHIFT + F2", hl.dsp.exec_cmd(run_app .. " next_sink.sh"))
+hl.bind(mod .. " + SHIFT + F2", hl.dsp.exec_cmd(run_app .. " next_sink"))
 --
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd(volume_toggle))
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(volume_decrease))

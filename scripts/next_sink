@@ -1,0 +1,54 @@
+#!/bin/sh
+### switch the default sink (audio output) to next usable one available
+### Sinks with no available ports are skipped (WirePlumber would ignore them);
+### selection is by name with wrap-around.
+### Exits 0 on success, 1 when no other usable sink exists.
+
+TAB="$(printf '\t')"
+
+# "name<TAB>description" per usable sink (unknown/empty ports count as usable)
+usable_sinks() {
+  pactl -f json list sinks | jq -r '
+    .[] | select((.ports // []) == [] or any(.ports[]?; .available != "no"))
+        | "\(.name)\t\(.description)"
+  '
+}
+
+entries="$(usable_sinks)"
+[ -n "$entries" ] || exit 1
+current="$(pactl get-default-sink)"
+
+try_switch() {
+  pactl set-default-sink "$1" && [ "$(pactl get-default-sink)" = "$1" ]
+}
+
+# first pass: sinks after the current one
+current_seen=0
+[ -z "$current" ] && current_seen=1
+while IFS="$TAB" read -r name desc; do
+  if [ "$current_seen" = 0 ]; then
+    [ "$name" = "$current" ] && current_seen=1
+    continue
+  fi
+  if try_switch "$name"; then
+    notify-send -e "Audio output: $desc" &
+    exit 0
+  fi
+done <<EOF
+$entries
+EOF
+
+# wrap-around: sinks before the current one
+if [ -n "$current" ]; then
+  while IFS="$TAB" read -r name desc; do
+    [ "$name" = "$current" ] && break
+    if try_switch "$name"; then
+      notify-send -e "Audio output: $desc" &
+      exit 0
+    fi
+  done <<EOF
+$entries
+EOF
+fi
+
+exit 1

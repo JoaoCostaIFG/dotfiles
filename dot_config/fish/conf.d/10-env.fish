@@ -34,7 +34,7 @@ set -gx DART_ANALYSIS_SERVER_LOG_DIR "$XDG_DATA_HOME/dart-server"
 set -gx FVM_CACHE_PATH "$XDG_DATA_HOME/fvm"
 
 # PATH (Go, Rust, PNPM, local/bin)
-fish_add_path "$SCRIPTS" "$SCRIPTS/dmenu" "$UV_TOOL_BIN_DIR" "$CARGO_HOME/bin" "$GOPATH/bin" "$PNPM_HOME"
+fish_add_path "$SCRIPTS" "$SCRIPTS/dmenu" "$SCRIPTS/stream32" "$UV_TOOL_BIN_DIR" "$CARGO_HOME/bin" "$GOPATH/bin" "$PNPM_HOME"
 
 # my scripts
 set -gx DRECORD_SAVEDIR "$HOME/Videos"

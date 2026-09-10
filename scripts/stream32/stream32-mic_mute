@@ -1,0 +1,21 @@
+#!/bin/sh
+### Toggle the default microphone (source) mute state.
+### Stream32 deck script:
+### - no args  -> toggle mute; exit code is the icon index (0 = muted, 1 = unmuted)
+### - --status -> only query state, no toggle; exit code is the icon index
+
+SOURCE="@DEFAULT_AUDIO_SOURCE@"
+
+is_muted() {
+  wpctl get-volume "$SOURCE" 2>/dev/null | grep -q MUTED
+}
+
+if [ "${1:-}" = "--status" ]; then
+  is_muted && exit 0
+  exit 1
+fi
+
+wpctl set-mute "$SOURCE" toggle
+
+is_muted && exit 0
+exit 1

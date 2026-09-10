@@ -1,0 +1,21 @@
+#!/bin/sh
+### Toggle the default output (sink) mute state.
+### Stream32 deck script:
+### - no args  -> toggle mute; exit code is the icon index (0 = muted, 1 = unmuted)
+### - --status -> only query state, no toggle; exit code is the icon index
+
+SINK="@DEFAULT_AUDIO_SINK@"
+
+is_muted() {
+  wpctl get-volume "$SINK" 2>/dev/null | grep -q MUTED
+}
+
+if [ "${1:-}" = "--status" ]; then
+  is_muted && exit 0
+  exit 1
+fi
+
+wpctl set-mute "$SINK" toggle
+
+is_muted && exit 0
+exit 1
