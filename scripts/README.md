@@ -211,16 +211,37 @@ Checks may-start, presents selection menu, then starts default session.
 ## stream32/stream32-mic_mute
 
 Toggle the default microphone (source) mute state.
-Stream32 deck script:
-- no args  -> toggle mute; exit code is the icon index (0 = muted, 1 = unmuted)
-- --status -> only query state, no toggle; exit code is the icon index
+Stream32 deck script (JSON status command provider):
+- no args  -> toggle mute, then print the new state
+- --status -> print one JSON object for the key's live appearance
+  muted  red    "Muted"  mic_off
+  live   green  "Live"   mic
+A query that fails prints nothing and exits 0, which reads as no answer:
+the key falls back to its saved appearance rather than guessing.
+
+## stream32/stream32-timer
+
+Countdown timer: each press adds 1 minute to the remaining time.
+When the timer ends a critical notification is shown.
+Stream32 deck script (JSON status command provider, 1s interval):
+- no args  -> add 60s; the key re-polls on its own
+- --status -> print one JSON object for the key's live appearance
+  running      green  label M:SS remaining
+  last minute  red    label 0:SS remaining
+  idle         grey   label 0:00 and the timer icon
+Every path exits 0: a non-zero exit would read as no answer and the key
+would fall back to its saved appearance.
 
 ## stream32/stream32-volume_mute
 
 Toggle the default output (sink) mute state.
-Stream32 deck script:
-- no args  -> toggle mute; exit code is the icon index (0 = muted, 1 = unmuted)
-- --status -> only query state, no toggle; exit code is the icon index
+Stream32 deck script (JSON status command provider):
+- no args  -> toggle mute, then print the new state
+- --status -> print one JSON object for the key's live appearance
+  muted  red    "Muted"  volume_off
+  on     green  "On"     volume_up
+A query that fails prints nothing and exits 0, which reads as no answer:
+the key falls back to its saved appearance rather than guessing.
 
 ## sumvid
 
