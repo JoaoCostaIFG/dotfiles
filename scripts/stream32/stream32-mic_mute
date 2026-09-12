@@ -1,21 +1,32 @@
 #!/bin/sh
 ### Toggle the default microphone (source) mute state.
-### Stream32 deck script:
-### - no args  -> toggle mute; exit code is the icon index (0 = muted, 1 = unmuted)
-### - --status -> only query state, no toggle; exit code is the icon index
+### Stream32 deck script (JSON status command provider):
+### - no args  -> toggle mute, then print the new state
+### - --status -> print one JSON object for the key's live appearance
+###   muted  red    "Muted"  mic_off
+###   live   green  "Live"   mic
+### A query that fails prints nothing and exits 0, which reads as no answer:
+### the key falls back to its saved appearance rather than guessing.
 
 SOURCE="@DEFAULT_AUDIO_SOURCE@"
 
-is_muted() {
-  wpctl get-volume "$SOURCE" 2>/dev/null | grep -q MUTED
+emit_status() {
+  state="$(wpctl get-volume "$SOURCE" 2>/dev/null)" || return 0
+  case "$state" in
+    *MUTED*)
+      printf '{"label":"Muted","key_color":"#8f2f2f","text_color":"#ffffff","icon":"mic_off"}\n'
+      ;;
+    *)
+      printf '{"label":"Live","key_color":"#2f8f5b","text_color":"#ffffff","icon":"mic"}\n'
+      ;;
+  esac
 }
 
 if [ "${1:-}" = "--status" ]; then
-  is_muted && exit 0
-  exit 1
+  emit_status
+  exit 0
 fi
 
 wpctl set-mute "$SOURCE" toggle
 
-is_muted && exit 0
-exit 1
+emit_status

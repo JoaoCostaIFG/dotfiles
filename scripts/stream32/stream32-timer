@@ -1,0 +1,73 @@
+#!/bin/sh
+### Countdown timer: each press adds 1 minute to the remaining time.
+### When the timer ends a critical notification is shown.
+### Stream32 deck script (JSON status command provider, 1s interval):
+### - no args  -> add 60s; the key re-polls on its own
+### - --status -> print one JSON object for the key's live appearance
+###   running      green  label M:SS remaining
+###   last minute  red    label 0:SS remaining
+###   idle         grey   label 0:00 and the timer icon
+### Every path exits 0: a non-zero exit would read as no answer and the key
+### would fall back to its saved appearance.
+
+DIR="${XDG_RUNTIME_DIR:-/tmp}/stream32-timer"
+END_FILE="$DIR/end"
+PID_FILE="$DIR/worker.pid"
+
+ensure_worker() {
+  if [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
+    return 0
+  fi
+  (
+    while :; do
+      end="$(cat "$END_FILE" 2>/dev/null)"
+      [ -n "$end" ] || exit 0
+      now="$(date +%s)"
+      if [ "$now" -ge "$end" ]; then
+        notify-send -u critical -e "Timer finished"
+        pw-play /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
+        rm -f "$END_FILE" "$PID_FILE"
+        exit 0
+      fi
+      sleep 1
+    done
+  ) >/dev/null 2>&1 &
+  echo "$!" >"$PID_FILE"
+}
+
+emit_status() {
+  end="$(cat "$END_FILE" 2>/dev/null)"
+  now="$(date +%s)"
+
+  if [ -z "$end" ] || [ "$end" -le "$now" ]; then
+    printf '{"label":"0:00","key_color":"#37474f","text_color":"#ffffff","icon":"timer"}\n'
+    return 0
+  fi
+
+  rem=$((end - now))
+  if [ "$rem" -lt 60 ]; then
+    printf '{"label":"0:%02d","key_color":"#8f2f2f","text_color":"#ffffff"}\n' "$rem"
+  else
+    printf '{"label":"%d:%02d","key_color":"#2f8f5b","text_color":"#ffffff"}\n' "$((rem / 60))" "$((rem % 60))"
+  fi
+}
+
+mkdir -p "$DIR"
+
+if [ "${1:-}" = "--status" ]; then
+  emit_status
+  exit 0
+fi
+
+now="$(date +%s)"
+end="$(cat "$END_FILE" 2>/dev/null)"
+if [ -n "$end" ] && [ "$end" -gt "$now" ]; then
+  end=$((end + 60))
+else
+  end=$((now + 60))
+fi
+echo "$end" >"$END_FILE"
+
+ensure_worker
+
+emit_status

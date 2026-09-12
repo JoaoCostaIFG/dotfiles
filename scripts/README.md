@@ -103,7 +103,7 @@ Open lf on current directory and cd to the last shown dir on exit
 Recovers from a lockscreen crash in Hyprland.
 Run from another TTY, then switch back to TTY running
 Hyprland to unlock.
-Currently assumes the lockscreen program is Quickshell:noctalia-shell
+Currently assumes the lockscreen program is noctalia
 
 ## md2pdf
 
@@ -119,25 +119,16 @@ history and built-ins file (also for getline). It is based on **rmaxima**
 but it has a few improvements.
 Depends on [maxima](http://maxima.sourceforge.net/).
 
-## next_sink.sh
+## next_sink
 
-switch the default sink (audio output) to next one available
-Selects by ID and wrap-around
+switch the default sink (audio output) to next usable one available
+Sinks with no available ports are skipped (WirePlumber would ignore them);
+selection is by name with wrap-around.
+Exits 0 on success, 1 when no other usable sink exists.
 
 ## noita_backup
 
 manage my noita backups
-
-## opendrive_upload
-
-Upload files/dirs tp OpenDrive for sharing. Uses WebDav
-for upload the API to get the file URL.
-OpenDrvive WebDAV Public folder is usually "Public Folder"
-
-Usage: ./opendrive_upload file1 [file2 ...]
-
-Environment variables: OPENDRIVE_USER, OPENDRIVE_PASS, OPENDRIVE_FOLDER_ID
-Adjust FOLDER_PATH as needed (relative to your OpenDrive root)
 
 ## pdfsmallifier
 
@@ -216,6 +207,20 @@ Start this script in the background and kill it when your main script ends.
 
 Starts the Wayland compositor using uwsm.
 Checks may-start, presents selection menu, then starts default session.
+
+## stream32/stream32-mic_mute
+
+Toggle the default microphone (source) mute state.
+Stream32 deck script:
+- no args  -> toggle mute; exit code is the icon index (0 = muted, 1 = unmuted)
+- --status -> only query state, no toggle; exit code is the icon index
+
+## stream32/stream32-volume_mute
+
+Toggle the default output (sink) mute state.
+Stream32 deck script:
+- no args  -> toggle mute; exit code is the icon index (0 = muted, 1 = unmuted)
+- --status -> only query state, no toggle; exit code is the icon index
 
 ## sumvid
 
