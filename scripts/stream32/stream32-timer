@@ -25,7 +25,7 @@ ensure_worker() {
       now="$(date +%s)"
       if [ "$now" -ge "$end" ]; then
         notify-send -u critical -e "Timer finished"
-        pw-play /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
+        pw-play --volume 0.1 /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
         rm -f "$END_FILE" "$PID_FILE"
         exit 0
       fi
