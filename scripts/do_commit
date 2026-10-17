@@ -1,9 +1,53 @@
 #!/bin/sh
 ### Generates git commit messages using opencode LLM.
+### Expands the shared /git-commit command template (frontmatter agent/model,
+### !`cmd` shell blocks and $ARGUMENTS) and runs it via `opencode run`.
+### V2 note: `opencode run --command` no longer exists, so we expand the
+### command file ourselves instead.
 ### Extracts the message from opencode's code fence output, signs and opens editor.
 
-output="$(opencode run --command git-commit "$@")" || {
-  echo "Error: opencode command failed" >&2
+cmd_file="${OPENCODE_COMMIT_COMMAND:-$HOME/.config/opencode/commands/git-commit.md}"
+
+expanded="$(python3 - "$cmd_file" "$@" <<'PYEOF'
+import pathlib, re, subprocess, sys
+
+text = pathlib.Path(sys.argv[1]).read_text()
+
+# Strip YAML frontmatter, remember agent/model overrides.
+meta = {}
+if text.startswith("---"):
+    front, _, text = text[3:].partition("\n---\n")
+    for line in front.splitlines():
+        key, sep, value = line.partition(":")
+        if sep and key.strip() in ("agent", "model"):
+            meta[key.strip()] = value.strip()
+
+# Expand !`cmd` blocks like OpenCode does: output replaces the block.
+def run_block(match):
+    result = subprocess.run(
+        match.group(1), shell=True, text=True,
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+    )
+    return result.stdout.rstrip("\n")
+
+text = re.sub(r"!`([^`]*)`", run_block, text)
+text = text.replace("$ARGUMENTS", " ".join(sys.argv[2:])).strip()
+
+# First line carries agent/model for the shell to pick up.
+print("__META__ agent=%s model=%s" % (meta.get("agent", ""), meta.get("model", "")))
+print(text)
+PYEOF
+)"
+
+meta_line="$(printf '%s\n' "$expanded" | sed -n '1s/^__META__ //p')"
+agent="$(printf '%s\n' "$meta_line" | sed -n 's/.*agent=\([^ ]*\).*/\1/p')"
+model="$(printf '%s\n' "$meta_line" | sed -n 's/.*model=\([^ ]*\).*/\1/p')"
+prompt="$(printf '%s\n' "$expanded" | sed '1d')"
+
+# agent/model values come from frontmatter and never contain spaces.
+# shellcheck disable=SC2086
+output="$(opencode run $([ -n "$agent" ] && printf -- '--agent %s' "$agent") $([ -n "$model" ] && printf -- '--model %s' "$model") "$prompt")" || {
+  echo "Error: opencode run failed" >&2
   exit 1
 }
 

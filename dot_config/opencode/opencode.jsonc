@@ -2,78 +2,59 @@
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "build",
   "share": "disabled",
-  "autoupdate": false,
-  "agent": {
-    "build": {
-      "mode": "primary",
-      "tools": {
-        "write": true,
-        "edit": true,
-        "bash": true
-      }
-    },
-    "plan": {
-      "mode": "primary",
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": true
-      }
-    }
-  },
+  "update": "disable",
   "mcp": {
-    "n8n": {
-      "type": "remote",
-      "url": "https://n8n.joaocosta.dev/mcp-server/http",
-      "enabled": false
-    },
-    "gh_grep": {
-      "type": "remote",
-      "url": "https://mcp.grep.app",
-      "enabled": true
-    },
-    "playwright": {
-      "type": "local",
-      "command": [
-        "npx",
-        "@playwright/mcp@latest",
-        "--browser",
-        "firefox"
-      ],
-      "enabled": false
-    },
-    "markitdown": {
-      "type": "local",
-      "command": [
-        "uv",
-        "tool",
-        "run",
-        "markitdown-mcp"
-      ],
-      "enabled": false,
-    },
-    "oci-cloud": {
-      "type": "local",
-      "command": [
-        "uvx",
-        "oracle.oci-cloud-mcp-server@latest"
-      ],
-      "enabled": false,
-      "environment": {
-        "OCI_CONFIG_PROFILE": "DEFAULT",
-        "FASTMCP_LOG_LEVEL": "ERROR"
+    "servers": {
+      "gh_grep": {
+        "type": "remote",
+        "url": "https://mcp.grep.app",
       },
-    },
-    "zai-mcp-server": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@z_ai/mcp-server"
-      ],
-      "enabled": false,
-      "environment": {
-        "Z_AI_MODE": "ZAI"
+      "markitdown": {
+        "type": "local",
+        "command": [
+          "uv",
+          "tool",
+          "run",
+          "markitdown-mcp"
+        ],
+      },
+      "zai-mcp-server": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "@z_ai/mcp-server"
+        ],
+        "environment": {
+          "Z_AI_MODE": "ZAI"
+        }
+      },
+      "n8n": {
+        "type": "remote",
+        "url": "https://n8n.joaocosta.dev/mcp-server/http",
+        "disabled": true,
+      },
+      "playwright": {
+        "type": "local",
+        "command": [
+          "npx",
+          "@playwright/mcp@latest",
+          "--browser",
+          "firefox"
+        ],
+        "disabled": true,
+      },
+      "oci-cloud": {
+        "type": "local",
+        "command": [
+          "uvx",
+          "oracle.oci-cloud-mcp-server@latest"
+        ],
+        "environment": {
+          "OCI_CONFIG_PROFILE": "DEFAULT",
+          "FASTMCP_LOG_LEVEL": "ERROR"
+        },
+        "disabled": true,
       }
     }
   }
