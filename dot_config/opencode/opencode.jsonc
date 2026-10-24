@@ -21,9 +21,9 @@
       "zai-mcp-server": {
         "type": "local",
         "command": [
-          "npx",
-          "-y",
-          "@z_ai/mcp-server"
+          "bash",
+          "-c",
+          "export Z_AI_API_KEY=$(jq -r '.\"zai-coding-plan\".key' ~/.local/share/opencode/auth.json) && exec npx -y @z_ai/mcp-server"
         ],
         "environment": {
           "Z_AI_MODE": "ZAI"

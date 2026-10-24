@@ -95,6 +95,8 @@ application/vnd.openxmlformats-officedocument.presentationml.presentation=libreo
 application/vnd.ms-powerpoint=libreoffice-impress.desktop
 application/vnd.oasis.opendocument.presentation=libreoffice-impress.desktop
 x-scheme-handler/villagg=villagg-desktop-handler.desktop
+x-scheme-handler/fluxer=app.fluxer.FluxerDesktop.desktop
 
 [Added Associations]
 text/plain=nvim.desktop;
+x-scheme-handler/fluxer=app.fluxer.FluxerDesktop.desktop;
